@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>valle-dashboard</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <!-- built files will be auto injected -->
+        <script type="text/javascript">
+            const $Authentication = {
+                id: "{{ uid }}",
+                token: {
+                    csrf: "{{ csrfToken }}",
+                    auth: "{{ authToken }}"
+                },
+                lang: "br"
+            };
+        </script>
+    </body>
+</html>

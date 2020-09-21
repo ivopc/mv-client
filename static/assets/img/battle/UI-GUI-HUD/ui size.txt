@@ -1,0 +1,1 @@
+o nome do monster e o lvl na info estão em 9, a quantidade de hp/mp em 4, o texto dos botões em 15 e o texto do fundo em 13 :)

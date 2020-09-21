@@ -1,0 +1,34 @@
+{
+    "map": {
+        "id": 0,
+        "weather": "default",
+        "hasTamers": false,
+        "teleport": [
+            {
+                "x": 9,
+                "y": 9,
+                "mid": 1,
+                "tid": 2
+            }
+        ],
+        "incomingteleport": {
+            "40": {
+                "x": 9,
+                "y": 8,
+                "facing": 0
+            },
+            "41": {
+                "x": 10,
+                "y": 8,
+                "facing": 0
+            }
+        },
+        "dayandnight": true
+    },
+    "autoExec": {},
+    "elements": {
+        "config": {},
+        "screenplay": {}
+    },
+    "functions": {}
+}

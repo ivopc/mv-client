@@ -1,0 +1,346 @@
+
+{
+    "map": {
+        "id": 1,
+        "weather": "default",
+        "hasTamers": false,
+        "teleport": [
+            {
+                "x": 15,
+                "y": 2,
+                "mid": 2,
+                "tid": 99
+            },
+            {
+                "x": 15,
+                "y": 28,
+                "mid": 3,
+                "tid": 98
+            },
+            {
+                "x": 8,
+                "y": 8,
+                "mid": 4,
+                "tid": 40
+            },
+            {
+                "x": 38,
+                "y": 55,
+                "mid": 5,
+                "tid": 88
+            }
+        ],
+        "incomingteleport": {
+            "1": {
+                "x": 15,
+                "y": 3,
+                "facing": 2
+            },
+            "2": {
+                "x": 15,
+                "y": 27,
+                "facing": 0
+            },
+            "3": {
+                "x": 8,
+                "y": 9,
+                "facing": 2
+            }
+        },
+        "dayandnight": true
+    },
+    "elements": {
+        "config": {
+            "test": {
+                "type": 2,
+                "name": "test",
+                "default": {
+                    "position": {
+                        "x": 20,
+                        "y": 13,
+                        "facing": 2
+                    },
+                    "sprite": 1
+                }
+            },
+            "healer": {
+                "type": 2,
+                "name": "healer",
+                "default": {
+                    "position": {
+                        "x": 9,
+                        "y": 11,
+                        "facing": 2
+                    },
+                    "sprite": 1
+                }
+            },
+            "monstergiver": {
+                "type": 2,
+                "name": "monstergiver",
+                "default": {
+                    "exist": false,
+                    "position": {
+                        "x": 20,
+                        "y": 24,
+                        "facing": 2
+                    },
+                    "sprite": 1
+                }
+            },
+            "tamer": {
+                "type": 4,
+                "name": "tamer",
+                "saveDynamicPosition": true,
+                "isTamer": true,
+                "maxview": 5,
+                "tamer_id": 1,
+                "default": {
+                    "position": {
+                        "x": 10,
+                        "y": 12,
+                        "facing": 2
+                    },
+                    "sprite": 1
+                }
+            },
+            "looker": {
+                "type": 2,
+                "name": "looker",
+                "default": {
+                    "position": {
+                        "x": 17,
+                        "y": 27,
+                        "facing": 3
+                    },
+                    "sprite": 1
+                }
+            },
+            "shopper": {
+                "type": 2,
+                "name": "shopper",
+                "default": {
+                    "position": {
+                        "x": 6,
+                        "y": 23,
+                        "facing": 2
+                    },
+                    "sprite": 1
+                }
+            },
+            "box": {
+                "type": 2,
+                "name": "box",
+                "default": {
+                    "position": {
+                        "x": 20,
+                        "y": 23,
+                        "facing": 2
+                    },
+                    "sprite": 1
+                }
+            }
+        },
+        "screenplay": {
+            "test": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["requestFlag", {
+                        "type": "i",
+                        "id": 1
+                    }]
+                ],
+                "server_response": {
+                    "i-1": {
+                        "0": [
+                            ["dialog", [
+                                {
+                                    "br": "Parabéns! Você ganhou 100 Selos Mágicos!",
+                                    "en": ""
+                                }
+                            ]]
+                        ],
+                        "1": [
+                            ["dialog", [
+                                {
+                                    "br": "Você está gostando dos Selos Mágicos?",
+                                    "en": ""
+                                }
+                            ]]
+                        ]
+                    }
+                }
+            },
+            "healer": {
+                "default": [
+                    ["disableMoveInputs"],
+                    ["requestFlag", {
+                        "type": "h",
+                        "id": 1
+                    }]
+                ],
+                "server_response": {
+                    "h-1": {
+                        "0": [
+                            ["face", "toplayer"],
+                            ["dialog", [
+                                {
+                                    "br": "Vamos curar seus monstros, aguarde um\npouco...",
+                                    "en": ""
+                                },
+                                {
+                                    "br": "... ... ...",
+                                    "en": "... ... ..."
+                                },
+                                {
+                                    "br": "Seus monstros foram curados!",
+                                    "en": ""
+                                }
+                            ]],
+                            ["enableMoveInputs"]
+                        ]
+                    }
+                }
+            },
+            "monstergiver": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "Eu tenho um monstro raro quer saber\nmais?",
+                            "en": ""
+                        }
+                    ]],
+                    ["get_input", {
+                        "text": "Que Monstro deseja? Escolha entre [1, 4 e 10]",
+                        "variable": "${chosenmonster}",
+                        "style": "choose_initial_monster"
+                    }],
+                    ["requestFlag", {
+                        "type": "ka",
+                        "id": 1,
+                        "data": {
+                            "chosenmonster": "${chosenmonster}"
+                        }
+                    }]
+                ],
+                "server_response": {
+                    "ka-1": {
+                        "0": [
+                            ["dialog", [
+                                {
+                                    "br": "Você ganhou um monstro raro!",
+                                    "en": ""
+                                }
+                            ]]
+                        ],
+                        "1": [
+                            ["dialog", [
+                                {
+                                    "br": "Como está o monstro? Cuide bem dele!",
+                                    "en": ""
+                                }
+                            ]]
+                        ]
+                    }
+                }
+            },
+            "tamer": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "Teste",
+                            "en": "Hi."
+                        },
+                        {
+                            "br": "Vamos lá?"
+                        }
+                    ]],
+                    ["ifNotBattled", [
+                        ["callObjectFunction", "battle"]
+                    ]]
+                ],
+                "battle": [
+                    ["dialog", [
+                        {
+                            "br": "Vamos lutar? Go ahead!"
+                        }
+                    ]],
+                    ["requestFlag", {
+                        "type": "t",
+                        "id": 1
+                    }]
+                ]
+            },
+            "looker": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "Você deve pegar um monstro antes de se aventurar por aí!"
+                        }
+                    ]],
+                    ["face", "left"]
+                ],
+                "2": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "Que bom que você tem um monstro agora, oficialmente você é um domador!"
+                        }
+                    ]]
+                ]
+            },
+            "shopper": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "Deseja comprar algo? Dê uma olhada nas minhas mercadorias."
+                        }
+                    ]],
+                    ["appendMarket"]
+                ]
+            },
+            "box": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "Quer ver seus monstros que estão guardados na box?"
+                        }
+                    ]],
+                    ["appendMonsterBox"]
+                ]
+            }
+        }
+    },
+    "events": {
+        "config": [
+            {"x": 15, "y": 27, "id": 1}
+        ],
+        "script": {
+            "1": {
+                "requiredFlagValueToExec": ["default"],
+                "script": [
+                    ["disableMoveInputs"],
+                    ["walk", "left", {"target": "looker"}],
+                    ["face", "right", {"target": "${player}"}],
+                    ["dialog", [
+                        {
+                            "br": "Hey! É perigoso você sair da vila sem antes ter um monstro."
+                        },
+                        {
+                            "br": "Volte aqui apenas quando tiver um monstro domado!"
+                        }
+                    ]],
+                    ["walk", "right", {"target": "looker"}],
+                    ["face", "left", {"target": "looker"}],
+                    ["walk", "up", {"target": "${player}"}],
+                    ["enableMoveInputs"]
+                ]
+            }
+        }
+    }
+}

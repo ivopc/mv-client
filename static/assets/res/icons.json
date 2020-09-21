@@ -1,0 +1,314 @@
+{
+    "frames": {
+        "attr_def": {
+            "frame": {
+                "x": 69,
+                "y": 5,
+                "w": 22,
+                "h": 22
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 22,
+                "h": 22
+            },
+            "sourceSize": {
+                "w": 22,
+                "h": 22
+            }
+        },
+        "attr_atk": {
+            "frame": {
+                "x": 38,
+                "y": 7,
+                "w": 20,
+                "h": 20
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 20,
+                "h": 20
+            },
+            "sourceSize": {
+                "w": 20,
+                "h": 20
+            }
+        },
+        "attr_spe": {
+            "frame": {
+                "x": 101,
+                "y": 7,
+                "w": 22,
+                "h": 18
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 101,
+                "y": 7,
+                "w": 22,
+                "h": 18
+            },
+            "sourceSize": {
+                "w": 22,
+                "h": 18
+            }
+        },
+        "attr_hp": {
+            "frame": {
+                "x": 5,
+                "y": 8,
+                "w": 22,
+                "h": 19
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 22,
+                "h": 19
+            },
+            "sourceSize": {
+                "w": 22,
+                "h": 19
+            }
+        },
+        "sprite7": {
+            "frame": {
+                "x": 136,
+                "y": 8,
+                "w": 1,
+                "h": 1
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 1,
+                "h": 1
+            },
+            "sourceSize": {
+                "w": 1,
+                "h": 1
+            }
+        },
+        "sprite8": {
+            "frame": {
+                "x": 139,
+                "y": 8,
+                "w": 1,
+                "h": 1
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 1,
+                "h": 1
+            },
+            "sourceSize": {
+                "w": 1,
+                "h": 1
+            }
+        },
+        "icon_party": {
+            "frame": {
+                "x": 136,
+                "y": 8,
+                "w": 17,
+                "h": 19
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 17,
+                "h": 19
+            },
+            "sourceSize": {
+                "w": 17,
+                "h": 19
+            }
+        },
+        "icon_bag": {
+            "frame": {
+                "x": 6,
+                "y": 40,
+                "w": 20,
+                "h": 18
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 20,
+                "h": 18
+            },
+            "sourceSize": {
+                "w": 20,
+                "h": 18
+            }
+        },
+        "icon_chat": {
+            "frame": {
+                "x": 37,
+                "y": 40,
+                "w": 23,
+                "h": 19
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 23,
+                "h": 19
+            },
+            "sourceSize": {
+                "w": 23,
+                "h": 19
+            }
+        },
+        "icon_config": {
+            "frame": {
+                "x": 72,
+                "y": 41,
+                "w": 17,
+                "h": 17
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 17,
+                "h": 17
+            },
+            "sourceSize": {
+                "w": 17,
+                "h": 17
+            }
+        },
+        "icon_quests": {
+            "frame": {
+                "x": 104,
+                "y": 41,
+                "w": 17,
+                "h": 18
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 17,
+                "h": 18
+            },
+            "sourceSize": {
+                "w": 17,
+                "h": 18
+            }
+        },
+        "icon_notifications": {
+            "frame": {
+                "x": 133,
+                "y": 39,
+                "w": 20,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 133,
+                "y": 39,
+                "w": 20,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 20,
+                "h": 21
+            }
+        },
+        "icon_profile": {
+            "frame": {
+                "x": 5,
+                "y": 70,
+                "w": 23,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 5,
+                "y": 70,
+                "w": 23,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 23,
+                "h": 21
+            }
+        },
+        "icon_fullscreen_on": {
+            "frame": {
+                "x": 40,
+                "y": 72,
+                "w": 17,
+                "h": 17
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 40,
+                "y": 72,
+                "w": 17,
+                "h": 17
+            },
+            "sourceSize": {
+                "w": 17,
+                "h": 17
+            }
+        },
+        "icon_fullscreen_off": {
+            "frame": {
+                "x": 72,
+                "y": 72,
+                "w": 17,
+                "h": 17
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 72,
+                "y": 72,
+                "w": 17,
+                "h": 17
+            },
+            "sourceSize": {
+                "w": 17,
+                "h": 17
+            }
+        }
+    },
+    "meta": {
+        "app": "https://www.leshylabs.com/apps/sstool/",
+        "version": "Leshy SpriteSheet Tool v0.8.4",
+        "image": "spritesheet.png",
+        "size": {
+            "w": 160,
+            "h": 64
+        },
+        "scale": 1
+    }
+}

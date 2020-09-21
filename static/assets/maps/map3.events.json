@@ -1,0 +1,190 @@
+{
+    "map": {
+        "id": 3,
+        "weather": "default",
+        "hasTamers": true,
+        "teleport": [
+            {
+                "x": 11,
+                "y": 2,
+                "mid": 1,
+                "tid": 2
+            },
+            {
+                "x": 38,
+                "y": 55,
+                "mid": 5,
+                "tid": 88
+            }
+        ],
+        "incomingteleport": {
+            "98": {
+                "x": 11,
+                "y": 3,
+                "facing": 2
+            },
+            "100": {
+                "x": 37,
+                "y": 55,
+                "facing": 3
+            }
+        },
+        "dayandnight": true
+    },
+    "elements": {
+        "config": {
+            "mission": {
+                "type": 2,
+                "name": "mission",
+                "mission": true,
+                "default": {
+                    "visible": true,
+                    "position": {
+                        "x": 6, 
+                        "y": 5, 
+                        "facing": 2
+                    },
+                    "sprite": 1
+                }
+            },
+            "test": {
+                "type": 2,
+                "name": "test",
+                "default": {
+                    "visible": true,
+                    "position": {
+                        "x": 14,
+                        "y": 6,
+                        "facing": 2
+                    },
+                    "sprite": 1
+                }
+            },
+            "tamer": {
+                "type": 4,
+                "name": "tamer",
+                "saveDynamicPosition": true,
+                "isTamer": true,
+                "maxview": 3,
+                "tamer_id": 2,
+                "default": {
+                    "position": {
+                        "x": 31,
+                        "y": 23,
+                        "facing": 3
+                    },
+                    "sprite": 4
+                }
+            }
+        },
+        "screenplay": {
+            "mission": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["requestQuest", 1]
+                ],
+                "server_response": {
+                    "0": [
+                        ["dialog", [
+                            {
+                                "br": "Deseja iniciar a missão?",
+                                "en": ""
+                            }
+                        ]],
+                        ["showAcceptQuestInterface", 1]
+                    ],
+                    "1": [
+                        ["dialog", [
+                            {
+                                "br": "Como vai a missão?",
+                                "en": ""
+                            }
+                        ]]
+                    ],
+                    "2": [
+                        ["dialog", [
+                            {
+                                "br": "Parabéns! Você completou a missão, receba seus prêmios.",
+                                "en": ""
+                            }
+                        ]]
+                    ],
+                    "3": [
+                        ["dialog", [
+                            {
+                                "br": "Obrigado por ter me ajudado!"
+                            }
+                        ]]
+                    ],
+                    "4": [
+                        ["closeAcceptQuestInterface"],
+                        ["dialog", [
+                            {
+                                "br": "Boa sorte na missão!"
+                            }
+                        ]]
+                    ]
+                }
+            },
+            "test": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "... Você sabia que, por mais que os corvos possuam uma natureza magarefe, eles possuem empatia?",
+                            "en": ""
+                        },
+                        {
+                            "br": "Uma capacidade que supera sua essência, mas não o fazem porque por pura benevolência, o fazem para sobreviver."
+                        },
+                        {
+                            "br": " Lidou muito bem com aqueles dois projetos de corvo, você tem talento para ser um domador!"
+                        }
+                    ]],
+                    ["walk", "down"],
+                    ["walk", "down"],
+                    ["walk", "left"],
+                    ["callFunction", "twice"]
+                ]
+            },
+            "tamer": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "Oi.",
+                            "en": "Hi."
+                        },
+                        {
+                            "br": "Tudo bem?"
+                        }
+                    ]],
+                    ["ifNotBattled", [
+                        ["callObjectFunction", "battle"]
+                    ]]
+                ],
+                "battle": [
+                    ["dialog", [
+                        {
+                            "br": "Você vai perder!"
+                        }
+                    ]],
+                    ["requestFlag", {
+                        "type": "t",
+                        "id": 2
+                    }]
+
+                ]
+            }
+        }
+    },
+    "functions": {
+        "twice": [
+            ["dialog", [
+                {
+                    "br": "Test LOLzitos"
+                }
+            ]]
+        ]
+    }
+}

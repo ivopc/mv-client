@@ -1,0 +1,369 @@
+{
+    "map": {
+        "id": 1,
+        "weather": "default",
+        "hasTamers": false,
+        "teleport": [
+            {
+                "x": 15,
+                "y": 2,
+                "mid": 2,
+                "tid": 99
+            },
+            {
+                "x": 15,
+                "y": 28,
+                "mid": 3,
+                "tid": 98
+            },
+            {
+                "x": 8,
+                "y": 8,
+                "mid": 4,
+                "tid": 40
+            },
+            {
+                "x": 38,
+                "y": 55,
+                "mid": 5,
+                "tid": 88
+            }
+        ],
+        "incomingteleport": {
+            "1": {
+                "x": 15,
+                "y": 3,
+                "facing": 2
+            },
+            "2": {
+                "x": 15,
+                "y": 27,
+                "facing": 0
+            },
+            "3": {
+                "x": 8,
+                "y": 9,
+                "facing": 2
+            }
+        },
+        "dayandnight": true
+    },
+    "elements": {
+        "config": {
+            "looker": {
+                "type": 2,
+                "name": "looker",
+                "default": {
+                    "position": {
+                        "x": 17,
+                        "y": 27,
+                        "facing": 3
+                    },
+                    "sprite": 1
+                }
+            },
+            "npc1": {
+                "type": 2,
+                "name": "npc1",
+                "default": {
+                    "positiozn": {
+                        "x": 13,
+                        "y": 9,
+                        "facing": 1
+                    },
+                    "sprite": 1
+                },
+                "2": {
+                    "position": {
+                        "x": 18,
+                        "y": 23,
+                        "facing": 2
+                    },
+                    "sprite": 1
+
+                }
+            },
+            "npc2": {
+                "type": 2,
+                "name": "npc2",
+                "default": {
+                    "position": {
+                        "x": 18,
+                        "y": 6,
+                        "facing": 3
+                    },
+                    "sprite": 1
+                },
+                "2": {
+                    "position": {
+                        "x": 23,
+                        "y": 13,
+                        "facing": 3
+                    },
+                    "sprite": 1
+                }
+            },
+            "npc3": {
+                "type": 2,
+                "name": "npc3",
+                "default": {
+                    "position": {
+                        "x": 13, 
+                        "y": 4,
+                        "facing": 2
+                    },
+                    "sprite": 1
+                },
+                "2": {
+                    "position": {
+                        "x": 13,
+                        "y": 10,
+                        "facing": 2
+                    },
+                    "sprite": 1
+                }
+            },
+            "npc4": {
+                "type": 2,
+                "name": "npc4",
+                "default": {
+                    "position": {
+                        "x": 17, 
+                        "y": 8,
+                        "facing": 3
+                    },
+                    "sprite": 1
+                },
+                "2": {
+                    "position": {
+                        "x": 12,
+                        "y": 22,
+                        "facing": 2 
+                    },
+                    "sprite": 1
+                }
+            },
+            "box": {
+                "type": 2,
+                "name": "box",
+                "default": {
+                    "position": {
+                        "x": 22,
+                        "y": 23,
+                        "facing": 2
+                    },
+                    "sprite": 1
+                }
+            }
+        },
+        "screenplay": {
+            "looker": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "Você deve pegar um monstro antes de se aventurar por aí!"
+                        }
+                    ]],
+                    ["face", "left"]
+                ],
+                "2": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "Que bom que você tem um monstro agora, oficialmente você é um domador!"
+                        }
+                    ]]
+                ]
+            },
+            "npc1": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "{player}, não é? Fiquei sabendo que seu pai preparou uma surpresa pra você."
+                        },
+                        {
+                            "br": "Me pergunto o que será..."
+                        }
+                    ]]
+                ],
+                "2": [
+                    ["face", "toplayer"],
+                    ["random", [
+                        ["dialog", [
+                                {
+                                    "br": "Você já ouviu falar da Guilda Mercante da família Novalice?"
+                                },
+                                {
+                                    "br": "Eles são os fundadores do MonsterMart! Queria que aqui em Novo Valle tivesse um também."
+                                }
+                        ]],
+                        ["dialog", [
+                            {
+                                "br": "Nós trabalhamos com a colheita e exportação de frutas e grãos, não é muito, mas é trabalho honesto."
+                            }
+                        ]],
+                        ["dialog", [
+                            {
+                                "br": "Você cresceu muito desde a última vez! Observar a juventude é sempre revigorante!"
+                            }
+                        ]]
+                    ]]
+                ]
+            },
+            "npc2": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "Eu quando tinha 15 anos, ganhei meu primeiro monstro!"
+                        },
+                        {
+                            "br": "Hoje somos inseparáveis!"
+                        }
+                    ]]
+                ],
+                "2": [
+                    ["face", "toplayer"],
+                    ["random", [
+                        ["dialog", [
+                            {
+                                "br": "O segredo para ser um bom domador não está somente na disciplina, mas também no elo com o seu monstro."
+                            },
+                            {
+                                "br": "Se vocês confiarem um no outro, tenho certeza que conseguirão passar por qualquer desafio!"
+                            }
+                        ]],
+                        ["dialog", [
+                            {
+                                "br": "Os monstros estão muito agitados ultimamente, tome cuidado ao sair perambulando fora da cidade!"
+                            }
+                        ]],
+                        ["dialog", [
+                            {
+                                "br": "Se os seus monstros estiverem cansados, procure um fonte das fadas, lá eles sentiram suas forças renovadas!"
+                            }
+                        ]]
+                    ]]
+                ]
+            },
+            "npc3": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "Vi um homem de preto andando pela cidade mais cedo... Seu pai?"
+                        },
+                        {
+                            "br": "Não, não parecia ele, era muito mais jovem, além de parecer bem zangado."
+                        }
+                    ]]
+                ],
+                "2": [
+                    ["face", "toplayer"],
+                    ["random", [
+                        ["dialog", [
+                            {
+                                "br": "Você pode continuar sua jornada com mais de um monstro, para isso é necessário adquirir mais selos mágicos!"
+                            }
+                        ]],
+                        ["dialog", [
+                            {
+                                "br": "Você viu um homem vestido como uma fantasia vermelha?"
+                            },
+                            {
+                                "br": "Ele ficou dizendo que era uma espécie de herói, “Vigia Escarlate” ou algo do tipo, sujeito esquisito..."
+                            }
+                        ]],
+                        ["dialog", [
+                            {
+                                "br": "Se precisar estocar seus remédios, procure pelo bazar do Morty."
+                            },
+                            {
+                                "br": "Na saída da cidade, os preços são meio salgados, mas são de primeira qualidade!"
+                            }
+                        ]]
+                    ]]
+                ]
+            },
+            "npc4": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "{player} quando tiver seu monstro, vamos duelar!"
+                        },
+                        {
+                            "br": "Sempre quis ter alguém pra treinar!"
+                        }
+                    ]]
+                ],
+                "2": [
+                    ["face", "toplayer"],
+                    ["random", [
+                        ["dialog", [
+                            {
+                                "br": "Duelar? Não, não, talvez amanhã! Estou muito ocupado vendo a grama crescer."
+                            }
+                        ]],
+                        ["dialog", [
+                            {
+                                "br": "Ouvi dizer que há uma gangue de lunáticos cometendo diversos crimes por aí."
+                            },
+                            {
+                                "br": "Fique atento caso cruze com alguém que diz pertencer a “Revoada dos Corvos”."
+                            }
+                        ]],
+                        ["dialog", [
+                            {
+                                "br": "O meu bracelete mágico está precisando de um novo visual. "
+                            },
+                            {
+                                "br": "Vou adquirir uma nova textura pra ele assim que eu for ao MonsterMart na cidade de Caelus."
+                            }
+                        ]]
+                    ]]
+                ]
+            },
+            "box": {
+                "default": [
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "Quer ver seus monstros que estão guardados na box?"
+                        }
+                    ]],
+                    ["appendMonsterBox"]
+                ]
+            }
+        }
+    },
+    "events": {
+        "config": [
+            {"x": 15, "y": 27, "id": 1}
+        ],
+        "script": {
+            "1": {
+                "requiredFlagValueToExec": ["default"],
+                "script": [
+                    ["disableMoveInputs"],
+                    ["walk", "left", {"target": "looker"}],
+                    ["face", "right", {"target": "${player}"}],
+                    ["dialog", [
+                        {
+                            "br": "Hey! É perigoso você sair da vila sem antes ter um monstro."
+                        },
+                        {
+                            "br": "Volte aqui apenas quando tiver um monstro domado!"
+                        }
+                    ]],
+                    ["walk", "right", {"target": "looker"}],
+                    ["face", "left", {"target": "looker"}],
+                    ["walk", "up", {"target": "${player}"}],
+                    ["enableMoveInputs"]
+                ]
+            }
+        }
+    }
+}

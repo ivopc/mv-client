@@ -1,0 +1,4 @@
+{
+	"_comment": "idle1: position.y -= 1 | height += 1",
+	"_comment2": "walk1: position.y -= 1 | height += 1"
+}

@@ -1,0 +1,237 @@
+{
+    "map": {
+        "id": 4,
+        "weather": "default",
+        "hasTamers": false,
+        "teleport": [
+            {
+                "x": 9,
+                "y": 9,
+                "mid": 1,
+                "tid": 3
+            },
+            {
+                "x": 10,
+                "y": 9,
+                "mid": 1,
+                "tid": 3
+            },
+            {
+                "x": 9,
+                "y": 1,
+                "mid": 7,
+                "tid": 1
+            },
+            {
+                "x": 10,
+                "y": 1,
+                "mid": 7,
+                "tid": 1
+            }
+        ],
+        "incomingteleport": {
+            "40": {
+                "x": 9,
+                "y": 8,
+                "facing": 0
+            },
+            "41": {
+                "x": 10,
+                "y": 8,
+                "facing": 0
+            },
+            "42": {
+                "x": 9,
+                "y": 2,
+                "facing": 2
+            }
+        },
+        "dayandnight": true
+    },
+    "elements": {
+        "config": {
+            "mother": {
+                "type": 2,
+                "name": "mother",
+                "default": {
+                    "position": {
+                        "x": 2, 
+                        "y": 3, 
+                        "facing": 0
+                    },
+                    "sprite": 1
+                },
+                "2": {
+                    "position": {
+                        "x": 2, 
+                        "y": 3, 
+                        "facing": 0
+                    },
+                    "sprite": 1
+                }
+            }
+        },
+        "screenplay": {
+            "mother": {
+                "default": [],
+                "2": [
+                    ["face", "toplayer"],
+                    ["random", [
+                        ["dialog", [
+                            {
+                                "br": "xD KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK"
+                            },
+                            {
+                                "br": "pronto"
+                            }
+                        ]],
+                        ["dialog", [
+                            {
+                                "br": "321321321321321321321321"
+                            },
+                            {
+                                "br": "números prontos"
+                            },
+                            {
+                                "br": "Fim"
+                            }
+                        ]],
+                        ["dialog", [
+                            {
+                                "br": "nuubnuubnuubnuubnuubnuubnuubnuub"
+                            },
+                            {
+                                "br": "Você é nub '-'"
+                            }
+                        ]],
+                        ["dialog", [
+                            {
+                                "br": "Diálogo random podi crê"
+                            },
+                            {
+                                "br": "Random test"
+                            },
+                            {
+                                "br": "funcionando, ok"
+                            }
+                        ]]
+                    ]],
+                    ["face", "up"]
+                ]
+            }
+        }
+    },
+    "autoExec": {},
+    "events": {
+        "config": [
+            {"x": 9, "y": 3, "id": 1},
+            {"x": 10, "y": 3, "id": 2}
+        ],
+        "script": {
+            "1": {
+                "requiredFlagValueToExec": ["default"],
+                "script": [
+                    ["requestFlag", {
+                        "type": "p",
+                        "id": 1,
+                        "dontNeedLoadSprite": true
+                    }],
+                    ["disableMoveInputs"],
+                    ["walk", "right", {"target": "mother"}],
+                    ["walk", "right", {"target": "mother"}],
+                    ["walk", "right",  {"target": "mother"}],
+                    ["walk", "down",  {"target": "mother"}],
+                    ["walk", "down",  {"target": "mother"}],
+                    ["walk", "down",  {"target": "mother"}],
+                    ["walk", "down",  {"target": "mother"}],
+                    ["walk", "right",  {"target": "mother"}],
+                    ["walk", "right",  {"target": "mother"}],
+                    ["walk", "right",  {"target": "mother"}],
+                    ["walk", "right",  {"target": "mother"}],
+                    ["walk", "up", {"target": "mother"}],
+                    ["walk", "up",  {"target": "mother"}],
+                    ["walk", "up",  {"target": "mother"}],
+                    ["callFunction", "dialog_start"],
+                    ["walk", "down", {"target": "mother"}],
+                    ["walk", "down",  {"target": "mother"}],
+                    ["walk", "down",  {"target": "mother"}],
+                    ["walk", "left",  {"target": "mother"}],
+                    ["walk", "left",  {"target": "mother"}],
+                    ["walk", "left",  {"target": "mother"}],
+                    ["walk", "left",  {"target": "mother"}],
+                    ["walk", "up",  {"target": "mother"}],
+                    ["walk", "up",  {"target": "mother"}],
+                    ["walk", "up",  {"target": "mother"}],
+                    ["walk", "up",  {"target": "mother"}],
+                    ["walk", "left", {"target": "mother"}],
+                    ["walk", "left", {"target": "mother"}],
+                    ["walk", "left",  {"target": "mother"}],
+                    ["face", "up", {"target": "mother"}],
+                    ["setMapFlag", 2],
+                    ["enableMoveInputs"]
+                ]
+            },
+            "2": {
+                "requiredFlagValueToExec": ["default"],
+                "script": [
+                    ["requestFlag", {
+                        "type": "p",
+                        "id": 1,
+                        "dontNeedLoadSprite": true
+                    }],
+                    ["disableMoveInputs"],
+                    ["walk", "right", {"target": "mother"}],
+                    ["walk", "right", {"target": "mother"}],
+                    ["walk", "right",  {"target": "mother"}],
+                    ["walk", "down",  {"target": "mother"}],
+                    ["walk", "down",  {"target": "mother"}],
+                    ["walk", "down",  {"target": "mother"}],
+                    ["walk", "down",  {"target": "mother"}],
+                    ["walk", "right",  {"target": "mother"}],
+                    ["walk", "right",  {"target": "mother"}],
+                    ["walk", "right",  {"target": "mother"}],
+                    ["walk", "right",  {"target": "mother"}],
+                    ["walk", "right",  {"target": "mother"}],
+                    ["walk", "up", {"target": "mother"}],
+                    ["walk", "up",  {"target": "mother"}],
+                    ["walk", "up",  {"target": "mother"}],
+                    ["callFunction", "dialog_start"],
+                    ["walk", "down", {"target": "mother"}],
+                    ["walk", "down",  {"target": "mother"}],
+                    ["walk", "down",  {"target": "mother"}],
+                    ["walk", "left",  {"target": "mother"}],
+                    ["walk", "left",  {"target": "mother"}],
+                    ["walk", "left",  {"target": "mother"}],
+                    ["walk", "left",  {"target": "mother"}],
+                    ["walk", "left",  {"target": "mother"}],
+                    ["walk", "up",  {"target": "mother"}],
+                    ["walk", "up",  {"target": "mother"}],
+                    ["walk", "up",  {"target": "mother"}],
+                    ["walk", "up",  {"target": "mother"}],
+                    ["walk", "left", {"target": "mother"}],
+                    ["walk", "left", {"target": "mother"}],
+                    ["walk", "left",  {"target": "mother"}],
+                    ["face", "up", {"target": "mother"}],
+                    ["setMapFlag", 2],
+                    ["enableMoveInputs"]
+
+                ]
+            }
+        }
+    },
+    "functions": {
+        "dialog_start": [
+            ["dialog", [
+                {
+                    "br": "Desse jeito você vai perder a hora!"
+                },
+                {
+                    "br": "Não deixe seu pai lhe esperando, ele disse que o esperaria ao norte da vila."
+                },
+                {
+                    "br": "Onde você brincava quando criança, lembra?"
+                }
+            ]]
+        ]
+    }
+}

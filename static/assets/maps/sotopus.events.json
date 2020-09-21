@@ -1,0 +1,27 @@
+{
+    "map": {
+        "id": 6,
+        "weather": "default",
+        "hasTamers": false,
+        "teleport": [
+            {
+                "x": 0,
+                "y": 21,
+                "mid": 5,
+                "tid": 89
+            }
+        ],
+        "incomingteleport": {
+            "100": {
+                "x": 1,
+                "y": 21,
+                "facing": 1
+            }
+        },
+        "dayandnight": true
+    },
+    "elements": {
+        "config": {},
+        "screenplay": {}
+    }
+}

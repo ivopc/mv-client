@@ -1,0 +1,421 @@
+{
+    "generic": {
+        "yes": {
+            "br": "Sim",
+            "en": "Yes"
+        },
+        "no": {
+            "br": "Não",
+            "en": "No"
+        },
+        "buy": {
+            "br": "Comprar",
+            "en": "Buy"
+        },
+        "cancel": {
+            "br": "Cancelar",
+            "en": "Cancel"
+        }
+    },
+    "prebattle": {
+        "acceptbattle": {
+            "br": "Batalhar",
+            "en": "Battle"
+        },
+        "run": {
+            "br": "Fugir",
+            "en": "Run"
+        }
+    },
+    "battle": {
+        "btnbattle": {
+            "br": "Lutar",
+            "en": "Fight"
+        },
+        "btnbag": {
+            "br": "Bolsa",
+            "en": "Bag"
+        },
+        "btnmonsters": {
+            "br": "Monstros",
+            "en": "Monsters"
+        },
+        "btnrun": {
+            "br": "Fugir",
+            "en": "Run"
+        },
+        "wildappear": {
+            "br": "{monster} selvagem apareceu!",
+            "en": "Wild {monster} appeared!"
+        },
+        "wouldliketobattle": {
+            "br": "{character} quer lutar!",
+            "en": "{character} would like to battle!"
+        },
+        "sentout": {
+            "br": "{character} jogou {monster}!",
+            "en": "{character} sent out {monster}!"
+        },
+        "gomonster": {
+            "br": "Vai! {monster}!",
+            "en": "Go! {monster}!"
+        },
+        "whatwilldo": {
+            "br": "O que {monster} irá fazer?",
+            "en": "What will {monster} do?"
+        },
+        "usedatk": {
+            "br": "{monster} usou \n{move}!",
+            "en": "{monster} used \n{move}!"
+        },
+        "usedatkopponent": {
+            "br": "{monster} adversário usou\n{move}!",
+            "en": "Foe {monster} used\n{move}!"
+        },
+        "missedattack": {
+            "br": "{monster} errou o ataque!"
+        },
+        "missedattackopponent": {
+            "br": "{monster} adversário errou o ataque!"
+        },
+        "usedseal": {
+            "br": "{player} usou {seal}!"
+        },
+        "useditem": {
+            "br": "{player} usou {item}!"
+        },
+        "statparalyzed": {
+            "br": "{monster} não pode se mexer, está paralizado!"
+        },
+        "statparalyzedopponent": {
+            "br": "{monster} adversário não pode se mexer, está paralizado!"
+        },
+        "statpoisoned": {
+            "br": "{monster} foi ferido por veneno!"
+        },
+        "statpoisonedopponent": {
+            "br": "{monster} adversário foi ferido por veneno!"
+        },
+        "statsleeping": {
+            "br": "{monster} está dormindo!"
+        },
+        "statsleepingopponent": {
+            "br": "{monster} adversário está dormindo!"
+        },
+        "statawake": {
+            "br": "{monster} acordou!"
+        },
+        "statawakeopponent": {
+            "br": "{monster} adversário acordou!"
+        },
+        "statdecrease": {
+            "br": "{stat} de {monster} diminuiu!"
+        },
+        "statdecreaseopponent": {
+            "br": "{stat} de {monster} adversário diminuiu!"
+        },
+        "statincrease": {
+            "br": "{stat} de {monster} aumentou!"
+        },
+        "statincreaseopponent": {
+            "br": "{stat} de {monster} adversário aumentou!"
+        },
+        "catchsuccess": {
+            "br": "{monster} foi domado!"
+        },
+        "catchfail": {
+            "br": "{monster} escapou do selo!"
+        },
+        "fainted": {
+            "br": "{monster} está fora de combate!",
+            "en": "{monster} is out of combat!"
+        },
+        "bothfainted": {
+            "br": "Ambos os monstros estão fora de combate!",
+            "en": "Both monsters are fainted!"
+        },
+        "faintedwild": {
+            "br": "{monster} selvagem está fora de combate!",
+            "en": "Wild {monster} is out of combat!"
+        },
+        "playerwin": {
+            "br": "Fim da batalha. Você ganhou!"
+        },
+        "playerlose": {
+            "br": "Fim da batalha. Você perdeu!"
+        },
+        "draw": {
+            "br": "Fim da batalha. Houve um empate!"
+        },
+        "comeback": {
+            "br": "{monster}, volte!",
+            "en": "{monster}, come back!"
+        },
+        "run": {
+            "br": "{monster} fugiu da batalha!",
+            "en": "{monster} fled the battle!"
+        },
+        "cantrun": {
+            "br": "{monster} não pôde fugir!",
+            "en": "{monster} can't scape!"
+        },
+        "gainedxp": {
+            "br": "{monster} ganhou {exp} de EXP!",
+            "en": "{monster} gained {exp} EXP!"
+        },
+        "levelup": {
+            "br": "{monster} foi para o level {level}!",
+            "en": "{monster} grew to level {level}!"
+        },
+        "gaineditem": {
+            "br": "{player} ganhou o item {item}!"
+        },
+        "rewardsilver": {
+            "br": "Você ganhou {silvers} silvers!"
+        },
+        "pvpplayerwin": {
+            "br": "Fim da partida. Você ganhou, parabéns!"
+        },
+        "pvpopponentwin": {
+            "br": "Fim da partida. Jogador adversário ganhou!"
+        },
+        "waitchose": {
+            "br": "Aguarde o outro jogador escolher a ação dele."
+        },
+        "stat_atk": {
+            "br": "Ataque",
+            "en": "Attack"
+        },
+        "stat_def": {
+            "br": "Defesa",
+            "en": "Defense"
+        },
+        "stat_spe": {
+            "br": "Velocidade",
+            "en": "Speed"
+        },
+        "stat_acc": {
+            "br": "ACC",
+            "en": "ACC"
+        },
+        "stat_eva": {
+            "br": "EVA",
+            "en": "EVA"
+        },
+        "atk": {
+            "br": "ATK",
+            "en": "ATK"
+        },
+        "def": {
+            "br": "DEF",
+            "en": "DEF"
+        },
+        "spe": {
+            "br": "VEL",
+            "en": "SPE"
+        },
+        "acc": {
+            "br": "ACC",
+            "en": "ACC"
+        },
+        "eva": {
+            "br": "EVA",
+            "en": "EVA"
+        },
+        "error1": {
+            "br": "Você não pode usar essa ação no PvP!",
+            "en": "You can't use that action in PvP!"
+        },
+        "error3": {
+            "br": "{monster} não tem MP o suficiente!",
+            "en": "{monster} has no MP enough!"
+        }
+    },
+    "item": {
+        "select": {
+            "br": "Selecione o Item",
+            "en": "Select the Item"
+        },
+        "use": {
+            "br": "Usar",
+            "en": "Use"
+        },
+        "equip": {
+            "br": "Equipar",
+            "en": "Equip"
+        },
+        "learnmove": {
+            "br": "Monstro aprendeu o ataque!"
+        }
+    },
+    "market": {
+        "howmany": {
+            "br": "Quantos você deseja comprar?",
+            "en": "How many do you want to buy?"
+        },
+        "successbuy": {
+            "br": "Compra efetuada com sucesso!",
+            "en": ""
+        },
+        "failbuy": {
+            "br": "Não foi possível realizar a compra!",
+            "en": ""
+        }
+    },
+    "quest": {
+        "defeat": {
+            "br": "Derrotar {amount} {monster}(s) ({amountlength}/{_amount}).",
+            "en": "Defeat {amount} {monster}(s) ({amountlength}/{_amount})."
+        },
+        "tame": {
+            "br": "Domar {amount} {monster}(s) ({amountlength}/{_amount}).",
+            "en": "Tame {amount} {monster}(s) ({amountlength}/{_amount})."
+        },
+        "requisits": {
+            "br": "Requisitos:"
+        },
+        "rewards": {
+            "br": "Recompensas:"
+        },
+        "accept": {
+            "br": "Aceitar missão"
+        }
+    },
+    "party": {
+        "btntrade": {
+            "br": "Trocar monstro",
+            "en": "Trade monster"
+        },
+        "btninfo": {
+            "br": "Informações",
+            "en": "Info"
+        },
+        "btnstatistics": {
+            "br": "Estatísticas",
+            "en": "Statistics"
+        },
+        "btnmoves": {
+            "br": "Ataques",
+            "en": "Moves"
+        },
+        "tonextlevel": {
+            "br": "{exp} para o próximo lv.",
+            "en": "{exp} to next lv."
+        },
+        "name": {
+            "br": "Espécie",
+            "en": "Specie"
+        },
+        "type": {
+            "br": "Tipo",
+            "en": "Type"
+        },
+        "atk": {
+            "br": "Ataque",
+            "en": "Attack"
+        },
+        "def": {
+            "br": "Defesa",
+            "en": "Defense"
+        },
+        "spe": {
+            "br": "Velocidade",
+            "en": "Speed"
+        }
+    },
+    "profile": {
+        "add": {
+            "br": "Add. Amigo"
+        },
+        "invitepvp": {
+            "br": "Convidar PvP"
+        },
+        "block": {
+            "br": "Bloquear"
+        },
+        "achievements": {
+            "br": "Conquistas",
+            "en": "Achievements"
+        },
+        "noclan": {
+            "br": "Sem clã [?]",
+            "en": "No clan [?]"
+        },
+        "subscribevip": {
+            "br": "Assinar VIP",
+            "en": "Subscribe VIP"
+        },
+        "vipdays": {
+            "br": "{time} dias VIP",
+            "en": "{time} VIP days"
+        },
+        "viphours": {
+            "br": "{time} horas VIP",
+            "en": "{time} VIP hours"
+        },
+        "vipminutes": {
+            "br": "{time} min. VIP",
+            "en": "{time} VIP min."
+        },
+        "viplessthanonemin": {
+            "br": "Menos de 1 min.",
+            "en": "Less than 1 min."
+        }
+    },
+    "pvpinvite": {
+        "invite": {
+            "br": "{username} está te convidando\npara um batalha PvP",
+            "en": "{username} is inviting you\n to a PvP battle"
+        },
+        "accept": {
+            "br": "Aceitar",
+            "en": "Accept"
+        },
+        "reject": {
+            "br": "Rejeitar",
+            "en": "Reject"
+        }
+    },
+    "learnmove": {
+        "wanttoreplace": {
+            "br": "Deseja substituir {move} por qual ataque? Clique no ataque para escolher."
+        }
+    },
+    "notify": {
+        "learnmove": {
+            "br": "Monstro aprendeu um novo ataque"
+        },
+        "evolve": {
+            "br": "Monstro pode evoluir"
+        },
+        "marketplace": {
+            "br": "Monstro ou item seu foi negociado"
+        },
+        "innotifylearnmove": {
+            "br": "O monstro {monster} pode aprender o ataque {move}, deseja ensiná-lo?"
+        },
+        "innotifyalreadylearnedmove": {
+            "br": "O monstro {monster} aprendeu o ataque {move}."
+        },
+        "innotifyevolve": {
+            "br": "O monstro {monster} vai evoluir para {evolve}, deseja prosseguir?"
+        },
+        "innotifyalreadyevolved": {
+            "br": "A ação de evolução já foi utilizada."
+        },
+        "innotifymonsternegotiated": {
+            "br": "Seu monstro {monster} foi negociado."
+        },
+        "innotifyitemnegotiated": {
+            "br": "Seu item {item} foi negociado."
+        },
+        "evolveaction": {
+            "br": "Monstro evoluiu!"
+        }
+    },
+    "initialmonster": {
+        "areyousure": {
+            "br": "Tem certeza que deseja escolher {monster}?"
+        }
+    }
+}

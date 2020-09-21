@@ -1,0 +1,244 @@
+{
+    "map": {
+        "id": 2,
+        "weather": "default",
+        "teleport": [
+            {
+                "x": 15,
+                "y": 28,
+                "mid": 1,
+                "tid": 1
+            }
+        ],
+        "incomingteleport": {
+            "99": {
+                "x": 15,
+                "y": 27,
+                "facing": 0
+            }
+        },
+        "dayandnight": true
+    },
+    "elements": {
+        "config": {
+            "father": {
+                "type": 2,
+                "name": "father",
+                "default": {
+                    "position": {
+                        "x": 17, 
+                        "y": 5, 
+                        "facing": 2
+                    },
+                    "sprite": 1
+                },
+                "2": {
+                    "exist": false
+                }
+            },
+            "fogara": {
+                "type": 2,
+                "name": "fogara",
+                "default": {
+                    "position": {
+                        "x": 8,
+                        "y": 11,
+                        "facing": 2
+                    },
+                    "sprite": "Fogara",
+                    "visible": false
+                },
+                "3": {
+                    "exist": false
+                }
+            },
+            "maritin": {
+                "type": 2,
+                "name": "maritin",
+                "default": {
+                    "position": {
+                        "x": 9,
+                        "y": 11,
+                        "facing": 2
+                    },
+                    "sprite": "Maritin",
+                    "visible": false
+                },
+                "3": {
+                    "exist": false
+                }
+            },
+            "graenn": {
+                "type": 2,
+                "name": "graenn",
+                "default": {
+                    "position": {
+                        "x": 10,
+                        "y": 11,
+                        "facing": 2
+                    },
+                    "sprite": "Graenn",
+                    "visible": false
+                },
+                "3": {
+                    "exist": false
+                }
+            },
+            "magiclauncher": {
+                "type": 2,
+                "name": "magiclauncher",
+                "default": {
+                    "position": {
+                        "x": 9,
+                        "y": 12,
+                        "facing": 2
+                    },
+                    "sprite": 1
+                },
+                "3": {
+                    "exist": false
+                }
+            }
+        },
+        "screenplay": {
+            "father": {
+                "default": [
+                    ["disableMoveInputs"],
+                    ["face", "toplayer"],
+                    ["dialog", [
+                        {
+                            "br": "Hey! Finalmente você chegou. Como vai o aniversariante do dia? Parabéns, Ivopc!"
+                        },
+                        {
+                            "br": "Domei esses monstros raros para o começo de sua jornada."
+                        }
+                    ]],
+                    ["face", "up"],
+                    ["dialog", [
+                        {
+                            "br": "Escolha um desses, é o monstro que te acompanhará até o final de sua jornada."
+                         },
+                        {
+                            "br": "Você não poderá abandoná-lo e nem mesmo trocá-lo, então pense bem antes de escolher seu primeiro monstro."
+                        }
+                    ]],
+                    ["face", "toplayer"],
+                    ["get_input", {
+                        "variable": "${chosenmonster}",
+                        "style": "choose_initial_monster"
+                    }],
+                    ["requestFlag", {
+                        "type": "ka",
+                        "id": 1,
+                        "data": {
+                            "chosenmonster": "${chosenmonster}"
+                        }
+                    }]
+                ],
+                "server_response": {
+                    "ka-1": {
+                        "0": [
+                            ["hide", "dinnox"],
+                            ["hide", "atataiob"],
+                            ["dialog", [
+                                {
+                                    "br": "Boa escolha, Ivopc! Agora você está pronto para iniciar sua jornada pelo mundo."
+                                },
+                                {
+                                    "br": "Vamos até meu laboratório, lhe darei alguns Selos Mágicos, você poderá domar monstros selvagens com os selos."
+                                }
+                            ]],
+                            ["walk", "up"],
+                            ["walk", "left"],
+                            ["walk", "left"],
+                            ["walk", "down"],
+                            ["walk", "down"],
+                            ["walk", "left"],
+                            ["walk", "left"],
+                            ["walk", "left"],
+                            ["walk", "left"],
+                            ["walk", "left"],
+                            ["walk", "left"],
+                            ["walk", "left"],
+                            ["walk", "left"],
+                            ["walk", "left"],
+                            ["hide", "father"],
+                            ["enableMoveInputs"]
+                        ]
+                    }
+                }
+            },
+            "magiclauncher": {
+                "default": [
+                    ["disableMoveInputs"],
+                    ["dialog", [
+                        {
+                            "br": "Escolha um dos monstros que estão no lançador mágico!"
+                        }
+                    ]],
+                    ["show", "fogara"],
+                    ["show" ,"maritin"],
+                    ["show", "graenn"],
+                    ["delay", 2500],
+                    ["get_input", {
+                        "variable": "${chosenmonster}",
+                        "style": "choose_initial_monster"
+                    }],
+                    ["enableMoveInputs"]
+                ]
+            },
+            "fogara": {
+                "default": [
+                    ["dialog"]
+                ]
+            },
+            "maritin": {
+                "default": []
+            },
+            "graenn": {
+                "default": []
+            }
+        }
+    },
+    "events": {
+        "config": [
+            {"x": 7, "y": 14, "id": 1},
+            {"x": 8, "y": 14, "id": 1},
+            {"x": 9, "y": 14, "id": 1},
+            {"x": 7, "y": 15, "id": 2},
+            {"x": 8, "y": 15, "id": 2},
+            {"x": 9, "y": 15, "id": 2}
+        ],
+        "script": {
+            "1": {
+                "requiredFlagValueToExec": ["default"],
+                "script": [
+                    ["dialog", [
+                        {
+                            "br": "{player}, rápido, use meu lançador mágico!"
+                        }
+                    ]],
+                    ["requestFlag", {
+                        "type": "p",
+                        "id": 3,
+                        "dontNeedLoadSprite": true
+                    }],
+                    ["setMapFlag", 2]
+                ]
+            },
+            "2": {
+                "requiredFlagValueToExec": [2],
+                "script": [
+                    ["disableMoveInputs"],
+                    ["dialog", [
+                        {
+                            "br": "Não me deixe aqui sozinho, {player}!"
+                        }
+                    ]],
+                    ["walk", "up", {"target": "${player}"}],
+                    ["enableMoveInputs"]
+                ]
+            }
+        }
+    }
+}

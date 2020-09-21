@@ -1,0 +1,14 @@
+{
+    "new_move": {
+        "br": "{monster} aprendeu o movimento {move}."
+    },
+    "replace_move": {
+        "br": "{monster} aprendeu o movimento {move}, mas é necessário substituir um movimento antigo para coloca-lo."
+    },
+    "new_level":{
+        "br": "{monster}"
+    },
+    "buy_item": {
+
+    }
+}

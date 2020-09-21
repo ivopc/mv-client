@@ -1,0 +1,1255 @@
+{
+    "overworld": {
+        "time": {
+            "step": 70,
+            "ride": 50
+        },
+        "tile": {
+            "size": 32,
+            "properties": [
+                null,
+                {
+                    "block": true 
+                },
+                {
+                    "block": false
+                },
+                {
+                    "door": true 
+                },
+                {
+                    "wild": true 
+                },
+                {
+                    "swim": true 
+                },
+                null,
+                {
+                    "event": true
+                }
+            ]
+        },
+        "directions": [
+            "up",
+            "right",
+            "down",
+            "left"
+        ],
+        "directions_hash": {
+            "UP": 0,
+            "RIGHT": 1,
+            "DOWN": 2,
+            "LEFT": 3
+        },
+        "events": {
+            "PONG": "0",
+            "BUY_RESPONSE": "12", 
+            "ITEM_ACTION": "15",
+            "RECEIVE_WILD": "21",
+            "RECEIVE_WILD_BATTLE": "22",
+            "RECEIVE_TAMER_BATTLE": "34",
+            "OBJECT_RESPONSE": "41",
+            "CHANGE_MAP": "51",
+            "RECEIVE_PLAYERS_IN_MAP": "53",
+            "RECEIVE_PROFILE_DATA": "54",
+            "RECEIVE_SELF_PROFILE_DATA": "55",
+            "REQUEST_UPDATED_MONSTERS_ITEMS": "65",
+            "RECEIVE_UPDATED_MONSTERS_ITEMS": "66",
+            "RECEIVE_SPECIFIC_QUEST_DATA": "72",
+            "RECEIVE_QUEST_LIST": "73",
+            "RECEIVE_QUEST_REQUEST_ACTION": "75",
+            "RECEIVE_NOTIFICATIONS_DATA": "89",
+            "RECEIVE_MOVE_NOTIFICATION_DATA": "90",
+            "RECEIVE_EVOLVE_NOTIFICATION_DATA": "91",
+            "RECEIVE_LEARN_MOVE_BY_NOTIFICATION": "92",
+            "RECEIVE_DONT_LEARN_MOVE_BY_NOTIFICATION": "93",
+            "RECEIVE_EVOLVE_BY_NOTIFICATION": "94",
+            "RECEIVE_MARKETPLACE_NOTIFICATION_DATA": "95",
+            "RECEIVE_IN_BOX_MONSTERS": "7565"
+        },
+        "healing_places": {
+            "maps": {
+                "1": {
+                    "position": {
+                        "x": 9,
+                        "y": 12,
+                        "facing": 0
+                    }
+                }
+            },
+            "3": 1
+        }
+    },
+    "battle": {
+        "musics": {
+            "wild": "Wild Monster Battle.wav"
+        },
+        "sprites": {
+            "1": {
+                "name": "fogara",
+                "atlas": "monster_1",
+                "animation": {
+                    "idle": 22,
+                    "physicalattack": 1
+                },
+                "framerate": {
+                    "idle": 10,
+                    "physicalattack": 1
+                },
+                "action": {
+                    "player": {
+                        "position": {
+                            "x": 10,
+                            "y": -100
+                        },
+                        "origin": {
+                            "x": -0.005,
+                            "y": 0.77
+                        }
+                    },
+                    "opponent": {
+                        "position": {
+                            "x": 100,
+                            "y": -100
+                        },
+                        "origin": {
+                            "x": -0.005,
+                            "y": 0.77
+                        }
+                    }
+                }
+            },
+            "4": {
+                "name": "maritin",
+                "atlas": "monster_4",
+                "animation": {
+                    "idle": 23,
+                    "physicalattack": 1
+                },
+                "framerate": {
+                    "idle": 20,
+                    "physicalattack": 20
+                },
+                "action": {
+                    "player": {
+                        "position": {
+                            "x": 10,
+                            "y": -100
+                        },
+                        "origin": {
+                            "x": -0.005,
+                            "y": 0.77
+                        }
+                    },
+                    "opponent": {
+                        "position": {
+                            "x": 100,
+                            "y": -100
+                        },
+                        "origin": {
+                            "x": -0.005,
+                            "y": 0.77
+                        }
+                    }
+                }
+            },
+            "7": {
+                "name": "graenn",
+                "atlas": "monster_7",
+                "animation": {
+                    "idle": 14,
+                    "physicalattack": 3
+                },
+                "framerate": {
+                    "idle": 14,
+                    "physicalattack": 3
+                },
+                "action": {
+                    "player": {
+                        "position": {
+                            "x": 10,
+                            "y": -100
+                        },
+                        "origin": {
+                            "x": 0,
+                            "y": 0.75
+                        }
+                    },
+                    "opponent": {
+                        "position": {
+                            "x": 100,
+                            "y": -100
+                        },
+                        "origin": {
+                            "x": 0,
+                            "y": 0.75
+                        }
+                    }
+                }
+            },
+            "10": {
+                "name": "dinnox",
+                "atlas": "monster_10",
+                "animation": {
+                    "idle": 4,
+                    "physicalattack": 3
+                },
+                "framerate": {
+                    "idle": 7,
+                    "physicalattack": 5
+                },
+                "action": {
+                    "player": {
+                        "position": {
+                            "x": 10,
+                            "y": -100
+                        },
+                        "origin": {
+                            "x": -0.1,
+                            "y": 0.75
+                        }
+                    },
+                    "opponent": {
+                        "position": {
+                            "x": 100,
+                            "y": -100
+                        },
+                        "origin": {
+                            "x": -0.1,
+                            "y": 0.75
+                        }
+                    }
+                }
+            },
+            "12": {
+                "name": "atataiob",
+                "atlas": "monster_12",
+                "animation": {
+                    "idle": 4,
+                    "physicalattack": 3
+                },
+                "framerate": {
+                    "idle": 7,
+                    "physicalattack": 5
+                },
+                "action": {
+                    "player": {
+                        "position": {
+                            "x": 10,
+                            "y": -100
+                        },
+                        "origin": {
+                            "x": 0,
+                            "y": 0.71
+                        }
+                    },
+                    "opponent": {
+                        "position": {
+                            "x": 100,
+                            "y": -100
+                        },
+                        "origin": {
+                            "x": 0.2,
+                            "y": 0.77
+                        }
+                    }
+                }
+            },
+            "15": {
+                "name": "shifarie",
+                "atlas": "monster_15",
+                "animation": {
+                    "idle": 28,
+                    "physicalattack": 1
+                },
+                "framerate": {
+                    "idle": 16,
+                    "physicalattack": 1
+                },
+                "action": {
+                    "player": {
+                        "position": {
+                            "x": 10,
+                            "y": -100
+                        },
+                        "origin": {
+                            "x": -0.005,
+                            "y": 0.77
+                        }
+                    },
+                    "opponent": {
+                        "position": {
+                            "x": 100,
+                            "y": -100
+                        },
+                        "origin": {
+                            "x": -0.005,
+                            "y": 0.77
+                        }
+                    }
+                }
+            }
+        },
+        "events": {
+            "MOVE_RESPONSE": "30",
+            "ERROR_DATA": "32",
+            "CHANGE_FAINTED_MONSTER": "33",
+            "RECEIVE_PLAYER_DATA": "69"
+        },
+        "statchange": [
+            "atk",
+            "def",
+            "spe",
+            "acc",
+            "eva"
+        ]
+    },
+    "interface": {
+        "party": {
+            "slots": {
+                "size": {
+                    "width": 148,
+                    "height": 39
+                },
+                "positions": [
+                    {"x": 15, "y": 78},
+                    {"x": 171, "y": 78},
+                    {"x": 326, "y": 78},
+                    {"x": 4, "y": 122},
+                    {"x": 159, "y": 122},
+                    {"x": 314, "y": 122}
+                ]
+            },
+            "tooltips": {
+                "positions": [
+                    {"x": 20, "y": 18},
+                    {"x": 180, "y": 18},
+                    {"x": 261, "y": 18},
+                    {"x": 22, "y": 164},
+                    {"x": 162, "y": 164},
+                    {"x": 256, "y": 164}
+                ]
+            },
+            "btntooltips": {
+                "positions": {
+                    "once": {
+                        "x": 58,
+                        "y": 4
+                    }, 
+                    "two": [
+                        {"x": 8, "y": 3},
+                        {"x": 115, "y": 3}
+                    ],
+                    "return": {
+                        "x": 200,
+                        "y": 3
+                    }
+                }
+            },
+            "menus": {
+                "base": {
+                    "btninfo": {
+                        "x": 4,
+                        "y": 4
+                    },
+                    "btnstatistics": {
+                        "x": 98,
+                        "y": 4
+                    },
+                    "btnmoves": {
+                        "x": 192,
+                        "y": 4
+                    },
+                    "name": {
+                        "x": 312,
+                        "y": 31
+                    },
+                    "level": {
+                        "x": 448,
+                        "y": 31
+                    }
+                },
+                "status": {
+                    "pedianumberattr": {
+                        "x": 33,
+                        "y": 46
+                    },
+                    "pedianumberval": {
+                        "x": 272,
+                        "y": 46
+                    },
+                    "nameattr": {
+                        "x": 33,
+                        "y": 64
+                    },
+                    "nameval": {
+                        "x": 272,
+                        "y": 64
+                    },
+                    "typeattr": {
+                        "x": 33,
+                        "y": 83
+                    },
+                    "exp": {
+                        "x": 39,
+                        "y": 175
+                    },
+                    "expstatistics": {
+                        "x": 250,
+                        "y": 176
+                    },
+                    "tonextlevel": {
+                        "x": 60,
+                        "y": 202
+                    }
+                },
+                "statistics": {
+                    "hpattr": {
+                        "x": 41,
+                        "y": 36
+                    },
+                    "hpval": {
+                        "x": 247,
+                        "y": 38
+                    },
+                    "mpattr": {
+                        "x": 41,
+                        "y": 66
+                    },
+                    "mpval": {
+                        "x": 195,
+                        "y": 68
+                    },
+                    "atkattr": {
+                        "x": 29,
+                        "y": 99
+                    },
+                    "atkval": {
+                        "x": 274,
+                        "y": 99
+                    },
+                    "defattr": {
+                        "x": 29,
+                        "y": 117
+                    },
+                    "defval": {
+                        "x": 274,
+                        "y": 117
+                    },
+                    "speattr": {
+                        "x": 29,
+                        "y": 134
+                    },
+                    "speval": {
+                        "x": 274,
+                        "y": 134
+                    }
+                },
+                "moves": {
+                    "buttons": [
+                        {"x": 14, "y": 45},
+                        {"x": 14, "y": 89},
+                        {"x": 14, "y": 132},
+                        {"x": 14, "y": 175}
+                    ]
+                }
+            }
+        },
+        "items": {
+            "btnwindow": {
+                "once": {
+                    "x": 182,
+                    "y": 99
+                },
+                "two": [
+                    {"x": 182, "y": 70},
+                    {"x": 182, "y": 130}
+                ],
+                "three": [
+                    {"x": 0, "y": 0},
+                    {"x": 0, "y": 0},
+                    {"x": 0, "y": 0}
+                ]
+            }
+        },
+        "battle": {
+            "statchange": {
+                "size": {
+                    "width": 32,
+                    "height": 19
+                },
+                "positions": {
+                    "player": {
+                        "atk": {
+                            "x": 3,
+                            "y": 43
+                        },
+                        "def": {
+                            "x": 3,
+                            "y": 62
+                        },
+                        "spe": {
+                            "x": 3,
+                            "y": 81
+                        },
+                        "acc": {
+                            "x": 3,
+                            "y": 100
+                        },
+                        "eva": {
+                            "x": 3,
+                            "y": 119
+                        }
+                    },
+                    "opponent": {
+                        "atk": {
+                            "x": 411,
+                            "y": 43
+                        },
+                        "def": {
+                            "x": 411,
+                            "y": 62
+                        },
+                        "spe": {
+                            "x": 411,
+                            "y": 81
+                        },
+                        "acc": {
+                            "x": 411,
+                            "y": 100
+                        },
+                        "eva": {
+                            "x": 411,
+                            "y": 119
+                        }
+                    }
+                }
+            }
+        },
+        "quest": {
+            "divs": [
+                {"x": 1, "y": 46},
+                {"x": 1, "y": 76},
+                {"x": 1, "y": 106},
+                {"x": 1, "y": 136},
+                {"x": 1, "y": 166},
+                {"x": 1, "y": 196}
+            ],
+            "rewards": [
+                {"x": 355, "y": 186},
+                {"x": 385, "y": 186},
+                {"x": 415, "y": 186},
+                {"x": 445, "y": 186},
+                {"x": 355, "y": 214},
+                {"x": 385, "y": 214},
+                {"x": 415, "y": 214},
+                {"x": 445, "y": 214}
+            ],
+            "acceptrejectrewards": [
+                {"x": 184, "y": 98},
+                {"x": 214, "y": 98},
+                {"x": 244, "y": 98},
+                {"x": 274, "y": 98},
+                {"x": 184, "y": 128},
+                {"x": 214, "y": 128},
+                {"x": 244, "y": 128},
+                {"x": 274, "y": 128}
+            ]
+        },
+        "profile": {
+            "slots": [
+                {"x": 109, "y": 13},
+                {"x": 164, "y": 13},
+                {"x": 220, "y": 13},
+                {"x": 276, "y": 13},
+                {"x": 333, "y": 13},
+                {"x": 389, "y": 13}
+            ]
+        },
+        "selfprofile": {
+            "skinslots": [
+                {"x": 247, "y": 76},
+                {"x": 291, "y": 76},
+                {"x": 337, "y": 76},
+                {"x": 382, "y": 76},
+
+                {"x": 247, "y": 127},
+                {"x": 291, "y": 127},
+                {"x": 337, "y": 127},
+                {"x": 382, "y": 127},
+
+                {"x": 247, "y": 178},
+                {"x": 291, "y": 178},
+                {"x": 337, "y": 178},
+                {"x": 382, "y": 178}
+            ]
+        },
+        "box": {
+            "partyslots": [
+                {"x": 94, "y": 16},
+                {"x": 132, "y": 16},
+                {"x": 169, "y": 16},
+                {"x": 208, "y": 16},
+                {"x": 246, "y": 16},
+                {"x": 284, "y": 16}
+
+            ],
+            "boxslots": [
+                {"x": 24, "y": 82},
+                {"x": 63, "y": 82},
+                {"x": 100, "y": 82},
+                {"x": 138, "y": 82},
+                {"x": 176, "y": 82},
+                {"x": 214, "y": 82},
+                {"x": 252, "y": 82},
+                {"x": 290, "y": 82}, 
+
+                {"x": 24, "y": 119},
+                {"x": 63, "y": 119},
+                {"x": 100, "y": 119},
+                {"x": 138, "y": 119},
+                {"x": 176, "y": 119},
+                {"x": 214, "y": 119},
+                {"x": 252, "y": 119},
+                {"x": 290, "y": 119},
+
+                {"x": 24, "y": 156},
+                {"x": 63, "y": 156},
+                {"x": 100, "y": 156},
+                {"x": 138, "y": 156},
+                {"x": 176, "y": 156},
+                {"x": 214, "y": 156},
+                {"x": 252, "y": 156},
+                {"x": 290, "y": 156},
+
+                {"x": 24, "y": 194},
+                {"x": 63, "y": 194},
+                {"x": 100, "y": 194},
+                {"x": 138, "y": 194},
+                {"x": 176, "y": 194},
+                {"x": 214, "y": 194},
+                {"x": 252, "y": 194},
+                {"x": 290, "y": 194}
+            ],
+            "monsters": {
+                "10": {
+                    "x": 347,
+                    "y": 47
+                },  
+                "12": {
+                    "x": 341,
+                    "y": 70,
+                    "scale": 0.7
+                }
+            }
+        },
+        "market": {
+            "slots": [
+                {"x": 26, "y": 63},
+                {"x": 135, "y": 63},
+                {"x": 241, "y": 63},
+                {"x": 348, "y": 63},
+                {"x": 26, "y": 115},
+                {"x": 135, "y": 115},
+                {"x": 241, "y": 115},
+                {"x": 348, "y": 115},
+                {"x": 26, "y": 167},
+                {"x": 135, "y": 167},
+                {"x": 241, "y": 167},
+                {"x": 348, "y": 167}
+            ],
+            "tabs": [
+                {"x": 29, "y": 12},
+                {"x": 114, "y": 12},
+                {"x": 197, "y": 12},
+                {"x": 283, "y": 12},
+                {"x": 367, "y": 12}
+
+            ]
+        },
+        "notify": {
+            "popover": {
+                "x": 236,
+                "y":29
+            },
+            "buttons": [
+                {"x": 0, "y": 8},
+                {"x": 0, "y": 45},
+                {"x": 0, "y": 85},
+                {"x": 0, "y": 125}
+            ],
+            "divs": [
+                {"x": 12, "y": 42},
+                {"x": 12, "y": 82},
+                {"x": 12, "y": 122},
+                {"x": 12, "y": 162}
+            ]
+        },
+        "learnmove": {
+            "buttons": [
+                {"x": 328, "y": 26},
+                {"x": 328, "y": 76},
+                {"x": 328, "y": 126},
+                {"x": 328, "y": 176}
+            ]
+        }
+    },
+    "maps": {
+        "1": {
+            "name": "city",
+            "music": {
+                "name": "new_valle_town",
+                "src": "New Valle Town.wav"
+            }
+        },
+        "2": {
+            "name": "map22",
+            "music": {
+                "name": "new_valle_town",
+                "src": "New Valle Town.wav"
+            },
+            "customAssets": [
+                {"type": "image", "key": "initial-main-bg", "src": "/assets/img/initial_choose/main_bg.png"},
+                {"type": "image", "key": "initial-box-bg", "src": "/assets/img/initial_choose/box_bg.png"},
+                {"type": "spritesheet", "key": "initial-select-btn", "src": "/assets/img/initial_choose/select_btn.png", "frame": {"width": 154, "height": 170}},
+                {"type": "spritesheet", "key": "initial-btn-accept", "src": "/assets/img/initial_choose/btn_box_accept.png", "frame": {"width": 142, "height": 30}},
+                {"type": "spritesheet", "key": "initial-btn-reject", "src": "/assets/img/initial_choose/btn_box_reject.png", "frame": {"width": 142, "height": 30}},
+                {"type": "atlas", "key": "monster_10", "src": "/assets/img/monsters/10.png", "atlas": "/assets/res/monster_10.json"},
+                {"type": "atlas", "key": "monster_12", "src": "/assets/img/monsters/12.png", "atlas": "/assets/res/monster_12.json"}
+            ],
+            "hasWild": true,
+            "wild_appearence": [10, 12]
+        },
+        "3": {
+            "name": "map3",
+            "music": {
+                "name": "route_1",
+                "src": "Route 1.wav"
+            },
+            "hasWild": true,
+            "wild_appearence": [10, 12]
+        },
+        "4": {
+            "name": "player_house",
+            "music": {
+                "name": "new_valle_town",
+                "src": "New Valle Town.wav"
+            }
+        },
+        "5": {
+            "name": "sotopus_connection",
+            "music": {
+                "name": "route_1",
+                "src": "Route 1.wav"
+            },
+            "hasWild": true,
+            "wild_appearence": [10, 12]
+        },
+        "6": {
+            "name": "sotopus",
+            "music": {
+                "name": "sotopus_lake",
+                "src": "Sotopus Lake.wav"
+            }
+        },
+        "7": {
+            "name": "player_room_house",
+            "music": {
+                "name": "new_valle_town",
+                "src": "New Valle Town.wav"
+            }
+        }
+    },
+    "characters": {
+        "1": {
+            "name": "base",
+            "origin": {
+                "up": {
+                    "x": -0.25,
+                    "y": 0.1
+                },
+                "right": {
+                    "x": -0.25,
+                    "y": 0.1
+                },
+                "down": {
+                    "x": -0.25,
+                    "y": 0.1  
+                },
+                "left": {
+                    "x": -0.25,
+                    "y": 0.1
+                }
+            },
+            "atlas": "characters"
+        },
+        "2": {
+            "name": "char1",
+            "origin": {
+                "up": {
+                    "x": -0.2,
+                    "y": 0.2
+                },
+                "right": {
+                    "x": -0.2,
+                    "y": 0.2
+                },
+                "down": {
+                    "x": -0.2,
+                    "y": 0.2
+                },
+                "left": {
+                    "x": -0.2,
+                    "y": 0.2
+                }
+            },
+            "atlas": "character_male1"
+        },
+        "3": {
+            "name": "char2",
+            "origin": {
+                "up": {
+                    "x": -0.2,
+                    "y": 0.2
+                },
+                "right": {
+                    "x": -0.2,
+                    "y": 0.2
+                },
+                "down": {
+                    "x": -0.2,
+                    "y": 0.2
+                },
+                "left": {
+                    "x": -0.2,
+                    "y": 0.2
+                }
+            },
+            "atlas": "character_male2"
+        },
+        "4": {
+            "name": "char3",
+            "origin": {
+                "up": {
+                    "x": -0.2,
+                    "y": 0.2
+                },
+                "right": {
+                    "x": -0.2,
+                    "y": 0.2
+                },
+                "down": {
+                    "x": -0.1,
+                    "y": 0.2
+                },
+                "left": {
+                    "x": -0.2,
+                    "y": 0.2
+                }
+            },
+            "atlas": "character_female1"
+        },
+        "Fogara": {
+            "name": "fogara",
+            "origin": {
+                "up": {
+                    "x": 0,
+                    "y": -0.1
+                },
+                "right": {
+                    "x": 0,
+                    "y": 0.1
+                },
+                "down": {
+                    "x": -0.05,
+                    "y": 0.1
+                },
+                "left": {
+                    "x": 0,
+                    "y": 0.1
+                }
+            },
+            "atlas": "monster_1_overworld"
+        },
+        "Maritin": {
+            "name": "maritin",
+            "origin": {
+                "up": {
+                    "x": 0,
+                    "y": 0.1
+                },
+                "right": {
+                    "x": 0,
+                    "y": 0.1
+                },
+                "down": {
+                    "x": 0.05,
+                    "y": 0.1
+                },
+                "left": {
+                    "x": 0,
+                    "y": 0.1
+                }
+            },
+            "atlas": "monster_4_overworld"
+        },
+        "Graenn": {
+            "name": "graenn",
+            "origin": {
+                "up": {
+                    "x": 0,
+                    "y": 0.1
+                },
+                "right": {
+                    "x": 0,
+                    "y": 0.1
+                },
+                "down": {
+                    "x": 0.05,
+                    "y": 0.1
+                },
+                "left": {
+                    "x": 0,
+                    "y": 0.1
+                }
+            },
+            "atlas": "monster_7_overworld"
+        },
+        "Dinnox": {
+            "name": "dinnox",
+            "origin": {
+                "up": {
+                    "x": -0.45,
+                    "y": -0.23
+                },
+                "right": {
+                    "x": -0.6,
+                    "y": -0.23
+                },
+                "down": {
+                    "x": -0.45,
+                    "y": -0.23
+                },
+                "left": {
+                    "x": -0.6,
+                    "y": -0.23
+                }
+            },
+            "atlas": "monster_10_overworld"
+        },
+        "Atataiob": {
+            "name": "atataiob",
+            "origin": {
+                "up": {
+                    "x": -0.8,
+                    "y": -0.25
+                },
+                "right": {
+                    "x": -0.2,
+                    "y": -0.25
+                },
+                "down": {
+                    "x": -0.8,
+                    "y": -0.25
+                },
+                "left": {
+                    "x": -0.2,
+                    "y": -0.25
+                }
+            },
+            "atlas": "monster_12_overworld"
+        },
+        "Shifarie": {
+            "name": "shifarie",
+            "origin": {
+                "up": {
+                    "x": -0.15,
+                    "y": 0
+                },
+                "right": {
+                    "x": -0.05,
+                    "y": 0
+                },
+                "down": {
+                    "x": -0.1,
+                    "y": 0.1
+                },
+                "left": {
+                    "x": -0.2,
+                    "y": 0
+                }
+            },
+            "atlas": "monster_15_overworld"
+        }
+    },
+    "monsters": {
+        "1": {
+            "name": "Fogara",
+            "types": ["fire"],
+            "rating": 3
+        },
+        "4": {
+            "name": "Maritin",
+            "types": ["water"],
+            "rating": 3
+        },
+        "7": {
+            "name": "Graenn",
+            "types": ["plant"],
+            "rating": 3
+        },
+        "10": {
+            "name": "Dinnox",
+            "types": ["ground", "null"],
+            "rating": 0
+        },
+        "12": {
+            "name": "Atataiob",
+            "types": ["fire"],
+            "rating": 0
+        },
+        "15": {
+            "name": "Shifarie",
+            "types": ["light"],
+            "rating": 2
+        }
+    },
+    "moves": {
+        "1": {
+            "name": {
+                "br": "Bola de Fogo",
+                "en": "Fireball"
+            },
+            "desc": {
+                "br": "Um poderoso ataque do tipo fogo."
+            },
+            "manaNeeded": 0,
+            "type": "fire"
+        },
+        "2": {
+            "name": {
+                "br": "Rosnar",
+                "en": "Growl"
+            },
+            "desc": {
+                "br": "Uma técnica que diminui o ataque do oponente."
+            },
+            "type": "null"
+        },
+        "3": {
+            "name": {
+                "br": "Paralisar",
+                "en": "Paralyze"
+            },
+            "desc": {
+                "br": "Uma técnica especial que paralisa o oponente. Quando paralisado, a vítima tem chance de ficar imóvel ao tentar atacar."
+            },
+            "type": "electric"
+        },
+        "4": {
+            "name": {
+                "br": "Envenenar",
+                "en": "Poison"
+            },
+            "desc": {
+                "br": "Um ataque que envenena o oponente. Ao final de cada turno o oponente perde uma quantia de HP."
+            },
+            "type": "plant"
+        },
+        "5": {
+            "name": {
+                "br": "Hipnose",
+                "en": "Hypnosis"
+            },
+            "desc": {
+                "br": "Uma técnica especial que faz o oponente dormir."
+            },
+            "type": "null"
+        }
+    },
+    "items": {
+        "overworld": {
+            "use": [6, 10, 15, 25]
+        },
+        "battle": {
+            "use": [1, 6, 10]
+        },
+        "market": {
+            "1": [
+                {"type": "seal", "products": [1, 6]},
+                {"type": "medicines", "products": [6, 1, 6, 1, 6, 6, 10, 1, 6, 1, 6, 10, 1, 6, 10, 1, 6, 1, 6, 10, 1, 6, 10, 1, 6, 1, 6, 10, 1, 6]},
+                {"type": "special", "products": [1, 6, 10]},
+                {"type": "evolve", "products": [10, 1]},
+                {"type": "skin", "products": [1, 10, 16]}
+            ], 
+            "types": {
+                "seal": true,
+                "medicines": true,
+                "special": true,
+                "evolve": true,
+                "skin": true,
+                "moves": true
+            }
+        },
+        "1": {
+            "name": {
+                "br": "Selo Mágico"
+            },
+            "sprite": "magic-seal",
+            "type": "magic_seal",
+            "price": {
+                "amount": 100,
+                "type": 1
+            }
+        },
+        "6": {
+            "name": {
+                "br": "Super Poção"
+            },
+            "effect": {
+                "heal": 50
+            },
+            "sprite": "super-potion",
+            "type": "health_potion",
+            "price": {
+                "amount": 1000,
+                "type": 1
+            }
+        },
+        "10": {
+            "name": {
+                "br": "Super Poção de Mana",
+                "en": "Mana Super Potion"
+            },
+            "effect": {
+                "heal": 50
+            },
+            "sprite": "antidote",
+            "type": "mana_potion",
+            "price": {
+                "amount": 1000,
+                "type": 1
+            }
+        },
+        "15": {
+            "name": {
+                "br": "Carbos"
+            },
+            "type": "vitamin"
+        },
+        "16": {
+            "name": {
+                "br": "Skin 01"
+            },
+            "type": "skin",
+            "sprite": "antidote",
+            "price": {
+                "amount": 100,
+                "type": 2
+            }
+        },
+        "25": {
+            "name": {
+                "br": "Pergaminho 25"
+            },
+            "move_id": 3,
+            "type": "parchment",
+            "sprite": "parchment",
+            "price": {
+                "amount": 15000,
+                "type": 1
+            }
+        }
+    },
+    "skins": {
+        "default": {
+            "character_id": 2
+        },
+        "16": {
+            "character_id": 3
+        }
+    },
+    "quests": {
+        "1": {
+            "name": {
+                "br": "Uma simples missão"
+            },
+            "description": {
+                "br": "Um dos meus monstros favoritos estão sendo espantados por esses pequenos vermes."
+            },
+            "requisits": [
+                {"type": "defeat", "monsterpedia_id": 10, "amount": 5}
+            ],
+            "rewards": [
+                {"type": "silver", "amount": 1500},
+                {"type": "item", "amount": 5, "item_id": 1}
+            ]
+        },
+        "2": {
+            "name": {
+                "br": "Invasão no Cemitério"
+            },
+            "requisits": [
+                {"type": "tame", "monsterpedia_id": 10, "amount": 1},
+                {"type": "defeat", "monsterpedia_id": 12, "amount": 10}
+            ],
+            "rewards": [
+                {"type": "silver", "amount": 2500},
+                {"type": "item", "amount": 2, "item_id": 1}
+            ]
+        },
+        "3": {
+            "name":{ 
+                "br": "O Arauto"
+            },
+            "requisits": [
+                {"type": "tame", "name": "Blaziken", "amount": {"total": 10}}
+            ],
+            "rewards": {
+                "exp": 900,
+                "silver": 100,
+                "items": [1]
+            }
+        }
+    },
+    "levelprofile": {
+        "0": "Junior"
+    },
+    "rank": {
+        "0": "Unranked"
+    },
+    "status_problem": {
+        "1": "paralyzed",
+        "2": "poisoned",
+        "3": "confused",
+        "5": "sleeping" 
+    },
+    "injectedactions": {
+        "heal_dialog": [
+            {
+                "br": "Primeiro devemos restaurar seus monstros.",
+                "en": ""
+            },
+            {
+                "br": "...",
+                "en": "..."
+            },
+            {
+                "br": "...",
+                "en": "..."
+            },
+            {
+                "br": "Seus monstros foram curados.",
+                "en": ""
+            },
+            {
+                "br": "Se a saúde de seus monstros estiverem baixa, venha até mim.",
+                "en": ""
+            },
+            {
+                "br": "Não esqueça de sempre andar com poções para curar seus monstros em situações críticas.",
+                "en": ""
+            }
+        ]
+    }
+}

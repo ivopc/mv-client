@@ -1,0 +1,62 @@
+{
+    "map": {
+        "id": 7,
+        "weather": "default",
+        "hasTamers": false,
+        "teleport": [
+            {
+                "x": 4,
+                "y": 1,
+                "mid": 4,
+                "tid": 42
+            }
+        ],
+        "incomingteleport": {
+            "1": {
+                "x": 4,
+                "y": 2,
+                "facing": 2
+            }
+        },
+        "dayandnight": false
+    },
+    "autoExec": {
+        "default": [
+            ["disableMoveInputs"],
+            ["requestFlag", {
+                "type": "p",
+                "id": 1,
+                "dontNeedLoadSprite": true
+            }],
+            ["dialog", [
+                {
+                    "br": "{player}, acorde! Já está ficando tarde, você precisa se apressar!"
+                }
+            ]],
+            ["walk", "up", {"target": "mother"}],
+            ["hide", "mother"],
+            ["walk", "right", {"target": "${player}"}],
+            ["enableMoveInputs"]
+        ]
+    },
+    "elements": {
+        "config": {
+            "mother": {
+                "type": 2,
+                "name": "mother",
+                "default": {
+                    "position": {
+                        "x": 4,
+                        "y": 2,
+                        "facing": 2
+                    },
+                    "sprite": 1
+                },
+                "2": {
+                    "exist": false
+                }
+            }
+        },
+        "screenplay": {}
+    }
+}

@@ -1,0 +1,271 @@
+{
+    "frames": {
+        "null": {
+            "frame": {
+                "x": 114,
+                "y": 8,
+                "w": 178,
+                "h": 71
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 114,
+                "y": 8,
+                "w": 178,
+                "h": 71
+            },
+            "sourceSize": {
+                "w": 178,
+                "h": 71
+            }
+        },
+        "mystic": {
+            "frame": {
+                "x": 353,
+                "y": 8,
+                "w": 196,
+                "h": 72
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 353,
+                "y": 8,
+                "w": 196,
+                "h": 72
+            },
+            "sourceSize": {
+                "w": 196,
+                "h": 72
+            }
+        },
+        "fire": {
+            "frame": {
+                "x": 6,
+                "y": 99,
+                "w": 190,
+                "h": 72
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 6,
+                "y": 99,
+                "w": 190,
+                "h": 72
+            },
+            "sourceSize": {
+                "w": 190,
+                "h": 72
+            }
+        },
+        "water": {
+            "frame": {
+                "x": 246,
+                "y": 99,
+                "w": 171,
+                "h": 72
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 246,
+                "y": 99,
+                "w": 171,
+                "h": 72
+            },
+            "sourceSize": {
+                "w": 171,
+                "h": 72
+            }
+        },
+        "plant": {
+            "frame": {
+                "x": 458,
+                "y": 99,
+                "w": 192,
+                "h": 72
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 458,
+                "y": 99,
+                "w": 192,
+                "h": 72
+            },
+            "sourceSize": {
+                "w": 192,
+                "h": 72
+            }
+        },
+        "wind": {
+            "frame": {
+                "x": 3,
+                "y": 203,
+                "w": 185,
+                "h": 72
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 3,
+                "y": 203,
+                "w": 185,
+                "h": 72
+            },
+            "sourceSize": {
+                "w": 185,
+                "h": 72
+            }
+        },
+        "ground": {
+            "frame": {
+                "x": 255,
+                "y": 203,
+                "w": 178,
+                "h": 72
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 255,
+                "y": 203,
+                "w": 178,
+                "h": 72
+            },
+            "sourceSize": {
+                "w": 178,
+                "h": 72
+            }
+        },
+        "ground": {
+            "frame": {
+                "x": 255,
+                "y": 203,
+                "w": 178,
+                "h": 72
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 255,
+                "y": 203,
+                "w": 178,
+                "h": 72
+            },
+            "sourceSize": {
+                "w": 178,
+                "h": 72
+            }
+        },
+        "electric": {
+            "frame": {
+                "x": 452,
+                "y": 203,
+                "w": 205,
+                "h": 72
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 452,
+                "y": 203,
+                "w": 205,
+                "h": 72
+            },
+            "sourceSize": {
+                "w": 205,
+                "h": 72
+            }
+        },
+        "light": {
+            "frame": {
+                "x": 147,
+                "y": 296,
+                "w": 165,
+                "h": 72
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 147,
+                "y": 296,
+                "w": 165,
+                "h": 72
+            },
+            "sourceSize": {
+                "w": 165,
+                "h": 72
+            }
+        },
+        "shadow": {
+            "frame": {
+                "x": 344,
+                "y": 294,
+                "w": 199,
+                "h": 71
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 344,
+                "y": 294,
+                "w": 199,
+                "h": 71
+            },
+            "sourceSize": {
+                "w": 199,
+                "h": 71
+            }
+        },
+        "metal": {
+            "frame": {
+                "x": 146,
+                "y": 400,
+                "w": 185,
+                "h": 72
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 146,
+                "y": 400,
+                "w": 185,
+                "h": 72
+            },
+            "sourceSize": {
+                "w": 185,
+                "h": 72
+            }
+        },
+        "sound": {
+            "frame": {
+                "x": 344,
+                "y": 400,
+                "w": 170,
+                "h": 72
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 344,
+                "y": 400,
+                "w": 170,
+                "h": 72
+            },
+            "sourceSize": {
+                "w": 170,
+                "h": 72
+            }
+        }
+    },
+    "meta": {
+        "size": {
+            "w": 688,
+            "h": 483
+        },
+        "scale": 1
+    }
+}

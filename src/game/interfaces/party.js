@@ -5,7 +5,7 @@ import MonsterStatus from "./monsterstatus";
 import Button from "@/game/plugins/button";
 import PointsBar from "@/game/plugins/pointsbar";
 
-import RawCharacter from "@/game/gameobjects/rawcharacter";
+import RawCharacter from "@/game/prefabs/rawcharacter";
 
 const Party = function (scene, properties = {}) {
     this.scene = scene;

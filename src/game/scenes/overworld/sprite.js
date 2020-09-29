@@ -3,10 +3,10 @@ import _ from "underscore";
 import Overworld from "./index";
 
 // Sprites Extends
-import RawCharacter from "@/game/gameobjects/rawcharacter";
-import Character from "@/game/gameobjects/character";
-import Player from "@/game/gameobjects/player";
-import Loading from "@/game/gameobjects/loading";
+import RawCharacter from "@/game/prefabs/rawcharacter";
+import Character from "@/game/prefabs/character";
+import Player from "@/game/prefabs/player";
+import Loading from "@/game/prefabs/loading";
 
 // Interfaces
 import Party from "@/game/interfaces/party";
@@ -1674,8 +1674,10 @@ Overworld.toggleNotifications = function () {
 };
 
 Overworld.appendWildMenu = function (data) {
+    console.log("OLA KK 1233JGHFMHDFJGH");
     this.interfacesHandler.wildMenu = new WildMenu(this, data);
     this.interfacesHandler.wildMenu.append(data);
+    this.containers.interface.add(this.interfacesHandler.wildMenu);
 };
 
 Overworld.appendWildTooltip = function (data) {

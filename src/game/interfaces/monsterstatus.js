@@ -4,7 +4,7 @@ import Button from "@/game/plugins/button";
 import PointsBar from "@/game/plugins/pointsbar";
 import ReplacePhrase from "@/game/plugins/replacephrase";
 
-import Monster from "@/game/gameobjects/monster";
+import Monster from "@/game/prefabs/monster";
 
 const TABS = {
     INFO: 1,

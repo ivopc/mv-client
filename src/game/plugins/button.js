@@ -39,10 +39,10 @@ Button.prototype.setListeners = function () {
         useHandCursor: true
     });
 
-    this.sprite.on("pointerdown", this.listeners.click.bind(this));
-    this.sprite.on("pointerover", this.listeners.over.bind(this));
-    this.sprite.on("pointerup", this.listeners.up.bind(this));
-    this.sprite.on("pointerout", this.listeners.out.bind(this));
+    this.sprite.on("pointerdown", this.listeners.click, this);
+    this.sprite.on("pointerover", this.listeners.over, this);
+    this.sprite.on("pointerup", this.listeners.up, this);
+    this.sprite.on("pointerout", this.listeners.out, this);
 };
 
 Button.prototype.listeners = {

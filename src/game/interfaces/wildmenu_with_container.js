@@ -8,16 +8,6 @@ const TOOLTIPTYPE = {
     CAN_SEE_SP: 1
 };
 
-// const WildMenu = function (scene, data) {
-//     this.scene = scene;
-//     this.data = data;
-
-//     this.text = {};
-//     this.button = {};
-// };
-
-// WildMenu.prototype.append = function () {};
-
 class WildMenu extends Phaser.GameObjects.Container {
     constructor (scene, x, y, children) {
         super(scene, 0, 0, children);
@@ -29,9 +19,9 @@ class WildMenu extends Phaser.GameObjects.Container {
         this.setScrollFactor(0);
         scene.add.existing(this);
 
-        this.setInteractive(new Phaser.Geom.Circle(0, 0, 360), Phaser.Geom.Circle.Contains);
+        this.setInteractive();
 
-        this.bringToTop();
+        //this.bringToTop();
     }
 
     append (data) {
@@ -57,7 +47,8 @@ class WildMenu extends Phaser.GameObjects.Container {
             },
             frames: {click: 1, over: 2, up: 0, out: 0}
         });
-        this.add(this.button.battle.sprite);
+        console.log(this.button.battle);
+        //this.add(this.button.battle.sprite);
 
         this.button.run = new Button(this.scene, {
             x: 375,
@@ -123,8 +114,7 @@ class WildMenu extends Phaser.GameObjects.Container {
             fontSize: 14, 
             color: "#fff" 
         })
-            .setOrigin(0.5)
-            .setX(this.rating.getCenter().x);
+            .setOrigin(0.5);
 
         this.add(this.text.name);
 
@@ -134,12 +124,11 @@ class WildMenu extends Phaser.GameObjects.Container {
 
         this.add(this.rating);
 
-        this.text.name.setOrigin(0.5);
         this.text.name.setX(this.rating.getCenter().x);
 
-        this.bringToTop();
+        //this.bringToTop();
 
-        Object.keys(this.button).forEach(btn => this.bringToTop(btn.spri));
+        //Object.keys(this.button).forEach(btn => this.bringToTop(btn.spri));
     }
 
     appendTooltip (data) {
@@ -265,32 +254,9 @@ class WildMenu extends Phaser.GameObjects.Container {
     }
 
     clearTooltip () {
-
         this.tooltipContainer.destroy();
-
-        // switch (this.wildTooltipType) {
-        //     case TOOLTIPTYPE.CANT_SEE_SP: {
-        //         this.wildTooltip.destroy();
-        //         this.wildLevelText.destroy();
-        //         break;
-        //     };
-        //     case TOOLTIPTYPE.CAN_SEE_SP: {
-        //         this.wildTooltip.destroy();
-        //         this.wildHpIcon.destroy();
-        //         this.wildAtkIcon.destroy();
-        //         this.wildDefIcon.destroy();
-        //         this.wildSpeIcon.destroy();
-        //         this.wildHpValue.destroy();
-        //         this.wildAtkValue.destroy();
-        //         this.wildDefValue.destroy();
-        //         this.wildSpeValue.destroy();
-        //         this.wildLevelText.destroy();
-        //         break;
-        //     };
-        // };
-
         this.wildTooltipOppened = false;
     }
-}
+};
 
 export default WildMenu;

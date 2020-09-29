@@ -11,6 +11,7 @@ const WildMenu = function (scene, data) {
     this.scene = scene;
     this.data = data;
 
+    this.sprite = {};
     this.text = {};
     this.button = {};
 

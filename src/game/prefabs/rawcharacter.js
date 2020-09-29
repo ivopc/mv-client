@@ -60,14 +60,12 @@ class RawCharacter extends Phaser.GameObjects.Sprite {
         console.log("loading async sprite", {atlas});
 
         this.scene.load.once("complete", () => {
-            setTimeout(() => {
-                this._data.sprite = sprite;
-                this.rawSetSprite(sprite);
-            }, 8000);
+            this._data.sprite = sprite;
+            this.rawSetSprite(sprite);
         }, this);
 
         this.scene.load.atlas(
-            atlas, 
+            atlas,
             "assets/img/characters/" + atlas + ".png",
             "assets/res/" + atlas + ".json"
         );

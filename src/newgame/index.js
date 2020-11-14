@@ -4,6 +4,8 @@ import Boot from "./scenes/boot";
 import Overworld from "./scenes/overworld";
 import Battle from "./scenes/battle";
 
+import OverworldMap from "./subscenes/map";
+
 import RexUIPlugin from "phaser3-rex-plugins/templates/ui/ui-plugin.js";
 import DragPlugin from "phaser3-rex-plugins/plugins/drag-plugin.js";
 
@@ -38,9 +40,12 @@ function launch (containerId) {
         }
     });
 
-    // adicionando scenes a instancia do jogo
+    // add scenes to game instances
     gameInstance.scene.add("boot", Boot);
+
     gameInstance.scene.add("overworld", Overworld);
+    gameInstance.scene.add("map", OverworldMap);
+
     gameInstance.scene.add("battle", Battle);
 
     return gameInstance;

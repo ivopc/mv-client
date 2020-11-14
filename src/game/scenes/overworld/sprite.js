@@ -196,7 +196,7 @@ Overworld.appendCharacter = function (object = {}) {
 };
 
 // appendar objetos no mapa (carregamento)
-Overworld.appendMapObjects = function (objectsData) {
+Overworld.appendMapObjects = function () {
     // percorrendo elementos para adiciona-los ao mapa
     _.each(
         this.cache.json.get(this.getCurrentMapName("events")).elements.config, 
@@ -209,6 +209,7 @@ Overworld.appendSpecificObject = function (element) {
 
     // pegando flag atual ||| fallback para default
     let currentFlag = element[this.flag] || element["default"];
+    console.log({currentFlag});
 
     // checando se elemento existe, default: true
     currentFlag.exist = "exist" in currentFlag ? currentFlag.exist : true;
@@ -286,7 +287,6 @@ Overworld.appendWildMonster = function (sprite) {
         duration: 600,
         alpha: 1,
         onComplete: () => {
-
             // vira personagem pra cima || 0 = cima
             this.player.face(0);
         } 

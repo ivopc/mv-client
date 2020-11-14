@@ -10,6 +10,7 @@
 
 <script>
     import socketCluster from "socketcluster-client";
+    import Boot from "@/newgame/managers/Boot";
 
     export default {
         name: "GameClient",
@@ -21,14 +22,14 @@
             clientTokens: [
                 {
                     uid: "1",
-                    token: "WlzGluUs2D0SZQRCHFvOjeaSR5fA14o7a2mPWBBQHbBBLRJBd8Qvkic2mBlQNMfXMyd5aTmaIDvS709VhzqWVUNRRXatQHixOP6xeVMRjzPBrA1OqHMZW5ENLFFKyUnTxxEmeqvScyqTWaj1b8VeVM"
+                    token: "pq4jyKzCtItKr766LMSfPzimoz8ib3b4HBihyK8ftVWiKhoS75ZVj7kEXqCBsPTuOqiNLSwxDWMWlnycdt7U44aVC87uF4GwsOKhYlo4Mft11MbcErg9It6C1zlSh3Psxmm8BrU8FR03wgqc8Yw7pQ"
                 },
                 {
                     uid: "3",
                     token: "NmEN5wS7rmLnUrj49p24iDQmpN2tiRTsjcQOJvplkbwxmZD1bEciGGXOei8JOnkEblza1XGQjjNll4syTme7F1JofSH9QUfOcvuaOAkQGGscgwkf8sJo4nfTWP1l5bDUFHg6PhLSJCnv0n29j3yy4K"
                 }
             ],
-            currentClient: 1
+            currentClient: 0
         }),
         created () {
             this.eventBus.$on("call-client", this.callClient);
@@ -55,9 +56,7 @@
                 this.eventBus.$emit("show-elements");
                 this.$router.push({name: data.name});
                 // seta evento novamente depois que executou tudo
-                this.$nextTick(() => {
-                    this.eventBus.$on("call-client", this.callClient);
-                });
+                this.$nextTick(() => this.eventBus.$on("call-client", this.callClient));
             },
             async appendGameClient () {
 
@@ -82,11 +81,14 @@
                     hostname: location.hostname
                 });
 
-                this.socket.on("99", data => this.handleInit(data));
+                this.socket.on("99", payload => this.handleInit(payload));
             },
-            handleInit (data) {
+            handleInit (payload) {
 
-                switch (data.state) {
+                new Boot(this.gameInstance, payload);
+                return;
+
+                switch (payload.state) {
                     // caso seja overworld
                     case 0: {
 
@@ -96,9 +98,9 @@
 
                             // dependencias primárias
                             data: {
-                                CurrentMap: data.param.map,
-                                CurrentMonsters: data.param.monsters,
-                                CurrentItems: data.param.items
+                                CurrentMap: payload.param.map,
+                                CurrentMonsters: payload.param.monsters,
+                                CurrentItems: payload.param.items
                             },
                             socket: this.socket,
 
@@ -107,11 +109,11 @@
                                 uid: $Authentication.uid
                             },
                             player: {
-                                sprite: data.param.sprite,
+                                sprite: payload.param.sprite,
                                 position: {
-                                    facing: data.param.position.facing,
-                                    x: Number(data.param.position.x),
-                                    y: Number(data.param.position.y)
+                                    facing: payload.param.position.facing,
+                                    x: Number(payload.param.position.x),
+                                    y: Number(payload.param.position.y)
                                 },
                                 stop: false,
                                 stepFlag: 0,
@@ -119,12 +121,12 @@
                             },
 
                             // notificações
-                            notify: data.param.notify,
+                            notify: payload.param.notify,
 
                             // se está esperando monstro selvagem e flag do mapa e outros complementares
-                            wild: data.param.wild,
-                            flag: data.param.flag,
-                            tamers: data.param.tamers,
+                            wild: payload.param.wild,
+                            flag: payload.param.flag,
+                            tamers: payload.param.tamers,
 
                             // manager de conexão e audio
                             manager: {
@@ -161,7 +163,7 @@
                             },
 
                             // parâmetros da batalha
-                            param: data.param,
+                            param: payload.param,
 
                             // manager de conexão e audio
                             manager: {

@@ -1,6 +1,3 @@
-import Phaser from "phaser";
-import async from "async";
-
 import RawCharacter from "./rawcharacter";
 import BalloonDialog from "./balloondialog";
 
@@ -222,7 +219,7 @@ class Character extends RawCharacter {
         this.scene.containers.main.add(this.elements.nickname);
     }
 
-    getElementsToFollow () {
+    get elementsToFollow () {
         const els = [];
         if (this.elements.nickname)
             els.push(this.elements.nickname);
@@ -311,7 +308,7 @@ class Character extends RawCharacter {
             };
 
             // checa se colide com posição atual do jogador
-            let collision = position.x == this.scene.player._data.x && position.y == this.scene.player._data.y;
+            const collision = position.x == this.scene.player._data.x && position.y == this.scene.player._data.y;
             
             // se não colidir, muda posição
             if (!collision && this._data.type != 3) {
@@ -440,8 +437,6 @@ class Character extends RawCharacter {
                         const 
                             mapData = this.scene.cache.json.get(this.scene.getCurrentMapName("events")),
                             event = mapData.events.config.find(position => position.x === this._data.position.x && position.y === this._data.position.y);
-                        
-                        console.log({event});
 
                         internal_callback = () => {
                             if (mapData.events.script[event.id].requiredFlagValueToExec.indexOf(this.scene.flag) >= 0) {
@@ -591,13 +586,13 @@ class Character extends RawCharacter {
     }
 
     // andar no mapa (animação/renderização) assincrono
-    animationWalk (direction, internal_callback, callback) {
+    async animationWalk (direction, internal_callback, callback) {
 
         // mover personagem e elementos dele para certa direção
         switch(direction) {
             case 0: { // up
                 this.scene.tweens.add({
-                    targets: [this, ... this.getElementsToFollow()],
+                    targets: [this, ... this.elementsToFollow],
                     ease: "Linear",
                     duration: this.scene.database.overworld.time.step * 4,
                     y: "-=" + this.scene.database.overworld.tile.size,
@@ -607,7 +602,7 @@ class Character extends RawCharacter {
 
             case 1: { // left
                 this.scene.tweens.add({
-                    targets: [this, ... this.getElementsToFollow()],
+                    targets: [this, ... this.elementsToFollow],
                     ease: "Linear",
                     duration: this.scene.database.overworld.time.step * 4,
                     x: "+=" + this.scene.database.overworld.tile.size,
@@ -617,7 +612,7 @@ class Character extends RawCharacter {
 
             case 2: { // down
                 this.scene.tweens.add({
-                    targets: [this, ... this.getElementsToFollow()],
+                    targets: [this, ... this.elementsToFollow],
                     ease: "Linear",
                     duration: this.scene.database.overworld.time.step * 4,
                     y: "+=" + this.scene.database.overworld.tile.size,
@@ -627,7 +622,7 @@ class Character extends RawCharacter {
 
             case 3: { // right
                 this.scene.tweens.add({
-                    targets: [this, ... this.getElementsToFollow()],
+                    targets: [this, ... this.elementsToFollow],
                     ease: "Linear",
                     duration: this.scene.database.overworld.time.step * 4,
                     x: "-=" + this.scene.database.overworld.tile.size,
@@ -637,14 +632,13 @@ class Character extends RawCharacter {
         };
 
         // fazer animação
-        async.series([
-            next => this.walkStep0(direction, next),
-            next => this.walkStep1(direction, next)
-        ], () => this.walkEndStep(direction, internal_callback, callback));
+        await this.walkStep0(direction);
+        await this.walkStep1(direction);
+        this.walkEndStep(direction, internal_callback, callback);
     }
 
     // função complementar ao animationWalk (primeira)
-    walkStep0 (direction, next) {
+    walkStep0 (direction) {
         // disparar evento de start move
         this.triggerStartMove({
             facing: direction,
@@ -655,22 +649,28 @@ class Character extends RawCharacter {
         this.changeOrigin(direction);
         // tocar flag de step
         this.switchSpriteStep(direction, this._data.stepFlag, "walk");
+
         // delay
-        this.scene.time.addEvent({
-            delay: this.scene.database.overworld.time.step * 2,
-            callback: next
-        });
+        return new Promise(callback => 
+            this.scene.time.addEvent({
+                delay: this.scene.database.overworld.time.step * 2,
+                callback
+            })
+        );
+
     }
 
     // função complementar ao animationWalk (segunda)
-    walkStep1 (direction, next) {
+    walkStep1 (direction) {
         // tocar flag de step
         this.switchSpriteStep(direction, 0, "idle");
         // delay
-        this.scene.time.addEvent({
-            delay: this.scene.database.overworld.time.step * 2,
-            callback: next
-        });
+        return new Promise(callback => 
+            this.scene.time.addEvent({
+                delay: this.scene.database.overworld.time.step * 2,
+                callback
+            })
+        );
     }
 
     // quando o walk termina

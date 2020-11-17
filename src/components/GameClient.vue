@@ -62,12 +62,11 @@
 
                 this.eventBus.$emit("hide-elements");
                 
-                const game = await import("@/game/game");
+                const game = await import("@/newgame");
                 this.gameInstance = game.launch(this.containerId);
                 this.gameStarted = true;
 
                 if (process.env.NODE_ENV == "development") {
-                    console.log("DEVELOPMENT TOKEN");
                     $Authentication.id = this.clientTokens[this.currentClient].uid;
                     $Authentication.token.auth = this.clientTokens[this.currentClient].token;
                 };
@@ -84,106 +83,11 @@
                 this.socket.on("99", payload => this.handleInit(payload));
             },
             handleInit (payload) {
-
-                new Boot(this.gameInstance, payload);
-                return;
-
-                switch (payload.state) {
-                    // caso seja overworld
-                    case 0: {
-
-                        this.gameInstance.scene.start("boot", {
-                            // state que vai chamar
-                            state: "overworld",
-
-                            // dependencias primárias
-                            data: {
-                                CurrentMap: payload.param.map,
-                                CurrentMonsters: payload.param.monsters,
-                                CurrentItems: payload.param.items
-                            },
-                            socket: this.socket,
-
-                            // infos do jogador
-                            auth: {
-                                uid: $Authentication.uid
-                            },
-                            player: {
-                                sprite: payload.param.sprite,
-                                position: {
-                                    facing: payload.param.position.facing,
-                                    x: Number(payload.param.position.x),
-                                    y: Number(payload.param.position.y)
-                                },
-                                stop: false,
-                                stepFlag: 0,
-                                moveInProgress: false
-                            },
-
-                            // notificações
-                            notify: payload.param.notify,
-
-                            // se está esperando monstro selvagem e flag do mapa e outros complementares
-                            wild: payload.param.wild,
-                            flag: payload.param.flag,
-                            tamers: payload.param.tamers,
-
-                            // manager de conexão e audio
-                            manager: {
-                                audio: null,
-                                connection: {
-                                    overworld: false,
-                                    battle: false,
-                                    battleComplementar: false
-                                }
-                            },
-
-                            // elemento
-                            $el: this.$el,
-
-                            // controlador de eventos
-                            $eventBus: this.eventBus
-                        });
-                        break;
-                    };
-
-                    // caso seja batalha
-                    case 1: {
-                        this.gameInstance.scene.start("boot", {
-                            // state que vai chamar
-                            state: "battle",
-                            
-                            // dependencias primárias
-                            data: {},
-                            socket: this.socket,
-
-                            // infos do jogador
-                            auth: {
-                                uid: $Authentication.uid
-                            },
-
-                            // parâmetros da batalha
-                            param: payload.param,
-
-                            // manager de conexão e audio
-                            manager: {
-                                audio: null,
-                                connection: {
-                                    overworld: false,
-                                    battle: false,
-                                    battleComplementar: false
-                                }
-                            },
-
-                            // elemento
-                            $el: this.$el,
-
-                            // controlador de eventos
-                            $eventBus: this.eventBus
-                        });
-                        break;
-                    };
-                }
+                new Boot(
+                    this.gameInstance, 
+                    this.socket, 
+                    payload
+                );
             }
         }
     }

@@ -5,7 +5,7 @@
 *
 */
 
-import Button from "@/game/interfaces/components/button";
+//import Button from "@/game/interfaces/components/button";
 
 class Input {
     constructor (scene) {

@@ -1,0 +1,68 @@
+{
+    "1": {
+        "id": 1,
+        "name": "city",
+        "tiles": [
+            {"key": "tileset1", "src": "tiles1.png"}
+        ],
+        "music": {
+            "name": "new_valle_town",
+            "src": "New Valle Town.wav"
+        }
+    },
+    "2": {
+        "id": 2,
+        "name": "map22",
+        "music": {
+            "name": "new_valle_town",
+            "src": "New Valle Town.wav"
+        },
+        "hasCustomAssets": true,
+        "hasWild": true,
+        "wildAppearence": [10, 12]
+    },
+    "3": {
+        "id": 3,
+        "name": "map3",
+        "music": {
+            "name": "route_1",
+            "src": "Route 1.wav"
+        },
+        "hasWild": true,
+        "wildAppearence": [10, 12]
+    },
+    "4": {
+        "id": 4,
+        "name": "player_house",
+        "music": {
+            "name": "new_valle_town",
+            "src": "New Valle Town.wav"
+        }
+    },
+    "5": {
+        "id": 5,
+        "name": "sotopus_connection",
+        "music": {
+            "name": "route_1",
+            "src": "Route 1.wav"
+        },
+        "hasWild": true,
+        "wildAppearence": [10, 12]
+    },
+    "6": {
+        "id": 6,
+        "name": "sotopus",
+        "music": {
+            "name": "sotopus_lake",
+            "src": "Sotopus Lake.wav"
+        }
+    },
+    "7": {
+        "id": 7,
+        "name": "player_room_house",
+        "music": {
+            "name": "new_valle_town",
+            "src": "New Valle Town.wav"
+        }
+    }
+}

@@ -1,3 +1,6 @@
+import Assets from "./Assets";
+import Database from "./Database";
+
 class MapData {
 
     constructor (data) {

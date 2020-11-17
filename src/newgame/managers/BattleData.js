@@ -6,7 +6,6 @@ class BattleData {
         this.turns = [];
     }
 
-
     static ref
 };
 

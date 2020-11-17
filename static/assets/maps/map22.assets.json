@@ -1,0 +1,9 @@
+[
+	{"type": "image", "key": "initial-main-bg", "src": "assets/img/initial_choose/main_bg.png"},
+	{"type": "image", "key": "initial-box-bg", "src": "assets/img/initial_choose/box_bg.png"},
+	{"type": "spritesheet", "key": "initial-select-btn", "src": "assets/img/initial_choose/select_btn.png", "frame": {"width": 154, "height": 170}},
+	{"type": "spritesheet", "key": "initial-btn-accept", "src": "assets/img/initial_choose/btn_box_accept.png", "frame": {"width": 142, "height": 30}},
+	{"type": "spritesheet", "key": "initial-btn-reject", "src": "assets/img/initial_choose/btn_box_reject.png", "frame": {"width": 142, "height": 30}},
+	{"type": "atlas", "key": "monster_10", "src": "assets/img/monsters/10.png", "atlas": "assets/res/monster_10.json"},
+	{"type": "atlas", "key": "monster_12", "src": "assets/img/monsters/12.png", "atlas": "assets/res/monster_12.json"}
+]

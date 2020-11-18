@@ -55,12 +55,21 @@ class MonsterModel extends Model({
     }
 }) {
     get healthPercetage () {
-        return parseInt((this.stats.hp.current / this.stats.hp.total) * 100);
+        return (this.stats.hp.current / this.stats.hp.total) * 100;
     }
-
     get manaPercetage () {
-        return parseInt((this.stats.mp.current / this.stats.mp.total) * 100);
+        return (this.stats.mp.current / this.stats.mp.total) * 100;
     }
-}
+    get expPercetage () {
+        return this.exp / 100; // todo
+    }
+    get isAlive () {
+        return this.stats.hp.current > 0;
+    }
+    get allStatsSum () {
+        const { stats } = this;
+        return stats.attack + stats.defense + stats.speed + stats.hp.current + stats.mp.current;
+    }
+};
 
 export default MonsterModel;

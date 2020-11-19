@@ -717,6 +717,14 @@ class Character extends RawCharacter {
         this.setFrame(this.scene.database.characters[this._data.sprite].name + "_" + this.scene.database.overworld.directions[direction] + "_" + type + flag);
     }
 
+    cameraFollow () {
+        this.scene.cameras.main.disableCull = false;
+
+        // make camera follow the character
+        this.scene.cameras.main.setBounds(0, 0, this.scene.map.widthInPixels, this.scene.map.heightInPixels);
+        this.scene.cameras.main.startFollow(this, true, 1, 1);
+    }
+
     preUpdate (time, delta) {
         super.preUpdate(time, delta);
         // corrigir posição do player online

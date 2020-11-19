@@ -1,9 +1,9 @@
 class Database {
 
-	constructor (params) {
-		this.monsters = params.monsters;
-		this.maps = params.maps;
-		this.items = params.items;
+	constructor ({ monsters, maps, items }) {
+		this.monsters = monsters;
+		this.maps = maps;
+		this.items = items;
 	}
 
 	static ref

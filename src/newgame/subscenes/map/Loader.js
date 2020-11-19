@@ -44,6 +44,10 @@ class Loader extends RawLoader {
             });
         };
     }
+
+    async loadAnotherMap (mapId) {
+        
+    }
 };
 
 export default Loader;

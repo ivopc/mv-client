@@ -1,15 +1,13 @@
 import Phaser from "phaser";
 
-import Input from "./Input";
 import Loader from "./Loader";
+import InputListener from "./InputListener";
+import Tilemap from "./Tilemap";
 
-import Player from "@/newgame/prefabs/Player";
+import PlayerCharacterController from "./PlayerCharacterController";
+import InputController from "./InputController";
 
-import PlayerData from "@/newgame/managers/PlayerData";
 import MapData from "@/newgame/managers/MapData";
-
-
-
 
 class Map extends Phaser.Scene {
     constructor () {
@@ -24,27 +22,18 @@ class Map extends Phaser.Scene {
     }
 
     create () {
-        this.$input = new Input(this);
-        //this.addPlayer();
-        console.log("player data", PlayerData.ref.data);
-    }
+        this.$inputListener = new InputListener(this);
+        this.$inputController = new InputController(this);
+        this.$playerController = new PlayerCharacterController(this);
+        this.$tilemap = new Tilemap(this);
 
-    addPlayer () {
-        const { character } = PlayerData.ref;
-        this.player = new Player(this, {
-            position: {
-                x: character.position.x,
-                y: character.position.y,
-                facing: character.position.facing
-            },
-            sprite: character.sprite
-        });
-
-        this.player.cameraFollow();
+        // **-----------------------------------**
+        this.$tilemap.assemble();
+        this.$playerController.create();
     }
 
     update () {
-        this.$input.update();
+        this.$inputListener.update();
     }
 };
 

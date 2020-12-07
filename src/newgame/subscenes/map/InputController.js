@@ -1,6 +1,6 @@
 import { MAP_STATES } from "@/newgame/constants/States";
-import DIRECTIONS from "@/newgame/constants/Directions";
-import ACTION_KEYS from "@/newgame/constants/ActionKeys";
+import { DIRECTIONS } from "@/newgame/constants/Directions";
+import { ACTION_KEYS } from "@/newgame/constants/ActionKeys";
 
 class InputController {
     constructor (scene) {

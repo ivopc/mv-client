@@ -6,7 +6,7 @@
 *
 */
 
-import DIRECTIONS from "@/newgame/constants/Directions";
+import { DIRECTIONS } from "@/newgame/constants/Directions";
 
 class InputListener {
     constructor ({ $inputController, $system }) {
@@ -37,7 +37,7 @@ class InputListener {
     }
 
     onPressed (keyCode) {
-        this.triggerPressed(keyCode);
+        this.controller.triggerPressed(keyCode);
     }
     addKeyboardListener () {
         document.addEventListener("keyup", this.onKeyUp, false);

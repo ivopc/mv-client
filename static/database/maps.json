@@ -3,7 +3,7 @@
         "id": 1,
         "name": "city",
         "tiles": [
-            {"key": "tileset1", "src": "tiles1.png"}
+            {"key": "tileset1", "src": "tiles1.png", "name": "Tiles1"}
         ],
         "music": {
             "name": "new_valle_town",

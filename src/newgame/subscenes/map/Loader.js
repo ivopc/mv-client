@@ -21,6 +21,8 @@ class Loader extends RawLoader {
         // map main music
         const mapMusic = Assets.ref.getMapMainMusic(map.id);
         scene.load.audio(mapMusic.key, mapMusic.src);
+        //map npcs
+        Assets.ref.getMapCharacters(map.id).forEach(character => scene.load.atlas(character.key, character.sprite, character.atlas));
         // wild monsters (if there's)
         if (map.hasWild)
             map.wildAppearence.forEach(wildId => this.loadMonster(wildId));

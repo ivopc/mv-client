@@ -68,7 +68,7 @@ class MonsterModel extends Model({
     }
     get allStatsSum () {
         const { stats } = this;
-        return stats.attack + stats.defense + stats.speed + stats.hp.current + stats.mp.current;
+        return stats.attack + stats.defense + stats.speed + stats.hp.total + stats.mp.total;
     }
 };
 

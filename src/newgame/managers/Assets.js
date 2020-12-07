@@ -18,6 +18,11 @@ class Assets {
         };
     }
 
+    getMapCharacters (id) {
+        return Database.ref.maps[id].npcs
+            .map(npc => this.getOverworldCharacter(npc.id));
+    }
+
     getMapTilemap (id) {
         const map = Database.ref.maps[id];
         return {

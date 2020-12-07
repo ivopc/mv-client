@@ -1,11 +1,9 @@
 class Loader {
-	constructor (scene) {
-		this.scene = scene;
-	}
+    constructor (scene) {
+        this.scene = scene;
+    }
 
-	fetchAssets () {
-		
-	}
+    fetchAssets () {}
 };
 
 export default Loader;

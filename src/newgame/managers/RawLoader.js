@@ -5,6 +5,7 @@ class RawLoader {
         this.scene = scene;
         if (!RawLoader.alreadyLoadedBase)
             this.fetchBaseAssets();
+        scene.load.setBaseURL(process.env.gameClientBaseURL);
     }
 
     asyncAssetLoad () {}
@@ -13,7 +14,7 @@ class RawLoader {
         return;
         const scene = this.scene;
         // load all player monsters
-        PlayerData.ref.monsters.forEach(monster => this.loadMonster(monster.monsterpedia_id));
+        PlayerData.ref.partyMonsters.forEach(monster => this.loadMonster(monster.monsterpediaId));
         // load ui sprites that we need to use in all scenes
         scene.load.spritesheet("button", "assets/img/battle/button_spritesheet.png", {frameWidth: 105, frameHeight: 38});
         scene.load.image("loading", "assets/img/interface/loading.png");

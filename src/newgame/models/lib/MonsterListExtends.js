@@ -9,6 +9,6 @@ export const Extensor = {
         return this.filter(monster => monster.isAlive);
     },
     isEmpty () {
-        return this.length == 0;
+        return this.length === 0;
     }
 };

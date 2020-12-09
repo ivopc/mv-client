@@ -1,6 +1,7 @@
 class Database {
 
-	constructor ({ monsters, maps, items }) {
+	constructor ({ character, maps, items }) {
+		this.character = character;
 		this.monsters = monsters;
 		this.maps = maps;
 		this.items = items;

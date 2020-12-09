@@ -1,0 +1,23 @@
+{
+    "monster": {
+        "key": "monster_{monsterpediaId}",
+        "path": {
+            "texture": "assets/img/monsters/{monsterpediaId}.png",
+            "atlas": "assets/atlas/monster_{monsterpediaId}.json"
+        }
+    },
+    "monsteroverworld": {
+        "key": "monster_{monsterpediaId}_overworld",
+        "path": {
+            "texture": "assets/img/monsters/overworld/{monsterpediaId}.png",
+            "atlas": "assets/atlas/monster_{monsterpediaId}_overworld.json"
+        }
+    },
+    "characteroverworld": {
+        "key": "character_{name}_overworld",
+        "path": {
+            "texture": "assets/img/characters/overworld/{name}.png",
+            "atlas": "assets/atlas/character_{name}_overworld.json"
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "loading": {
+        "key": "loading",
+        "type": "image",
+        "path": "assets/img/interface/loading_{resolution}.png"
+    },
+    "button": {
+        "key": "button",
+        "type": "spritesheet",
+        "path": "assets/img/battle/button_spritesheet_{resolution}.png",
+        "dimensions": {
+            "fullhd": {
+                "frameWidth": 105, 
+                "frameHeight": 38
+            },
+            "hd": {
+                "frameWidth": 105, 
+                "frameHeight": 38
+            },
+            "standard": {
+                "frameWidth": 105, 
+                "frameHeight": 38
+            },
+            "mobile": {
+                "frameWidth": 105, 
+                "frameHeight": 38
+            }
+        }
+    },
+    "types": {
+        "key": "types",
+        "type": "atlas",
+        "path": {
+            "texture": "assets/img/interface/types_{resolution}.png",
+            "atlas": "atlas/types_{resolution}.json"
+        }
+    }
+}

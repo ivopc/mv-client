@@ -1,4 +1,7 @@
 import Database from "./Database";
+import { ASSET_TYPE } from "@/newgame/constants/Asset";
+import AssetTemplateInjector from "@/newgame/utils/AssetTemplateInjector";
+
 
 const RESOLUTIONS = {
     FULL_HD: 0,
@@ -9,13 +12,14 @@ const RESOLUTIONS = {
 
 class Assets {
 
+    constructor ({ template, base }) {
+        this.template = template;
+        this.base = base;
+    }
+
     getOverworldCharacter (id) {
         const character = Database.ref.character[id];
-        return {
-            key: character.atlas, 
-            sprite: `assets/img/characters/${character.atlas}.png`, 
-            atlas: `atlas/${character.atlas}.json`
-        };
+        return AssetTemplateInjector(ASSET_TYPE.CHARACTER_OVERWORLD, character);
     }
 
     getMapCharacters (id) {
@@ -32,7 +36,7 @@ class Assets {
     }
 
     getMapTilesets (id) {
-        return Database.ref.maps[this.id].tiles;
+        return Database.ref.maps[id].tiles;
     }
 
     getMapMainMusic (id) {

@@ -27,24 +27,8 @@ class Loader extends RawLoader {
         if (map.hasWild)
             map.wildAppearence.forEach(wildId => this.loadMonster(wildId));
         // map custom asset (if there's)
-        if (map.customAssets && map.customAssets.length > 0) {
-            map.customAssets.forEach(asset => {
-                switch (asset.type) {
-                    case "image": {
-                        scene.load.image(asset.key, asset.src);
-                        break;
-                    };
-                    case "spritesheet": {
-                        scene.load.spritesheet(asset.key, asset.src, {frameWidth: asset.frame.width, frameHeight: asset.frame.height});
-                        break;
-                    };
-                    case "atlas": {
-                        scene.load.atlas(asset.key, asset.src, asset.atlas);
-                        break;
-                    };
-                }
-            });
-        };
+        if (map.customAssets && map.customAssets.length > 0)
+            this.fetchLoaders(map.customAssets);
     }
 
     async loadAnotherMap (mapId) {

@@ -38,16 +38,16 @@ class Boot {
         const { map, wild, flag, tamers } = payload.param;
         MapData.ref = new MapData({ map, flag, wild, tamers });
         console.log(PlayerData.ref, MapData.ref);
-        this.gameInstance.scene.start("boot", {
-            state: "overworld"
+        this.gameInstance.scene.start(STATE.BOOT, {
+            state: STATE.OVERWORLD
         });
     }
 
     initBattle (payload) {
         this.setPlayerData(payload);
         BattleData.ref = new BattleData(/*{ ... }*/);
-        this.gameInstance.scene.start("boot", {
-            state: "battle"
+        this.gameInstance.scene.start(STATE.BOOT, {
+            state: STATE.BATTLE
         });
     }
 

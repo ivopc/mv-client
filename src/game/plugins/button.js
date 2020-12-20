@@ -1,6 +1,6 @@
 const Button = function (scene, config) {
     this.scene = scene;
-    this.sprite = null;
+    this.sprite;
 
     config.x = config.x || 0;
     config.y = config.y || 0;

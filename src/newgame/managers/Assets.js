@@ -2,7 +2,6 @@ import Database from "./Database";
 import { ASSET_TYPE } from "@/newgame/constants/Asset";
 import AssetTemplateInjector from "@/newgame/utils/AssetTemplateInjector";
 
-
 const RESOLUTIONS = {
     FULL_HD: 0,
     HD: 1,
@@ -29,10 +28,7 @@ class Assets {
 
     getMapTilemap (id) {
         const map = Database.ref.maps[id];
-        return {
-            key: "level_" + map.name,
-            src: `assets/maps/${map.name}.json`
-        };
+        return AssetTemplateInjector(ASSET_TYPE.TILEMAP, map);
     }
 
     getMapTilesets (id) {

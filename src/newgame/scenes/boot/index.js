@@ -26,14 +26,14 @@ class Boot extends Phaser.Scene {
     }
 
     create () {
-        const getCache = this.cache.json.get;
+        const getFromCache = this.cache.json.get;
         Database.ref = new Database({
-            maps: getCache(MAPS),
-            character: getCache(CHARACTERS)
+            maps: getFromCache(MAPS),
+            character: getFromCache(CHARACTERS)
         });
         Assets.ref = new Assets({
-            template: getCache(CUSTOM_TEMPLATE_LOADER),
-            base: getCache(BASE_ASSETS)
+            template: getFromCache(CUSTOM_TEMPLATE_LOADER),
+            base: getFromCache(BASE_ASSETS)
         });
         this.scene.start(this.data.state);
     }

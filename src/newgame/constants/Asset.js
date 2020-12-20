@@ -5,5 +5,7 @@ export const ASSET_TYPE = {
 	CHARACTER: "character",
 	CHARACTER_OVERWORLD: "characteroverworld",
 	MONSTER: "monster",
-	MONSTER_OVERWORLD: "monsteroverworld"
+	MONSTER_OVERWORLD: "monsteroverworld",
+	TILEMAP: "tilemap",
+	LEVEL_SCRIPT: "levelscript"
 };

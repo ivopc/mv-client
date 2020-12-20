@@ -1,5 +1,6 @@
 <template>
     <div class="col-md-2">
+        {{ kebab }}
         <nav class="navbar navbar-expand-lg navbar-dark mt-3">
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar">
                 <span class="navbar-toggler-icon"></span>

@@ -19,5 +19,9 @@
             "texture": "assets/img/characters/overworld/{name}.png",
             "atlas": "assets/atlas/character_{name}_overworld.json"
         }
+    },
+    "tilemap": {
+        "key": "level_{name}",
+        "src": "assets/maps/{name}.json"
     }
 }

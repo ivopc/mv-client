@@ -1,5 +1,5 @@
 import { ASSET_TYPE } from "@/newgame/constants/Asset";
-import ReplacePhrase from "@/newgame/utils/ReplacePhrase";
+import ReplaceStringToken from "@/newgame/utils/ReplacePhrase";
 import Assets from "@/newgame/managers/Assets";
 
 const AssetTemplateInjector = (assetType, assetData) => {
@@ -23,7 +23,6 @@ const AssetTemplateInjector = (assetType, assetData) => {
             };
             break;
         };
-
         case ASSET_TYPE.CHARACTER_OVERWORLD: {
             const template = Asssets.ref.template.characteroverworld;
             return {
@@ -41,7 +40,13 @@ const AssetTemplateInjector = (assetType, assetData) => {
             }
             break;
         };
-    }
+        case ASSET_TYPE.TILEMAP: {
+            break;
+        };
+        case ASSET_TYPE.LEVEL_SCRIPT: {
+            break;
+        };
+    };
 };
 
 export default AssetTemplateInjector;

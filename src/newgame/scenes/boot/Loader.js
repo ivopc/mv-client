@@ -7,6 +7,7 @@ import {
 } from "@/newgame/constants/Loader";
 class Loader extends RawLoader {
     constructor (scene) {
+        super(scene);
         this.scene = scene;
         scene.load.setBaseURL(process.env.gameClientBaseURL);
     }

@@ -1,16 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-import Index from "@/views/Index";
-import Play from "@/views/Play";
-import Profile from "@/views/Profile";
-import SpecificProfile from "@/views/SpecificProfile";
-import PremiumMarket from "@/views/PremiumMarket";
-import Community from "@/views/Community";
-import Statistics from "@/views/Statistics";
-import Config from "@/views/Config";
-import Logout from "@/views/Logout";
-
 const lazyLoad = function (view) {
     return () => import(`@/views/${view}.vue`);
 };

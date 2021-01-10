@@ -60,30 +60,91 @@
             },
             async appendGameClient () {
 
-                this.eventBus.$emit("hide-elements");
-                
-                const game = await import("@/newgame");
-                this.gameInstance = game.launch(this.containerId);
+                this.eventBus.$emit("hide-element");
                 this.gameStarted = true;
+                const $Authentication = {token: {}};
 
-                if (process.env.NODE_ENV == "development") {
-                    $Authentication.id = this.clientTokens[this.currentClient].uid;
-                    $Authentication.token.auth = this.clientTokens[this.currentClient].token;
-                };
+
+                    $Authentication.uid = this.clientTokens[this.currentClient].uid;
+                    $Authentication.auth = this.clientTokens[this.currentClient].token;
+                
+                const game = await import("@/game/game");
+
+
+               this.gameInstance = game.launch(
+                    this.containerId
+                );
 
                 this.socket = socketCluster.connect({
                     query: {
-                        uid: String($Authentication.id),
-                        token: $Authentication.token.auth
+                        uid: String($Authentication.uid),
+                        token: $Authentication.auth
                     },
-                    port: 8000,
-                    hostname: location.hostname
+                    port: 8000
                 });
 
-                this.socket.on("99", payload => this.handleInit(payload));
+                this.socket.on("99", data => this.handleInit(data));
             },
-            handleInit (payload) {
-                new Boot(this.gameInstance, this.socket, payload);
+            handleInit (data) {
+
+                switch (data.state) {
+                    // caso seja overworld
+                    case 0: {
+
+                        this.gameInstance.scene.start("boot", {
+                            // state que vai chamar
+                            state: "overworld",
+
+                            // dependencias primárias
+                            data: {
+                                CurrentMap: data.param.map,
+                                CurrentMonsters: data.param.monsters,
+                                CurrentItems: data.param.items
+                            },
+                            socket: this.socket,
+
+                            // infos do jogador
+                            auth: {
+                                uid: $Authentication.uid
+                            },
+                            player: {
+                                sprite: data.param.sprite,
+                                position: {
+                                    facing: data.param.position.facing,
+                                    x: Number(data.param.position.x),
+                                    y: Number(data.param.position.y)
+                                },
+                                stop: false,
+                                stepFlag: 0,
+                                walkInProgress: false
+                            },
+
+                            // se está esperando monstro selvagem e flag do mapa e outros complementares
+                            wild: data.param.wild,
+                            flag: data.param.flag,
+                            tamers: data.param.tamers,
+                            notify: data.param.notify,
+
+                            // manager de conexão e audio
+                            manager: {
+                                audio: null,
+                                connection: {
+                                    overworld: false,
+                                    battle: false
+                                }
+                            },
+
+                            // elemento
+                            $el: this.$el
+                        });
+                        break;
+                    };
+
+                    // caso seja batalha
+                    case 1: {
+                        break;
+                    };
+                }
             }
         }
     }

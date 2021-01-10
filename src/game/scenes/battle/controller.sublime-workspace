@@ -1,0 +1,528 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fain",
+				"fainted_monster_data\t(?)"
+			],
+			[
+				"next",
+				"nextTurn\t(bool)"
+			],
+			[
+				"on",
+				"onFainted\t(bool)"
+			],
+			[
+				"battl",
+				"battleData\t(?)"
+			],
+			[
+				"parse",
+				"parseOpponentAction\t(?)"
+			],
+			[
+				"ac",
+				"activeMonsters\t{} "
+			],
+			[
+				"choo",
+				"chooseOpponentAction\t(bool)"
+			],
+			[
+				"bu",
+				"buffsDebuffs\t{} "
+			],
+			[
+				"vs",
+				"vsWildAction\t(?)"
+			],
+			[
+				"find",
+				"findIndex(callback) -> number\tfn "
+			],
+			[
+				"rece",
+				"receiveActionRequest\t(bool)"
+			],
+			[
+				"call",
+				"callAction\t(bool)"
+			],
+			[
+				"handle",
+				"handleInitInput\t(bool)"
+			],
+			[
+				"Bat",
+				"BATTLE_TYPES\t{}"
+			],
+			[
+				"batt",
+				"battleData\t? "
+			],
+			[
+				"getBatt",
+				"getBattleBuffsDebuffs\t(?)"
+			],
+			[
+				"get",
+				"getMonstersInParty\t(?)"
+			],
+			[
+				"inser",
+				"insertCurrentDoing\t(?)"
+			],
+			[
+				"boo",
+				"booleanToInt\t(bool)"
+			],
+			[
+				"ITEM",
+				"ITEM\tstr "
+			],
+			[
+				"mon",
+				"monsterData\t(bool)"
+			],
+			[
+				"filter",
+				"filterMonsterList\t(bool)"
+			],
+			[
+				"gam",
+				"gameData"
+			],
+			[
+				"ins",
+				"insertGameData\t(?)"
+			],
+			[
+				"monsters",
+				"monstersList"
+			],
+			[
+				"fe",
+				"freeSpace\t{} "
+			],
+			[
+				"monste",
+				"monstersInParty\t? "
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"mons",
+				"monsterData\t? "
+			],
+			[
+				"chec",
+				"checkBlockPag\t? "
+			],
+			[
+				"flag",
+				"flagId\t? "
+			],
+			[
+				"fla",
+				"flag_id"
+			],
+			[
+				"fun",
+				"function\t? "
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"laz",
+				"lazyLoad(view) -> fn()\tfn "
+			],
+			[
+				"New",
+				"NewRaw()\tfn "
+			],
+			[
+				"Asse",
+				"AssetLayoutInjector\t(bool)"
+			],
+			[
+				"Re",
+				"ReplacePhrase(arg)\tfn "
+			],
+			[
+				"A",
+				"ASSET_TYPE\t{}"
+			],
+			[
+				"ass",
+				"assetData\t(?)"
+			],
+			[
+				"asse",
+				"assetData\t(?)"
+			],
+			[
+				"assets",
+				"assets"
+			],
+			[
+				"Arra",
+				"ArrayModel\t? "
+			],
+			[
+				"Monst",
+				"MonstersInParty\t(?)"
+			],
+			[
+				"MaP",
+				"MapData(arg)\tfn "
+			],
+			[
+				"Map",
+				"MapData\t? "
+			],
+			[
+				"Da",
+				"Database()\tfn "
+			],
+			[
+				"new",
+				"newgame"
+			],
+			[
+				"Ma",
+				"MapData"
+			],
+			[
+				"mA",
+				"MapData"
+			],
+			[
+				"ini",
+				"initOverworld"
+			],
+			[
+				"wa",
+				"walkEndStep"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"tern",
+				"Set Syntax: Regular Expressions (Javascript Next)"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/nodejs/MonsterValle/new-mv-server/utils/index.js",
+		"/C/nodejs/MonsterValle/new-mv-server/constants/Battle.js",
+		"/C/nodejs/MonsterValle/new-mv-server/models/battle.db.js",
+		"/C/nodejs/MonsterValle/new-mv-server/models/monster.db.js",
+		"/C/nodejs/MonsterValle/new-mv-server/models/party.db.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/battle/vs-base-action.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/schemas/Party.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/battle/vs-wild-action.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/battle/action.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/models/battle-buffs-debuffs.db.js",
+		"/C/nodejs/MonsterValle/new-mv-server/models/flags.db.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/account/index.js",
+		"/C/nodejs/MonsterValle/new-mv-server/routes/gamecore.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/gamecore/battle.js",
+		"/C/nodejs/MonsterValle/new-mv-server/models/users.db.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/battle/vs-player-action.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/models/current-doing.db.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/battle/script.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/gamecore/initial-monster.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/battle/event.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/battle/vs-tamer-action.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/battle/formula.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/battle/vs-raw-action.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/battle/reward.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/battle/script-list.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/insert-monster.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/app.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/battle/index.js",
+		"/C/nodejs/MonsterValle/new-mv-server/routes/account.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/gamecore/check-initial-monster.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/gamecore/choose-initial-monster.js",
+		"/C/nodejs/MonsterValle/new-mv-server/routes/battle.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/gamecore/home.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/battle/turns.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/get-home-data.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/models/gamedata.db.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/account/account-register.service.js",
+		"/C/nodejs/MonsterValle/new-mv-client/doc/sistemas.txt",
+		"/C/nodejs/MonsterValle/new-mv-server/services/gamecore/get-initial-monster.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/formulas/index.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/dashboard/self-profile.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/gamecore/check-block-pages.js",
+		"/C/nodejs/MonsterValle/new-mv-server/services/main/check-block-pages.service.js",
+		"/C/nodejs/MonsterValle/new-mv-server/database/db.sql",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/account/classes/Login.js",
+		"/C/nodejs/MonsterValle/new-mv-server/database/game/dex.json",
+		"/C/nodejs/MonsterValle/mv-server/database/newmoves.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/main.js",
+		"/C/nodejs/MonsterValle/new-mv-client/public/index.html",
+		"/C/nodejs/MonsterValle/new-mv-server/routes/main.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/utils/force-session.js",
+		"/C/nodejs/MonsterValle/new-mv-client/dist/index.html",
+		"/C/nodejs/MonsterValle/new-mv-server/routes/dashboard.js",
+		"/C/nodejs/MonsterValle/new-mv-server/constants/Account.js",
+		"/C/nodejs/MonsterValle/new-mv-server/constants/BlockPages.js",
+		"/C/nodejs/MonsterValle/new-mv-client/package.json",
+		"/C/nodejs/MonsterValle/new-mv-server/views/dashboard.ejs",
+		"/C/nodejs/MonsterValle/new-mv-client/tests/unit/example.spec.js",
+		"/C/nodejs/MonsterValle/new-mv-client/doc/flags.txt",
+		"/C/nodejs/MonsterValle/mv-server/database/db.sql",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/dashboard/config.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/dashboard/premium.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/dashboard/profile.js",
+		"/C/nodejs/MonsterValle/new-mv-server/app.bat",
+		"/C/nodejs/MonsterValle/new-mv-server/public/js/init.js",
+		"/C/nodejs/MonsterValle/new-mv-server/views/index.html",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/utils/is-connected.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/utils/is-connected-render-route.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/gamecore/self-profile.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/gamecore/profile.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/utils/check-is-connected.js",
+		"/C/nodejs/MonsterValle/new-mv-server/controller/game/map.js",
+		"/C/nodejs/MonsterValle/new-mv-client/dist/robots.txt",
+		"/C/Users/55119/Desktop/MV16/core/newnewbattle.js",
+		"/C/Users/55119/Desktop/MV16/controllers/hybrid.js",
+		"/C/Users/55119/Desktop/MV16/controllers/eventhandler.js",
+		"/C/nodejs/MonsterValle/new-mv-server/package.json",
+		"/C/nodejs/Xenadia/xenadia-server/services/account-login.service.js",
+		"/C/nodejs/Xenadia/xenadia-server/routes/account.js",
+		"/C/nodejs/Xenadia/xenadia-server/package.json",
+		"/C/nodejs/Xenadia/xenadia-server/services/account/account-login.service.js",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/Evolve.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/Profiles.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/SelfProfile.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/components/MonsterPartySlot.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/Home.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/app.bat",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/Battle.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/package-lock.json",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/About.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/Bag.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/Captcha.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/Config.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/Hunt.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/InitialMonster.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/Jobs.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/LearnMove.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/Market.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/MarketPlace.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/PremiumMarket.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/Recovery.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/StorageMarket.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/views/Team.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/router/index.js",
+		"/C/nodejs/MonsterValle/new-mv-client/src/components/Header.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/src/registerServiceWorker.js",
+		"/C/nodejs/MonsterValle/new-mv-client/src/components/HelloWorld.vue",
+		"/C/nodejs/MonsterValle/new-mv-client/babel.config.js",
+		"/C/nodejs/MonsterValle/test/dockerwait.js",
+		"/C/nodejs/xenadia-client/src/views/About.vue",
+		"/C/nodejs/MonsterValle/mv-client/src/newgame/subscenes/map/Network.js",
+		"/C/nodejs/MonsterValle/new-mv-client/src/App.vue",
+		"/C/nodejs/MonsterValle/mv-client/src/App.vue",
+		"/C/nodejs/MonsterValle/mv-client/src/components/Header.vue",
+		"/C/nodejs/MonsterValle/mv-client/src/views/Profile.vue",
+		"/C/nodejs/MonsterValle/mv-client/src/router/index.js",
+		"/C/nodejs/MonsterValle/new-mv-client/README.md",
+		"/C/nodejs/MonsterValle/mv-client/src/newgame/subscenes/map/InputController.js",
+		"/C/nodejs/MonsterValle/mv-client/src/newgame/scenes/boot/Loader.js",
+		"/C/nodejs/MonsterValle/mv-client/src/newgame/subscenes/map/Tilemap.js",
+		"/C/nodejs/MonsterValle/mv-client/src/newgame/subscenes/map/Loader.js",
+		"/C/nodejs/MonsterValle/mv-client/src/newgame/managers/Database.js",
+		"/C/nodejs/MonsterValle/mv-client/static/database/overworld_assets.json",
+		"/C/nodejs/MonsterValle/mv-client/src/newgame/prefabs/Monster.js",
+		"/C/nodejs/MonsterValle/mv-client/src/newgame/constants/Asset.js",
+		"/C/nodejs/MonsterValle/mv-client/src/newgame/utils/AssetTemplateInjector.js",
+		"/C/nodejs/MonsterValle/mv-client/src/newgame/managers/Assets.js",
+		"/C/nodejs/MonsterValle/mv-client/src/newgame/scenes/boot/index.js"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 129.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 36.0
+	},
+	"input":
+	{
+		"height": 49.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "controller.sublime-project",
+	"replace":
+	{
+		"height": 68.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"choose-initial",
+				"controller\\gamecore\\choose-initial-monster.js"
+			],
+			[
+				"check-block-pages",
+				"controller\\gamecore\\check-block-pages.js"
+			],
+			[
+				"block-p",
+				"services\\main\\check-block-pages.service.js"
+			],
+			[
+				"check",
+				"controller\\gamecore\\check-block-pages.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Sublime\\Valle\\Valle-Client.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 277.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

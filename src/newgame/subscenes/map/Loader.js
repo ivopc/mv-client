@@ -14,7 +14,7 @@ class Loader extends RawLoader {
         scene.load.atlas(playerOverworldSprite.key, playerOverworldSprite.sprite, playerOverworldSprite.atlas);
         const map = Database.ref.maps[MapData.ref.id];
         // map tilesets
-        Assets.ref.getMapTilesets(map.id).forEach(tileset => scene.load.image(tileset.key, "assets/img/tileset/" + tileset.src));
+        Assets.ref.getMapTilesets(map.id).forEach(tileset => scene.load.image(tileset.key, tileset.src));
         // map tilemap
         const tilemap = Assets.ref.getMapTilemap(map.id);
         scene.load.tilemapTiledJSON(tilemap.key, tilemap.src);
@@ -31,9 +31,7 @@ class Loader extends RawLoader {
             this.fetchLoaders(map.customAssets);
     }
 
-    async loadAnotherMap (mapId) {
-        
-    }
+    async loadAnotherMap (mapId) {}
 };
 
 export default Loader;

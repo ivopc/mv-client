@@ -5,6 +5,7 @@
 * manager classes
 */
 import { STATE } from "@/newgame/constants/GameStates";
+import { SCENE } from "@/newgame/constants/GameScene";
 
 import PlayerData from "@/newgame/managers/PlayerData";
 import MapData from "@/newgame/managers/MapData";
@@ -38,16 +39,16 @@ class Boot {
         const { map, wild, flag, tamers } = payload.param;
         MapData.ref = new MapData({ map, flag, wild, tamers });
         console.log(PlayerData.ref, MapData.ref);
-        this.gameInstance.scene.start(STATE.BOOT, {
-            state: STATE.OVERWORLD
+        this.gameInstance.scene.start(SCENE.BOOT, {
+            scene: SCENE.OVERWORLD
         });
     }
 
     initBattle (payload) {
         this.setPlayerData(payload);
         BattleData.ref = new BattleData(/*{ ... }*/);
-        this.gameInstance.scene.start(STATE.BOOT, {
-            state: STATE.BATTLE
+        this.gameInstance.scene.start(SCENE.BOOT, {
+            scene: SCENE.BATTLE
         });
     }
 
@@ -55,18 +56,18 @@ class Boot {
         //const Running = await import("@/newgame/subscene/running");
         this.gameInstance.scene.add("running", Running);
         this.gameInstance.start("boot", {
-            state: "running"
+            scene: "running"
         });
     }
 
     setPlayerData (payload) {
-        const { monsters, items, sprite, position, notifications, nickname } = payload.param;
+        const { monsters, items, sprite, position, notify, nickname } = payload.param;
         PlayerData.ref = new PlayerData({
             nickname,
             character: { sprite, position },
             monsters, 
             items, 
-            notifications
+            notify
         });
     }
 };

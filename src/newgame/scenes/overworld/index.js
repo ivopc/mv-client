@@ -1,12 +1,15 @@
 import Phaser from "phaser";
 
+import { SCENE } from "@/newgame/constants/GameScene";
+
 import Loader from "./Loader";
 
 import PlayerData from "@/newgame/managers/PlayerData";
 import MapData from "@/newgame/managers/MapData";
+
 class Overworld extends Phaser.Scene {
     constructor () {
-        super("overworld");
+        super(SCENE.OVERWORLD);
     }
 
     init (params) {}
@@ -17,7 +20,7 @@ class Overworld extends Phaser.Scene {
     }
 
     create () {
-        this.scene.launch("map");
+        this.scene.launch(SCENE.MAP);
     }
 };
 

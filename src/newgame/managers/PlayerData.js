@@ -10,7 +10,7 @@ class PlayerData {
         this.character = data.character;
         this.partyMonsters = data.monsters;
         this.items = data.items;
-        this.notifications = data.notifications;
+        this.notifications = data.notify;
     }
 
     get data () {

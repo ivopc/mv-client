@@ -1,5 +1,7 @@
 import Phaser from "phaser";
 
+import { SCENE } from "@/newgame/constants/GameScene";
+
 import Boot from "./scenes/boot";
 import Overworld from "./scenes/overworld";
 import Battle from "./scenes/battle";
@@ -41,10 +43,10 @@ function launch (containerId) {
     });
 
     // add scenes to game instances
-    gameInstance.scene.add("boot", Boot);
-    gameInstance.scene.add("overworld", Overworld);
-    gameInstance.scene.add("map", OverworldMap);
-    gameInstance.scene.add("battle", Battle);
+    gameInstance.scene.add(SCENE.BOOT, Boot);
+    gameInstance.scene.add(SCENE.OVERWORLD, Overworld);
+    gameInstance.scene.add(SCENE.MAP, OverworldMap);
+    gameInstance.scene.add(SCENE.BATTLE, Battle);
     return gameInstance;
 };
 

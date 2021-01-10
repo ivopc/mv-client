@@ -175,8 +175,7 @@ Battle.moveDamage = function (action, callback) {
         };
     };
 
-    let monster_name,
-        foe = "";
+    let monster_name, foe = "";
 
     switch (this.currentMove.attacker) {
         case "player": {

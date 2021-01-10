@@ -9,14 +9,14 @@ const AssetTemplateInjector = (assetType, assetData) => {
         {
             const template = Assets.ref.template[assetType];
             return {
-                key: ReplacePhrase(template.key, {
+                key: ReplaceStringToken(template.key, {
                     monsterpediaId: assetData.monsterpediaId
                 }),
                 path: {
-                    texture: ReplacePhrase(template.path.texture, {
+                    texture: ReplaceStringToken(template.path.texture, {
                         monsterpediaId: assetData.monsterpediaId
                     }),
-                    atlas: ReplacePhrase(template.path.atlas, {
+                    atlas: ReplaceStringToken(template.path.atlas, {
                         monsterpediaId: assetData.monsterpediaId
                     })
                 }
@@ -24,16 +24,16 @@ const AssetTemplateInjector = (assetType, assetData) => {
             break;
         };
         case ASSET_TYPE.CHARACTER_OVERWORLD: {
-            const template = Asssets.ref.template.characteroverworld;
+            const template = Assets.ref.template.characteroverworld;
             return {
-                key: ReplacePhrase(template.key, {
+                key: ReplaceStringToken(template.key, {
                     name: assetData.name
                 }),
                 path: {
-                    texture: ReplacePhrase(template.path.texture, {
+                    texture: ReplaceStringToken(template.path.texture, {
                         name: assetData.name
                     }),
-                    atlas: ReplacePhrase(template.path.atlas, {
+                    atlas: ReplaceStringToken(template.path.atlas, {
                         name: assetData.name
                     })
                 }
@@ -41,6 +41,15 @@ const AssetTemplateInjector = (assetType, assetData) => {
             break;
         };
         case ASSET_TYPE.TILEMAP: {
+            const template = Assets.ref.template.tilemap;
+            return {
+                key: ReplaceStringToken(template.key, {
+                    name: assetData.id
+                }),
+                src: ReplaceStringToken(template.src, {
+                    name: assetData.name
+                })
+            };
             break;
         };
         case ASSET_TYPE.LEVEL_SCRIPT: {

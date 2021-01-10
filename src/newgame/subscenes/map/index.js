@@ -1,5 +1,7 @@
 import Phaser from "phaser";
 
+import { SCENE } from "@/newgame/constants/GameScene";
+
 import Loader from "./Loader";
 import InputListener from "./InputListener";
 import Tilemap from "./Tilemap";
@@ -11,10 +13,12 @@ import MapData from "@/newgame/managers/MapData";
 
 class Map extends Phaser.Scene {
     constructor () {
-        super("map");
+        super(SCENE.MAP);
     }
 
-    init (params) {}
+    init (params) {
+        console.log("Olá");
+    }
 
     preload () {
         this.$loader = new Loader(this);

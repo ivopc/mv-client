@@ -5,6 +5,7 @@ class Loader extends RawLoader {
 
     fetchAssets () {
         const scene = this.scene;
+        return;
         // user interface
         scene.load.atlas("icons", "assets/img/interface/icons.png", "assets/res/icons.json");
         scene.load.atlas("types", "assets/img/interface/types.png", "assets/res/types.json");

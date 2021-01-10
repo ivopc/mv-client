@@ -21,7 +21,7 @@
     "linked-list": "^2.1.0",
     "lodash": "^4.17.15",
     "objectmodel": "^4.2.2",
-    "phaser": "^3.24.1",
+    "phaser": "^3.51.0",
     "phaser3-rex-plugins": "^1.1.22",
     "popper.js": "^1.15.0",
     "sc-channel": "^2.0.0",

@@ -3,7 +3,7 @@
         "id": 1,
         "name": "city",
         "tiles": [
-            {"key": "tileset1", "src": "tiles1.png", "name": "Tiles1"}
+            {"key": "tileset1", "src": "assets/img/tileset/tiles1.png", "name": "Tiles1"}
         ],
         "music": {
             "name": "new_valle_town",
@@ -13,6 +13,10 @@
     "2": {
         "id": 2,
         "name": "map22",
+        "tiles": [
+            {"key": "tileset1", "src": "assets/img/tileset/tiles1.png", "name": "Tiles1"}
+        ],
+        "npcs": [],
         "music": {
             "name": "new_valle_town",
             "src": "New Valle Town.wav"
@@ -34,6 +38,9 @@
     "4": {
         "id": 4,
         "name": "player_house",
+        "tiles": [
+            {"key": "indoors", "src": "assets/img/tileset/indoors.png", "name": "Indoors"}
+        ],
         "music": {
             "name": "new_valle_town",
             "src": "New Valle Town.wav"
@@ -52,6 +59,9 @@
     "6": {
         "id": 6,
         "name": "sotopus",
+        "tiles": [
+            {"key": "tileset2", "src": "assets/img/tileset/tiles2.png", "name": "Tiles2"}
+        ],
         "music": {
             "name": "sotopus_lake",
             "src": "Sotopus Lake.wav"

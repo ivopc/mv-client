@@ -3,7 +3,8 @@ import {
     CUSTOM_TEMPLATE_LOADER, 
     BASE_ASSETS, 
     CHARACTERS, 
-    MAPS 
+    MAPS,
+    MONSTERS
 } from "@/newgame/constants/Loader";
 class Loader extends RawLoader {
     constructor (scene) {
@@ -17,6 +18,7 @@ class Loader extends RawLoader {
         scene.load.json(BASE_ASSETS, "database/base_assets.json");
         scene.load.json(CUSTOM_TEMPLATE_LOADER, "database/custom_asset_template_loader.json");
         scene.load.json(CHARACTERS, "database/characters.json");
+        scene.load.json(MONSTERS, "database/monsters.json");
         scene.load.json(MAPS, "database/maps.json");
     }
 };

@@ -1,19 +1,22 @@
 import Phaser from "phaser";
 
+import { SCENE } from "@/newgame/constants/GameScene";
+
 import Loader from "./Loader";
 import Database from "@/newgame/managers/Database";
 import Assets from "@/newgame/managers/Assets";
 
-import { 
+import {
     CUSTOM_TEMPLATE_LOADER, 
     BASE_ASSETS, 
-    CHARACTERS, 
+    CHARACTERS,
+    MONSTERS,
     MAPS 
 } from "@/newgame/constants/Loader";
 
 class Boot extends Phaser.Scene {
     constructor () {
-        super("boot");
+        super(SCENE.BOOT);
     }
 
     init (params) {
@@ -26,16 +29,17 @@ class Boot extends Phaser.Scene {
     }
 
     create () {
-        const getFromCache = this.cache.json.get;
         Database.ref = new Database({
-            maps: getFromCache(MAPS),
-            character: getFromCache(CHARACTERS)
+            maps: this.cache.json.get(MAPS),
+            character: this.cache.json.get(CHARACTERS),
+            monsters: this.cache.json.get(MONSTERS)
         });
         Assets.ref = new Assets({
-            template: getFromCache(CUSTOM_TEMPLATE_LOADER),
-            base: getFromCache(BASE_ASSETS)
+            template: this.cache.json.get(CUSTOM_TEMPLATE_LOADER),
+            base: this.cache.json.get(BASE_ASSETS)
         });
-        this.scene.start(this.data.state);
+        console.log("scene", this.data.scene);
+        this.scene.start(this.data.scene);
     }
 };
 

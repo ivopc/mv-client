@@ -1,0 +1,434 @@
+{
+    "frames": {
+        "frutara_right_idle0": {
+            "frame": {
+                "x": 9,
+                "y": 3,
+                "w": 20,
+                "h": 28
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 20,
+                "h": 28
+            },
+            "sourceSize": {
+                "w": 20,
+                "h": 28
+            }
+        },
+        "frutara_right_walk0": {
+            "frame": {
+                "x": 79,
+                "y": 3,
+                "w": 19,
+                "h": 28
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 19,
+                "h": 28
+            },
+            "sourceSize": {
+                "w": 19,
+                "h": 28
+            }
+        },
+        "frutara_right_idle1": {
+            "frame": {
+                "x": 40,
+                "y": 3,
+                "w": 26,
+                "h": 32
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 31
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 31
+            }
+        },
+        "frutara_right_walk1": {
+            "frame": {
+                "x": 111,
+                "y": 3,
+                "w": 25,
+                "h": 32
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 25,
+                "h": 31
+            },
+            "sourceSize": {
+                "w": 25,
+                "h": 31
+            }
+        },
+        "sprite5": {
+            "frame": {
+                "x": 76,
+                "y": 31,
+                "w": 25,
+                "h": 4
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 25,
+                "h": 4
+            },
+            "sourceSize": {
+                "w": 25,
+                "h": 4
+            }
+        },
+        "sprite6": {
+            "frame": {
+                "x": 5,
+                "y": 32,
+                "w": 26,
+                "h": 3
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 3
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 3
+            }
+        },
+        "frutara_left_idle0": {
+            "frame": {
+                "x": 6,
+                "y": 38,
+                "w": 20,
+                "h": 28
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 20,
+                "h": 28
+            },
+            "sourceSize": {
+                "w": 20,
+                "h": 28
+            }
+        },
+        "frutara_left_walk1": {
+            "frame": {
+                "x": 112,
+                "y": 37,
+                "w": 19,
+                "h": 29
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 19,
+                "h": 28
+            },
+            "sourceSize": {
+                "w": 19,
+                "h": 28
+            }
+        },
+        "frutara_left_idle1": {
+            "frame": {
+                "x": 39,
+                "y": 38,
+                "w": 26,
+                "h": 32
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 31
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 31
+            }
+        },
+        "frutara_left_walk0": {
+            "frame": {
+                "x": 77,
+                "y": 39,
+                "w": 19,
+                "h": 28
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 19,
+                "h": 28
+            },
+            "sourceSize": {
+                "w": 19,
+                "h": 28
+            }
+        },
+        "sprite11": {
+            "frame": {
+                "x": 74,
+                "y": 66,
+                "w": 26,
+                "h": 4
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 4
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 4
+            }
+        },
+        "sprite12": {
+            "frame": {
+                "x": 109,
+                "y": 66,
+                "w": 26,
+                "h": 4
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 4
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 4
+            }
+        },
+        "sprite13": {
+            "frame": {
+                "x": 4,
+                "y": 67,
+                "w": 26,
+                "h": 3
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 3
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 3
+            }
+        },
+        "frutara_down_idle0": {
+            "frame": {
+                "x": 5,
+                "y": 73,
+                "w": 28,
+                "h": 32
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 32
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 32
+            }
+        },
+        "frutara_down_walk0": {
+            "frame": {
+                "x": 75,
+                "y": 73,
+                "w": 28,
+                "h": 32
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 32
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 32
+            }
+        },
+        "frutara_down_idle1": {
+            "frame": {
+                "x": 40,
+                "y": 73,
+                "w": 28,
+                "h": 32
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 31
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 31
+            }
+        },
+        "frutara_down_walk1": {
+            "frame": {
+                "x": 110,
+                "y": 74,
+                "w": 28,
+                "h": 31
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 30
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 30
+            }
+        },
+        "frutara_up_idle0": {
+            "frame": {
+                "x": 5,
+                "y": 108,
+                "w": 28,
+                "h": 32
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 32
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 32
+            }
+        },
+        "frutara_up_walk0": {
+            "frame": {
+                "x": 75,
+                "y": 108,
+                "w": 28,
+                "h": 32
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 32
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 32
+            }
+        },
+        "frutara_up_idle1": {
+            "frame": {
+                "x": 40,
+                "y": 108,
+                "w": 28,
+                "h": 32
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 31
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 31
+            }
+        },
+        "frutara_up_walk1": {
+            "frame": {
+                "x": 110,
+                "y": 109,
+                "w": 28,
+                "h": 31
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 30
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 30
+            }
+        }
+    },
+    "meta": {
+        "app": "https://www.leshylabs.com/apps/sstool/",
+        "version": "Leshy SpriteSheet Tool v0.8.4",
+        "image": "spritesheet.png",
+        "size": {
+            "w": 140,
+            "h": 140
+        },
+        "scale": 1
+    }
+}

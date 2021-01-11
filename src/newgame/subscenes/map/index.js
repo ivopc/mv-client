@@ -5,6 +5,7 @@ import { SCENE } from "@/newgame/constants/GameScene";
 import Loader from "./Loader";
 import InputListener from "./InputListener";
 import Tilemap from "./Tilemap";
+import Container from "./Container";
 
 import PlayerCharacterController from "./PlayerCharacterController";
 import InputController from "./InputController";
@@ -28,10 +29,11 @@ class Map extends Phaser.Scene {
     create () {
         this.$inputListener = new InputListener(this);
         this.$inputController = new InputController(this);
-        this.$playerController = new PlayerCharacterController(this);
+        this.$containers = new Container(this);
         this.$tilemap = new Tilemap(this);
-
+        this.$playerController = new PlayerCharacterController(this);
         // **-----------------------------------**
+        this.$containers.create();
         this.$tilemap.assemble();
         this.$playerController.create();
     }

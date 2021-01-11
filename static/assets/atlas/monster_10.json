@@ -1,0 +1,154 @@
+{
+    "frames": {
+        "dinnox_idle0": {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 88,
+                "h": 100
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 88,
+                "h": 100
+            },
+            "sourceSize": {
+                "w": 88,
+                "h": 100
+            }
+        },
+        "dinnox_idle1": {
+            "frame": {
+                "x": 88,
+                "y": 0,
+                "w": 88,
+                "h": 100
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 88,
+                "h": 100
+            },
+            "sourceSize": {
+                "w": 88,
+                "h": 100
+            }
+        },
+        "dinnox_idle2": {
+            "frame": {
+                "x": 176,
+                "y": 0,
+                "w": 88,
+                "h": 100
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 88,
+                "h": 100
+            },
+            "sourceSize": {
+                "w": 88,
+                "h": 100
+            }
+        },
+        "dinnox_idle3": {
+            "frame": {
+                "x": 264,
+                "y": 0,
+                "w": 88,
+                "h": 100
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 88,
+                "h": 100
+            },
+            "sourceSize": {
+                "w": 88,
+                "h": 100
+            }
+        },
+        "dinnox_physicalattack0": {
+            "frame": {
+                "x": 357,
+                "y": 3,
+                "w": 86,
+                "h": 100
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 86,
+                "h": 100
+            },
+            "sourceSize": {
+                "w": 86,
+                "h": 100
+            }
+        },
+        "dinnox_physicalattack1": {
+            "frame": {
+                "x": 457,
+                "y": 23,
+                "w": 104,
+                "h": 80
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 104,
+                "h": 80
+            },
+            "sourceSize": {
+                "w": 104,
+                "h": 80
+            }
+        },
+        "dinnox_physicalattack2": {
+            "frame": {
+                "x": 576,
+                "y": 23,
+                "w": 102,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 102,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 102,
+                "h": 76
+            }
+        }
+    },
+    "meta": {
+        "app": "https://www.leshylabs.com/apps/sstool/",
+        "version": "Leshy SpriteSheet Tool v0.8.4",
+        "image": "spritesheet.png",
+        "size": {
+            "w": 762,
+            "h": 116
+        },
+        "scale": 1
+    }
+}

@@ -21,7 +21,7 @@
             "name": "new_valle_town",
             "src": "New Valle Town.wav"
         },
-        "hasCustomAssets": true,
+        "hasCustomAssets": false,
         "hasWild": true,
         "wildAppearence": [10, 12]
     },

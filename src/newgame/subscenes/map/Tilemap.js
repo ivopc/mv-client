@@ -20,17 +20,17 @@ class Tilemap {
         this.tiles = this.fetchTilesets().map(tileset => this.tilemap.addTilesetImage(tileset.name, tileset.key));
         this.tilemap.layers.forEach((layer, i) => {
             switch (+layer.properties.type) {
-                case LAYER_TYPES.COMMON: {  // se for layer comum
+                case LAYER_TYPES.COMMON: {
                     this.layers[i] = this.tilemap.createDynamicLayer(layer.name, this.tiles);
                     this.scene.$containers.map.add(this.layers[i]);
                     break;
                 };
-                case LAYER_TYPES.OVERLAY: { // se for overlay
+                case LAYER_TYPES.OVERLAY: {
                     this.overlay = this.tilemap.createDynamicLayer(layer.name, this.tiles);
                     this.scene.$containers.overlay.add(this.overlay);
                     break;
                 };
-                case LAYER_TYPES.COLLISION: { // se for layer de colisão
+                case LAYER_TYPES.COLLISION: {
                     this.collisionLayer = layer;
                     break;
                 };
@@ -38,7 +38,9 @@ class Tilemap {
         });
     }
 
-    fetchTilesets () {}
+    fetchTilesets () {
+        return Assets.ref.getMapTilesets(this.mapData.id);
+    }
 
     async load (mapId) {
         const { scene } = this;

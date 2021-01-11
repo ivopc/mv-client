@@ -1,0 +1,334 @@
+{
+    "frames": {
+        "shifarie_left_idle0": {
+            "frame": {
+                "x": 3,
+                "y": 1,
+                "w": 29,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 29,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 29,
+                "h": 34
+            }
+        },
+        "shifarie_left_walk0": {
+            "frame": {
+                "x": 72,
+                "y": 1,
+                "w": 29,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 29,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 29,
+                "h": 34
+            }
+        },
+        "shifarie_left_idle1": {
+            "frame": {
+                "x": 38,
+                "y": 1,
+                "w": 29,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 29,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 29,
+                "h": 34
+            }
+        },
+        "shifarie_left_walk1": {
+            "frame": {
+                "x": 107,
+                "y": 1,
+                "w": 28,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 33
+            }
+        },
+        "shifarie_right_idle0": {
+            "frame": {
+                "x": 3,
+                "y": 36,
+                "w": 29,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 29,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 29,
+                "h": 34
+            }
+        },
+        "shifarie_right_walk0": {
+            "frame": {
+                "x": 74,
+                "y": 36,
+                "w": 29,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 29,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 29,
+                "h": 34
+            }
+        },
+        "shifarie_right_idle1": {
+            "frame": {
+                "x": 38,
+                "y": 36,
+                "w": 29,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 29,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 29,
+                "h": 34
+            }
+        },
+        "shifarie_right_walk1": {
+            "frame": {
+                "x": 110,
+                "y": 36,
+                "w": 28,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 33
+            }
+        },
+        "shifarie_up_idle0": {
+            "frame": {
+                "x": 4,
+                "y": 71,
+                "w": 26,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 34
+            }
+        },
+        "shifarie_up_walk0": {
+            "frame": {
+                "x": 74,
+                "y": 71,
+                "w": 25,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 25,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 25,
+                "h": 34
+            }
+        },
+        "shifarie_up_idle1": {
+            "frame": {
+                "x": 39,
+                "y": 71,
+                "w": 26,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 34
+            }
+        },
+        "shifarie_up_walk1": {
+            "frame": {
+                "x": 107,
+                "y": 71,
+                "w": 29,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 29,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 29,
+                "h": 33
+            }
+        },
+        "shifarie_down_idle0": {
+            "frame": {
+                "x": 4,
+                "y": 106,
+                "w": 26,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 34
+            }
+        },
+        "shifarie_down_walk0": {
+            "frame": {
+                "x": 73,
+                "y": 106,
+                "w": 28,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 34
+            }
+        },
+        "shifarie_down_idle1": {
+            "frame": {
+                "x": 39,
+                "y": 106,
+                "w": 26,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 34
+            }
+        },
+        "shifarie_down_walk1": {
+            "frame": {
+                "x": 107,
+                "y": 106,
+                "w": 30,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 34
+            }
+        }
+    },
+    "meta": {
+        "app": "https://www.leshylabs.com/apps/sstool/",
+        "version": "Leshy SpriteSheet Tool v0.8.4",
+        "image": "spritesheet.png",
+        "size": {
+            "w": 140,
+            "h": 140
+        },
+        "scale": 1
+    }
+}

@@ -1,0 +1,500 @@
+{
+    "frames": {
+        "fogara_idle0": {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle1": {
+            "frame": {
+                "x": 110,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle2": {
+            "frame": {
+                "x": 220,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle3": {
+            "frame": {
+                "x": 330,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle4": {
+            "frame": {
+                "x": 440,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle5": {
+            "frame": {
+                "x": 550,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle6": {
+            "frame": {
+                "x": 0,
+                "y": 110,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle7": {
+            "frame": {
+                "x": 110,
+                "y": 110,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle8": {
+            "frame": {
+                "x": 220,
+                "y": 110,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle9": {
+            "frame": {
+                "x": 330,
+                "y": 110,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle10": {
+            "frame": {
+                "x": 440,
+                "y": 110,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle11": {
+            "frame": {
+                "x": 550,
+                "y": 110,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle12": {
+            "frame": {
+                "x": 0,
+                "y": 220,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle13": {
+            "frame": {
+                "x": 110,
+                "y": 220,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle14": {
+            "frame": {
+                "x": 220,
+                "y": 220,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle15": {
+            "frame": {
+                "x": 330,
+                "y": 220,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle16": {
+            "frame": {
+                "x": 440,
+                "y": 220,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle17": {
+            "frame": {
+                "x": 550,
+                "y": 220,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle18": {
+            "frame": {
+                "x": 0,
+                "y": 330,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle19": {
+            "frame": {
+                "x": 110,
+                "y": 330,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle20": {
+            "frame": {
+                "x": 220,
+                "y": 330,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        },
+        "fogara_idle21": {
+            "frame": {
+                "x": 330,
+                "y": 330,
+                "w": 110,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 110
+            },
+            "duration": 100
+        }
+    },
+    "meta": {
+        "app": "http://www.aseprite.org/",
+        "version": "1.2.21-x64",
+        "image": "001Idle.png",
+        "format": "RGBA8888",
+        "size": {
+            "w": 660,
+            "h": 440
+        },
+        "scale": "1",
+        "frameTags": [],
+        "layers": [{
+                "name": "Layer 1",
+                "opacity": 255,
+                "blendMode": "normal"
+            },
+            {
+                "name": "fire",
+                "opacity": 255,
+                "blendMode": "normal"
+            },
+            {
+                "name": "base",
+                "opacity": 255,
+                "blendMode": "normal"
+            },
+            {
+                "name": "det",
+                "opacity": 255,
+                "blendMode": "normal"
+            }
+        ],
+        "slices": []
+    }
+}

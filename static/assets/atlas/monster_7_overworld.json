@@ -1,0 +1,334 @@
+{
+    "frames": {
+        "graenn_left_idle0": {
+            "frame": {
+                "x": 2,
+                "y": 1,
+                "w": 32,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 34
+            }
+        },
+        "graenn_left_idle1": {
+            "frame": {
+                "x": 37,
+                "y": 1,
+                "w": 32,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 33
+            }
+        },
+        "graenn_left_walk0": {
+            "frame": {
+                "x": 71,
+                "y": 2,
+                "w": 32,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 33
+            }
+        },
+        "graenn_left_walk1": {
+            "frame": {
+                "x": 106,
+                "y": 2,
+                "w": 31,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 31,
+                "h": 32
+            },
+            "sourceSize": {
+                "w": 31,
+                "h": 32
+            }
+        },
+        "graenn_right_idle0": {
+            "frame": {
+                "x": 1,
+                "y": 36,
+                "w": 32,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 34
+            }
+        },
+        "graenn_right_idle1": {
+            "frame": {
+                "x": 36,
+                "y": 36,
+                "w": 32,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 33
+            }
+        },
+        "graenn_right_walk0": {
+            "frame": {
+                "x": 72,
+                "y": 37,
+                "w": 32,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 33
+            }
+        },
+        "graenn_right_walk1": {
+            "frame": {
+                "x": 107,
+                "y": 37,
+                "w": 32,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 32
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 32
+            }
+        },
+        "graenn_up_idle0": {
+            "frame": {
+                "x": 3,
+                "y": 71,
+                "w": 30,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 34
+            }
+        },
+        "graenn_up_walk0": {
+            "frame": {
+                "x": 72,
+                "y": 71,
+                "w": 28,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 34
+            }
+        },
+        "graenn_up_idle1": {
+            "frame": {
+                "x": 36,
+                "y": 71,
+                "w": 30,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 33
+            }
+        },
+        "graenn_up_walk1": {
+            "frame": {
+                "x": 108,
+                "y": 71,
+                "w": 28,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 33
+            }
+        },
+        "graenn_down_idle0": {
+            "frame": {
+                "x": 3,
+                "y": 106,
+                "w": 31,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 31,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 31,
+                "h": 34
+            }
+        },
+        "graenn_down_walk0": {
+            "frame": {
+                "x": 71,
+                "y": 106,
+                "w": 30,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 34
+            }
+        },
+        "graenn_down_idle1": {
+            "frame": {
+                "x": 36,
+                "y": 106,
+                "w": 30,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 33
+            }
+        },
+        "graenn_down_walk1": {
+            "frame": {
+                "x": 108,
+                "y": 106,
+                "w": 31,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 31,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 31,
+                "h": 33
+            }
+        }
+    },
+    "meta": {
+        "app": "https://www.leshylabs.com/apps/sstool/",
+        "version": "Leshy SpriteSheet Tool v0.8.4",
+        "image": "spritesheet.png",
+        "size": {
+            "w": 140,
+            "h": 140
+        },
+        "scale": 1
+    }
+}

@@ -1,0 +1,454 @@
+{
+    "frames": {
+        "atataiob_left_idle0": {
+            "frame": {
+                "x": 1,
+                "y": 2,
+                "w": 23,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 23,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 23,
+                "h": 21
+            }
+        },
+        "atataiob_left_idle1": {
+            "frame": {
+                "x": 25,
+                "y": 2,
+                "w": 23,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 23,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 23,
+                "h": 21
+            }
+        },
+        "atataiob_left_walk0": {
+            "frame": {
+                "x": 50,
+                "y": 2,
+                "w": 22,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 22,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 22,
+                "h": 21
+            }
+        },
+        "sprite5": {
+            "frame": {
+                "x": 73,
+                "y": 2,
+                "w": 23,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 23,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 23,
+                "h": 21
+            }
+        },
+        "atataiob_left_walk1": {
+            "frame": {
+                "x": 98,
+                "y": 2,
+                "w": 22,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 22,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 22,
+                "h": 21
+            }
+        },
+        "sprite7": {
+            "frame": {
+                "x": 107,
+                "y": 24,
+                "w": 1,
+                "h": 1
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 1,
+                "h": 1
+            },
+            "sourceSize": {
+                "w": 1,
+                "h": 1
+            }
+        },
+        "atataiob_down_idle0": {
+            "frame": {
+                "x": 7,
+                "y": 25,
+                "w": 13,
+                "h": 22
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 13,
+                "h": 22
+            },
+            "sourceSize": {
+                "w": 13,
+                "h": 22
+            }
+        },
+        "atataiob_down_idle1": {
+            "frame": {
+                "x": 31,
+                "y": 25,
+                "w": 13,
+                "h": 22
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 13,
+                "h": 22
+            },
+            "sourceSize": {
+                "w": 13,
+                "h": 22
+            }
+        },
+        "atataiob_down_walk0": {
+            "frame": {
+                "x": 55,
+                "y": 25,
+                "w": 13,
+                "h": 22
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 13,
+                "h": 22
+            },
+            "sourceSize": {
+                "w": 13,
+                "h": 22
+            }
+        },
+        "sprite11": {
+            "frame": {
+                "x": 79,
+                "y": 26,
+                "w": 12,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 12,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 12,
+                "h": 21
+            }
+        },
+        "atataiob_down_walk1": {
+            "frame": {
+                "x": 103,
+                "y": 26,
+                "w": 13,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 13,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 13,
+                "h": 21
+            }
+        },
+        "atataiob_up_idle0": {
+            "frame": {
+                "x": 4,
+                "y": 48,
+                "w": 13,
+                "h": 23
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 13,
+                "h": 23
+            },
+            "sourceSize": {
+                "w": 13,
+                "h": 23
+            }
+        },
+        "atataiob_up_idle1": {
+            "frame": {
+                "x": 28,
+                "y": 48,
+                "w": 13,
+                "h": 23
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 13,
+                "h": 23
+            },
+            "sourceSize": {
+                "w": 13,
+                "h": 23
+            }
+        },
+        "atataiob_up_walk0": {
+            "frame": {
+                "x": 52,
+                "y": 48,
+                "w": 13,
+                "h": 23
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 13,
+                "h": 23
+            },
+            "sourceSize": {
+                "w": 13,
+                "h": 23
+            }
+        },
+        "sprite16": {
+            "frame": {
+                "x": 76,
+                "y": 48,
+                "w": 13,
+                "h": 23
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 13,
+                "h": 23
+            },
+            "sourceSize": {
+                "w": 13,
+                "h": 23
+            }
+        },
+        "atataiob_up_walk1": {
+            "frame": {
+                "x": 100,
+                "y": 51,
+                "w": 13,
+                "h": 20
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 13,
+                "h": 20
+            },
+            "sourceSize": {
+                "w": 13,
+                "h": 20
+            }
+        },
+        "atataiob_right_idle0": {
+            "frame": {
+                "x": 0,
+                "y": 74,
+                "w": 23,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 23,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 23,
+                "h": 21
+            }
+        },
+        "atataiob_right_idle1": {
+            "frame": {
+                "x": 24,
+                "y": 74,
+                "w": 23,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 23,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 23,
+                "h": 21
+            }
+        },
+        "atataiob_right_walk0": {
+            "frame": {
+                "x": 48,
+                "y": 74,
+                "w": 23,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 23,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 23,
+                "h": 21
+            }
+        },
+        "sprite21": {
+            "frame": {
+                "x": 72,
+                "y": 74,
+                "w": 22,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 22,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 22,
+                "h": 21
+            }
+        },
+        "sprite22": {
+            "frame": {
+                "x": 104,
+                "y": 74,
+                "w": 3,
+                "h": 2
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 3,
+                "h": 2
+            },
+            "sourceSize": {
+                "w": 3,
+                "h": 2
+            }
+        },
+        "atataiob_right_walk1": {
+            "frame": {
+                "x": 96,
+                "y": 74,
+                "w": 22,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 22,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 22,
+                "h": 21
+            }
+        }
+    },
+    "meta": {
+        "app": "https://www.leshylabs.com/apps/sstool/",
+        "version": "Leshy SpriteSheet Tool v0.8.4",
+        "image": "spritesheet.png",
+        "size": {
+            "w": 120,
+            "h": 96
+        },
+        "scale": 1
+    }
+}

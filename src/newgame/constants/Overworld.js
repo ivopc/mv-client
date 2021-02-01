@@ -27,7 +27,14 @@ const TILE = {
         {
             event: true
         }
-    ]
+    ],
+    TYPES: {
+        BLOCK: 0,
+        DEFAULT: 1,
+        WARP: 3,
+        WILD_GRASS: 4,
+        EVENT: 7
+    }
 };
 
 const DIRECTIONS = ["up", "right", "down", "left"];

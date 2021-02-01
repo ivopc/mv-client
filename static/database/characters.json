@@ -41,7 +41,7 @@
                 "y": 0.2
             }
         },
-        "atlas": "character_male1"
+        "atlas": "character_char1_overworld"
     },
     "3": {
         "name": "char2",

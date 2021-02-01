@@ -17,6 +17,7 @@ class PlayerCharacterController {
             sprite: character.sprite
         });
         player.cameraFollow();
+        this.scene.$containers.main.add(player);
         this.scene.$player = player;
     }
 };

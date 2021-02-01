@@ -9,14 +9,13 @@
 import { DIRECTIONS } from "@/newgame/constants/Directions";
 
 class InputListener {
-    constructor ({ $inputController, $system }) {
-        this.controller = $inputController;
-        this.system = $system;
+    constructor (scene) {
+        this.scene = scene;
     }
 
     listenerKeys = {
         LEFT: 37,
-        UP: 3,
+        UP: 38,
         RIGHT: 39,
         DOWN: 40,
         W: 87,
@@ -37,16 +36,21 @@ class InputListener {
     }
 
     onPressed (keyCode) {
-        this.controller.triggerPressed(keyCode);
+        this.scene.$inputController.triggerPressed(keyCode);
     }
+
+    addListener () {
+        this.addKeyboardListener();
+    }
+    
     addKeyboardListener () {
-        document.addEventListener("keyup", this.onKeyUp, false);
-        document.addEventListener("keydown", this.onKeyDown, false);
+        document.addEventListener("keyup", this.onKeyUp.bind(this), false);
+        document.addEventListener("keydown", this.onKeyDown.bind(this), false);
     }
 
     removeKeyboardListener () {
-        document.removeEventListener("keyup", this.onKeyUp, false);
-        document.removeEventListener("keydown", this.onKeyDown, false);
+        document.removeEventListener("keyup", this.onKeyUp.bind(this), false);
+        document.removeEventListener("keydown", this.onKeyDown.bind(this), false);
         this.pressed = {};
     }
 
@@ -56,20 +60,20 @@ class InputListener {
 
     checkKeyboard () {
         if (this.isKeyDown(this.listenerKeys.UP) || this.isKeyDown(this.listenerKeys.W))
-            this.controller.triggerFromListener(DIRECTIONS.UP);
+            this.scene.$inputController.triggerFromListener(DIRECTIONS.UP);
         else if (this.isKeyDown(this.listenerKeys.DOWN) || this.isKeyDown(this.listenerKeys.S))
-            this.controller.triggerFromListener(DIRECTIONS.DOWN);
+            this.scene.$inputController.triggerFromListener(DIRECTIONS.DOWN);
 
         if (this.isKeyDown(this.listenerKeys.LEFT) || this.isKeyDown(this.listenerKeys.A))
-            this.controller.triggerFromListener(DIRECTIONS.LEFT);
+            this.scene.$inputController.triggerFromListener(DIRECTIONS.LEFT);
         else if (this.isKeyDown(this.listenerKeys.RIGHT) || this.isKeyDown(this.listenerKeys.D)) 
-            this.controller.triggerFromListener(DIRECTIONS.RIGHT);
+            this.scene.$inputController.triggerFromListener(DIRECTIONS.RIGHT);
     }
 
     checkDPad () {}
 
     update () {
-        if (this.system.isMobile)
+        if (this.isMobile)
             this.checkDPad();
         else
             this.checkKeyboard();

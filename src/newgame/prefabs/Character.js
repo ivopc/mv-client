@@ -1,5 +1,16 @@
+import { STEP_TIME, TILE, DIRECTIONS, DIRECTIONS_HASH } from "@/newgame/constants/Overworld";
+import { CHAR_TYPES } from "@/newgame/constants/Character";
+
+import { positionToRealWorld } from "@/newgame/utils";
+
+import Database from "@/newgame/managers/Database";
+
 import RawCharacter from "./RawCharacter";
 import BalloonDialog from "./BalloonDialog";
+
+/*
+Arrumar: subscribe do socket e checkPlayerPositionTamer 
+*/
 
 class Character extends RawCharacter {
 
@@ -7,8 +18,8 @@ class Character extends RawCharacter {
 
         super(
             scene, 
-            scene.positionToRealWorld(data.position.x), 
-            scene.positionToRealWorld(data.position.y),
+            positionToRealWorld(data.position.x), 
+            positionToRealWorld(data.position.y),
             data
         );
 
@@ -52,7 +63,7 @@ class Character extends RawCharacter {
             type: data.type,
             name: data.name,
             sprite: data.sprite,
-            atlas: scene.database.characters[data.sprite].atlas,
+            atlas: Database.ref.character[data.sprite].atlas,
             position: {
                 x: data.position.x,
                 y: data.position.y,
@@ -79,7 +90,7 @@ class Character extends RawCharacter {
     }
 
     changeSprite (sprite) {
-        if (this.scene.textures.exists(this.scene.database.characters[sprite].atlas)) {
+        if (this.scene.textures.exists(Database.ref.character[sprite].atlas)) {
             this._data.sprite = sprite;
             this.rawSetSprite(sprite);
         } else {
@@ -100,19 +111,15 @@ class Character extends RawCharacter {
     }
 
     triggerStartMove (position) {
-        //this.events.startMove.forEach(callback => callback(pos));
-        for (let i = 0, l = this.events.startMove.length; i < l; i++)
-            this.events.startMove[i](position);
+        this.events.startMove.forEach(fn => fn(position));
     }
 
     triggerEndMove (position) {
-        for (let i = 0, l = this.events.endMove.length; i < l; i++)
-            this.events.endMove[i](position);
+        this.events.endMove.forEach(fn => fn(position));
     }
 
-    triggerCantMove (pos) {
-        for (let i = 0, l = this.events.cantMove.length; i < l; i++)
-            this.events.cantMove[i](position);
+    triggerCantMove (position) {
+        this.events.cantMove.forEach(fn => fn(position));
     }
 
     addInteraction (fn) {
@@ -121,24 +128,22 @@ class Character extends RawCharacter {
 
     createFollower (sprite) {
 
-        const
-            position = { ... this._data.position },
-            DIRECTIONS = this.scene.database.overworld.directions_hash;
+        const position = { ... this._data.position };
 
         switch (this._data.position.facing) {
-            case DIRECTIONS.UP: {
+            case DIRECTIONS_HASH.UP: {
                 position.y ++;
                 break;
             };
-            case DIRECTIONS.RIGHT: {
+            case DIRECTIONS_HASH.RIGHT: {
                 position.x --;
                 break;
             };
-            case DIRECTIONS.DOWN: {
+            case DIRECTIONS_HASH.DOWN: {
                 position.y --;
                 break;
             };
-            case DIRECTIONS.LEFT: {
+            case DIRECTIONS_HASH.LEFT: {
                 position.x ++;
                 break;
             };
@@ -157,7 +162,7 @@ class Character extends RawCharacter {
 
         this.setFollower(follower._data.name);
 
-        this.scene.depthSort();
+        //this.scene.depthSort();
     }
 
     setFollower (id) {
@@ -262,23 +267,19 @@ class Character extends RawCharacter {
 
         // incrementa nova posição
         switch(direction) {
-            // cima
-            case 0: {
+            case DIRECTIONS_HASH.UP: {
                 position.y --;
                 break;
             };
-            // direita
-            case 1: {
+            case DIRECTIONS_HASH.RIGHT: {
                 position.x ++;
                 break;
             };
-            // down
-            case 2: {
+            case DIRECTIONS_HASH.DOWN: {
                 position.y ++;
                 break;
             };
-            // esquerda
-            case 3: {
+            case DIRECTIONS_HASH.LEFT: {
                 position.x --;
                 break;
             };
@@ -286,14 +287,14 @@ class Character extends RawCharacter {
 
         // pega informação dos tiles para executar colisão
         const 
-            tileY = this.scene.collisionLayer.data[position.y] ? this.scene.collisionLayer.data[position.y] : 0,
+            tileY = this.scene.$tilemap.collisionLayer.data[position.y] ? this.scene.$tilemap.collisionLayer.data[position.y] : 0,
             tileX = tileY[position.x] ? tileY[position.x] : 0,
-            tilesXY = tileY ? this.scene.database.overworld.tile.properties[tileX.index] : 0;
+            tilesXY = tileY ? TILE.PROPERTIES[tileX.index] : 0;
 
         // se não for o jogador
         if (!this._data.isPlayer) {
 
-            if (this._data.type == 1) { // outro jogador online
+            if (this._data.type == CHAR_TYPES.ONLINE_PLAYER) {
                 
                 // muda posição
                 this._data.position.x = position.x;
@@ -301,17 +302,17 @@ class Character extends RawCharacter {
                 
                 // se for matinho
                 if (tilesXY.wild)
-                    return 4;
+                    return TILE.TYPES.WILD_GRASS;
 
                 // ok
-                return 1;
+                return TILE.TYPES.DEFAULT;
             };
 
             // checa se colide com posição atual do jogador
-            const collision = position.x == this.scene.player._data.x && position.y == this.scene.player._data.y;
+            const collision = position.x == this.scene.$player._data.x && position.y == this.scene.$player._data.y;
             
             // se não colidir, muda posição
-            if (!collision && this._data.type != 3) {
+            if (!collision && this._data.type != CHAR_TYPES.FOLLOWER) {
 
                 // apaga posição atual no mapa
                 delete this.scene.mapObjectPosition[this._data.position.x + "|" + this._data.position.y];
@@ -325,15 +326,15 @@ class Character extends RawCharacter {
             };
             // criar overlay do matinho
             if (tilesXY.wild)
-                return 4;
+                return TILE.TYPES.WILD_GRASS;
 
             // informa se colidiu ou não
-            return collision ? 0 : 1;
+            return collision ? TILE.TYPES.BLOCK : TILE.TYPES.DEFAULT;
         };
 
         // se for tile limite, bloqueio, ou existir algum objeto no lugar
-        if (!tileY || !tileX || !tilesXY || tilesXY.block || this.scene.mapObjectPosition[position.x + "|" + position.y])
-            return 0; // 0
+        if (!tileY || !tileX || !tilesXY || tilesXY.block /*|| this.scene.mapObjectPosition[position.x + "|" + position.y]*/)
+            return TILE.TYPES.BLOCK; // 0
 
         // muda posição do jogador
         this._data.position.x = position.x;
@@ -342,18 +343,22 @@ class Character extends RawCharacter {
         // ** daqui pra baixo pode executar em assincronia
         // solicita mudar de mapa
         if (tilesXY.door)
-            return 3;
+            return TILE.TYPES.WARP;
 
         // solicita luta selvagem
         if (tilesXY.wild)
-            return 4;
+            return TILE.TYPES.WILD_GRASS;
 
         // chega tile de evento
         if (tilesXY.event)
-            return 7;
+            return TILE.TYPES.EVENT;
 
         // ok, pode andar
-        return 1;
+        return TILE.TYPES.DEFAULT;
+    }
+
+    move (direction, callback) {
+        this.walk(direction, callback);
     }
 
     // andar no mapa
@@ -374,21 +379,21 @@ class Character extends RawCharacter {
         // vendo quem é
         switch (this._data.type) {
             // se é player
-            case 0: {
+            case CHAR_TYPES.PLAYER: {
                 switch (collision) {
 
                     // não pode se mover
-                    case 0: {
+                    case TILE.TYPES.BLOCK: {
                         //** publicando no canal do mapa que mudou facing para tal direção
-                        if (this.scene.subscribe.map.is && this._data.position.facing != direction)
+                        /*if (this.scene.subscribe.map.is && this._data.position.facing != direction)
                             this.scene.subscribe.map.conn.publish({
                                 dir: direction,
                                 dataType: 2
-                            });
+                            });*/
                         // mudando facing na memória
                         this._data.position.facing = direction;
                         // executando animação idle para o lado
-                        this.anims.play(this.scene.database.characters[this._data.sprite].name + "_idle_" + this.scene.database.overworld.directions[direction]);
+                        this.playIdleAnim(direction);
                         // disparando evento de cant move
                         this.triggerCantMove({
                             facing: direction,
@@ -400,7 +405,7 @@ class Character extends RawCharacter {
                     };
 
                     // solicitar mudança de mapa
-                    case 3: {
+                    case TILE.TYPES.WARP: {
                         // pegando eventos, buscando map id e teleport id
                         let teleport = this.scene.cache.json.get(this.scene.getCurrentMapName("events")).map.teleport.find(position => position.x === this._data.position.x && position.y === this._data.position.y);
                         // adicionar callback e enviar request para o servidor
@@ -409,7 +414,7 @@ class Character extends RawCharacter {
                     };
 
                     // solicitar batalha selvagem | criar overlay do matinho
-                    case 4: {
+                    case TILE.TYPES.WILD_GRASS: {
                         let pos = {
                             x: this._data.position.x,
                             y: this._data.position.y
@@ -432,7 +437,7 @@ class Character extends RawCharacter {
                     };
 
                     // checar se tem algum evento
-                    case 7: {
+                    case TILE.TYPES.EVENT: {
                         // pegando eventos, buscando map id e teleport id
                         const 
                             mapData = this.scene.cache.json.get(this.scene.getCurrentMapName("events")),
@@ -452,7 +457,6 @@ class Character extends RawCharacter {
                 //** pode andar
                 // se tiver overlay de grass
                 this.removeGrassOverlay();
-
                 // setando walk em progresso
                 this._data.moveInProgress = true;
                 // mudando facing
@@ -460,11 +464,11 @@ class Character extends RawCharacter {
                 // parando animação do idle para iniciar animação 'procedural'
                 this.anims.stop();
                 //** publicando no canal do mapa que andou para tal direção
-                if (this.scene.subscribe.map.is)
+                /*if (this.scene.subscribe.map.is)
                     this.scene.subscribe.map.conn.publish({
                         dir: direction,
-                        dataType: 1 
-                    });
+                        dataType: 1
+                    });*/
 
                 // fazer seguidor seguir personagem (se tiver)
                 if (this._data.follower.has)
@@ -473,24 +477,23 @@ class Character extends RawCharacter {
             };
 
             // se for um jogador online ou um npc, ou um follower, ou npc domador
-            case 1:
-            case 2:
-            case 3:
-            case 4:
+            case CHAR_TYPES.ONLINE_PLAYER:
+            case CHAR_TYPES.NPC:
+            case CHAR_TYPES.FOLLOWER:
+            case CHAR_TYPES.TAMER:
             {
                 // verificando tipo da colisão e execuntando o que deve ser feito
                 switch(collision) {
-                    case 0: {
+                    case TILE.TYPES.BLOCK: {
                         // mudando facing
                         this._data.position.facing = direction;
                         // executando animação idle para o lado
-                        this.anims.play(this.scene.database.characters[this._data.sprite].name + "_idle_" + this.scene.database.overworld.directions[direction]);
+                        this.playIdleAnim(direction);
                         // saindo
                         return;
                     };
                     //matinho
-                    case 4: {
-
+                    case TILE.TYPES.WILD_GRASS: {
                         let pos = {
                             x: this._data.position.x,
                             y: this._data.position.y
@@ -523,7 +526,7 @@ class Character extends RawCharacter {
                 if (this._data.follower.has)
                     this.scene.follower_data[this._data.follower.id].walk(older.facing);
 
-                if (this._data.type == 2 || this._data.type == 4) {
+                if (this._data.type == CHAR_TYPES.NPC || this._data.type == CHAR_TYPES.TAMER) {
 
                     const element = this.scene.cache.json.get(this.scene.getCurrentMapName("events")).elements.config[this._data.name];
 
@@ -551,21 +554,21 @@ class Character extends RawCharacter {
         // se a direção for se virar ao jogador
         if (direction == "toplayer") {
             // pega qual lado jogar está posicionado
-            switch(this.scene.player._data.position.facing) {
-                case 0: { // cima
-                    direction = 2;
+            switch(this.scene.$player._data.position.facing) {
+                case DIRECTIONS_HASH.UP: {
+                    direction = DIRECTIONS_HASH.DOWN;
                     break;
                 };
-                case 2: {  // baixo
-                    direction = 0;
+                case DIRECTIONS_HASH.DOWN: {
+                    direction = DIRECTIONS_HASH.UP;
                     break;
                 };
-                case 3: { // esquerda
-                    direction = 1;
+                case DIRECTIONS_HASH.LEFT: {
+                    direction = DIRECTIONS_HASH.RIGHT;
                     break;
                 };
-                case 1: { // direita
-                    direction = 3;
+                case DIRECTIONS_HASH.RIGHT: {
+                    direction = DIRECTIONS_HASH.LEFT;
                     break;
                 };
             };
@@ -576,56 +579,55 @@ class Character extends RawCharacter {
         // para animação (hack para caso esteja no mesmo lado)
         this.anims.stop();
         // executando animação idle para o lado escolhido
-        this.anims.play(this.scene.database.characters[this._data.sprite].name + "_idle_" + this.scene.database.overworld.directions[direction]);
+        this.playIdleAnim(direction);
         // se for player publica no mapa q vai virar pra tal direção
-        if (this._data.isPlayer && this.scene.subscribe.map.is)
+        /*if (this._data.isPlayer && this.scene.subscribe.map.is)
             this.scene.subscribe.map.conn.publish({
                 dir: direction,
                 dataType: 2
-            });
+            });*/
     }
 
     // andar no mapa (animação/renderização) assincrono
     async animationWalk (direction, internal_callback, callback) {
-
         // mover personagem e elementos dele para certa direção
         switch(direction) {
-            case 0: { // up
+            case DIRECTIONS_HASH.UP: {
                 this.scene.tweens.add({
                     targets: [this, ... this.elementsToFollow],
                     ease: "Linear",
-                    duration: this.scene.database.overworld.time.step * 4,
-                    y: "-=" + this.scene.database.overworld.tile.size,
+                    duration: STEP_TIME.STEP * 4,
+                    y: "-=" + TILE.SIZE,
                 });
                 break;
             };
 
-            case 1: { // left
+            case DIRECTIONS_HASH.RIGHT: {
                 this.scene.tweens.add({
                     targets: [this, ... this.elementsToFollow],
                     ease: "Linear",
-                    duration: this.scene.database.overworld.time.step * 4,
-                    x: "+=" + this.scene.database.overworld.tile.size,
+                    duration: STEP_TIME.STEP * 4,
+                    x: "+=" + TILE.SIZE,
                 });
                 break;
             };
 
-            case 2: { // down
+            case DIRECTIONS_HASH.DOWN: {
                 this.scene.tweens.add({
                     targets: [this, ... this.elementsToFollow],
                     ease: "Linear",
-                    duration: this.scene.database.overworld.time.step * 4,
-                    y: "+=" + this.scene.database.overworld.tile.size,
+                    duration: STEP_TIME.STEP * 4,
+                    y: "+=" + TILE.SIZE,
                 });
                 break;
             };
 
-            case 3: { // right
+            case DIRECTIONS_HASH.LEFT: {
                 this.scene.tweens.add({
                     targets: [this, ... this.elementsToFollow],
                     ease: "Linear",
-                    duration: this.scene.database.overworld.time.step * 4,
-                    x: "-=" + this.scene.database.overworld.tile.size,
+                    duration: STEP_TIME.STEP * 4,
+                    x: "-=" + TILE.SIZE,
                 });
                 break;
             };
@@ -653,7 +655,7 @@ class Character extends RawCharacter {
         // delay
         return new Promise(callback => 
             this.scene.time.addEvent({
-                delay: this.scene.database.overworld.time.step * 2,
+                delay: STEP_TIME.STEP * 2,
                 callback
             })
         );
@@ -667,7 +669,7 @@ class Character extends RawCharacter {
         // delay
         return new Promise(callback => 
             this.scene.time.addEvent({
-                delay: this.scene.database.overworld.time.step * 2,
+                delay: STEP_TIME.STEP * 2,
                 callback
             })
         );
@@ -679,14 +681,14 @@ class Character extends RawCharacter {
         this._data.moveInProgress = false;
 
         // se for o jogador checar posição dos domadores
-        if (this._data.isPlayer) 
-            this.scene.checkPlayerPositionTamer(this.scene.cache.json.get(this.scene.getCurrentMapName("events")));
+        /*if (this._data.isPlayer) 
+            this.scene.checkPlayerPositionTamer(this.scene.cache.json.get(this.scene.getCurrentMapName("events")));*/
 
         // começa animação idle
-        this.anims.play(this.scene.database.characters[this._data.sprite].name + "_idle_" + this.scene.database.overworld.directions[direction]);
+        this.playIdleAnim(direction);
 
         // atualizando profundidade dos objetos do grupo main
-        this.scene.depthSort();
+        //this.scene.depthSort();
 
         // chama callback interno
         if (typeof(callback) == "function")
@@ -706,22 +708,20 @@ class Character extends RawCharacter {
 
     // trocar sprite do passo
     switchSpriteStep (direction, flag, type) {
-
         // vendo se sprite é de step e mudando step flag
         if (typeof(flag) == "number" && type == "walk") {
             flag = flag ? 0 : 1;
             this._data.stepFlag = flag;
         };
-
         // mudando frame
-        this.setFrame(this.scene.database.characters[this._data.sprite].name + "_" + this.scene.database.overworld.directions[direction] + "_" + type + flag);
+        this.setFrame(Database.ref.character[this._data.sprite].name + "_" + DIRECTIONS[direction] + "_" + type + flag);
     }
 
     cameraFollow () {
-        this.scene.cameras.main.disableCull = false;
+        //this.scene.cameras.main.disableCull = false;
 
         // make camera follow the character
-        this.scene.cameras.main.setBounds(0, 0, this.scene.map.widthInPixels, this.scene.map.heightInPixels);
+        this.scene.cameras.main.setBounds(0, 0, this.scene.$tilemap.tilemap.widthInPixels, this.scene.$tilemap.tilemap.heightInPixels);
         this.scene.cameras.main.startFollow(this, true, 1, 1);
     }
 
@@ -730,8 +730,8 @@ class Character extends RawCharacter {
         // corrigir posição do player online
         if (this._data.type == 1 && !this._data.moveInProgress) {
             const
-                x = this.scene.positionToRealWorld(this._data.position.x),
-                y = this.scene.positionToRealWorld(this._data.position.y);
+                x = positionToRealWorld(this._data.position.x),
+                y = positionToRealWorld(this._data.position.y);
             if (x != this.x || y != this.y) {
                 this.setPosition(x, y);
                 this.elementsFollow();

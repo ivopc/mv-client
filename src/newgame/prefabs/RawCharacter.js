@@ -1,5 +1,9 @@
 import Phaser from "phaser";
 
+import Database from "@/newgame/managers/Database";
+
+import { DIRECTIONS } from "@/newgame/constants/Overworld";
+
 class RawCharacter extends Phaser.GameObjects.Sprite {
     constructor (scene, x, y, data) {
         super(scene, x, y, data);
@@ -7,8 +11,12 @@ class RawCharacter extends Phaser.GameObjects.Sprite {
         this.scene = scene;
         this._data = data;
 
+        console.log("klol", Database.ref.character, Database.ref.character[data.sprite].atlas);
+
+        console.log("exists", scene.textures.exists("character_char1_overworld"));
+
         // checking if sprite is already loaded, if don't we will load
-        if (scene.textures.exists(scene.database.characters[data.sprite].atlas)) {
+        if (scene.textures.exists(Database.ref.character[data.sprite].atlas)) {
             this.rawSetSprite(data.sprite);
         } else {
             this.rawSetSprite(1);
@@ -20,37 +28,41 @@ class RawCharacter extends Phaser.GameObjects.Sprite {
 
     rawSetSprite (sprite) {
         // set texture
-        this.setTexture(this.scene.database.characters[sprite].atlas);
-        this.setFrame(this.scene.database.characters[sprite].name + "_" + this.scene.database.overworld.directions[this._data.position.facing] + "_idle0");
+        this.setTexture(Database.ref.character[sprite].atlas);
+        this.setFrame(Database.ref.character[sprite].name + "_" + DIRECTIONS[this._data.position.facing] + "_idle0");
 
 
         // add anim to 4 character directions
-        for (let i = 0, l = this.scene.database.overworld.directions.length; i < l; i++) {
+        for (let i = 0, l = DIRECTIONS.length; i < l; i++) {
             this.scene.anims.create({
-                key: this.scene.database.characters[sprite].name + "_idle_" + this.scene.database.overworld.directions[i],
+                key: Database.ref.character[sprite].name + "_idle_" + DIRECTIONS[i],
                 frames: [
-                    {key: this.scene.database.characters[sprite].atlas, frame: this.scene.database.characters[sprite].name + "_" + this.scene.database.overworld.directions[i] + "_idle0"}, 
-                    {key: this.scene.database.characters[sprite].atlas, frame: this.scene.database.characters[sprite].name + "_" + this.scene.database.overworld.directions[i] + "_idle1"}
+                    {key: Database.ref.character[sprite].atlas, frame: Database.ref.character[sprite].name + "_" + DIRECTIONS[i] + "_idle0"}, 
+                    {key: Database.ref.character[sprite].atlas, frame: Database.ref.character[sprite].name + "_" + DIRECTIONS[i] + "_idle1"}
                 ],
                 frameRate: 2,
                 repeat: -1
             });
 
             // add anim to character sprite
-            this.anims.load(this.scene.database.characters[sprite].name + "_idle_" + this.scene.database.overworld.directions[i]);
+            this.anims.load(Database.ref.character[sprite].name + "_idle_" + DIRECTIONS[i]);
         };
 
         // play on idle anim
-        this.anims.play(this.scene.database.characters[sprite].name + "_idle_" + this.scene.database.overworld.directions[this._data.position.facing]);
+        this.playIdleAnim(this._data.position.facing);
+    }
+
+    playIdleAnim (direction) {
+        this.anims.play(Database.ref.character[this._data.sprite].name + "_idle_" + DIRECTIONS[direction]);
     }
 
     changeOrigin (direction) {
-        const origin = this.scene.database.characters[this._data.sprite].origin[this.scene.database.overworld.directions[direction]];
+        const origin = Database.ref.character[this._data.sprite].origin[DIRECTIONS[direction]];
         this.setOrigin(origin.x, origin.y);
     }
 
     loadSpriteAsync (sprite) {
-        const atlas = this.scene.database.characters[sprite].atlas;
+        const atlas = Database.ref.character[sprite].atlas;
 
         this.scene.load.once("complete", () => {
             this._data.sprite = sprite;

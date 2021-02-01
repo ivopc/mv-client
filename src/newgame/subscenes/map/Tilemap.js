@@ -17,16 +17,16 @@ class Tilemap {
 
     assemble () {
         this.tilemap = this.scene.add.tilemap(Assets.ref.getMapTilemap(this.mapData.id).key);
-        this.tiles = this.fetchTilesets().map(tileset => this.tilemap.addTilesetImage(tileset.name, tileset.key));
-        this.tilemap.layers.forEach((layer, i) => {
+        this.tiles = this.fetchTilesets().map(tileset => this.tilemap.addTilesetImage(tileset.name, tileset.key, 32, 32, 1, 2));
+        this.tilemap.layers.forEach((layer, index) => {
             switch (+layer.properties.type) {
                 case LAYER_TYPES.COMMON: {
-                    this.layers[i] = this.tilemap.createDynamicLayer(layer.name, this.tiles);
-                    this.scene.$containers.map.add(this.layers[i]);
+                    this.layers[index] = this.tilemap.createLayer(layer.name, this.tiles);
+                    this.scene.$containers.map.add(this.layers[index]);
                     break;
                 };
                 case LAYER_TYPES.OVERLAY: {
-                    this.overlay = this.tilemap.createDynamicLayer(layer.name, this.tiles);
+                    this.overlay = this.tilemap.createLayer(layer.name, this.tiles);
                     this.scene.$containers.overlay.add(this.overlay);
                     break;
                 };
@@ -41,6 +41,8 @@ class Tilemap {
     fetchTilesets () {
         return Assets.ref.getMapTilesets(this.mapData.id);
     }
+
+    fetchLayerTilesets () {}
 
     async load (mapId) {
         const { scene } = this;

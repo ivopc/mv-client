@@ -34,11 +34,11 @@ class Boot extends Phaser.Scene {
             character: this.cache.json.get(CHARACTERS),
             monsters: this.cache.json.get(MONSTERS)
         });
+        console.log(Database.ref.character);
         Assets.ref = new Assets({
             template: this.cache.json.get(CUSTOM_TEMPLATE_LOADER),
             base: this.cache.json.get(BASE_ASSETS)
         });
-        console.log("scene", this.data.scene);
         this.scene.start(this.data.scene);
     }
 };

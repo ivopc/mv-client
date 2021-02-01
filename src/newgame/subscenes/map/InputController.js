@@ -1,5 +1,5 @@
 //import { MAP_STATES } from "@/newgame/constants/States";
-import { DIRECTIONS } from "@/newgame/constants/Directions";
+import { DIRECTIONS_HASH } from "@/newgame/constants/Overworld";
 import { ACTION_KEYS } from "@/newgame/constants/ActionKeys";
 
 class InputController {
@@ -8,7 +8,8 @@ class InputController {
     }
 
     triggerFromListener (value) {
-        if (value >= DIRECTIONS.UP && value <= DIRECTIONS.LEFT && this.scene.$state == MAP_STATES.IDLE)
+        console.log("LOL", value);
+        if (value >= DIRECTIONS_HASH.UP && value <= DIRECTIONS_HASH.LEFT /*&& this.scene.$state == MAP_STATES.IDLE*/)
             this.movePlayer(value);
     }
 

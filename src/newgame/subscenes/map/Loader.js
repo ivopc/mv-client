@@ -12,7 +12,6 @@ class Loader extends RawLoader {
         scene.load.setBaseURL(process.env.gameClientBaseURL);
         // player character sprite
         const playerOverworldSprite = Assets.ref.getOverworldCharacter(PlayerData.ref.character.sprite);
-        console.log("playerOverworldSprite", playerOverworldSprite);
         scene.load.atlas(playerOverworldSprite.key, playerOverworldSprite.path.texture, playerOverworldSprite.path.atlas);
         const map = Database.ref.maps[MapData.ref.id];
         // map tilesets
@@ -33,7 +32,7 @@ class Loader extends RawLoader {
             this.fetchLoaders(map.customAssets);
     }
 
-    async loadAnotherMap (mapId) {}
+    async loadLevel (mapId) {}
 };
 
 export default Loader;

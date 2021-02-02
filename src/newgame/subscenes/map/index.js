@@ -6,6 +6,7 @@ import Loader from "./Loader";
 import NetworkMap from "./NetworkMap";
 import InputListener from "./InputListener";
 import InputController from "./InputController";
+import CameraController from "./CameraController";
 import Tilemap from "./Tilemap";
 import Container from "./Container";
 import PlayerCharacterController from "./PlayerCharacterController";
@@ -30,24 +31,17 @@ class Map extends Phaser.Scene {
         this.$network = new NetworkMap(this);
         this.$inputListener = new InputListener(this);
         this.$inputController = new InputController(this);
+        this.$cameraController = new CameraController(this);
         this.$containers = new Container(this);
         this.$tilemap = new Tilemap(this);
         this.$playerController = new PlayerCharacterController(this);
         // **-----------------------------------**
-        //this.$network.listen();
-        this.$inputListener.addListener();
+        //this.$network.addListener();
+        this.$cameraController.setup();
         this.$containers.create();
-        this.$tilemap.assemble();
-        this.cameras.main.roundPixels = true;
-        this.cameras.main.setZoom(2);
-        this.cameras.main.width = 1280;
-        this.cameras.main.height = 720;
-        this.cameras.main.x = 0;
-        this.cameras.main.y = 0;
-
-        console.log(this.cameras.main);
-        window.camera = this.cameras.main;
-        this.$playerController.create();
+        this.$tilemap.create();
+        this.$player = this.$playerController.create();
+        this.$inputListener.addListener();
     }
 
     update () {

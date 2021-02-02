@@ -91,7 +91,6 @@ PointsBar.prototype.drawPointsBar = function() {
 
     this.barSprite = this.scene.add.sprite(this.x, this.y, "points_bar_" + this.uniqueTextureName)
         .setOrigin(0, 0);
-
 };
 
 PointsBar.prototype.setPosition = function (x, y) {

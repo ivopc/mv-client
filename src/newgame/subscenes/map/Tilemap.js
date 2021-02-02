@@ -15,12 +15,12 @@ class Tilemap {
         this.collisionLayer;
     }
 
-    assemble () {
+    create () {
         this.tilemap = this.scene.add.tilemap(Assets.ref.getMapTilemap(this.mapData.id).key);
         this.tiles = this.fetchTilesets().map(tileset => this.tilemap.addTilesetImage(tileset.name, tileset.key, 32, 32, 1, 2));
         this.tilemap.layers.forEach((layer, index) => {
             switch (+layer.properties.type) {
-                case LAYER_TYPES.COMMON: {
+                case LAYER_TYPES.DEFAULT: {
                     this.layers[index] = this.tilemap.createLayer(layer.name, this.tiles);
                     this.scene.$containers.map.add(this.layers[index]);
                     break;
@@ -47,7 +47,7 @@ class Tilemap {
     async load (mapId) {
         const { scene } = this;
         this.clear();
-        await new Promise(resolve => scene.$loader.loadAnotherMap(mapId, resolve));
+        await new Promise(resolve => scene.$loader.loadLevel(mapId, resolve));
     }
 
     clear () {

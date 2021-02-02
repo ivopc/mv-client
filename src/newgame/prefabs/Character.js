@@ -82,7 +82,7 @@ class Character extends RawCharacter {
             this._data.maxview = data.maxview;
         };
 
-        if (data.type == 1) {
+        if (data.type === CHAR_TYPES.ONLINE_PLAYER) {
             this._data.nickname = data.nickname;
         };
 
@@ -659,7 +659,6 @@ class Character extends RawCharacter {
                 callback
             })
         );
-
     }
 
     // função complementar ao animationWalk (segunda)
@@ -725,19 +724,19 @@ class Character extends RawCharacter {
         this.scene.cameras.main.startFollow(this, true, 1, 1);
     }
 
-    preUpdate (time, delta) {
-        super.preUpdate(time, delta);
-        // corrigir posição do player online
-        if (this._data.type == 1 && !this._data.moveInProgress) {
-            const
-                x = positionToRealWorld(this._data.position.x),
-                y = positionToRealWorld(this._data.position.y);
-            if (x != this.x || y != this.y) {
-                this.setPosition(x, y);
-                this.elementsFollow();
-            };
-        };
-    }
+    // preUpdate (time, delta) {
+    //     super.preUpdate(time, delta);
+    //     // corrigir posição do player online
+    //     if (this._data.type == 1 && !this._data.moveInProgress) {
+    //         const
+    //             x = positionToRealWorld(this._data.position.x),
+    //             y = positionToRealWorld(this._data.position.y);
+    //         if (x != this.x || y != this.y) {
+    //             this.setPosition(x, y);
+    //             this.elementsFollow();
+    //         };
+    //     };
+    // }
 };
 
 export default Character;

@@ -6,9 +6,9 @@ class NetworkMap {
     }
 
     listen () {
-    	Network.ref
-    		.on(EVENTS.PONG, () => this.ping())
-    		.on(EVENTS.CHAT_MESSAGE, data => this.newChatMessage(data));
+        Network.ref
+            .on(EVENTS.PONG, () => this.ping())
+            .on(EVENTS.CHAT_MESSAGE, data => this.newChatMessage(data));
     }
 
 };

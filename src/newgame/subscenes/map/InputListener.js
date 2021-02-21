@@ -11,6 +11,8 @@ import { DIRECTIONS } from "@/newgame/constants/Directions";
 class InputListener {
     constructor (scene) {
         this.scene = scene;
+        this.inputPressingTime = 0;
+        this.gameTime = 0;
     }
 
     listenerKeys = {
@@ -27,11 +29,14 @@ class InputListener {
     pressed = {}
 
     onKeyDown (event) {
+        if (!this.isKeyDown(event.keyCode))
+            this.inputPressingTime = this.gameTime;
         this.pressed[event.keyCode] = true;
         this.onPressed(event.keyCode);
     }
 
     onKeyUp (event) {
+        this.inputPressingTime = 0;
         delete this.pressed[event.keyCode];
     }
 
@@ -39,8 +44,22 @@ class InputListener {
         this.scene.$inputController.triggerPressed(keyCode);
     }
 
+    isKeyDown (keyCode) {
+        return this.pressed[keyCode];
+    }
+
     addListener () {
-        this.addKeyboardListener();
+        if (this.isMobile)
+            this.addDPadListener();
+        else
+            this.addKeyboardListener();
+    }
+
+    removeListener () {
+        if (this.isMobile)
+            this.removeDPadListener();
+        else
+            this.removeKeyboardListener();
     }
     
     addKeyboardListener () {
@@ -54,29 +73,32 @@ class InputListener {
         this.pressed = {};
     }
 
-    isKeyDown (keyCode) {
-        return this.pressed[keyCode];
-    }
+    addDPadListener () {}
 
     checkKeyboard () {
         if (this.isKeyDown(this.listenerKeys.UP) || this.isKeyDown(this.listenerKeys.W))
-            this.scene.$inputController.triggerFromListener(DIRECTIONS.UP);
+            this.scene.$inputController.triggerFromListener(DIRECTIONS.UP, this.getInputTiming());
         else if (this.isKeyDown(this.listenerKeys.DOWN) || this.isKeyDown(this.listenerKeys.S))
-            this.scene.$inputController.triggerFromListener(DIRECTIONS.DOWN);
+            this.scene.$inputController.triggerFromListener(DIRECTIONS.DOWN, this.getInputTiming());
 
         if (this.isKeyDown(this.listenerKeys.LEFT) || this.isKeyDown(this.listenerKeys.A))
-            this.scene.$inputController.triggerFromListener(DIRECTIONS.LEFT);
+            this.scene.$inputController.triggerFromListener(DIRECTIONS.LEFT, this.getInputTiming());
         else if (this.isKeyDown(this.listenerKeys.RIGHT) || this.isKeyDown(this.listenerKeys.D)) 
-            this.scene.$inputController.triggerFromListener(DIRECTIONS.RIGHT);
+            this.scene.$inputController.triggerFromListener(DIRECTIONS.RIGHT, this.getInputTiming());
     }
 
     checkDPad () {}
 
-    update () {
+    update (time) {
+        this.gameTime = time;
         if (this.isMobile)
             this.checkDPad();
         else
             this.checkKeyboard();
+    }
+
+    getInputTiming () {
+        return this.gameTime - this.inputPressingTime;
     }
 };
 

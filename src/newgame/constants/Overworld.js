@@ -1,7 +1,8 @@
 const STEP_TIME = {
     STEP: 85,
     RUN: 55,
-    RIDE: 40
+    RIDE: 40,
+    INPUT: 150
 };
 
 const TILE = {

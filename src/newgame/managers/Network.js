@@ -4,7 +4,7 @@ class Network {
         this.socket = socket;
     }
 
-    send (event, data, callback) {
+    send (event, data, callback = () => {}) {
         this.socket.emit(event, data, callback);
     }
 

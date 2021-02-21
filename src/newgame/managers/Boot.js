@@ -7,11 +7,11 @@
 import { STATE } from "@/newgame/constants/GameStates";
 import { SCENE } from "@/newgame/constants/GameScene";
 
-import PlayerData from "@/newgame/managers/PlayerData";
-import MapData from "@/newgame/managers/MapData";
-import BattleData from "@/newgame/managers/BattleData";
-import Network from "@/newgame/managers/Network";
-import Layout from "@/newgame/managers/Layout";
+import PlayerData from "./PlayerData";
+import MapData from "./MapData";
+import BattleData from "./BattleData";
+import Network from "./Network";
+import Layout from "./Layout";
 
 class Boot {
     constructor (gameInstance, socket, payload) {

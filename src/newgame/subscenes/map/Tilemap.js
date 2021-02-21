@@ -19,7 +19,7 @@ class Tilemap {
         this.tilemap = this.scene.add.tilemap(Assets.ref.getMapTilemap(this.mapData.id).key);
         this.tiles = this.fetchTilesets().map(tileset => this.tilemap.addTilesetImage(tileset.name, tileset.key, 32, 32, 1, 2));
         this.tilemap.layers.forEach((layer, index) => {
-            switch (+layer.properties.type) {
+            switch (Number(layer.properties.type)) {
                 case LAYER_TYPES.DEFAULT: {
                     this.layers[index] = this.tilemap.createLayer(layer.name, this.tiles);
                     this.scene.$containers.map.add(this.layers[index]);

@@ -7,7 +7,8 @@ import PointsBar from "@/game/plugins/pointsbar";
 
 import RawCharacter from "@/game/prefabs/rawcharacter";
 
-const Party = function (scene, properties = {}) {this.scene = scene;
+const Party = function (scene, properties = {}) {
+    this.scene = scene;
 
     // 'party', 'item', 'battleParty', 'battleItem' ou 'defeated'
     this.type = properties.type;

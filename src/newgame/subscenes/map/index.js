@@ -44,8 +44,8 @@ class Map extends Phaser.Scene {
         this.$inputListener.addListener();
     }
 
-    update () {
-        this.$inputListener.update();
+    update (time) {
+        this.$inputListener.update(time);
     }
 };
 

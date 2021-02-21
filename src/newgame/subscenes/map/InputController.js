@@ -1,16 +1,16 @@
 //import { MAP_STATES } from "@/newgame/constants/States";
 import { DIRECTIONS_HASH } from "@/newgame/constants/Overworld";
 import { ACTION_KEYS } from "@/newgame/constants/ActionKeys";
+import { STEP_TIME } from "@/newgame/constants/Overworld";
 
 class InputController {
     constructor (scene) {
         this.scene = scene;
     }
 
-    triggerFromListener (value) {
-        console.log("LOL", value);
+    triggerFromListener (value, timeStep) {
         if (value >= DIRECTIONS_HASH.UP && value <= DIRECTIONS_HASH.LEFT /*&& this.scene.$state == MAP_STATES.IDLE*/)
-            this.movePlayer(value);
+            this.movePlayer(value, timeStep);
     }
 
     triggerPressed (value) {
@@ -18,8 +18,11 @@ class InputController {
             this.interaction();
     }
 
-    movePlayer (direction) {
-        this.scene.$player.move(direction);
+    movePlayer (direction, timeStep) {
+        if (timeStep <= STEP_TIME.INPUT)
+            return this.scene.$player.face(direction);
+        else
+            this.scene.$player.move(direction);
     }
 
     interaction () {

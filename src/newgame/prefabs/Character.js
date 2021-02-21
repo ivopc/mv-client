@@ -373,7 +373,7 @@ class Character extends RawCharacter {
         // posição antiga
         const older = { ... this._data.position };
         // callback interna
-        let internal_callback;
+        let internalCallback;
         // executar colisão
         const collision = this.collide(direction);
         // vendo quem é
@@ -409,7 +409,7 @@ class Character extends RawCharacter {
                         // pegando eventos, buscando map id e teleport id
                         let teleport = this.scene.cache.json.get(this.scene.getCurrentMapName("events")).map.teleport.find(position => position.x === this._data.position.x && position.y === this._data.position.y);
                         // adicionar callback e enviar request para o servidor
-                        internal_callback = () => this.scene.requestMapChange(teleport.mid, teleport.tid);
+                        internalCallback = () => this.scene.requestMapChange(teleport.mid, teleport.tid);
                         break;
                     };
 
@@ -423,7 +423,7 @@ class Character extends RawCharacter {
                         this.removeGrassOverlay();
 
                         // appenda particulas de grama
-                        internal_callback = () => {
+                        internalCallback = () => {
                             // adiciona overlay
                             this.addGrassOverlay(this.scene.appendGrassOverlay(pos.x, pos.y));
                             // add particles
@@ -443,7 +443,7 @@ class Character extends RawCharacter {
                             mapData = this.scene.cache.json.get(this.scene.getCurrentMapName("events")),
                             event = mapData.events.config.find(position => position.x === this._data.position.x && position.y === this._data.position.y);
 
-                        internal_callback = () => {
+                        internalCallback = () => {
                             if (mapData.events.script[event.id].requiredFlagValueToExec.indexOf(this.scene.flag) >= 0) {
                                 this.scene.automatizeAction({
                                     type: 2
@@ -502,7 +502,7 @@ class Character extends RawCharacter {
                         this.removeGrassOverlay();
 
                         // appenda particulas de grama
-                        internal_callback = () => {
+                        internalCallback = () => {
                             // adiciona overlay
                             this.addGrassOverlay(this.scene.appendGrassOverlay(pos.x, pos.y));
                             // add particles
@@ -546,14 +546,14 @@ class Character extends RawCharacter {
         };
 
         // executa animação de andar
-        this.animationWalk(direction, internal_callback, callback);
+        this.animationWalk(direction, internalCallback, callback);
     }
 
     // mudar facing
     face (direction) {
-        // se a direção for se virar ao jogador
+        if (this._data.moveInProgress)
+            return;
         if (direction == "toplayer") {
-            // pega qual lado jogar está posicionado
             switch(this.scene.$player._data.position.facing) {
                 case DIRECTIONS_HASH.UP: {
                     direction = DIRECTIONS_HASH.DOWN;
@@ -573,23 +573,16 @@ class Character extends RawCharacter {
                 };
             };
         };
-
-        // mudando facing na memória
         this._data.position.facing = direction;
-        // para animação (hack para caso esteja no mesmo lado)
         this.anims.stop();
-        // executando animação idle para o lado escolhido
         this.playIdleAnim(direction);
-        // se for player publica no mapa q vai virar pra tal direção
-        /*if (this._data.isPlayer && this.scene.subscribe.map.is)
-            this.scene.subscribe.map.conn.publish({
-                dir: direction,
-                dataType: 2
-            });*/
+        if (this._data.isPlayer)
+            this.sendFacing(direction);
+            
     }
 
     // andar no mapa (animação/renderização) assincrono
-    async animationWalk (direction, internal_callback, callback) {
+    async animationWalk (direction, internalCallback, callback) {
         // mover personagem e elementos dele para certa direção
         switch(direction) {
             case DIRECTIONS_HASH.UP: {
@@ -636,7 +629,7 @@ class Character extends RawCharacter {
         // fazer animação
         await this.walkStep0(direction);
         await this.walkStep1(direction);
-        this.walkEndStep(direction, internal_callback, callback);
+        this.walkEndStep(direction, internalCallback, callback);
     }
 
     // função complementar ao animationWalk (primeira)
@@ -675,7 +668,7 @@ class Character extends RawCharacter {
     }
 
     // quando o walk termina
-    walkEndStep (direction, internal_callback, callback) {
+    walkEndStep (direction, internalCallback, callback) {
 
         this._data.moveInProgress = false;
 
@@ -694,8 +687,8 @@ class Character extends RawCharacter {
             callback();
 
         // chama callback externo
-        if (typeof(internal_callback) == "function")
-            internal_callback();
+        if (typeof(internalCallback) == "function")
+            internalCallback();
 
         // triggar end move
         this.triggerEndMove({

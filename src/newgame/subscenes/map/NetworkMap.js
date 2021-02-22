@@ -11,6 +11,9 @@ class NetworkMap {
             .on(EVENTS.CHAT_MESSAGE, data => this.newChatMessage(data));
     }
 
+    listenToCurrentMap () {
+    	
+    }
 };
 
 export default NetworkMap;

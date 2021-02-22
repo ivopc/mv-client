@@ -13,7 +13,7 @@ import PlayerCharacterController from "./PlayerCharacterController";
 
 import MapData from "@/newgame/managers/MapData";
 
-class Map extends Phaser.Scene {
+class MapScene extends Phaser.Scene {
     constructor () {
         super(SCENE.MAP);
     }
@@ -49,4 +49,4 @@ class Map extends Phaser.Scene {
     }
 };
 
-export default Map;
+export default MapScene;

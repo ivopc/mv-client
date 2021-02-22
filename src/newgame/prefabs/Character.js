@@ -578,7 +578,6 @@ class Character extends RawCharacter {
         this.playIdleAnim(direction);
         if (this._data.isPlayer)
             this.sendFacing(direction);
-            
     }
 
     // andar no mapa (animação/renderização) assincrono

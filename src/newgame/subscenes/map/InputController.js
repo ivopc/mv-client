@@ -20,9 +20,9 @@ class InputController {
 
     movePlayer (direction, timeStep) {
         if (timeStep <= STEP_TIME.INPUT)
-            return this.scene.$player.face(direction);
+            return this.scene.$playerController.face(direction);
         else
-            this.scene.$player.move(direction);
+            this.scene.$playerController.move(direction);
     }
 
     interaction () {

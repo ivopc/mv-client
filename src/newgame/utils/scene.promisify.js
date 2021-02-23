@@ -1,10 +1,4 @@
-async function timedEvent(delay, scene) {
-    return new Promise(resolve =>
-        scene.time.addEvent({
-            delay,
-            callback: resolve
-        })
-    );
-};
+async function timedEvent = (delay, scene) => 
+    new Promise(callback => scene.time.addEvent({ delay, callback });
 
 export { timedEvent };

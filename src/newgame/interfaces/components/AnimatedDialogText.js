@@ -57,7 +57,6 @@ class AnimatedDialogText {
             this.animationTimer.destroy();
             this.renderingTextComponent.setText(this.text[this.specificTopicIndex][Texts.ref.lang]);
             this.animationInProgress = false;
-            this.unlockInteraction();
         // se não estiver em progresso joga pro próximo dialog
         } else {
             this.renderingTextComponent.setText("");
@@ -65,8 +64,8 @@ class AnimatedDialogText {
             this.specificTopicIndex = 0;
             this.setAnimationTimer();
             this.animationInProgress = true;
-            this.unlockInteraction();
         };
+        this.unlockInteraction();
     }
 
     animate () {

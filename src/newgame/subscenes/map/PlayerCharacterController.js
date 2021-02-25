@@ -17,10 +17,9 @@ class PlayerCharacterController {
             },
             sprite: character.sprite
         });
-        this.player = player;
-        player.cameraFollow();
+        this.scene.$cameraController.followGameObject(player);
         this.scene.$containers.main.add(player);
-        return player;
+        this.player = player;
     }
 
     move (direction, callback) {
@@ -29,6 +28,15 @@ class PlayerCharacterController {
 
     face (direction) {
         this.player.face(direction);
+    }
+
+    getFacing () {
+        return this.player._data.position.facing;
+    }
+
+    getPosition () {
+        const { x, y } = this.player._data.position;
+        return { x, y };
     }
 };
 

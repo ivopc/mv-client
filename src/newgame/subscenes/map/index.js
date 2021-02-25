@@ -11,8 +11,6 @@ import Tilemap from "./Tilemap";
 import Container from "./Container";
 import PlayerCharacterController from "./PlayerCharacterController";
 
-import MapData from "@/newgame/managers/MapData";
-
 class MapScene extends Phaser.Scene {
     constructor () {
         super(SCENE.MAP);
@@ -40,7 +38,8 @@ class MapScene extends Phaser.Scene {
         this.$cameraController.setup();
         this.$containers.create();
         this.$tilemap.create();
-        this.$player = this.$playerController.create();
+        this.$cameraController.setBounds();
+        this.$playerController.create();
         this.$inputListener.addListener();
     }
 

@@ -1,4 +1,5 @@
-import { animationTimerDelay, interactionLockDelay } from "/@newgame/contants/Dialog";
+import { timedEvent } from "@/newgame/utils/scene.promisify";
+import { animationTimerDelay, interactionLockDelay } from "@/newgame/contants/Dialog";
 
 class AnimatedDialogText {
     constructor (scene, text) {
@@ -10,11 +11,12 @@ class AnimatedDialogText {
         this.animationTimer;
         this.animationInProgress = false;
         this.isInteractionLocked = false;
-        this.callback = () => {};
+        this.callback;
+        this.callbackList = [];
     }
 
     createText (textPosition, textStyle) {
-        this.renderingTextComponent = this.add.text(
+        this.renderingTextComponent = this.scene.add.text(
             textPosition.x, 
             textPosition.y, 
             "", 
@@ -33,13 +35,9 @@ class AnimatedDialogText {
         });
     }
 
-    unlockInteraction () {
-        this.scene.time.addEvent({
-            delay: interactionLockDelay, 
-            callback: () => {
-                this.isInteractionLocked = false;
-            }
-        });
+    async unlockInteraction () {
+        await timedEvent(this.scene, interactionLockDelay);
+        this.isInteractionLocked = false;
     }
 
     next () {
@@ -89,9 +87,14 @@ class AnimatedDialogText {
         this.callback = callback;
     }
 
+    addEndEvent (callback) {
+        this.callbackList.push(callback);
+    }
+
     onEnd () {
         if (typeof this.callback == "function")
             this.callback();
+        this.callbackList.forEach(callback => callback());
     }
 
     async waitForEnd () {

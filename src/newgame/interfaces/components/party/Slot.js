@@ -1,6 +1,6 @@
 import Phaser from "phaser";
-import Draggable from "../Draggable";
+import DraggableGridSlot from "../DraggableGridSlot";
 
-class Slot extends Draggable {};
+class Slot extends DraggableGridSlot {};
 
 export default Slot;

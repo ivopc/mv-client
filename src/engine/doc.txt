@@ -1,0 +1,48 @@
+-> [boot] Level Select
+Listar todos os mapas e escolher um deles para começar a editar.
+
+-> [main] Level Editor
+
+• Options
+- Salvar Mapa
+- Script Editor
+
+• Element Add
+- Add Character
+- Add Event
+- Add Warp Zone
+
+• Inspector
+~Character:
+- X & Y Position Control
+- Sprite Chooser
+- Script Editor Caller
+
+~Event:
+- X & Y Position Control
+- Event ID Handler
+- Event Script Caller
+
+~Warp Zone:
+- X & Y Position Control
+- Map ID Handler
+
+• Script Editor
+Programação: Array com todas as possíveis ações, lista com todos os elementos do level, ao selecionar o elemento em particular listar todos as behaviors dele como logic nodes list.
+GUI: Lista de elementos do level como um inspector, lista visual com todas as ações do elemento em particular, ao clicar no "+" ele vai abrir uma lista com todas as funções e ao escolher aparece um modal para configurar as opções, e ao clicar no ok ele insere na lista visual mostrando os comportamentos.
+
+_______________
+
+Explicações/Miscelaneous:
+
+Inspector: Ao clicar com botão direito no elemento abre um inspetor para gerencia-lo.
+
+Todo elemento do level é arrastável e se encaixará perfeitamente no posicionamento da grid.
+
+Usar a lib dat.gui para o inspector
+
+Processo Programástico desde o inicio:
+-> Server pega num JSON os arquivos onde estão os mapas e cliente requisita tds esses mapas e renderiza a lista no HTML pro usuário escolher.
+-> Ao escolher o level o client requisita os dados do mapa, e ao carregar manda o Phaser dar load nos characters do level e os seus tilesets, usando a classe Tilemap ele renderiza o level e depois insere os characters.
+-> Instancia GUI: Elements Manager, Elements Creator.
+-> Visão do mapa: Usuário vai poder controlar a posição do mapa com as setas direcionais.

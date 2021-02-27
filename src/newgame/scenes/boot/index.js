@@ -3,6 +3,8 @@ import Phaser from "phaser";
 import { SCENE } from "@/newgame/constants/GameScene";
 
 import Loader from "./Loader";
+
+import SceneManager from "@/newgame/managers/SceneManager";
 import Database from "@/newgame/managers/Database";
 import Assets from "@/newgame/managers/Assets";
 
@@ -29,12 +31,12 @@ class Boot extends Phaser.Scene {
     }
 
     create () {
+        SceneManager.ref = new SceneManager();
         Database.ref = new Database({
             maps: this.cache.json.get(MAPS),
             character: this.cache.json.get(CHARACTERS),
             monsters: this.cache.json.get(MONSTERS)
         });
-        console.log(Database.ref.character);
         Assets.ref = new Assets({
             template: this.cache.json.get(CUSTOM_TEMPLATE_LOADER),
             base: this.cache.json.get(BASE_ASSETS)

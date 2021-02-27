@@ -10,6 +10,7 @@ import SubsceneMap from "./subscenes/map";
 
 import RexUIPlugin from "phaser3-rex-plugins/templates/ui/ui-plugin.js";
 import DragPlugin from "phaser3-rex-plugins/plugins/drag-plugin.js";
+import AwaitLoaderPlugin from "phaser3-rex-plugins/plugins/awaitloader-plugin.js";
 
 function launch (containerId) {
     // game core instance
@@ -29,6 +30,11 @@ function launch (containerId) {
                 {
                     key: "rexDrag",
                     plugin: DragPlugin,
+                    start: true
+                },
+                {
+                    key: "rexAwaitLoader",
+                    plugin: AwaitLoaderPlugin,
                     start: true
                 }
             ],

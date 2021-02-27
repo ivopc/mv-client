@@ -44,12 +44,6 @@ class Tilemap {
 
     fetchLayerTilesets () {}
 
-    async load (mapId) {
-        const { scene } = this;
-        this.clear();
-        await new Promise(resolve => scene.$loader.loadLevel(mapId, resolve));
-    }
-
     clear () {
         this.tilemap.destroy();
         this.layers.forEach(layer => layer.destroy());

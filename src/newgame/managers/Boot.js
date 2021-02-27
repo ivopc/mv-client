@@ -38,7 +38,6 @@ class Boot {
         this.setPlayerData(payload);
         const { map, wild, flag, tamers } = payload.param;
         MapData.ref = new MapData({ map, flag, wild, tamers });
-        console.log(PlayerData.ref, MapData.ref);
         this.gameInstance.scene.start(SCENE.BOOT, {
             scene: SCENE.OVERWORLD
         });

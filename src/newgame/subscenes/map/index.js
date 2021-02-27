@@ -2,6 +2,8 @@ import Phaser from "phaser";
 
 import { SCENE } from "@/newgame/constants/GameScene";
 
+import SceneManager from "@/newgame/managers/SceneManager";
+
 import Loader from "./Loader";
 import NetworkMap from "./NetworkMap";
 import InputListener from "./InputListener";
@@ -41,6 +43,8 @@ class MapScene extends Phaser.Scene {
         this.$cameraController.setBounds();
         this.$playerController.create();
         this.$inputListener.addListener();
+        SceneManager.ref.setLevel(this);
+        console.log(SceneManager.ref);
     }
 
     update (time) {

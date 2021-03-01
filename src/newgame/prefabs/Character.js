@@ -299,14 +299,14 @@ class Character extends RawCharacter {
     }
 
     async move (direction) {
-        await this.walk(direction);
-    }
-
-    async walk (direction) {
         if (this._data.isPlayer) {
             if (this._data.moveInProgress || this._data.stop)
                 return;
         };
+        await this.walk(direction);
+    }
+
+    async walk (direction) {
         const older = { ... this._data.position };
         let internalCallback;
         const collision = this.collide(direction);

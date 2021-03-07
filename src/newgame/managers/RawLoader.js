@@ -2,7 +2,7 @@ import PlayerData from "./PlayerData";
 import Assets from "./Assets";
 
 import { ASSET_TYPE } from "@/newgame/constants/Asset";
-import ReplacePhrase from "@/newgame/utils/ReplacePhrase";
+import ReplaceStringToken from "@/newgame/utils/ReplaceStringToken";
 import AssetTemplateInjector from "@/newgame/utils/AssetTemplateInjector";
 
 const RESOLUTION = "fullhd";
@@ -69,7 +69,7 @@ class RawLoader {
     }
 
     applyResolution (path) {
-        return ReplacePhrase(path, RESOLUTION);
+        return ReplaceStringToken.replace(path, RESOLUTION);
     }
 
     // static flag to don't need to load base assets again

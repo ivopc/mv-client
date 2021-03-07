@@ -1,5 +1,5 @@
 import { ASSET_TYPE } from "@/newgame/constants/Asset";
-import ReplaceStringToken from "@/newgame/utils/ReplacePhrase";
+import ReplaceStringToken from "@/newgame/utils/ReplaceStringToken";
 import Assets from "@/newgame/managers/Assets";
 
 const AssetTemplateInjector = (assetType, assetData) => {
@@ -9,14 +9,14 @@ const AssetTemplateInjector = (assetType, assetData) => {
         {
             const template = Assets.ref.template[assetType];
             return {
-                key: ReplaceStringToken(template.key, {
+                key: ReplaceStringToken.replace(template.key, {
                     monsterpediaId: assetData.monsterpediaId
                 }),
                 path: {
-                    texture: ReplaceStringToken(template.path.texture, {
+                    texture: ReplaceStringToken.replace(template.path.texture, {
                         monsterpediaId: assetData.monsterpediaId
                     }),
-                    atlas: ReplaceStringToken(template.path.atlas, {
+                    atlas: ReplaceStringToken.replace(template.path.atlas, {
                         monsterpediaId: assetData.monsterpediaId
                     })
                 }
@@ -26,14 +26,14 @@ const AssetTemplateInjector = (assetType, assetData) => {
         case ASSET_TYPE.CHARACTER_OVERWORLD: {
             const template = Assets.ref.template.characteroverworld;
             return {
-                key: ReplaceStringToken(template.key, {
+                key: ReplaceStringToken.replace(template.key, {
                     name: assetData.name
                 }),
                 path: {
-                    texture: ReplaceStringToken(template.path.texture, {
+                    texture: ReplaceStringToken.replace(template.path.texture, {
                         name: assetData.name
                     }),
-                    atlas: ReplaceStringToken(template.path.atlas, {
+                    atlas: ReplaceStringToken.replace(template.path.atlas, {
                         name: assetData.name
                     })
                 }
@@ -43,10 +43,10 @@ const AssetTemplateInjector = (assetType, assetData) => {
         case ASSET_TYPE.TILEMAP: {
             const template = Assets.ref.template.tilemap;
             return {
-                key: ReplaceStringToken(template.key, {
+                key: ReplaceStringToken.replace(template.key, {
                     name: assetData.id
                 }),
-                src: ReplaceStringToken(template.src, {
+                src: ReplaceStringToken.replace(template.src, {
                     name: assetData.name
                 })
             };

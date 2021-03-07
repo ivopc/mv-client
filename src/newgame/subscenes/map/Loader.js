@@ -50,7 +50,7 @@ class Loader extends RawLoader {
         loadingInterface.show();
         this.fetchLevel(mapData);
         scene.load.start();
-        this.load.on("progress", val => loadingInterface.setProgress(parseInt(val * 100)));
+        scene.load.on("progress", val => loadingInterface.setProgress(parseInt(val * 100)));
         await loadComplete(scene);
         loadingInterface.hide();
     }

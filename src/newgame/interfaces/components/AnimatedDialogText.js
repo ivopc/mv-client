@@ -7,7 +7,7 @@ class AnimatedDialogText {
         this.text = text;
         this.textListIndex = 0;
         this.specificTopicIndex = 0;
-        this.renderingTextComponent;
+        this.textComponent;
         this.animationTimer;
         this.animationInProgress = false;
         this.isInteractionLocked = false;
@@ -16,14 +16,14 @@ class AnimatedDialogText {
     }
 
     createText (textPosition, textStyle) {
-        this.renderingTextComponent = this.scene.add.text(
+        this.textComponent = this.scene.add.text(
             textPosition.x, 
             textPosition.y, 
             "", 
             textStyle
         );
 
-        return this.renderingTextComponent;
+        return this.textComponent;
     }
 
     setAnimationTimer (delay) {
@@ -53,11 +53,11 @@ class AnimatedDialogText {
         // se dialogo estiver em progresso corta animação e seta pra ultima letra da fala
         if (this.animationInProgress) {
             this.animationTimer.destroy();
-            this.renderingTextComponent.setText(this.text[this.specificTopicIndex][Texts.ref.lang]);
+            this.textComponent.setText(this.text[this.specificTopicIndex][Texts.ref.lang]);
             this.animationInProgress = false;
         // se não estiver em progresso joga pro próximo dialog
         } else {
-            this.renderingTextComponent.setText("");
+            this.textComponent.setText("");
             this.textListIndex ++;
             this.specificTopicIndex = 0;
             this.setAnimationTimer();
@@ -72,14 +72,14 @@ class AnimatedDialogText {
             this.animationInProgress = false;
             return;
         };
-        this.renderingTextComponent.setText(
-            this.renderingTextComponent.text + 
+        this.textComponent.setText(
+            this.textComponent.text + 
             this.text[this.textListIndex][Texts.ref.lang][this.specificTopicIndex++]
         );
     }
 
     remove () {
-        this.renderingTextComponent.destroy();
+        this.textComponent.destroy();
         this.animationTimer.destroy();
     }
 

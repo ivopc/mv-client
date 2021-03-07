@@ -1,11 +1,11 @@
-import api from "../api";
+import axios from "axios";
 
-export const async function () {
+export default async function () {
     let payload;
     try {
-        payload = await api.get("/init");
+        payload = await axios.get("/static/database/maps.json");
     } catch (err) {
-        throw new Error("Cannot get the levels list from server");
+        throw new Error("Cannot get the level");
     };
-    return payload;
+    return Object.keys(payload.data).map(el => payload.data[el]);
 };

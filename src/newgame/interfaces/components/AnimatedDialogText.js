@@ -102,7 +102,6 @@ class AnimatedDialogText {
     }
 };
 
-
 ;(async () => {
     const dialog = new AnimatedDialogText(this, [
         "TROLLOLOLOLOLOLO1",
@@ -118,7 +117,6 @@ class AnimatedDialogText {
     ]);
     await dialog.waitForEnd();
 })();
-
 
 /*
 {

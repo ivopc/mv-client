@@ -1,6 +1,6 @@
 class BattleData {
 
-    turns = []
+    turns = [];
 
     clear () {
         this.turns = [];

@@ -7,5 +7,5 @@ export default async function () {
     } catch (err) {
         throw new Error("Cannot get the level");
     };
-    return Object.keys(payload.data).map(el => payload.data[el]);
+    return Object.values(payload.data);//.map(el => payload.data[el]);
 };

@@ -1,9 +1,9 @@
 <template>
 <div>
     Level Manager test
-    <ul id="level-list" class="list-group" v-for="level in levelList">
-        <li class="list-group-item">{{ level.name }}</li>
-    </ul>
+    <div id="level-list" v-for="level in levelList">
+        <button @click="chooseLevel(level.name)" type="button" class="btn btn-info">{{ level.id }}</button>
+    </div>
 </div>
 </template>
 
@@ -21,6 +21,9 @@ export default {
     methods: {
         async getAllLevels () {
             this.levelList = await boot();
+        },
+        chooseLevel (name) {
+            console.log("olá", name);
         }
     }
 }

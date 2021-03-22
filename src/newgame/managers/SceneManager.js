@@ -43,8 +43,8 @@ class SceneManager {
 
     destroyAll () {
         Object.keys(this)
-            .filter(attr => attr instanceof Scene)
-            .forEach(scene => scene.destroy());
+            .filter(attr => this[attr] instanceof Scene)
+            .forEach(scene => this[scene].destroy());
     }
 
     static ref

@@ -18,7 +18,7 @@ class Assets {
 
     getOverworldCharacter (id) {
         const character = Database.ref.character[id];
-        return AssetTemplateInjector(ASSET_TYPE.CHARACTER_OVERWORLD, character);
+        return AssetTemplateInjector.inject(ASSET_TYPE.CHARACTER_OVERWORLD, character);
     }
 
     getMapCharacters (id) {
@@ -28,7 +28,12 @@ class Assets {
 
     getMapTilemap (id) {
         const map = Database.ref.maps[id];
-        return AssetTemplateInjector(ASSET_TYPE.TILEMAP, map);
+        return AssetTemplateInjector.inject(ASSET_TYPE.TILEMAP, map);
+    }
+
+    getMapScript (id) {
+        const map = Database.ref.maps[id];
+        return AssetTemplateInjector.inject(ASSET_TYPE.LEVEL_SCRIPT, map);
     }
 
     getMapTilesets (id) {

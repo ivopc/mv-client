@@ -10,6 +10,7 @@ class Tilemap {
         this.scene = scene;
         this.mapData = Database.ref.maps[MapData.ref.id];
         this.tilemap;
+        this.tiles;
         this.layers = [];
         this.overlay;
         this.collisionLayer;

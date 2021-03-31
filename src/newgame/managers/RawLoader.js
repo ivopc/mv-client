@@ -61,7 +61,7 @@ class RawLoader {
             case ASSET_TYPE.MONSTER:
             case ASSET_TYPE.OVERWORLD_MONSTER:
             {
-                const assetData = AssetTemplateInjector(asset.type, asset);
+                const assetData = AssetTemplateInjector.inject(asset.type, asset);
                 scene.load.atlas(assetData.key, assetData.path.texture, assetData.path.atlas);
                 break;
             };

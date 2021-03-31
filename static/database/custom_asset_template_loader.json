@@ -23,5 +23,9 @@
     "tilemap": {
         "key": "level_{name}",
         "src": "assets/maps/{name}.json"
+    },
+    "levelscript": {
+        "key": "level_script_{name}",
+        "src": "assets/maps/{name}.events.json"
     }
 }

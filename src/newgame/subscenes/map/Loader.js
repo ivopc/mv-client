@@ -24,6 +24,9 @@ class Loader extends RawLoader {
         // map tilemap
         const tilemap = Assets.ref.getMapTilemap(map.id);
         scene.load.tilemapTiledJSON(tilemap.key, tilemap.src);
+        // level script
+        const script = Assets.ref.getLevelScript(map.id);
+        scene.load.json(script.key, script.src);
         // map main music
         const mapMusic = Assets.ref.getMapMainMusic(map.id);
         scene.load.audio(mapMusic.key, mapMusic.src);

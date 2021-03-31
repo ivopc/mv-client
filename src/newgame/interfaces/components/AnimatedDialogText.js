@@ -1,3 +1,5 @@
+import Text from "@/newgame/managers/Text";
+
 import { timedEvent } from "@/newgame/utils/scene.promisify";
 import { animationTimerDelay, interactionLockDelay } from "@/newgame/contants/Dialog";
 
@@ -11,8 +13,8 @@ class AnimatedDialogText {
         this.animationTimer;
         this.animationInProgress = false;
         this.isInteractionLocked = false;
-        this.callback;
-        this.callbackList = [];
+        this.onEndCallback;
+        this.onEndCallbackList = [];
     }
 
     createText (textPosition, textStyle) {
@@ -47,13 +49,13 @@ class AnimatedDialogText {
         // checa se está no último dialogo e se a animação não estiver em progresso
         if (this.specificTopicIndex == this.text.length - 1 && !this.animationInProgress) {
             this.remove();
-            this.onEnd();
+            this.onEndCallback();
             return;
         };
         // se dialogo estiver em progresso corta animação e seta pra ultima letra da fala
         if (this.animationInProgress) {
             this.animationTimer.destroy();
-            this.textComponent.setText(this.text[this.specificTopicIndex][Texts.ref.lang]);
+            this.textComponent.setText(this.text[this.specificTopicIndex][Text.ref.lang]);
             this.animationInProgress = false;
         // se não estiver em progresso joga pro próximo dialog
         } else {
@@ -67,14 +69,14 @@ class AnimatedDialogText {
     }
 
     animate () {
-        if (this.text[this.textListIndex][Texts.ref.lang].length === this.textListIndex) {
+        if (this.text[this.textListIndex][Text.ref.lang].length === this.textListIndex) {
             this.animationTimer.destroy();
             this.animationInProgress = false;
             return;
         };
         this.textComponent.setText(
             this.textComponent.text + 
-            this.text[this.textListIndex][Texts.ref.lang][this.specificTopicIndex++]
+            this.text[this.textListIndex][Text.ref.lang][this.specificTopicIndex++]
         );
     }
 
@@ -84,17 +86,17 @@ class AnimatedDialogText {
     }
 
     setOnEnd (callback) {
-        this.callback = callback;
+        this.onEndCallback = callback;
     }
 
     addEndEvent (callback) {
-        this.callbackList.push(callback);
+        this.onEndCallbackList.push(callback);
     }
 
     onEnd () {
-        if (typeof this.callback == "function")
-            this.callback();
-        this.callbackList.forEach(callback => callback());
+        if (typeof this.onEndCallback == "function")
+            this.onEndCallback();
+        this.onEndCallbackList.forEach(callback => callback());
     }
 
     async waitForEnd () {

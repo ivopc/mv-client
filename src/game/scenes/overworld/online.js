@@ -578,10 +578,7 @@ Overworld.requestMapChange = function (mid, tid) {
     // salvando teleport id
     this.tid = tid;
     // enviando map id e teleport id
-    this.Socket.emit("50", {
-        mid, 
-        tid
-    });
+    this.Socket.emit("50", { mid, tid });
 };
 
 // [x] requestar mudança de posição na party do monstro

@@ -6,7 +6,7 @@ import Boot from "./scenes/boot";
 import Overworld from "./scenes/overworld";
 import Battle from "./scenes/battle";
 
-import SubsceneMap from "./subscenes/map";
+import SubsceneLevel from "./subscenes/map";
 
 import RexUIPlugin from "phaser3-rex-plugins/templates/ui/ui-plugin.js";
 import DragPlugin from "phaser3-rex-plugins/plugins/drag-plugin.js";
@@ -51,7 +51,7 @@ function launch (containerId) {
     // add scenes to game instances
     gameInstance.scene.add(SCENE.BOOT, Boot);
     gameInstance.scene.add(SCENE.OVERWORLD, Overworld);
-    gameInstance.scene.add(SCENE.MAP, SubsceneMap);
+    gameInstance.scene.add(SCENE.LEVEL, SubsceneLevel);
     gameInstance.scene.add(SCENE.BATTLE, Battle);
     return gameInstance;
 };

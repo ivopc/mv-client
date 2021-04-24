@@ -31,7 +31,7 @@ class Assets {
         return AssetTemplateInjector.inject(ASSET_TYPE.TILEMAP, map);
     }
 
-    getMapScript (id) {
+    getLevelScript (id) {
         const map = Database.ref.maps[id];
         return AssetTemplateInjector.inject(ASSET_TYPE.LEVEL_SCRIPT, map);
     }

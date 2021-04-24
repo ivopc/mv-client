@@ -7,23 +7,13 @@
 */
 
 import { DIRECTIONS } from "@/newgame/constants/Directions";
+import { KEYS_LISTENER } from "@/newgame/constants/KeyListener";
 
 class InputListener {
     constructor (scene) {
         this.scene = scene;
         this.inputPressingTime = 0;
         this.gameTime = 0;
-    }
-
-    listenerKeys = {
-        LEFT: 37,
-        UP: 38,
-        RIGHT: 39,
-        DOWN: 40,
-        W: 87,
-        A: 65,
-        S: 83,
-        D: 68
     }
 
     pressed = {}
@@ -76,14 +66,14 @@ class InputListener {
     addDPadListener () {}
 
     checkKeyboard () {
-        if (this.isKeyDown(this.listenerKeys.UP) || this.isKeyDown(this.listenerKeys.W))
+        if (this.isKeyDown(KEYS_LISTENER.UP) || this.isKeyDown(KEYS_LISTENER.W))
             this.scene.$inputController.triggerFromListener(DIRECTIONS.UP, this.getInputTiming());
-        else if (this.isKeyDown(this.listenerKeys.DOWN) || this.isKeyDown(this.listenerKeys.S))
+        else if (this.isKeyDown(KEYS_LISTENER.DOWN) || this.isKeyDown(KEYS_LISTENER.S))
             this.scene.$inputController.triggerFromListener(DIRECTIONS.DOWN, this.getInputTiming());
 
-        if (this.isKeyDown(this.listenerKeys.LEFT) || this.isKeyDown(this.listenerKeys.A))
+        if (this.isKeyDown(KEYS_LISTENER.LEFT) || this.isKeyDown(KEYS_LISTENER.A))
             this.scene.$inputController.triggerFromListener(DIRECTIONS.LEFT, this.getInputTiming());
-        else if (this.isKeyDown(this.listenerKeys.RIGHT) || this.isKeyDown(this.listenerKeys.D)) 
+        else if (this.isKeyDown(KEYS_LISTENER.RIGHT) || this.isKeyDown(KEYS_LISTENER.D)) 
             this.scene.$inputController.triggerFromListener(DIRECTIONS.RIGHT, this.getInputTiming());
     }
 

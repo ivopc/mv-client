@@ -9,6 +9,7 @@ import { SCENE } from "@/newgame/constants/GameScene";
 
 import PlayerData from "./PlayerData";
 import MapData from "./MapData";
+import LevelData from "./LevelData";
 import BattleData from "./BattleData";
 import Network from "./Network";
 import Layout from "./Layout";
@@ -38,6 +39,8 @@ class Boot {
         this.setPlayerData(payload);
         const { map, wild, flag, tamers } = payload.param;
         MapData.ref = new MapData({ map, flag, wild, tamers });
+        // trocar level data por map data depois
+        LevelData.ref = new LevelData({ map, flag, wild, tamers });
         this.gameInstance.scene.start(SCENE.BOOT, {
             scene: SCENE.OVERWORLD
         });

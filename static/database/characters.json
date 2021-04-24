@@ -19,7 +19,7 @@
                 "y": 0.1
             }
         },
-        "atlas": "characters"
+        "atlas": "character_base_overworld"
 	},
     "2": {
         "name": "char1",

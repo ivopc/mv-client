@@ -1,4 +1,6 @@
-export const MAP_STATES = {
-	IDLE: 0,
-	DIALOGUING: 1
+const LEVEL_STATES = {
+    IDLE: 0,
+    DIALOG: 1
 };
+
+export { LEVEL_STATES };

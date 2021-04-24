@@ -5,6 +5,7 @@
         "tiles": [
             {"key": "tileset1", "src": "assets/img/tileset/tiles1.png", "name": "Tiles1"}
         ],
+        "npcs": [],
         "music": {
             "name": "new_valle_town",
             "src": "New Valle Town.wav"
@@ -28,6 +29,7 @@
     "3": {
         "id": 3,
         "name": "map3",
+        "npcs": [],
         "music": {
             "name": "route_1",
             "src": "Route 1.wav"
@@ -38,6 +40,7 @@
     "4": {
         "id": 4,
         "name": "player_house",
+        "npcs": [],
         "tiles": [
             {"key": "indoors", "src": "assets/img/tileset/indoors.png", "name": "Indoors"}
         ],
@@ -49,6 +52,7 @@
     "5": {
         "id": 5,
         "name": "sotopus_connection",
+        "npcs": [],
         "music": {
             "name": "route_1",
             "src": "Route 1.wav"
@@ -59,6 +63,7 @@
     "6": {
         "id": 6,
         "name": "sotopus",
+        "npcs": [],
         "tiles": [
             {"key": "tileset2", "src": "assets/img/tileset/tiles2.png", "name": "Tiles2"}
         ],
@@ -70,6 +75,7 @@
     "7": {
         "id": 7,
         "name": "player_room_house",
+        "npcs": [],
         "music": {
             "name": "new_valle_town",
             "src": "New Valle Town.wav"

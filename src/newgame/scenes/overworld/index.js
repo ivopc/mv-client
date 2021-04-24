@@ -6,8 +6,6 @@ import LoadingUInterface from "./LoadingUInterface";
 import Loader from "./Loader";
 
 import SceneManager from "@/newgame/managers/SceneManager";
-import PlayerData from "@/newgame/managers/PlayerData";
-import MapData from "@/newgame/managers/MapData";
 
 class Overworld extends Phaser.Scene {
     constructor () {
@@ -23,7 +21,8 @@ class Overworld extends Phaser.Scene {
     }
 
     create () {
-        this.scene.launch(SCENE.MAP);
+        this.scene.launch(SCENE.LEVEL);
+        this.scene.bringToTop();
         SceneManager.ref.setOverworld(this);
     }
 };

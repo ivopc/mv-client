@@ -5,7 +5,7 @@ import { SCENE } from "@/newgame/constants/GameScene";
 import SceneManager from "@/newgame/managers/SceneManager";
 
 import Loader from "./Loader";
-import NetworkMap from "./NetworkMap";
+import NetworkLevel from "./NetworkLevel";
 import InputListener from "./InputListener";
 import InputController from "./InputController";
 import CameraController from "./CameraController";
@@ -13,9 +13,10 @@ import Tilemap from "./Tilemap";
 import Container from "./Container";
 import PlayerCharacterController from "./PlayerCharacterController";
 
-class MapScene extends Phaser.Scene {
+class LevelScene extends Phaser.Scene {
     constructor () {
-        super(SCENE.MAP);
+        super(SCENE.LEVEL);
+        this.$levelBehavior;
     }
 
     init (params) {
@@ -28,7 +29,7 @@ class MapScene extends Phaser.Scene {
     }
 
     create () {
-        this.$network = new NetworkMap(this);
+        this.$network = new NetworkLevel(this);
         this.$inputListener = new InputListener(this);
         this.$inputController = new InputController(this);
         this.$cameraController = new CameraController(this);
@@ -36,15 +37,16 @@ class MapScene extends Phaser.Scene {
         this.$tilemap = new Tilemap(this);
         this.$playerController = new PlayerCharacterController(this);
         // **-----------------------------------**
-        //this.$network.addListener();
         this.$cameraController.setup();
         this.$containers.create();
         this.$tilemap.create();
         this.$cameraController.setBounds();
         this.$playerController.create();
+        //this.$network.addListener();
+        // Level Behavior is instancied in Loader
+        this.$levelBehavior.create();
         this.$inputListener.addListener();
         SceneManager.ref.setLevel(this);
-        console.log(SceneManager.ref);
     }
 
     update (time) {
@@ -52,4 +54,4 @@ class MapScene extends Phaser.Scene {
     }
 };
 
-export default MapScene;
+export default LevelScene;

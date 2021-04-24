@@ -1,4 +1,4 @@
-class GenericOverworldMovable {
+class MovableOverworldGameObject {
 
     constructor () {
         this.events = {
@@ -48,4 +48,4 @@ class GenericOverworldMovable {
     face () {}
 };
 
-export default GenericOverworldMovable;
+export default MovableOverworldGameObject;

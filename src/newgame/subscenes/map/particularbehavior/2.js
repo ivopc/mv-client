@@ -2,8 +2,7 @@ import BaseLevelScript from "./BaseLevelScript";
 
 class LevelScript extends BaseLevelScript {
 	constructor (scene) {
-		super();
-		this.scene = scene;
+		super(scene);
 	}
 
 	add () {

@@ -81,8 +81,14 @@ class Character extends RawCharacter {
             this._data.sprite = sprite;
             this.rawSetSprite(sprite);
         } else {
-            this.loadAtlasAsync(sprite);
+            this.loadSpriteAsync(sprite);
         };
+    }
+
+    rawSetPosition (x, y) {
+        this.setPosition(positionToRealWorld(x), positionToRealWorld(y));
+        this._data.position.x = x;
+        this._data.position.y = y;
     }
 
     onStartMove(callback) {
@@ -325,8 +331,9 @@ class Character extends RawCharacter {
                         return;
                     };
                     case TILE.TYPES.WARP: {
-                        let teleport = this.scene.cache.json.get(this.scene.getCurrentMapName("events")).map.teleport.find(position => position.x === this._data.position.x && position.y === this._data.position.y);
-                        internalCallback = () => this.scene.requestMapChange(teleport.mid, teleport.tid);
+                        const teleport = this.scene.$levelBehavior.scriptData.map.teleport.find(position => position.x === this._data.position.x && position.y === this._data.position.y);
+                        console.log({teleport});
+                        internalCallback = () => this.scene.$tilemap.change(teleport);
                         break;
                     };
                     case TILE.TYPES.WILD_GRASS: {
@@ -340,7 +347,7 @@ class Character extends RawCharacter {
                         break;
                     };
                     case TILE.TYPES.EVENT: {
-                        const 
+                        /*const 
                             mapData = this.scene.cache.json.get(this.scene.getCurrentMapName("events")),
                             event = mapData.events.config.find(position => position.x === this._data.position.x && position.y === this._data.position.y);
                         internalCallback = () => {
@@ -348,9 +355,9 @@ class Character extends RawCharacter {
                                 this.scene.automatizeAction({
                                     type: 2
                                 }, mapData.events.script[event.id].script);
-                            };
+                            }; 
                         };
-                        break;
+                        break;*/
                     };
                 };
                 this.removeGrassOverlay();

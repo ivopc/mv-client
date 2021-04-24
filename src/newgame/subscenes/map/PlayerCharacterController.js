@@ -1,10 +1,13 @@
 import PlayerData from "@/newgame/managers/PlayerData";
 import Player from "@/newgame/prefabs/Player";
 
+import { positionToRealWorld } from "@/newgame/utils";
+
 class PlayerCharacterController {
 
     constructor (scene) {
         this.scene = scene;
+        this.player;
     }
 
     create () {
@@ -22,13 +25,15 @@ class PlayerCharacterController {
         this.player = player;
     }
 
-    move (direction, callback) {
-        this.player.move(direction, callback);
+    async move (direction) {
+        await this.player.move(direction);
     }
 
     face (direction) {
         this.player.face(direction);
     }
+
+    interact () {}
 
     getFacing () {
         return this.player._data.position.facing;
@@ -37,6 +42,10 @@ class PlayerCharacterController {
     getPosition () {
         const { x, y } = this.player._data.position;
         return { x, y };
+    }
+
+    rawSetPosition (position) {
+        this.player.rawSetPosition(position.x, position.y);
     }
 };
 

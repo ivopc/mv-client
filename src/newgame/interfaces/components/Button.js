@@ -1,7 +1,11 @@
-class Button {
+import Phaser from "phaser";
+
+class Button extends Phaser.GameObjects.Container {
     constructor (scene, config) {
+        super(scene);
         this.scene = scene;
         this.sprite;
+        this.text;
 
         config.x = config.x || 0;
         config.y = config.y || 0;
@@ -41,6 +45,7 @@ class Button {
         )
             .setOrigin(0, 0)
             .setFrame(this.config.frames.out);
+        this.add(this.sprite);
     }
 
     addText (text, style) {
@@ -50,6 +55,7 @@ class Button {
             .setX(btnCenter.x)
             .setY(btnCenter.y)
             .setOrigin(0.5);
+        this.add(this.text);
     }
 
     setListeners () {
@@ -84,13 +90,6 @@ class Button {
             this.config.on.out();
         }
     }
-
-    destroy () {
-        this.sprite.destroy();
-        if (this.hasText)
-            this.text.destroy();
-    }
-
 };
 
 export default Button;

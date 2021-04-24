@@ -1,14 +1,21 @@
-import Text from "@/newgame/managers/Text";
+//import Text from "@/newgame/managers/Text";
 
 import { timedEvent } from "@/newgame/utils/scene.promisify";
-import { animationTimerDelay, interactionLockDelay } from "@/newgame/contants/Dialog";
+import { animationTimerDelay, interactionLockDelay } from "@/newgame/constants/Dialog";
+
+const Text = {
+    ref: {
+        lang: "br"
+    }
+};
 
 class AnimatedDialogText {
     constructor (scene, text) {
         this.scene = scene;
         this.text = text;
         this.textListIndex = 0;
-        this.specificTopicIndex = 0;
+        this.specificTextPhraseIndex = 0;
+        this.phraseLetterIndex = 0;
         this.textComponent;
         this.animationTimer;
         this.animationInProgress = false;
@@ -24,21 +31,21 @@ class AnimatedDialogText {
             "", 
             textStyle
         );
-
         return this.textComponent;
     }
 
     setAnimationTimer (delay) {
+        this.animationInProgress = true;
         this.animationTimer = this.scene.time.addEvent({
-            delay || animationTimerDelay, 
-            callback: this.animateDialog, 
+            delay: delay || animationTimerDelay, 
+            callback: this.animate, 
             callbackScope: this,
-            loop: true 
+            loop: true
         });
     }
 
     async unlockInteraction () {
-        await timedEvent(this.scene, interactionLockDelay);
+        await timedEvent(interactionLockDelay, this.scene);
         this.isInteractionLocked = false;
     }
 
@@ -47,21 +54,22 @@ class AnimatedDialogText {
             return;
         this.isInteractionLocked = true;
         // checa se está no último dialogo e se a animação não estiver em progresso
-        if (this.specificTopicIndex == this.text.length - 1 && !this.animationInProgress) {
+        if (this.specificTextPhraseIndex >= this.text[this.textListIndex][Text.ref.lang].length && !this.animationInProgress) {
+            console.log("último dialogo");
             this.remove();
-            this.onEndCallback();
+            this.onEnd();
             return;
         };
         // se dialogo estiver em progresso corta animação e seta pra ultima letra da fala
         if (this.animationInProgress) {
             this.animationTimer.destroy();
-            this.textComponent.setText(this.text[this.specificTopicIndex][Text.ref.lang]);
+            this.textComponent.setText(this.text[this.textListIndex][Text.ref.lang][this.specificTextPhraseIndex]);
+            this.specificTextPhraseIndex ++;
+            this.phraseLetterIndex = 0;
             this.animationInProgress = false;
         // se não estiver em progresso joga pro próximo dialog
         } else {
             this.textComponent.setText("");
-            this.textListIndex ++;
-            this.specificTopicIndex = 0;
             this.setAnimationTimer();
             this.animationInProgress = true;
         };
@@ -69,14 +77,16 @@ class AnimatedDialogText {
     }
 
     animate () {
-        if (this.text[this.textListIndex][Text.ref.lang].length === this.textListIndex) {
+        if (this.text[this.textListIndex][Text.ref.lang][this.specificTextPhraseIndex].length === this.phraseLetterIndex) {
             this.animationTimer.destroy();
             this.animationInProgress = false;
+            this.specificTextPhraseIndex ++;
+            this.phraseLetterIndex = 0;
             return;
         };
         this.textComponent.setText(
             this.textComponent.text + 
-            this.text[this.textListIndex][Text.ref.lang][this.specificTopicIndex++]
+            this.text[this.textListIndex][Text.ref.lang][this.specificTextPhraseIndex][this.phraseLetterIndex++]
         );
     }
 
@@ -104,21 +114,35 @@ class AnimatedDialogText {
     }
 };
 
-;(async () => {
+/*;(async () => {
     const dialog = new AnimatedDialogText(this, [
-        "TROLLOLOLOLOLOLO1",
-        "TROLLOLOLOLOLOLO2",
-        "TROLLOLOLOLOLOLO3",
-        "TROLLOLOLOLOLOLO4",
-        "TROLLOLOLOLOLOLO5",
-        "TROLLOLOLOLOLOLO6",
-        "TROLLOLOLOLOLOLO7",
-        "TROLLOLOLOLOLOLO8",
-        "TROLLOLOLOLOLOLO9",
-        "TROLLOLOLOLOLOLO0"
+        {
+            br: [
+                "UMA COISA DIFERENTE UMA COISA DIFERENTE",
+                "CERTAMENTE ACONTECE CERTAMENTE ACONTECE",
+                "É SEQUENCIA DO GRAVE, É SEQUENCIA DO GRAVE",
+                "QUANDO EU CANTO O BAILE ESTREMECE",
+                "UMA COISA DIFERENTE UMA COISA DIFERENTE2",
+                "CERTAMENTE ACONTECE CERTAMENTE ACONTECE2",
+                "É SEQUENCIA DO GRAVE, É SEQUENCIA DO GRAVE2",
+                "QUANDO EU CANTO O BAILE ESTREMECE2"
+            ]
+        }
     ]);
+    window.dialog = dialog;
+    dialog.createText({
+        x: 0,
+        y: 0
+    }, {
+        fontFamily: "Century Gothic", 
+        fontSize: 50, 
+        color: "#fff" 
+    });
+    dialog.textComponent.setScrollFactor(0);
+    dialog.setAnimationTimer();
     await dialog.waitForEnd();
-})();
+    console.log("DIALOGO ACABOU CRL! POHA! FIM!");
+})();*/
 
 /*
 {

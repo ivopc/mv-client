@@ -9,6 +9,8 @@
 import { DIRECTIONS } from "@/newgame/constants/Directions";
 import { KEYS_LISTENER } from "@/newgame/constants/KeyListener";
 
+import { isMobile } from "@/newgame/utils";
+
 class InputListener {
     constructor (scene) {
         this.scene = scene;
@@ -39,14 +41,14 @@ class InputListener {
     }
 
     addListener () {
-        if (this.isMobile)
+        if (isMobile)
             this.addDPadListener();
         else
             this.addKeyboardListener();
     }
 
     removeListener () {
-        if (this.isMobile)
+        if (isMobile)
             this.removeDPadListener();
         else
             this.removeKeyboardListener();
@@ -81,7 +83,7 @@ class InputListener {
 
     update (time) {
         this.gameTime = time;
-        if (this.isMobile)
+        if (isMobile)
             this.checkDPad();
         else
             this.checkKeyboard();

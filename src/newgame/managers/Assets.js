@@ -21,30 +21,30 @@ class Assets {
         return AssetTemplateInjector.inject(ASSET_TYPE.CHARACTER_OVERWORLD, character);
     }
 
-    getMapCharacters (id) {
+    getLevelCharacters (id) {
         return Database.ref.maps[id].npcs
             .map(npc => this.getOverworldCharacter(npc.id));
     }
 
-    getMapTilemap (id) {
-        const map = Database.ref.maps[id];
-        return AssetTemplateInjector.inject(ASSET_TYPE.TILEMAP, map);
+    getLevelTilemap (id) {
+        const level = Database.ref.maps[id];
+        return AssetTemplateInjector.inject(ASSET_TYPE.TILEMAP, level);
     }
 
     getLevelScript (id) {
-        const map = Database.ref.maps[id];
-        return AssetTemplateInjector.inject(ASSET_TYPE.LEVEL_SCRIPT, map);
+        const level = Database.ref.maps[id];
+        return AssetTemplateInjector.inject(ASSET_TYPE.LEVEL_SCRIPT, level);
     }
 
-    getMapTilesets (id) {
+    getLevelTilesets (id) {
         return Database.ref.maps[id].tiles;
     }
 
-    getMapMainMusic (id) {
-        const map = Database.ref.maps[id];
+    getLevelMainMusic (id) {
+        const level = Database.ref.maps[id];
         return {
-            key: map.music.name,
-            src: "assets/audio/" + map.music.src
+            key: level.music.name,
+            src: "assets/audio/" + level.music.src
         };
     }
 

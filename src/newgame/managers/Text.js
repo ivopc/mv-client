@@ -7,6 +7,10 @@ class Text {
         this.lang = lang;
     }
 
+    merge (texts) {
+        Object.keys(texts).forEach(text => this[text] = texts[text]);
+    }
+
     static ref
 };
 

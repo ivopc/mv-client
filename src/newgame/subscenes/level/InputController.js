@@ -31,7 +31,7 @@ class InputController {
                 scene.$interactionController.interact();
                 break;
             };
-            case MAP_STATES.DIALOGUING: {
+            case MAP_STATES.DIALOG: {
                 scene.$dialogController.next();
                 break;
             };

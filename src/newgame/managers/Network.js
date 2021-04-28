@@ -8,7 +8,7 @@ class Network {
         this.socket.emit(event, data, callback);
     }
 
-    on (event, fn) {
+    addEvent (event, fn) {
         this.socket.on(event, fn);
         return this.socket;
     }

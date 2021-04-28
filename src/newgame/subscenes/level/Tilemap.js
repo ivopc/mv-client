@@ -18,7 +18,7 @@ class Tilemap {
     }
 
     create () {
-        this.tilemap = this.scene.add.tilemap(Assets.ref.getMapTilemap(this.levelData.id).key);
+        this.tilemap = this.scene.add.tilemap(Assets.ref.getLevelTilemap(this.levelData.id).key);
         this.tileset = this.fetchTilesets().map(tileset => this.tilemap.addTilesetImage(tileset.name, tileset.key, 32, 32, 1, 2));
         this.tilemap.layers.forEach((layer, index) => {
             switch (Number(layer.properties.type)) {
@@ -41,7 +41,7 @@ class Tilemap {
     }
 
     fetchTilesets () {
-        return Assets.ref.getMapTilesets(this.levelData.id);
+        return Assets.ref.getLevelTilesets(this.levelData.id);
     }
 
     fetchLayerTilesets () {}

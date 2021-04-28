@@ -6,7 +6,7 @@ import Boot from "./scenes/boot";
 import Overworld from "./scenes/overworld";
 import Battle from "./scenes/battle";
 
-import SubsceneLevel from "./subscenes/map";
+import SubsceneLevel from "./subscenes/level";
 
 import RexUIPlugin from "phaser3-rex-plugins/templates/ui/ui-plugin.js";
 import DragPlugin from "phaser3-rex-plugins/plugins/drag-plugin.js";

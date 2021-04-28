@@ -11,5 +11,13 @@ class Container {
     }
 
     characterDepthSort () {}
+
+    reorganize () {
+        const { scene } = this;
+        scene.bringToTop(this.map);
+        scene.bringToTop(this.main);
+        scene.bringToTop(this.preOverlay);
+        scene.bringToTop(this.overlay);
+    }
 };
 export default Container;

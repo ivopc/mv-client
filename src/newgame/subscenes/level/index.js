@@ -16,6 +16,14 @@ import PlayerCharacterController from "./PlayerCharacterController";
 class LevelScene extends Phaser.Scene {
     constructor () {
         super(SCENE.LEVEL);
+        this.$loader;
+        this.$network;
+        this.$inputListener;
+        this.$inputController;
+        this.$cameraController;
+        this.$containers;
+        this.$tilemap;
+        this.$playerController;
         this.$levelBehavior;
     }
 
@@ -43,7 +51,7 @@ class LevelScene extends Phaser.Scene {
         this.$cameraController.setBounds();
         this.$playerController.create();
         //this.$network.addListener();
-        // Level Behavior is instancied in Loader
+        // Level Behavior is instancied in Loader class
         this.$levelBehavior.create();
         this.$inputListener.addListener();
         SceneManager.ref.setLevel(this);

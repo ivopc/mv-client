@@ -7,6 +7,7 @@ import { timedEvent } from "@/newgame/utils/scene.promisify";
 import Database from "@/newgame/managers/Database";
 
 import RawCharacter from "./RawCharacter";
+import MovableOverworldGameObject from "./MovableOverworldGameObject";
 import BalloonDialog from "./BalloonDialog";
 
 /*
@@ -33,6 +34,7 @@ class Character extends RawCharacter {
             },
             grassOverlay: null
         };
+        this.collider = new MovableOverworldGameObject(this);
         this.events = {
             startMove: [],
             endMove: [],
@@ -332,7 +334,6 @@ class Character extends RawCharacter {
                     };
                     case TILE.TYPES.WARP: {
                         const teleport = this.scene.$levelBehavior.scriptData.map.teleport.find(position => position.x === this._data.position.x && position.y === this._data.position.y);
-                        console.log({teleport});
                         internalCallback = () => this.scene.$tilemap.change(teleport);
                         break;
                     };
@@ -450,7 +451,7 @@ class Character extends RawCharacter {
                     targets: [this, ... this.elementsToFollow],
                     ease: "Linear",
                     duration: STEP_TIME.STEP * 4,
-                    y: "-=" + TILE.SIZE,
+                    y: "-=" + TILE.SIZE
                 });
                 break;
             };
@@ -459,7 +460,7 @@ class Character extends RawCharacter {
                     targets: [this, ... this.elementsToFollow],
                     ease: "Linear",
                     duration: STEP_TIME.STEP * 4,
-                    x: "+=" + TILE.SIZE,
+                    x: "+=" + TILE.SIZE
                 });
                 break;
             };
@@ -468,7 +469,7 @@ class Character extends RawCharacter {
                     targets: [this, ... this.elementsToFollow],
                     ease: "Linear",
                     duration: STEP_TIME.STEP * 4,
-                    y: "+=" + TILE.SIZE,
+                    y: "+=" + TILE.SIZE
                 });
                 break;
             };
@@ -477,7 +478,7 @@ class Character extends RawCharacter {
                     targets: [this, ... this.elementsToFollow],
                     ease: "Linear",
                     duration: STEP_TIME.STEP * 4,
-                    x: "-=" + TILE.SIZE,
+                    x: "-=" + TILE.SIZE
                 });
                 break;
             };

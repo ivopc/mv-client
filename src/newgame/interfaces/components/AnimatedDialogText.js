@@ -53,21 +53,21 @@ class AnimatedDialogText {
         if (this.isInteractionLocked)
             return;
         this.isInteractionLocked = true;
-        // checa se está no último dialogo e se a animação não estiver em progresso
+        // check if is in the last dialog and if the animation is not in progress
         if (this.specificTextPhraseIndex >= this.text[this.textListIndex][Text.ref.lang].length && !this.animationInProgress) {
             console.log("último dialogo");
             this.remove();
             this.onEnd();
             return;
         };
-        // se dialogo estiver em progresso corta animação e seta pra ultima letra da fala
+        // if dialog is in progress skip animation and set to the last letter directly
         if (this.animationInProgress) {
             this.animationTimer.destroy();
             this.textComponent.setText(this.text[this.textListIndex][Text.ref.lang][this.specificTextPhraseIndex]);
             this.specificTextPhraseIndex ++;
             this.phraseLetterIndex = 0;
             this.animationInProgress = false;
-        // se não estiver em progresso joga pro próximo dialog
+        // if not in progress throw to the next dialog
         } else {
             this.textComponent.setText("");
             this.setAnimationTimer();
@@ -109,7 +109,7 @@ class AnimatedDialogText {
         this.onEndCallbackList.forEach(callback => callback());
     }
 
-    async waitForEnd () {
+    waitForEnd () {
         return new Promise(resolve => this.setOnEnd(resolve));
     }
 };

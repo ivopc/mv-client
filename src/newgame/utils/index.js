@@ -5,7 +5,7 @@ import Text from "@/newgame/managers/Text";
 
 import { TILE } from "@/newgame/constants/Overworld";
 
-// convert tile X and Y position to real pixel world position
+// convert tile X and Y position to real world pixel based position
 const positionToRealWorld = position => position * TILE.SIZE;
 
 // check if device is mobile
@@ -19,13 +19,10 @@ const isMobile = checkMobile();
 // complete details about monster EXP statistics
 const getMonsterExpStatistics = function (exp, level) {
     const 
-    	levelTotalCurrent = Database.ref.monstersExp.find(exp => exp.level === level);
-    	levelTotalNext = Database.ref.monstersExp.find(exp => exp.level === level + 1);
-    
-    const
+    	levelTotalCurrent = Database.ref.monstersExp.find(exp => exp.level === level),
+    	levelTotalNext = Database.ref.monstersExp.find(exp => exp.level === level + 1),
     	total = levelTotalNext.exp - levelTotalCurrent.exp,
         current = exp - levelTotalCurrent.exp;
-    
     return {
         current,
         total,

@@ -14,7 +14,7 @@ class DragglableGridElement extends Draggable {
             y: centerPosition.y
         }};
         for (let i = 0; i < this.gridListData.length; i ++) {
-            if (i == this.gridElementIndex)
+            if (i === this.gridElementIndex)
                 continue;
             if (
                 elementPosition.x >= this.gridListData[i].basePosition.x && elementPosition.x <= this.gridListData[i].basePosition.x + this.displayWidth &&

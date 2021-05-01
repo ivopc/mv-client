@@ -334,7 +334,7 @@ class Character extends RawCharacter {
                     };
                     case TILE.TYPES.WARP: {
                         const teleport = this.scene.$levelBehavior.scriptData.map.teleport.find(position => position.x === this._data.position.x && position.y === this._data.position.y);
-                        internalCallback = () => this.scene.$tilemap.change(teleport);
+                        internalCallback = () => this.scene.$manager.changeLevel(teleport);
                         break;
                     };
                     case TILE.TYPES.WILD_GRASS: {

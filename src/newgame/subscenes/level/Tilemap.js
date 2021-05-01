@@ -9,7 +9,7 @@ class Tilemap {
 
     constructor (scene) {
         this.scene = scene;
-        this.levelData = Database.ref.maps[LevelData.ref.id];
+        this.levelData = Database.ref.level[LevelData.ref.id];
         this.tilemap;
         this.tileset;
         this.layers = [];
@@ -48,15 +48,6 @@ class Tilemap {
 
     setLevelData (data) {
         this.levelData = data;
-    }
-
-    async change (warpData) {
-        this.clear();
-        this.setLevelData(Database.ref.maps[warpData.mid]);
-        await this.scene.$loader.changeLevel(this.levelData);
-        this.create();
-        this.scene.$playerController.rawSetPosition(warpData);
-        this.scene.$cameraController.setBounds();
     }
 
     clear () {

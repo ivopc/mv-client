@@ -6,7 +6,7 @@ class Draggable extends Phaser.GameObjects.Container {
         scene.plugins.get("rexDrag").add(this);
     }
 
-    setListeners () {
+    setDragListeners () {
         this
             .on("dragstart", this.onDragStart, this)
             .on("drag", this.onDragging, this)

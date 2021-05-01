@@ -1,10 +1,11 @@
 class Database {
 
-	constructor ({ character, monsters, maps, items }) {
+	constructor ({ character, monster, level, item, monstersExp }) {
 		this.character = character;
-		this.monsters = monsters;
-		this.maps = maps;
-		this.items = items;
+		this.monster = monster;
+		this.level = level;
+		this.item = item;
+		this.monstersExp = monstersExp;
 	}
 
 	static ref

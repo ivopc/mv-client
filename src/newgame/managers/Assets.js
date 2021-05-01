@@ -22,26 +22,26 @@ class Assets {
     }
 
     getLevelCharacters (id) {
-        return Database.ref.maps[id].npcs
+        return Database.ref.level[id].npcs
             .map(npc => this.getOverworldCharacter(npc.id));
     }
 
     getLevelTilemap (id) {
-        const level = Database.ref.maps[id];
+        const level = Database.ref.level[id];
         return AssetTemplateInjector.inject(ASSET_TYPE.TILEMAP, level);
     }
 
     getLevelScript (id) {
-        const level = Database.ref.maps[id];
+        const level = Database.ref.level[id];
         return AssetTemplateInjector.inject(ASSET_TYPE.LEVEL_SCRIPT, level);
     }
 
     getLevelTilesets (id) {
-        return Database.ref.maps[id].tiles;
+        return Database.ref.level[id].tiles;
     }
 
     getLevelMainMusic (id) {
-        const level = Database.ref.maps[id];
+        const level = Database.ref.level[id];
         return {
             key: level.music.name,
             src: "assets/audio/" + level.music.src

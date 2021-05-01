@@ -5,6 +5,7 @@ import { SCENE } from "@/newgame/constants/GameScene";
 import SceneManager from "@/newgame/managers/SceneManager";
 
 import Loader from "./Loader";
+import LevelManager from "./LevelManager";
 import NetworkLevel from "./NetworkLevel";
 import InputListener from "./InputListener";
 import InputController from "./InputController";
@@ -18,6 +19,7 @@ class LevelScene extends Phaser.Scene {
         super(SCENE.LEVEL);
         this.$loader;
         this.$network;
+        this.$manager;
         this.$inputListener;
         this.$inputController;
         this.$cameraController;
@@ -38,6 +40,7 @@ class LevelScene extends Phaser.Scene {
 
     create () {
         this.$network = new NetworkLevel(this);
+        this.$manager = new LevelManager(this);
         this.$inputListener = new InputListener(this);
         this.$inputController = new InputController(this);
         this.$cameraController = new CameraController(this);

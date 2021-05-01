@@ -13,7 +13,7 @@ import {
     BASE_ASSETS, 
     CHARACTERS,
     MONSTERS,
-    MAPS 
+    LEVELS 
 } from "@/newgame/constants/Loader";
 
 class Boot extends Phaser.Scene {
@@ -22,7 +22,7 @@ class Boot extends Phaser.Scene {
     }
 
     init (params) {
-        this.data = params;
+        this.transitionData = params;
     }
 
     preload () {
@@ -33,15 +33,15 @@ class Boot extends Phaser.Scene {
     create () {
         SceneManager.ref = new SceneManager();
         Database.ref = new Database({
-            maps: this.cache.json.get(MAPS),
+            level: this.cache.json.get(LEVELS),
             character: this.cache.json.get(CHARACTERS),
-            monsters: this.cache.json.get(MONSTERS)
+            monster: this.cache.json.get(MONSTERS)
         });
         Assets.ref = new Assets({
             template: this.cache.json.get(CUSTOM_TEMPLATE_LOADER),
             base: this.cache.json.get(BASE_ASSETS)
         });
-        this.scene.start(this.data.scene);
+        this.scene.start(this.transitionData.scene);
     }
 };
 

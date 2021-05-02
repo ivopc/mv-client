@@ -12,7 +12,7 @@ class RawCharacter extends Phaser.GameObjects.Sprite {
         super(scene, x, y, data);
         this.scene = scene;
         this._data = data;
-        // checking if sprite is already loaded, if don't we need to load
+        // checking if sprite is already loaded, if don't we need to load it async
         if (scene.textures.exists(Database.ref.character[data.sprite].atlas)) {
             this.rawSetSprite(data.sprite);
         } else {
@@ -24,7 +24,6 @@ class RawCharacter extends Phaser.GameObjects.Sprite {
     }
 
     rawSetSprite (sprite) {
-        // set texture
         this.setTexture(Database.ref.character[sprite].atlas);
         this.setFrame(Database.ref.character[sprite].name + "_" + DIRECTIONS[this._data.position.facing] + "_idle0");
         // add anim to 4 character directions
@@ -38,10 +37,8 @@ class RawCharacter extends Phaser.GameObjects.Sprite {
                 frameRate: 2,
                 repeat: -1
             });
-            // add anim to character sprite
             this.anims.load(Database.ref.character[sprite].name + "_idle_" + direction);
         });
-        // play on idle anim
         this.playIdleAnim(this._data.position.facing);
         this.changeOrigin(this._data.position.facing);
     }

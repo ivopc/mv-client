@@ -12,7 +12,9 @@ import InputController from "./InputController";
 import CameraController from "./CameraController";
 import Tilemap from "./Tilemap";
 import Container from "./Container";
+import RuntimeScripting from "./RuntimeScripting";
 import PlayerCharacterController from "./PlayerCharacterController";
+import GenericCharactersController from "./GenericCharactersController";
 
 class LevelScene extends Phaser.Scene {
     constructor () {
@@ -25,13 +27,13 @@ class LevelScene extends Phaser.Scene {
         this.$cameraController;
         this.$containers;
         this.$tilemap;
+        this.$runtime;
         this.$playerController;
+        this.$characterController;
         this.$levelBehavior;
     }
 
-    init (params) {
-        console.log("Olá");
-    }
+    init (params) {}
 
     preload () {
         this.$loader = new Loader(this);
@@ -46,16 +48,19 @@ class LevelScene extends Phaser.Scene {
         this.$cameraController = new CameraController(this);
         this.$containers = new Container(this);
         this.$tilemap = new Tilemap(this);
+        this.$runtime = new RuntimeScripting(this);
         this.$playerController = new PlayerCharacterController(this);
+        this.$charactersController = new GenericCharactersController(this);
         // **-----------------------------------**
         this.$cameraController.setup();
         this.$containers.create();
         this.$tilemap.create();
         this.$cameraController.setBounds();
         this.$playerController.create();
-        //this.$network.addListener();
+        this.$network.addListener();
         // Level Behavior is instancied in Loader class
         this.$levelBehavior.create();
+        this.$network.subscribeLevel();
         this.$inputListener.addListener();
         SceneManager.ref.setLevel(this);
     }

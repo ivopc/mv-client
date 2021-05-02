@@ -10,7 +10,11 @@ class Network {
 
     addEvent (event, fn) {
         this.socket.on(event, fn);
-        return this.socket;
+        return this;
+    }
+
+    removeEvent (event) {
+        this.socket.off(event);
     }
 
     static ref

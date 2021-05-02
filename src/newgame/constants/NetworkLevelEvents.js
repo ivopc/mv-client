@@ -1,0 +1,12 @@
+const LEVEL_EVENT = {
+    PONG: "0",
+    CHAT_MESSAGE: "1"
+};
+
+const PLAYER_OVERWORLD_ACTIONS = {
+	MOVE: 1,
+	FACING: 2,
+	DESTROY: 3
+};
+
+export { LEVEL_EVENT, PLAYER_OVERWORLD_ACTIONS };

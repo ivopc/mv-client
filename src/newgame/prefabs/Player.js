@@ -1,5 +1,8 @@
 import Character from "./Character";
+
 import { CHAR_TYPES } from "@/newgame/constants/Character";
+
+
 
 class Player extends Character {
     constructor (scene, data) {
@@ -9,9 +12,26 @@ class Player extends Character {
         this._data.type = CHAR_TYPES.PLAYER;
     }
 
-    sendMove (direction) {}
+    sendMove (direction) {
+        this.scene.$network.sendMove(direction);
+    }
 
-    sendFacing (direction) {}
+    sendFacing (direction) {
+        this.scene.$network.sendFacing(direction);
+    }
+
+    requestLevelChange () {
+        const teleport = this.scene.$levelBehavior.scriptData.map.teleport
+            .find(position => 
+                position.x === this._data.position.x && 
+                position.y === this._data.position.y);
+        this.scene.$manager.changeLevel(teleport);
+    }
+
+    interact () {
+        const interaction = super.interact();
+        console.log("lol", interaction);
+    }
 };
 
 export default Player;

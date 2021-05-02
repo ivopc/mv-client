@@ -66,9 +66,13 @@ class BaseLevelScript {
     }
 
     insertLevelObject (levelObjectData) {
-        const character = new Character(this.scene, levelObjectData);
-        this.scene.add.existing(character);
+        const { scene } = this;
+        const character = new Character(scene, levelObjectData);
+        scene.add.existing(character);
+        scene.$charactersController.addStaticCharacter(character);
     }
+
+    autoExec () {}
 
     setScript (data) {
         this.scriptData = data;

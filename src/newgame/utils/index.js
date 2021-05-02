@@ -1,9 +1,13 @@
-import ReplaceStringToken from "./ReplaceStringToken";
-
 import Database from "@/newgame/managers/Database";
 import Text from "@/newgame/managers/Text";
 
 import { TILE } from "@/newgame/constants/Overworld";
+
+const promisesWaterfall = callbacks =>
+    callbacks.reduce((accumulator, callback) => 
+        accumulator.then(callback),
+        Promise.resolve(null)
+    );
 
 // convert tile X and Y position to real world pixel based position
 const positionToRealWorld = position => position * TILE.SIZE;
@@ -69,28 +73,34 @@ const convertMsToDate = function (miliseconds, format) {
 const treatVipDate = function (date) {
     const time = convertMsToDate(date - Date.now());
     if (time.days > 0) {
-        return ReplaceStringToken.replace(Text.ref.profile.vipDays[Text.ref.lang], {
+        return Text.ref.get("profile", "vipDays", {
             time: time.days
         });
     };
     if (time.hours > 0) {
-        return ReplaceStringToken.replace(Text.ref.profile.vipHours[Text.ref.lang], {
+        return Text.ref.get("profile", "vipHours", {
             time: time.hours
         });
     };
     if (time.minutes > 0) {
-        return ReplaceStringToken.replace(Text.ref.profile.vipMinutes[Text.ref.lang], {
+        return Text.ref.get("profile", "vipMinutes", {
             time: time.minutes
         });
     };
-    return Text.ref.profile.vipLessThanOneMin[Text.ref.lang];
+    return Text.ref.get("profile", "vipLessThanOneMin");
 };
 
+// merge objects
+const merge = (object, merge) =>
+    Object.keys(merge).forEach(toMerge => object[toMerge] = merge[toMerge]);
+
 export {
+    promisesWaterfall,
 	positionToRealWorld, 
 	isMobile, 
 	getMonsterExpStatistics,
 	numberToPedia,
 	convertMsToDate,
-	treatVipDate
+	treatVipDate,
+    merge
 };

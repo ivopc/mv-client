@@ -6,12 +6,14 @@ import { timedEvent } from "@/newgame/utils/scene.promisify";
 
 import Database from "@/newgame/managers/Database";
 
+import CharacterModel from "@/newgame/models/Character";
+
 import RawCharacter from "./RawCharacter";
 import MovableOverworldGameObject from "./MovableOverworldGameObject";
 import BalloonDialog from "./BalloonDialog";
 
 /*
-Arrumar: subscribe do socket e checkPlayerPositionTamer 
+Arrumar: checkPlayerPositionTamer, depthSort ao end da step
 */
 
 class Character extends RawCharacter {
@@ -22,6 +24,11 @@ class Character extends RawCharacter {
             positionToRealWorld(data.position.x), 
             positionToRealWorld(data.position.y),
             data
+        );
+        this._data = new CharacterModel(data);
+        this.physicsController = new MovableOverworldGameObject(
+            this._data, 
+            scene.$tilemap
         );
         this.elements = {
             nickname: null,
@@ -34,53 +41,14 @@ class Character extends RawCharacter {
             },
             grassOverlay: null
         };
-        this.collider = new MovableOverworldGameObject(this);
-        this.events = {
-            startMove: [],
-            endMove: [],
-            cantMove: []
-        };
-        this.grassOverlay;
-        data = data || {};
-        data.position = data.position || {};
-        data.position.x = data.position.x || 0;
-        data.position.y = data.position.y || 0;
-        data.position.facing = data.position.facing || 0;
-        data.follower = data.follower || {};
-        data.follower.has = data.follower.has || false;
-        data.follower.id = data.follower.id || null;
         if ("visible" in data)
             this.visible = data.visible;
-        this._data = {
-            type: data.type,
-            name: data.name,
-            sprite: data.sprite,
-            atlas: Database.ref.character[data.sprite].atlas,
-            position: {
-                x: data.position.x,
-                y: data.position.y,
-                facing: data.position.facing
-            },
-            stepFlag: 0,
-            follower: {
-                has: data.follower.has,
-                id: data.follower.name
-            },
-            moveInProgress: false
-        };
-        if (data.isTamer) {
-            this._data.isTamer = true;
-            this._data.maxView = data.maxView;
-        };
-        if (data.type === CHAR_TYPES.ONLINE_PLAYER) {
-            this._data.nickname = data.nickname;
-        };
-        this.changeOrigin(data.position.facing);
+        this.changeOrigin(this._data.position.facing);
     }
 
     changeSprite (sprite) {
         if (this.scene.textures.exists(Database.ref.character[sprite].atlas)) {
-            this._data.sprite = sprite;
+            this._data.setSprite(sprite);
             this.rawSetSprite(sprite);
         } else {
             this.loadSpriteAsync(sprite);
@@ -89,41 +57,38 @@ class Character extends RawCharacter {
 
     rawSetPosition (x, y) {
         this.setPosition(positionToRealWorld(x), positionToRealWorld(y));
-        this._data.position.x = x;
-        this._data.position.y = y;
+        this._data.setPosition(x, y);
     }
 
-    onStartMove(callback) {
-        this.events.startMove.push(callback);
+    // abstract method to make current gameObject to interact with facing gameObject
+    interact () {
+        const position = { ... this._data.position };
+        const gameObjectsMap = this.scene.$tilemap.objectsMap;
+        let gameObject;
+        switch (position.facing) {
+            case DIRECTIONS_HASH.UP: {
+                gameObject = gameObjectsMap.get({ x: position.x, y: --position.y });
+                break;
+            };
+            case DIRECTIONS_HASH.RIGHT: {
+                gameObject = gameObjectsMap.get({ x: ++position.x, y: position.y });
+                break;
+            };
+            case DIRECTIONS_HASH.DOWN: {
+                gameObject = gameObjectsMap.get({ x: position.x, y: ++position.y });
+                break;
+            };
+            case DIRECTIONS_HASH.LEFT: {
+                gameObject = gameObjectsMap.get({ x: --position.x, y: position.y });
+                break;
+            };
+        };
+        return gameObject;
     }
 
-    onEndMove(callback) {
-        this.events.endMove.push(callback);
-    }
-
-    onCantMove(callback) {
-        this.events.cantMove.push(callback);
-    }
-
-    triggerStartMove (position) {
-        this.events.startMove.forEach(fn => fn(position));
-    }
-
-    triggerEndMove (position) {
-        this.events.endMove.forEach(fn => fn(position));
-    }
-
-    triggerCantMove (position) {
-        this.events.cantMove.forEach(fn => fn(position));
-    }
-
-    // the diff between: this on player use pointer to click in the sprite
     addPointerInteraction (fn) {
         this.setInteractive().on("pointerdown", fn);
     }
-
-    // on player press game interaction key/d-pad
-    onInteraction () {}
 
     createFollower (sprite) {
         const position = { ... this._data.position };
@@ -155,34 +120,28 @@ class Character extends RawCharacter {
             dir: this._data.position.facing,
             type: CHAR_TYPES.FOLLOWER
         });
-        this.setFollower(follower._data.name);
-    }
-
-    setFollower (id) {
-        this._data.follower = { has: true, id };
+        this._data.setFollower(follower._data.name);
     }
 
     removeFollower () {
-        if (!this._data.follower.has)
+        if (!this._data.hasFollower)
             return;
-        this.scene.follower_data[this._data.follower.id].destroy();
-        delete this.scene.follower_data[this._data.follower.id];
-        this._data.follower = {
-            has: false,
-            id: null
-        };
+        this.scene.$charactersController.removeFollower(this._data.follower.id);
+        this._data.removeFollower();
     }
 
-    addGrassOverlay (sprite) {
-        this.grassOverlay = sprite;
+    followMe (position) {
+        if (this._data.hasFollower)
+            this.scene.$charactersController.getFollower(this._data.follower.id).move(position.facing);
     }
 
-    removeGrassOverlay () {
-        if (this.grassOverlay) {
-            this.grassOverlay.destroy();
-            this.grassOverlay = null;
-        };
+    addGrass () {
+        this.addGrassOverlay();
+        this.addGrassParticles();
+        this.scene.$network.requestWildEncounter();
     }
+
+    removeGrass () {}
 
     addTypingBalloon () {
         this.elements.balloon.typing = new BalloonDialog(this.scene)
@@ -244,130 +203,24 @@ class Character extends RawCharacter {
         this.destroy();
     }
 
-    collide (direction) {
-        const position = { ... this._data.position };
-        switch(direction) {
-            case DIRECTIONS_HASH.UP: {
-                position.y --;
-                break;
-            };
-            case DIRECTIONS_HASH.RIGHT: {
-                position.x ++;
-                break;
-            };
-            case DIRECTIONS_HASH.DOWN: {
-                position.y ++;
-                break;
-            };
-            case DIRECTIONS_HASH.LEFT: {
-                position.x --;
-                break;
-            };
-        };
-        const 
-            tileY = this.scene.$tilemap.collisionLayer.data[position.y] ? this.scene.$tilemap.collisionLayer.data[position.y] : 0,
-            tileX = tileY[position.x] ? tileY[position.x] : 0,
-            tilesXY = tileY ? TILE.PROPERTIES[tileX.index] : 0;
-        if (!this._data.isPlayer) {
-            if (this._data.type == CHAR_TYPES.ONLINE_PLAYER) {
-                this._data.position.x = position.x;
-                this._data.position.y = position.y;
-                if (tilesXY.wild)
-                    return TILE.TYPES.WILD_GRASS;
-                return TILE.TYPES.DEFAULT;
-            };
-            const collision = position.x == this.scene.$player._data.x && position.y == this.scene.$player._data.y;
-            if (!collision && this._data.type != CHAR_TYPES.FOLLOWER) {
-                delete this.scene.mapObjectPosition[this._data.position.x + "|" + this._data.position.y];
-                this.scene.mapObjectPosition[position.x + "|" + position.y] = this._data.name;
-                this._data.position.x = position.x;
-                this._data.position.y = position.y;
-            };
-            if (tilesXY.wild)
-                return TILE.TYPES.WILD_GRASS;
-            return collision ? TILE.TYPES.BLOCK : TILE.TYPES.DEFAULT;
-        };
-
-        if (!tileY || !tileX || !tilesXY || tilesXY.block /*|| this.scene.mapObjectPosition[position.x + "|" + position.y]*/)
-            return TILE.TYPES.BLOCK;
-
-        this._data.position.x = position.x;
-        this._data.position.y = position.y;
-
-        if (tilesXY.door)
-            return TILE.TYPES.WARP;
-
-        if (tilesXY.wild)
-            return TILE.TYPES.WILD_GRASS;
-
-        if (tilesXY.event)
-            return TILE.TYPES.EVENT;
-        
-        return TILE.TYPES.DEFAULT;
-    }
-
     async move (direction) {
-        if (this._data.isPlayer) {
-            if (this._data.moveInProgress || this._data.stop)
-                return;
-        };
-        await this.walk(direction);
-    }
-
-    async walk (direction) {
-        const older = { ... this._data.position };
-        let internalCallback;
-        const collision = this.collide(direction);
+        if (this._data.isPlayer && (this._data.moveInProgress || this._data.stop))
+            return;
+        const collision = this.physicsController.collide(direction);
+        await this.walk(direction, collision);
         switch (this._data.type) {
             case CHAR_TYPES.PLAYER: {
                 switch (collision) {
-                    case TILE.TYPES.BLOCK: {
-                        this._data.position.facing = direction;
-                        this.playIdleAnim(direction);
-                        this.sendFacing(direction);
-                        this.triggerCantMove({
-                            facing: direction,
-                            x: this._data.position.x,
-                            y: this._data.position.y
-                        });
-                        return;
-                    };
                     case TILE.TYPES.WARP: {
-                        const teleport = this.scene.$levelBehavior.scriptData.map.teleport.find(position => position.x === this._data.position.x && position.y === this._data.position.y);
-                        internalCallback = () => this.scene.$manager.changeLevel(teleport);
+                        this.requestLevelChange();
                         break;
                     };
                     case TILE.TYPES.WILD_GRASS: {
-                        const posistion = this._data.position;
-                        this.removeGrassOverlay();
-                        internalCallback = () => {
-                            this.addGrassOverlay(this.scene.appendGrassOverlay(posistion.x, posistion.y));
-                            this.scene.appendGrassParticles(posistion.x, posistion.y);
-                            this.scene.requestWildBattle();
-                        };
+                        this.addGrass();
                         break;
                     };
-                    case TILE.TYPES.EVENT: {
-                        /*const 
-                            mapData = this.scene.cache.json.get(this.scene.getCurrentMapName("events")),
-                            event = mapData.events.config.find(position => position.x === this._data.position.x && position.y === this._data.position.y);
-                        internalCallback = () => {
-                            if (mapData.events.script[event.id].requiredFlagValueToExec.indexOf(this.scene.flag) >= 0) {
-                                this.scene.automatizeAction({
-                                    type: 2
-                                }, mapData.events.script[event.id].script);
-                            }; 
-                        };
-                        break;*/
-                    };
+                    case TILE.TYPES.EVENT: {break;};
                 };
-                this.removeGrassOverlay();
-                this._data.moveInProgress = true;
-                this._data.position.facing = direction;
-                this.anims.stop();
-                this.sendMove(direction);
-                if (this._data.follower.has)
-                    this.scene.follower_data[this._data.follower.id].walk(older.facing);
                 break;
             };
             case CHAR_TYPES.ONLINE_PLAYER:
@@ -375,43 +228,45 @@ class Character extends RawCharacter {
             case CHAR_TYPES.FOLLOWER:
             case CHAR_TYPES.TAMER:
             {
-                switch(collision) {
-                    case TILE.TYPES.BLOCK: {
-                        this._data.position.facing = direction;
-                        this.playIdleAnim(direction);
-                        return;
-                    };
+                switch (collision) {
                     case TILE.TYPES.WILD_GRASS: {
-                        const posistion = this._data.position;
-                        this.removeGrassOverlay();
-                        internalCallback = () => {
-                            this.addGrassOverlay(this.scene.appendGrassOverlay(posistion.x, posistion.y));
-                            this.scene.appendGrassParticles(posistion.x, posistion.y);
-                        };
+                        this.addGrass();
                         break;
                     };
                 };
-                this._data.moveInProgress = true;
-                this.removeGrassOverlay();
-                this._data.position.facing = direction;
-                this.anims.stop();
-                if (this._data.follower.has)
-                    this.scene.follower_data[this._data.follower.id].walk(older.facing);
-                if (this._data.type == CHAR_TYPES.NPC || this._data.type == CHAR_TYPES.TAMER) {
-                    const element = this.scene.cache.json.get(this.scene.getCurrentMapName("events")).elements.config[this._data.name];
-                    if (element.saveDynamicPosition) {
-                        const el = element[this.scene.flag] || element["default"];
-                        el.position = {
-                            x: this._data.position.x,
-                            y: this._data.position.y,
-                            facing: this._data.position.facing
-                        };
-                    };
-                };
-                break;
             };
         };
-        await this.animationWalk(direction, internalCallback);
+    }
+
+    startToMove (direction, older) {
+        this._data.setMoveInProgress(true);
+        this.removeGrass();
+        this._data.setFacing(direction);
+        this.anims.stop();
+        this.followMe(older);
+        if (this._data.isPlayer)
+            this.sendMove(direction);
+    }
+
+    preventedToMove (direction) {
+        this.face(direction);
+        this.physicsController.triggerCantMove({
+            facing: direction,
+            x: this._data.position.x,
+            y: this._data.position.y
+        });
+    }
+
+    async walk (direction, collision) {
+        const older = { ... this._data.position };
+        switch (collision) {
+            case TILE.TYPES.BLOCK: {
+                this.preventedToMove(direction);
+                return;
+            };
+        };
+        this.startToMove(direction, older);
+        await this.walkAnimation(direction);
     }
 
     face (direction) {
@@ -437,14 +292,15 @@ class Character extends RawCharacter {
                 };
             };
         };
-        this._data.position.facing = direction;
+        const needToSendFacing = this._data.isPlayer && this._data.position.facing !== direction;
+        this._data.setFacing(direction);
         this.anims.stop();
         this.playIdleAnim(direction);
-        if (this._data.isPlayer)
+        if (needToSendFacing)
             this.sendFacing(direction);
     }
 
-    async animationWalk (direction, internalCallback) {
+    async walkAnimation (direction) {
         switch(direction) {
             case DIRECTIONS_HASH.UP: {
                 this.scene.tweens.add({
@@ -486,12 +342,10 @@ class Character extends RawCharacter {
         await this.walkStepFeet(direction);
         await this.walkStepIdle(direction);
         this.walkStepEnd(direction);
-        if (typeof(internalCallback) == "function")
-            internalCallback();
     }
 
     walkStepFeet (direction) {
-        this.triggerStartMove({
+        this.physicsController.triggerStartMove({
             facing: direction,
             x: this._data.position.x,
             y: this._data.position.y
@@ -507,14 +361,9 @@ class Character extends RawCharacter {
     }
 
     walkStepEnd (direction) {
-        this._data.moveInProgress = false;
-        // se for o jogador checar posição dos domadores
-        /*if (this._data.isPlayer) 
-            this.scene.checkPlayerPositionTamer(this.scene.cache.json.get(this.scene.getCurrentMapName("events")));*/
+        this._data.setMoveInProgress(false);
         this.playIdleAnim(direction);
-        // atualizando profundidade dos objetos do grupo main
-        //this.scene.depthSort();
-        this.triggerEndMove({
+        this.physicsController.triggerEndMove({
             facing: direction,
             x: this._data.position.x,
             y: this._data.position.y

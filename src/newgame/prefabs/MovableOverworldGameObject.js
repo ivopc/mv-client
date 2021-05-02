@@ -3,24 +3,25 @@ import { CHAR_TYPES } from "@/newgame/constants/Character";
 
 class MovableOverworldGameObject {
 
-    constructor () {
+    constructor (gameObjectData, levelTilemap) {
         this.events = {
             startMove: [],
             endMove: [],
             cantMove: []
         };
-        this.grassOverlay;
+        this.data = gameObjectData;
+        this.levelTilemap = levelTilemap;
     }
 
-    onStartMove (callback) {
+    addOnStartMove (callback) {
         this.events.startMove.push(callback);
     }
 
-    onEndMove (callback) {
+    addOnEndMove (callback) {
         this.events.endMove.push(callback);
     }
 
-    onCantMove (callback) {
+    addOnCantMove (callback) {
         this.events.cantMove.push(callback);
     }
 
@@ -40,8 +41,8 @@ class MovableOverworldGameObject {
         this.setInteractive().on("pointerdown", fn);
     }
 
-    collide () {
-        const position = { ... this._data.position };
+    collide (direction) {
+        const position = { ... this.data.position };
         switch(direction) {
             case DIRECTIONS_HASH.UP: {
                 position.y --;
@@ -61,34 +62,31 @@ class MovableOverworldGameObject {
             };
         };
         const 
-            tileY = this.scene.$tilemap.collisionLayer.data[position.y] ? this.scene.$tilemap.collisionLayer.data[position.y] : 0,
+            tileY = this.levelTilemap.collisionLayer.data[position.y] ? this.levelTilemap.collisionLayer.data[position.y] : 0,
             tileX = tileY[position.x] ? tileY[position.x] : 0,
             tilesXY = tileY ? TILE.PROPERTIES[tileX.index] : 0;
-        if (!this._data.isPlayer) {
-            if (this._data.type == CHAR_TYPES.ONLINE_PLAYER) {
-                this._data.position.x = position.x;
-                this._data.position.y = position.y;
+        if (!this.data.isPlayer) {
+            if (this.data.type == CHAR_TYPES.ONLINE_PLAYER) {
+                this.data.setPosition(position.x, position.y);
                 if (tilesXY.wild)
                     return TILE.TYPES.WILD_GRASS;
                 return TILE.TYPES.DEFAULT;
             };
-            const collision = position.x == this.scene.$player._data.x && position.y == this.scene.$player._data.y;
-            if (!collision && this._data.type != CHAR_TYPES.FOLLOWER) {
-                delete this.scene.mapObjectPosition[this._data.position.x + "|" + this._data.position.y];
-                this.scene.mapObjectPosition[position.x + "|" + position.y] = this._data.name;
-                this._data.position.x = position.x;
-                this._data.position.y = position.y;
+            const collision = position.x == this.scene.$player.data.x && position.y == this.scene.$player.data.y;
+            if (!collision && this.data.type != CHAR_TYPES.FOLLOWER) {
+                this.levelTilemap.objectsMap.remove(this.data.position);
+                this.levelTilemap.objectsMap.add(this, this.data.position);
+                this.data.setPosition(position.x, position.y);
             };
             if (tilesXY.wild)
                 return TILE.TYPES.WILD_GRASS;
             return collision ? TILE.TYPES.BLOCK : TILE.TYPES.DEFAULT;
         };
 
-        if (!tileY || !tileX || !tilesXY || tilesXY.block /*|| this.scene.mapObjectPosition[position.x + "|" + position.y]*/)
+        if (!tileY || !tileX || !tilesXY || tilesXY.block || this.levelTilemap.objectsMap.exists(position))
             return TILE.TYPES.BLOCK;
 
-        this._data.position.x = position.x;
-        this._data.position.y = position.y;
+        this.data.setPosition(position.x, position.y);
 
         if (tilesXY.door)
             return TILE.TYPES.WARP;

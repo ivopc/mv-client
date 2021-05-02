@@ -7,13 +7,14 @@ class LevelManager {
 
     async changeLevel (warpData) {
         const { scene } = this;
-        scene.$tilemap.clear();
         const levelData = Database.ref.level[warpData.mid];
+        scene.$tilemap.clear();
         scene.$tilemap.setLevelData(levelData);
         await scene.$loader.changeLevel(levelData);
         scene.$tilemap.create();
         scene.$playerController.rawSetPosition(warpData);
         scene.$cameraController.setBounds();
+        scene.$network.subscribeLevel(warpData.mid);
     }
 };
 

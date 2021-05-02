@@ -1,6 +1,8 @@
+import LevelObjectsMap from "./LevelObjectsMap";
+//import LevelObjectsList from "./LevelObjectsList";
+
 import Database from "@/newgame/managers/Database";
 import Assets from "@/newgame/managers/Assets";
-
 import LevelData from "@/newgame/managers/LevelData";
 
 import { LAYER_TYPES } from "@/newgame/constants/Tilemap";
@@ -9,6 +11,8 @@ class Tilemap {
 
     constructor (scene) {
         this.scene = scene;
+        this.objectsMap = new LevelObjectsMap();
+        //this.objectsMap = new LevelObjectsList();
         this.levelData = Database.ref.level[LevelData.ref.id];
         this.tilemap;
         this.tileset;
@@ -46,10 +50,6 @@ class Tilemap {
 
     fetchLayerTilesets () {}
 
-    setLevelData (data) {
-        this.levelData = data;
-    }
-
     clear () {
         this.tilemap.destroy();
         this.layers.forEach(layer => layer.destroy());
@@ -57,6 +57,10 @@ class Tilemap {
         this.tileset = null;
         this.overlay.destroy();
         this.collisionLayer = null;
+    }
+
+    setLevelData (data) {
+        this.levelData = data;
     }
 };
 

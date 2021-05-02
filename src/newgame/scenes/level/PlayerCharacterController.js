@@ -6,7 +6,7 @@ import { positionToRealWorld } from "@/newgame/utils";
 class PlayerCharacterController {
 
     constructor (scene) {
-        this.scene = scene;
+        this.scene = scene; // $playerController
         this.player;
     }
 
@@ -33,7 +33,9 @@ class PlayerCharacterController {
         this.player.face(direction);
     }
 
-    interact () {}
+    interact () {
+        this.player.interact();
+    }
 
     getFacing () {
         return this.player._data.position.facing;

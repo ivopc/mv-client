@@ -1,6 +1,8 @@
-//import { MAP_STATES } from "@/newgame/constants/States";
+import StateManager from "@/newgame/managers/StateManager";
+
 import { DIRECTIONS_HASH, STEP_TIME } from "@/newgame/constants/Overworld";
 import { ACTION_KEYS } from "@/newgame/constants/ActionKeys";
+import { MAP_STATES } from "@/newgame/constants/States";
 
 class InputController {
     constructor (scene) {
@@ -26,9 +28,9 @@ class InputController {
 
     interaction () {
         const { scene } = this;
-        switch (scene.$state) {
+        switch (StateManager.ref.getState()) {
             case MAP_STATES.IDLE: {
-                scene.$interactionController.interact();
+                scene.$playerController.interact();
                 break;
             };
             case MAP_STATES.DIALOG: {

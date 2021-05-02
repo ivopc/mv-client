@@ -4,9 +4,8 @@ import { SCENE } from "@/newgame/constants/GameScene";
 
 import Boot from "./scenes/boot";
 import Overworld from "./scenes/overworld";
+import Level from "./scenes/level";
 import Battle from "./scenes/battle";
-
-import Level from "./subscenes/level";
 
 import RexUIPlugin from "phaser3-rex-plugins/templates/ui/ui-plugin.js";
 import DragPlugin from "phaser3-rex-plugins/plugins/drag-plugin.js";

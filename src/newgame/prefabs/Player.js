@@ -30,7 +30,6 @@ class Player extends Character {
 
     interact () {
         const interaction = super.interact();
-        console.log("lol", interaction);
     }
 };
 

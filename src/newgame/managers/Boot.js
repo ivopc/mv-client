@@ -4,7 +4,7 @@
 * server payload data (initial base data to start the game), make singletons of a lot of
 * manager classes
 */
-import { STATE } from "@/newgame/constants/GameStates";
+import { STATE } from "@/newgame/constants/GameBootStates";
 import { SCENE } from "@/newgame/constants/GameScene";
 
 import PlayerData from "./PlayerData";
@@ -35,7 +35,6 @@ class Boot {
     }
 
     initOverworld (payload) {
-        console.log({payload});
         this.setPlayerData(payload);
         const { map, wild, flag, tamers } = payload.param;
         LevelData.ref = new LevelData({ map, flag, wild, tamers });

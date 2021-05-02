@@ -13,7 +13,6 @@ class BaseLevelScript {
     }
 
     create () {
-        console.log("Particular Behavior Created");
         const scriptData = this.scene.cache.json.get(Assets.ref.getLevelScript(LevelData.ref.id).key);
         this.setScript(scriptData);
         LevelData.ref.setScript(scriptData);

@@ -19,7 +19,6 @@ class Loader extends RawLoader {
             playerOverworldSprite.path.texture, 
             playerOverworldSprite.path.atlas
         );
-        console.log(Database.ref.level);
         this.fetchLevel(Database.ref.level[LevelData.ref.id]);
     }
 

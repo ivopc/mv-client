@@ -71,6 +71,12 @@
                     $Authentication.token.auth = this.clientTokens[this.currentClient].token;
                 };
 
+                /*if (process.env.NODE_ENV == "development") {
+                    const { id, auth } = this.getDebugCredentials();
+                    $Authentication.id = id;
+                    $Authentication.token.auth = auth;
+                };*/
+
                 this.socket = socketCluster.connect({
                     query: {
                         uid: String($Authentication.id),
@@ -88,7 +94,8 @@
                     this.socket, 
                     payload
                 );
-            }
+            },
+            getDebugCredentials () {}
         }
     }
 </script>

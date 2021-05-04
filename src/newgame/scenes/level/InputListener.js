@@ -36,6 +36,10 @@ class InputListener {
         this.scene.$inputController.triggerPressed(keyCode);
     }
 
+    onScroll (pointer, gameObjects, deltaX, deltaY) {
+        this.scene.$inputController.triggerScroll(deltaY <= 0 ? 1 : -1);
+    }
+
     isKeyDown (keyCode) {
         return this.pressed[keyCode];
     }
@@ -43,8 +47,10 @@ class InputListener {
     addListener () {
         if (isMobile)
             this.addDPadListener();
-        else
+        else {
             this.addKeyboardListener();
+            this.addMouseWheelListener();
+        };
     }
 
     removeListener () {
@@ -63,6 +69,10 @@ class InputListener {
         document.removeEventListener("keyup", this.onKeyUp.bind(this), false);
         document.removeEventListener("keydown", this.onKeyDown.bind(this), false);
         this.pressed = {};
+    }
+
+    addMouseWheelListener () {
+        this.scene.input.on("wheel", this.onScroll);
     }
 
     addDPadListener () {}

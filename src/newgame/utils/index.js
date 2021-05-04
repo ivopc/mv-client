@@ -20,31 +20,6 @@ const checkMobile = function () {
 };
 const isMobile = checkMobile();
 
-// complete details about monster EXP statistics
-const getMonsterExpStatistics = function (exp, level) {
-    const 
-    	levelTotalCurrent = Database.ref.monstersExp.find(exp => exp.level === level),
-    	levelTotalNext = Database.ref.monstersExp.find(exp => exp.level === level + 1),
-    	total = levelTotalNext.exp - levelTotalCurrent.exp,
-        current = exp - levelTotalCurrent.exp;
-    return {
-        current,
-        total,
-        nextTotal: levelTotalNext.exp,
-        percentage: (current / total) * 100
-    };
-};
-
-// monster number to monsterpedia display #ID string
-const numberToPedia = function (num) {
-    num = String(num);
-    if (num.length === 1)
-        return "00" + num;
-    if (num.length === 2)
-        return "0" + num;
-    return num;
-};
-
 // how many time to reach the date
 const convertMsToDate = function (miliseconds, format) {
     let days, hours, minutes, seconds, totalHours, totalMinutes, totalSeconds;

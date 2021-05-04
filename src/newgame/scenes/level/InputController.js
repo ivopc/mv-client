@@ -19,6 +19,14 @@ class InputController {
             this.interaction();
     }
 
+    triggerScroll (zoom) {
+        if (zoom > 0) {
+            this.scene.$cameraController.zoomIn();
+        } else {
+            this.scene.$cameraController.zoomOut();
+        };
+    }
+
     movePlayer (direction, timeStep) {
         if (timeStep <= STEP_TIME.INPUT)
             this.scene.$playerController.face(direction);
@@ -28,7 +36,7 @@ class InputController {
 
     interaction () {
         const { scene } = this;
-        switch (StateManager.ref.getState()) {
+        switch (MAP_STATES.IDLE/*StateManager.ref.getState()*/) {
             case MAP_STATES.IDLE: {
                 scene.$playerController.interact();
                 break;

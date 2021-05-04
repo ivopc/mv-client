@@ -1,6 +1,8 @@
 class BattleData {
 
-    turns = [];
+    constructor () {
+        this.turns = [];
+    }
 
     clear () {
         this.turns = [];

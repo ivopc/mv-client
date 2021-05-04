@@ -43,7 +43,7 @@ class Loader extends RawLoader {
         // level custom asset (if there's)
         if (level.customAssets && level.customAssets.length > 0)
             this.fetchLoaders(level.customAssets);
-        // load level particular behavior for advanced scripting
+        // load level particular behavior for advanced scripting (if there's)
         scene.load.rexAwait(callback =>
             import(`./particularbehavior/${level.id}`)
                 .then(behavior => scene.$levelBehavior = new behavior.default(scene))

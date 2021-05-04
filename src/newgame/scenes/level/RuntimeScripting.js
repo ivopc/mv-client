@@ -10,21 +10,31 @@ class RuntimeScripting {
 
     constructor (scene) {
         this.scene = scene;
-        this.levelScript = LevelData.ref.script;
+        this.level = {
+            script: LevelData.ref.script,
+            behavior: scene.$levelBehavior
+        }
     }
 
     parse (actions) {
         actions = [
             ["walk", "left"],
             ["walk", "down"],
-            ["walk", "up"]
+            ["walk", "up"],
+            ["callLevelBehavior", "test", {noob: 123, teste: "lol"}],
+            ["walk", "right"]
         ];
         return actions.map(action => {
-            const param = {};
             const fnName = action[0];
+            const param = {};
             switch(fnName) {
                 case "walk": {
                     param.direction = action[1];
+                    break;
+                };
+                case "callLevelBehavior": {
+                    param.fn = action[1];
+                    param.param = action[2] || {};
                     break;
                 };
             };
@@ -34,6 +44,11 @@ class RuntimeScripting {
 
     async run (asyncRuntimeScript) {
         await promisesWaterfall(asyncRuntimeScript);
+        console.log("Terminou");
+    }
+
+    setLevelScript (data) {
+        this.level.script = data;
     }
 };
 

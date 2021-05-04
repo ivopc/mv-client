@@ -1,13 +1,13 @@
 class StateManager {
 
-	constructor () {
-		this.state;
-	}
+    constructor () {
+        this.state;
+    }
 
-	getState () {
-		return this.state;
-	}
+    getState () {
+        return this.state;
+    }
 
-	static ref
+    static ref
 };
 export default StateManager;

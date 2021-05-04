@@ -72,7 +72,7 @@ class RawLoader {
         return ReplaceStringToken.replace(path, RESOLUTION);
     }
 
-    // static flag to don't need to load base assets again
+    // flag to don't need to load base assets again
     static alreadyLoadedBase = false
 };
 

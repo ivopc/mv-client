@@ -74,8 +74,8 @@ class Character {
         this.sprite = sprite;
     }
 
-    setMoveInProgress (bool) {
-        this.moveInProgress = bool;
+    setMoveInProgress (inProgress) {
+        this.moveInProgress = inProgress;
     }
 
     get hasFollower () {

@@ -11,7 +11,6 @@ import PlayerData from "./PlayerData";
 import LevelData from "./LevelData";
 import BattleData from "./BattleData";
 import Network from "./Network";
-import Layout from "./Layout";
 
 class Boot {
     constructor (gameInstance, socket, payload) {

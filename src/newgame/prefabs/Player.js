@@ -1,8 +1,7 @@
 import Character from "./Character";
 
 import { CHAR_TYPES } from "@/newgame/constants/Character";
-
-
+import { OVERWORLD_ACTIONS } from "@/newgame/constants/NetworkLevelEvents";
 
 class Player extends Character {
     constructor (scene, data) {
@@ -13,18 +12,25 @@ class Player extends Character {
     }
 
     sendMove (direction) {
-        this.scene.$network.sendMove(direction);
+        this.scene.$network.sendCharacterOverworldAction(
+            direction, 
+            OVERWORLD_ACTIONS.MOVE
+        );
     }
 
     sendFacing (direction) {
-        this.scene.$network.sendFacing(direction);
+        this.scene.$network.sendCharacterOverworldAction(
+            direction, 
+            OVERWORLD_ACTIONS.FACING
+        );
     }
 
     requestLevelChange () {
         const teleport = this.scene.$levelBehavior.scriptData.map.teleport
             .find(position => 
                 position.x === this._data.position.x && 
-                position.y === this._data.position.y);
+                position.y === this._data.position.y
+            );
         this.scene.$manager.changeLevel(teleport);
     }
 

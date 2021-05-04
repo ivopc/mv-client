@@ -1,25 +1,43 @@
 class CameraController {
     constructor (scene) {
-        this.scene = scene;
+        this.scene = scene;//$cameraController
+        window.$ = this;
     }
 
     setup () {
-        const { scene } = this;
-        scene.cameras.main.roundPixels = true;
-        scene.cameras.main.setZoom(2);
-        scene.cameras.main.width = 1280;
-        scene.cameras.main.height = 720;
-        scene.cameras.main.x = 0;
-        scene.cameras.main.y = 0;
+        this.camera.roundPixels = true;
+        this.camera.setZoom(2);
+        this.camera.width = 1280;
+        this.camera.height = 720;
+        this.camera.x = 0;
+        this.camera.y = 0;
     }
 
     setBounds () {
-        const { scene } = this;
-        scene.cameras.main.setBounds(0, 0, scene.$tilemap.tilemap.widthInPixels, scene.$tilemap.tilemap.heightInPixels);
+        const { tilemap } = this.scene.$tilemap;
+        this.camera.setBounds(0, 0, tilemap.widthInPixels, tilemap.heightInPixels);
     }
 
     followGameObject (gameObject) {
-        this.scene.cameras.main.startFollow(gameObject, true, 1, 1);
+        this.camera.startFollow(gameObject, false, 1, 1);
+    }
+
+    zoomIn (val = 0.05) {
+        this.camera.zoom += val;
+    }
+
+    zoomOut (val = 0.05) {
+        // just checking if is in out of camera range
+        if (
+            (this.camera.zoom - val) * this.scene.$tilemap.tilemap.widthInPixels < this.camera.width ||
+            (this.camera.zoom - val) * this.scene.$tilemap.tilemap.heightInPixels < this.camera.height
+        )
+            return;
+        this.camera.zoom -= val;
+    }
+
+    get camera () {
+        return this.scene.cameras.main;
     }
 };
 

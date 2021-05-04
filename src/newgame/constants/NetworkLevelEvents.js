@@ -1,12 +1,21 @@
-const LEVEL_EVENT = {
+const LEVEL_EVENTS = {
     PONG: "0",
     CHAT_MESSAGE: "1"
 };
 
-const PLAYER_OVERWORLD_ACTIONS = {
+const OVERWORLD_ACTIONS = {
 	MOVE: 1,
 	FACING: 2,
-	DESTROY: 3
+	DESTROY: 3,
+	CHANGE_SKIN: 4,
+	CHAT_TYPING: 5
 };
 
-export { LEVEL_EVENT, PLAYER_OVERWORLD_ACTIONS };
+// just a 'gambiarra' to map which object method 
+// we need to use when remote player move or change facing
+const CHARACTER_OVERWORLD_ACTIONS_HASH = {
+	[OVERWORLD_ACTIONS.MOVE]: "move",
+	[OVERWORLD_ACTIONS.FACING]: "face"
+};
+
+export { LEVEL_EVENTS, OVERWORLD_ACTIONS, CHARACTER_OVERWORLD_ACTIONS_HASH };

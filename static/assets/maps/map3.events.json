@@ -67,6 +67,7 @@
                 "isTamer": true,
                 "maxview": 3,
                 "tamer_id": 2,
+                "dynamicViewRange": false,
                 "default": {
                     "position": {
                         "x": 31,

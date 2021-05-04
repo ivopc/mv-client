@@ -4,7 +4,9 @@ const behaviors = {
     empty () {},
     call () {},
     callFunction () {},
-    callLevelBehaviorFunction () {},
+    async callLevelBehavior ({ fn, param }) {
+        await this.level.behavior[fn](param);
+    },
     delay () {},
     random () {},
     async walk (params) {

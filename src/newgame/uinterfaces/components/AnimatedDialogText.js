@@ -3,6 +3,7 @@
 import { timedEvent } from "@/newgame/utils/scene.promisify";
 import { animationTimerDelay, interactionLockDelay } from "@/newgame/constants/Dialog";
 
+// placeholder
 const Text = {
     ref: {
         lang: "br"

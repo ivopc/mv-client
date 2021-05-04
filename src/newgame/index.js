@@ -11,13 +11,15 @@ import RexUIPlugin from "phaser3-rex-plugins/templates/ui/ui-plugin.js";
 import DragPlugin from "phaser3-rex-plugins/plugins/drag-plugin.js";
 import AwaitLoaderPlugin from "phaser3-rex-plugins/plugins/awaitloader-plugin.js";
 
+export let game;
+
 function launch (containerId) {
     // game core instance
-    const gameInstance = new Phaser.Game({
+    game = new Phaser.Game({
         type: Phaser.WEBGL,
         autoStart: false,
         scale: {
-            mode: Phaser.Scale.FIT,
+            mode: Phaser.Scale.ENVELOP,
             parent: containerId,
             autoCenter: Phaser.Scale.CENTER_BOTH,
             width: 1280,
@@ -48,11 +50,11 @@ function launch (containerId) {
     });
 
     // add scenes to game instances
-    gameInstance.scene.add(SCENE.BOOT, Boot);
-    gameInstance.scene.add(SCENE.OVERWORLD, Overworld);
-    gameInstance.scene.add(SCENE.LEVEL, Level);
-    gameInstance.scene.add(SCENE.BATTLE, Battle);
-    return gameInstance;
+    game.scene.add(SCENE.BOOT, Boot);
+    game.scene.add(SCENE.OVERWORLD, Overworld);
+    game.scene.add(SCENE.LEVEL, Level);
+    game.scene.add(SCENE.BATTLE, Battle);
+    return game;
 };
 
 export default launch;

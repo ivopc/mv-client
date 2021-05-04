@@ -25,6 +25,10 @@ class PlayerCharacterController {
         this.player = player;
     }
 
+    getPlayerGameObject () {
+        return this.player;
+    }
+
     async move (direction) {
         await this.player.move(direction);
     }
@@ -44,6 +48,10 @@ class PlayerCharacterController {
     getPosition () {
         const { x, y } = this.player._data.position;
         return { x, y };
+    }
+
+    getFullPosition () {
+        return this.player._data.position;
     }
 
     rawSetPosition (position) {

@@ -10,19 +10,19 @@ const TILE = {
     PROPERTIES: [
         null,
         {
-            block: true 
+            block: true
         },
         {
             block: false
         },
         {
-            door: true 
+            door: true
         },
         {
-            wild: true 
+            wild: true
         },
         {
-            swim: true 
+            swim: true
         },
         null,
         {

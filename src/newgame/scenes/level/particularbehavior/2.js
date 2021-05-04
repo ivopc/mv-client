@@ -1,13 +1,12 @@
 import BaseLevelScript from "./BaseLevelScript";
 
-class LevelScript extends BaseLevelScript {
-	constructor (scene) {
-		super(scene);
-	}
+import { timedEvent } from "@/newgame/utils/scene.promisify";
 
-	add () {
-		console.log("kkkkkkkkkk", this.scene);
-	}
+class LevelScript extends BaseLevelScript {
+    async test (params) {
+        console.log("test callLevelBehavior", params);
+        await timedEvent(3000, this.scene);
+    }
 };
 
 export default LevelScript;

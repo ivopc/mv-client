@@ -6,7 +6,7 @@ import SceneManager from "@/newgame/managers/SceneManager";
 
 import Loader from "./Loader";
 import LevelManager from "./LevelManager";
-import NetworkLevel from "./NetworkLevel";
+import NetworkLevelListener from "./NetworkLevelListener";
 import InputListener from "./InputListener";
 import InputController from "./InputController";
 import CameraController from "./CameraController";
@@ -15,6 +15,7 @@ import Container from "./Container";
 import RuntimeScripting from "./RuntimeScripting";
 import PlayerCharacterController from "./PlayerCharacterController";
 import GenericCharactersController from "./GenericCharactersController";
+import LookerPathfinding from "./LookerPathfinding";
 
 class LevelScene extends Phaser.Scene {
     constructor () {
@@ -30,6 +31,7 @@ class LevelScene extends Phaser.Scene {
         this.$runtime;
         this.$playerController;
         this.$characterController;
+        this.$lookerPathfinding;
         this.$levelBehavior;
     }
 
@@ -41,7 +43,7 @@ class LevelScene extends Phaser.Scene {
     }
 
     create () {
-        this.$network = new NetworkLevel(this);
+        this.$network = new NetworkLevelListener(this);
         this.$manager = new LevelManager(this);
         this.$inputListener = new InputListener(this);
         this.$inputController = new InputController(this);
@@ -51,6 +53,7 @@ class LevelScene extends Phaser.Scene {
         this.$runtime = new RuntimeScripting(this);
         this.$playerController = new PlayerCharacterController(this);
         this.$charactersController = new GenericCharactersController(this);
+        //this.$lookerPathfinding = new LookerPathfinding(this);
         // **-----------------------------------**
         this.$cameraController.setup();
         this.$containers.create();
@@ -63,6 +66,9 @@ class LevelScene extends Phaser.Scene {
         this.$network.subscribeLevel();
         this.$inputListener.addListener();
         SceneManager.ref.setLevel(this);
+        // tests
+        const script = this.$runtime.parse();
+        this.$runtime.run(script);
     }
 
     update (time) {

@@ -1,19 +1,22 @@
-import { STEP_TIME, TILE, DIRECTIONS, DIRECTIONS_HASH } from "@/newgame/constants/Overworld";
-import { CHAR_TYPES } from "@/newgame/constants/Character";
-
-import { positionToRealWorld } from "@/newgame/utils";
-import { timedEvent } from "@/newgame/utils/scene.promisify";
+import RawCharacter from "./RawCharacter";
+import MovableOverworldGameObject from "./MovableOverworldGameObject";
+import BalloonDialog from "./BalloonDialog";
 
 import Database from "@/newgame/managers/Database";
 
 import CharacterModel from "@/newgame/models/Character";
 
-import RawCharacter from "./RawCharacter";
-import MovableOverworldGameObject from "./MovableOverworldGameObject";
-import BalloonDialog from "./BalloonDialog";
+import { positionToRealWorld } from "@/newgame/utils";
+import { timedEvent } from "@/newgame/utils/scene.promisify";
+
+import { STEP_TIME, TILE, DIRECTIONS, DIRECTIONS_HASH } from "@/newgame/constants/Overworld";
+import { CHAR_TYPES } from "@/newgame/constants/Character";
+
 
 /*
-Arrumar: checkPlayerPositionTamer, depthSort ao end da step
+TODO:
+checkPlayerPositionTamer, depthSort ath the end of move
+better solution for remotePlayer move fixing
 */
 
 class Character extends RawCharacter {
@@ -26,10 +29,8 @@ class Character extends RawCharacter {
             data
         );
         this._data = new CharacterModel(data);
-        this.physicsController = new MovableOverworldGameObject(
-            this._data, 
-            scene.$tilemap
-        );
+        this.physicsController = new MovableOverworldGameObject(this._data, scene.$tilemap);
+        this.elementsContainer = scene.add.container();
         this.elements = {
             nickname: null,
             clan: null,
@@ -60,7 +61,8 @@ class Character extends RawCharacter {
         this._data.setPosition(x, y);
     }
 
-    // abstract method to make current gameObject to interact with facing gameObject
+    // abstract method to make current gameObject to interact with gameObject 
+    // that it  facing 
     interact () {
         const position = { ... this._data.position };
         const gameObjectsMap = this.scene.$tilemap.objectsMap;
@@ -157,7 +159,7 @@ class Character extends RawCharacter {
         };
     }
 
-    displayName (name) {
+    displayNickname (name) {
         this.elements.nickname = this.scene.add.text(0, 0, name, { 
             fontFamily: "Century Gothic", 
             fontSize: 12,
@@ -272,7 +274,7 @@ class Character extends RawCharacter {
     face (direction) {
         if (this._data.moveInProgress)
             return;
-        if (direction == "toplayer") {
+        if (direction == "toPlayer") {
             switch(this.scene.$playerController.getFacing()) {
                 case DIRECTIONS_HASH.UP: {
                     direction = DIRECTIONS_HASH.DOWN;
@@ -351,12 +353,12 @@ class Character extends RawCharacter {
             y: this._data.position.y
         });
         this.changeOrigin(direction);
-        this.switchSpriteStep(direction, this._data.stepFlag, "walk");
+        this.switchSpriteWalkStep(direction, this._data.stepFlag, "walk");
         return timedEvent(STEP_TIME.STEP * 2, this.scene);
     }
 
     walkStepIdle (direction) {
-        this.switchSpriteStep(direction, 0, "idle");
+        this.switchSpriteWalkStep(direction, 0, "idle");
         return timedEvent(STEP_TIME.STEP * 2, this.scene);
     }
 
@@ -370,12 +372,28 @@ class Character extends RawCharacter {
         });
     }
 
-    switchSpriteStep (direction, flag, type) {
+    switchSpriteWalkStep (direction, flag, type) {
         if (typeof(flag) == "number" && type == "walk") {
             flag = flag ? 0 : 1;
             this._data.stepFlag = flag;
         };
         this.setFrame(Database.ref.character[this._data.sprite].name + "_" + DIRECTIONS[direction] + "_" + type + flag);
+    }
+
+    preUpdate (time, delta) {
+        super.preUpdate(time, delta);
+        /*
+        alright, a big problem, we need to make server character moving response
+        most fasterthan we can, like remove the database dependency, or create a 
+        move payload queue in client and manage the walk blocking itself
+        */
+        if (this._data.type == CHAR_TYPES.ONLINE_PLAYER && !this._data.moveInProgress) {
+            const
+                x = positionToRealWorld(this._data.position.x),
+                y = positionToRealWorld(this._data.position.y);
+            if (x != this.x || y != this.y)
+                this.setPosition(x, y);
+        };
     }
 };
 

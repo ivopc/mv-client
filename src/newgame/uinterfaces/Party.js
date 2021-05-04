@@ -30,8 +30,6 @@ class Party extends Phaser.GameObjects.Container {
         this.appendSlots();
     }
 
-    clear () {}
-
     appendSlots () {
         this.slots = Layout.ref.party.slots.positions
             .map(({ x, y }) => new Slot(this.scene, { x, y } ))
@@ -49,6 +47,8 @@ class Party extends Phaser.GameObjects.Container {
             this.add(this.slotElements[index]);
         });
     }
+
+    clear () {}
 };
 
 export default Party;

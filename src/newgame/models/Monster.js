@@ -42,6 +42,7 @@ class MonsterModel {
     }
 
     get numberToPedia () {
+        // right, we need to refactor this
         num = String(this.monsterpedia_id);
         if (num.length === 1)
             return "00" + num;

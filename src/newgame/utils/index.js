@@ -73,8 +73,6 @@ export {
     promisesWaterfall,
 	positionToRealWorld, 
 	isMobile, 
-	getMonsterExpStatistics,
-	numberToPedia,
 	convertMsToDate,
 	treatVipDate,
     merge

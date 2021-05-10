@@ -17,7 +17,7 @@ import PlayerCharacterController from "./PlayerCharacterController";
 import GenericCharactersController from "./GenericCharactersController";
 import LookerPathfinding from "./LookerPathfinding";
 
-class LevelScene extends Phaser.Scene {
+class Level extends Phaser.Scene {
     constructor () {
         super(SCENE.LEVEL);
         this.$loader;
@@ -67,8 +67,7 @@ class LevelScene extends Phaser.Scene {
         this.$inputListener.addListener();
         SceneManager.ref.setLevel(this);
         // tests
-        const script = this.$runtime.parse();
-        this.$runtime.run(script);
+        this.$runtime.run(this.$runtime.parse());
     }
 
     update (time) {
@@ -76,4 +75,4 @@ class LevelScene extends Phaser.Scene {
     }
 };
 
-export default LevelScene;
+export default Level;

@@ -4,8 +4,8 @@ class Network {
         this.socket = socket;
     }
 
-    send (event, data, callback = () => {}) {
-        this.socket.emit(event, data, callback);
+    send (event, data) {
+        return new Promise(resolve => this.socket.emit(event, data, resolve));
     }
 
     addEvent (event, fn) {

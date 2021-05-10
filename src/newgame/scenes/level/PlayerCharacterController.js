@@ -25,10 +25,6 @@ class PlayerCharacterController {
         this.player = player;
     }
 
-    getPlayerGameObject () {
-        return this.player;
-    }
-
     async move (direction) {
         await this.player.move(direction);
     }
@@ -39,6 +35,10 @@ class PlayerCharacterController {
 
     interact () {
         this.player.interact();
+    }
+
+    getPlayerGameObject () {
+        return this.player;
     }
 
     getFacing () {

@@ -379,22 +379,6 @@ class Character extends RawCharacter {
         };
         this.setFrame(Database.ref.character[this._data.sprite].name + "_" + DIRECTIONS[direction] + "_" + type + flag);
     }
-
-    preUpdate (time, delta) {
-        super.preUpdate(time, delta);
-        /*
-        alright, a big problem, we need to make server character moving response
-        most fasterthan we can, like remove the database dependency, or create a 
-        move payload queue in client and manage the walk blocking itself
-        */
-        if (this._data.type == CHAR_TYPES.ONLINE_PLAYER && !this._data.moveInProgress) {
-            const
-                x = positionToRealWorld(this._data.position.x),
-                y = positionToRealWorld(this._data.position.y);
-            if (x != this.x || y != this.y)
-                this.setPosition(x, y);
-        };
-    }
 };
 
 export default Character;

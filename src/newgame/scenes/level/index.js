@@ -67,7 +67,7 @@ class Level extends Phaser.Scene {
         this.$inputListener.addListener();
         SceneManager.ref.setLevel(this);
         // tests
-        this.$runtime.run(this.$runtime.parse());
+        //this.$runtime.run(this.$runtime.parse());
     }
 
     update (time) {

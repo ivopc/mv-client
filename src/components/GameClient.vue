@@ -25,8 +25,8 @@
                     token: "pq4jyKzCtItKr766LMSfPzimoz8ib3b4HBihyK8ftVWiKhoS75ZVj7kEXqCBsPTuOqiNLSwxDWMWlnycdt7U44aVC87uF4GwsOKhYlo4Mft11MbcErg9It6C1zlSh3Psxmm8BrU8FR03wgqc8Yw7pQ"
                 },
                 {
-                    uid: "3",
-                    token: "NmEN5wS7rmLnUrj49p24iDQmpN2tiRTsjcQOJvplkbwxmZD1bEciGGXOei8JOnkEblza1XGQjjNll4syTme7F1JofSH9QUfOcvuaOAkQGGscgwkf8sJo4nfTWP1l5bDUFHg6PhLSJCnv0n29j3yy4K"
+                    uid: "2",
+                    token: "1JGP6qZDitqpR86OPDYBwfcgXcL6nvV521v1aCxE9iDNmBQswElHwq34QchvHMey8CoILhNXuuDyWGYFma110ijt6EdtdFqpUqKfu5334fBjK9ELWjLcJfLE6627T217nqDbG8GU3CuvRJEe8qRWx5"
                 }
             ],
             currentClient: 0
@@ -66,16 +66,16 @@
                 this.gameInstance = game.launch(this.containerId);
                 this.gameStarted = true;
 
-                if (process.env.NODE_ENV == "development") {
+                /*if (process.env.NODE_ENV == "development") {
                     $Authentication.id = this.clientTokens[this.currentClient].uid;
                     $Authentication.token.auth = this.clientTokens[this.currentClient].token;
-                };
-
-                /*if (process.env.NODE_ENV == "development") {
-                    const { id, auth } = this.getDebugCredentials();
-                    $Authentication.id = id;
-                    $Authentication.token.auth = auth;
                 };*/
+
+                if (process.env.NODE_ENV == "development") {
+                    const { uid, token } = this.getDebugCredentials();
+                    $Authentication.id = uid;
+                    $Authentication.token.auth = token;
+                };
 
                 this.socket = socketCluster.connect({
                     query: {
@@ -95,7 +95,18 @@
                     payload
                 );
             },
-            getDebugCredentials () {}
+            getDebugCredentials () {
+                const current = localStorage.getItem("auth");
+                let token;
+                if (!current || current == "0") {
+                    token = this.clientTokens[0];
+                    localStorage.setItem("auth", "1");
+                } else {
+                    token = this.clientTokens[1];
+                    localStorage.setItem("auth", "0");
+                };
+                return token;
+            }
         }
     }
 </script>

@@ -8,7 +8,7 @@ class Player extends Character {
         super(scene, data);
         this._data.isPlayer = true;
         this._data.stop = data.stop || false;
-        this._data.type = CHAR_TYPES.PLAYER;
+        this._data.setType(CHAR_TYPES.PLAYER);
     }
 
     sendMove (direction) {

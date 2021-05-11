@@ -1,4 +1,5 @@
 import Character from "@/newgame/prefabs/Character";
+import RemotePlayer from "@/newgame/prefabs/RemotePlayer";
 
 import { CHAR_TYPES } from "@/newgame/constants/Character";
 import { 
@@ -45,7 +46,7 @@ class GenericCharactersController {
     handleRemotePlayerData (payload) {
         switch (payload.dataType) {
             case OVERWORLD_ACTIONS.MOVE:
-            case OVERWORLD_ACTIONS.FACE:
+            case OVERWORLD_ACTIONS.FACING:
             {
                 payload.type = CHAR_TYPES.ONLINE_PLAYER;
                 // checking if remote player isn't in level
@@ -53,14 +54,15 @@ class GenericCharactersController {
                     this.addRemotePlayer(payload);
                     return;
                 };
-                this.remotePlayers[payload.uid][CHARACTER_OVERWORLD_ACTIONS_HASH[payload.dataType]](payload.dir);
+                //this.remotePlayers[payload.uid][CHARACTER_OVERWORLD_ACTIONS_HASH[payload.dataType]](payload.dir);
+                this.remotePlayers[payload.uid].dispatchAction(payload);
                 break;
             };
         }
     }
 
     addRemotePlayer (playerData) {
-        const gameObject = new Character(this.scene, {
+        const gameObject = new RemotePlayer(this.scene, {
             type: playerData.type,
             position: {
                 x: playerData.pos.x,

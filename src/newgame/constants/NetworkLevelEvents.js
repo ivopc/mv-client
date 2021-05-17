@@ -4,18 +4,18 @@ const LEVEL_EVENTS = {
 };
 
 const OVERWORLD_ACTIONS = {
-	MOVE: 1,
-	FACING: 2,
-	DESTROY: 3,
-	CHANGE_SKIN: 4,
-	CHAT_TYPING: 5
+    MOVE: 1,
+    FACING: 2,
+    DESTROY: 3,
+    CHANGE_SKIN: 4,
+    CHAT_TYPING: 5
 };
 
 // just a 'gambiarra' to map which object method 
 // we need to use when remote player move or change facing
 const CHARACTER_OVERWORLD_ACTIONS_HASH = {
-	[OVERWORLD_ACTIONS.MOVE]: "move",
-	[OVERWORLD_ACTIONS.FACING]: "face"
+    [OVERWORLD_ACTIONS.MOVE]: "move",
+    [OVERWORLD_ACTIONS.FACING]: "face"
 };
 
 export { LEVEL_EVENTS, OVERWORLD_ACTIONS, CHARACTER_OVERWORLD_ACTIONS_HASH };

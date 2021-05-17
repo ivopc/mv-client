@@ -1,7 +1,6 @@
 class CameraController {
     constructor (scene) {
         this.scene = scene;//$cameraController
-        window.$ = this;
     }
 
     setup () {

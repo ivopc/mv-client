@@ -19,6 +19,33 @@ import {
     "nickname": "SouXiterMex1"
 }*/
 
+const LEVEL_P2P_DATA = {
+    MOVEMENT: {
+        DIRECTION: 0,
+        DATA_TYPE: 1,
+        UID: 2,
+        POSITION: 3,
+        X: 0,
+        Y: 1,
+        CHARACTER: 4,
+        NICKNAME: 5
+    }
+};
+
+const LEVEL_P2P_DATA_ = {
+    DATA_TYPE: 0,
+    MOVEMENT: {
+        DIRECTION: 1,
+        UID: 2,
+        POSITION: 3, // ->
+            X: 0,
+            Y: 1,
+        CHARACTER: 4,
+        NICKNAME: 5
+    }
+};
+
+
 class GenericCharactersController {
     constructor (scene) {
         this.scene = scene; //$charactersController
@@ -42,6 +69,7 @@ class GenericCharactersController {
     addFollower (gameObject) {
         this.followers[gameObject.id] = gameObject;
     }
+    
 
     handleRemotePlayerData (payload) {
         switch (payload.dataType) {
@@ -55,10 +83,14 @@ class GenericCharactersController {
                     return;
                 };
                 //this.remotePlayers[payload.uid][CHARACTER_OVERWORLD_ACTIONS_HASH[payload.dataType]](payload.dir);
-                this.remotePlayers[payload.uid].dispatchAction(payload);
+                this.getRemotePlayer(payload.uid).dispatchAction(payload);
                 break;
             };
         }
+    }
+
+    getRemotePlayer (userId) {
+        return this.remotePlayers[userId];
     }
 
     addRemotePlayer (playerData) {
@@ -86,12 +118,9 @@ class GenericCharactersController {
     }
 
     clear () {
-        Object.keys(this.staticCharacters)
-            .forEach(staticCharacter => this.staticCharacters[staticCharacter].destroy());
-        Object.keys(this.followers)
-            .forEach(follower => this.followers[follower].destroy());
-        Object.keys(this.remotePlayers)
-            .forEach(remotePlayer => this.remotePlayers[remotePlayer].destroy());
+        Object.values(this.staticCharacters).forEach(character => character.destroy());
+        Object.values(this.followers).forEach(follower => follower.destroy());
+        Object.values(this.remotePlayers).forEach(remotePlayer => remotePlayer.destroy());
         this.staticCharacters = {};
         this.followers = {};
         this.remotePlayers = {};

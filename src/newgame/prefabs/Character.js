@@ -16,7 +16,6 @@ import { CHAR_TYPES } from "@/newgame/constants/Character";
 /*
 TODO:
 checkPlayerPositionTamer, depthSort ath the end of move
-better solution for remotePlayer move fixing
 */
 
 class Character extends RawCharacter {
@@ -180,22 +179,6 @@ class Character extends RawCharacter {
             els.push(this.elements.balloon.typing);
 
         return els;
-    }
-
-    elementsFollow () {
-        if (this.elements.nickname) {
-            this.elements.nickname
-                .setOrigin(0.5)
-                .setX(this.getCenter().x)
-                .setY(this.y + this.displayHeight);
-        };
-
-        if (this.elements.balloon.typing) {
-            this.elements.balloon.typing
-                .setOrigin(0.5)
-                .setX(this.getCenter().x)
-                .setY(this.y - this.displayHeight + 10);
-        };
     }
 
     removeSprite () {

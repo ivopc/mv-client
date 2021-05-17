@@ -57,6 +57,7 @@ class Tilemap {
         this.tileset = null;
         this.overlay.destroy();
         this.collisionLayer = null;
+        this.objectsMap.clear();
     }
 
     setLevelData (data) {

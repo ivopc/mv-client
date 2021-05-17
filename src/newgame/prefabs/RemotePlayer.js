@@ -1,6 +1,6 @@
 import Character from "./Character";
 
-import { 
+import {
     OVERWORLD_ACTIONS, 
     CHARACTER_OVERWORLD_ACTIONS_HASH 
 } from "@/newgame/constants/NetworkLevelEvents";

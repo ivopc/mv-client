@@ -35,7 +35,7 @@ class Loader extends RawLoader {
         // level main music
         const levelMusic = Assets.ref.getLevelMainMusic(level.id);
         scene.load.audio(levelMusic.key, levelMusic.src);
-        // get all characters from map
+        // get all characters from level
         Assets.ref.getLevelCharacters(level.id).forEach(character => scene.load.atlas(character.key, character.path.texture, character.path.atlas));
         // wild monsters (if there's)
         if (level.hasWild) 

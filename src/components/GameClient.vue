@@ -66,16 +66,16 @@
                 this.gameInstance = game.launch(this.containerId);
                 this.gameStarted = true;
 
-                /*if (process.env.NODE_ENV == "development") {
+                if (process.env.NODE_ENV == "development") {
                     $Authentication.id = this.clientTokens[this.currentClient].uid;
                     $Authentication.token.auth = this.clientTokens[this.currentClient].token;
-                };*/
+                };
 
-                if (process.env.NODE_ENV == "development") {
+                /*if (process.env.NODE_ENV == "development") {
                     const { uid, token } = this.getDebugCredentials();
                     $Authentication.id = uid;
                     $Authentication.token.auth = token;
-                };
+                };*/
 
                 this.socket = socketCluster.connect({
                     query: {

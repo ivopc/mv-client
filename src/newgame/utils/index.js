@@ -1,4 +1,3 @@
-import Database from "@/newgame/managers/Database";
 import Text from "@/newgame/managers/Text";
 
 import { TILE } from "@/newgame/constants/Overworld";

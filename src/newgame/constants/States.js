@@ -1,7 +1,6 @@
-const MAP_STATES = {
+const LEVEL_STATES = {
     IDLE: 1,
     DIALOG: 2
 };
 
-
-export { MAP_STATES };
+export { LEVEL_STATES };

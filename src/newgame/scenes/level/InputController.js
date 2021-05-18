@@ -2,7 +2,7 @@ import StateManager from "@/newgame/managers/StateManager";
 
 import { DIRECTIONS_HASH, STEP_TIME } from "@/newgame/constants/Overworld";
 import { ACTION_KEYS } from "@/newgame/constants/ActionKeys";
-import { MAP_STATES } from "@/newgame/constants/States";
+import { LEVEL_STATES } from "@/newgame/constants/States";
 
 class InputController {
     constructor (scene) {
@@ -10,7 +10,7 @@ class InputController {
     }
 
     triggerFromListener (value, timeStep) {
-        if (value >= DIRECTIONS_HASH.UP && value <= DIRECTIONS_HASH.LEFT /*&& this.scene.$state == MAP_STATES.IDLE*/)
+        if (value >= DIRECTIONS_HASH.UP && value <= DIRECTIONS_HASH.LEFT /*&& this.scene.$state == LEVEL_STATES.IDLE*/)
             this.movePlayer(value, timeStep);
     }
 
@@ -36,12 +36,12 @@ class InputController {
 
     interaction () {
         const { scene } = this;
-        switch (MAP_STATES.IDLE/*StateManager.ref.getState()*/) {
-            case MAP_STATES.IDLE: {
+        switch (LEVEL_STATES.IDLE/*StateManager.ref.getState()*/) {
+            case LEVEL_STATES.IDLE: {
                 scene.$playerController.interact();
                 break;
             };
-            case MAP_STATES.DIALOG: {
+            case LEVEL_STATES.DIALOG: {
                 scene.$dialogController.next();
                 break;
             };

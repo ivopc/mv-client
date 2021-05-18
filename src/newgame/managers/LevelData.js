@@ -4,7 +4,7 @@ import Database from "./Database";
 class LevelData {
 
     constructor (data) {
-        this.id = data.map;
+        this.id = data.level;
         this.wild = data.wild;
         this.flag = data.flag;
         this.tamers = data.tamers;

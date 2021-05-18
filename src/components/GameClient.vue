@@ -79,13 +79,12 @@
 
                 this.socket = socketCluster.connect({
                     query: {
-                        uid: String($Authentication.id),
+                        userid: String($Authentication.id),
                         token: $Authentication.token.auth
                     },
                     port: 8000,
                     hostname: location.hostname
                 });
-
                 this.socket.on("99", payload => this.handleInit(payload));
             },
             handleInit (payload) {

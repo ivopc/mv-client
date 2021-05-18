@@ -35,8 +35,8 @@ class Boot {
 
     initOverworld (payload) {
         this.setPlayerData(payload);
-        const { map, wild, flag, tamers } = payload.param;
-        LevelData.ref = new LevelData({ map, flag, wild, tamers });
+        const { level, wild, flag, tamers } = payload.param;
+        LevelData.ref = new LevelData({ level, flag, wild, tamers });
         this.gameInstance.scene.start(SCENE.BOOT, {
             scene: SCENE.OVERWORLD
         });

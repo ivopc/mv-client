@@ -20,7 +20,29 @@ import LookerPathfinding from "./LookerPathfinding";
 class Level extends Phaser.Scene {
     constructor () {
         super(SCENE.LEVEL);
+        this.$loader;
+        this.$network;
+        this.$manager;
+        this.$inputListener;
+        this.$inputController;
+        this.$cameraController;
+        this.$containers;
+        this.$tilemap;
+        this.$runtime;
+        this.$playerController;
+        this.$characterController;
+        this.$lookerPathfinding;
+        this.$levelBehavior;
+    }
+
+    init (params) {}
+
+    preload () {
         this.$loader = new Loader(this);
+        this.$loader.fetchAssets();
+    }
+
+    create () {
         this.$network = new NetworkLevelListener(this);
         this.$manager = new LevelManager(this);
         this.$inputListener = new InputListener(this);
@@ -29,27 +51,19 @@ class Level extends Phaser.Scene {
         this.$containers = new Container(this);
         this.$tilemap = new Tilemap(this);
         this.$runtime = new RuntimeScripting(this);
-        //this.$lookerPathfinding = new LookerPathfinding(this);
         this.$playerController = new PlayerCharacterController(this);
         this.$charactersController = new GenericCharactersController(this);
-    }
-
-    init (params) {}
-
-    preload () {
-        this.$loader.fetchAssets();
-    }
-
-    create () {
+        //this.$lookerPathfinding = new LookerPathfinding(this);
+        // **-----------------------------------**
         this.$cameraController.setup();
         this.$containers.create();
         this.$tilemap.create();
         this.$cameraController.setBounds();
         this.$playerController.create();
         this.$network.addListener();
-        // Level Behavior is instantied in Loader class
+        // Level Behavior is instancied in Loader class
         this.$levelBehavior.create();
-        this.$network.subscribeLevel();
+        //this.$network.subscribeLevel();
         this.$inputListener.addListener();
         SceneManager.ref.setLevel(this);
         // tests

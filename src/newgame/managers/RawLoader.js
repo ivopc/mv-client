@@ -1,15 +1,15 @@
 import PlayerData from "./PlayerData";
 import Assets from "./Assets";
+import Layout from "./Layout";
 
 import { ASSET_TYPE } from "@/newgame/constants/Asset";
 import ReplaceStringToken from "@/newgame/utils/ReplaceStringToken";
 import AssetTemplateInjector from "@/newgame/utils/AssetTemplateInjector";
 
-const RESOLUTION = "fullhd";
-
 class RawLoader {
     constructor (scene) {
         this.scene = scene;
+        scene.load.setBaseURL(process.env.gameClientBaseURL);
         if (!RawLoader.alreadyLoadedBase)
             this.fetchBaseAssets();
     }
@@ -44,20 +44,17 @@ class RawLoader {
         const scene = this.scene;
         switch (asset.type) {
             case ASSET_TYPE.IMAGE: {
-                scene.load.image(asset.key, this.applyResolution(asset.path));
+                scene.load.image(asset.key, AssetTemplateInjector.applyResolution(asset.path));
                 break;
             };
-
             case ASSET_TYPE.SPRITESHEET: {
-                scene.load.spritesheet(asset.key, this.applyResolution(asset.path), asset.dimensions[RESOLUTION]);
+                scene.load.spritesheet(asset.key, AssetTemplateInjector.applyResolution(asset.path), asset.dimensions[Layout.ref.resolution]);
                 break;
             };
-
             case ASSET_TYPE.ATLAS: {
-                scene.load.atlas(asset.key, this.applyResolution(asset.path.texture), this.applyResolution(asset.path.atlas));
+                scene.load.atlas(asset.key, AssetTemplateInjector.applyResolution(asset.path.texture), AssetTemplateInjector.applyResolution(asset.path.atlas));
                 break;
             };
-
             case ASSET_TYPE.MONSTER:
             case ASSET_TYPE.OVERWORLD_MONSTER:
             {
@@ -66,10 +63,6 @@ class RawLoader {
                 break;
             };
         }
-    }
-
-    applyResolution (path) {
-        return ReplaceStringToken.replace(path, RESOLUTION);
     }
 
     // flag to don't need to load base assets again

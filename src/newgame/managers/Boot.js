@@ -12,9 +12,10 @@ import LevelData from "./LevelData";
 import BattleData from "./BattleData";
 import Network from "./Network";
 
+import { game } from "@/newgame";
+
 class Boot {
-    constructor (gameInstance, socket, payload) {
-        this.gameInstance = gameInstance;
+    constructor (socket, payload) {
         Network.ref = new Network(socket);
         switch (payload.state) {
             case STATE.OVERWORLD: {
@@ -37,7 +38,7 @@ class Boot {
         this.setPlayerData(payload);
         const { level, wild, flag, tamers } = payload.param;
         LevelData.ref = new LevelData({ level, flag, wild, tamers });
-        this.gameInstance.scene.start(SCENE.BOOT, {
+        game.scene.start(SCENE.BOOT, {
             scene: SCENE.OVERWORLD
         });
     }
@@ -45,15 +46,15 @@ class Boot {
     initBattle (payload) {
         this.setPlayerData(payload);
         BattleData.ref = new BattleData(/*{ ... }*/);
-        this.gameInstance.scene.start(SCENE.BOOT, {
+        game.scene.start(SCENE.BOOT, {
             scene: SCENE.BATTLE
         });
     }
 
     async loadAndInitRunning (payload) {
         //const Running = await import("@/newgame/subscene/running");
-        this.gameInstance.scene.add("running", Running);
-        this.gameInstance.start("boot", {
+        game.scene.add("running", Running);
+        game.start("boot", {
             scene: "running"
         });
     }

@@ -1,19 +1,22 @@
 import Phaser from "phaser";
 
 import { SCENE } from "@/newgame/constants/GameScene";
+import { RESOLUTION } from "@/newgame/constants/Resolutions";
 
 import Loader from "./Loader";
 
 import SceneManager from "@/newgame/managers/SceneManager";
 import Database from "@/newgame/managers/Database";
 import Assets from "@/newgame/managers/Assets";
+import Layout from "@/newgame/managers/Layout";
 
 import {
     CUSTOM_TEMPLATE_LOADER, 
-    BASE_ASSETS, 
+    UI_ASSETS, 
     CHARACTERS,
     MONSTERS,
-    LEVELS 
+    LEVELS,
+    LAYOUT
 } from "@/newgame/constants/Loader";
 
 class Boot extends Phaser.Scene {
@@ -39,7 +42,11 @@ class Boot extends Phaser.Scene {
         });
         Assets.ref = new Assets({
             template: this.cache.json.get(CUSTOM_TEMPLATE_LOADER),
-            base: this.cache.json.get(BASE_ASSETS)
+            ui: this.cache.json.get(UI_ASSETS)
+        });
+        Layout.ref = new Layout({
+            resolution: RESOLUTION.HD,
+            data: this.cache.json.get(LAYOUT)
         });
         this.scene.start(this.transitionData.scene);
     }

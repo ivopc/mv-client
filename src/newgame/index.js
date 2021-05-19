@@ -19,7 +19,7 @@ function launch (containerId) {
         type: Phaser.WEBGL,
         autoStart: false,
         scale: {
-            mode: Phaser.Scale.ENVELOP,
+            mode: Phaser.Scale.FIT,
             parent: containerId,
             autoCenter: Phaser.Scale.CENTER_BOTH,
             width: 1280,
@@ -49,7 +49,7 @@ function launch (containerId) {
         }
     });
 
-    // add scenes to game instances
+    // add scenes to game instance
     game.scene.add(SCENE.BOOT, Boot);
     game.scene.add(SCENE.OVERWORLD, Overworld);
     game.scene.add(SCENE.LEVEL, Level);

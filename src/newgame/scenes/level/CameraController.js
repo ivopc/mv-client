@@ -1,3 +1,5 @@
+import { game } from "@/newgame";
+
 class CameraController {
     constructor (scene) {
         this.scene = scene;//$cameraController
@@ -6,8 +8,8 @@ class CameraController {
     setup () {
         this.camera.roundPixels = true;
         this.camera.setZoom(2);
-        this.camera.width = 1280;
-        this.camera.height = 720;
+        this.camera.width = game.canvas.width;
+        this.camera.height = game.canvas.height;
         this.camera.x = 0;
         this.camera.y = 0;
     }

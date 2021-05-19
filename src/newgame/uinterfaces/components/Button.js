@@ -3,7 +3,6 @@ import Phaser from "phaser";
 class Button extends Phaser.GameObjects.Container {
     constructor (scene, config) {
         super(scene);
-        this.scene = scene;
         this.sprite;
         this.text;
 

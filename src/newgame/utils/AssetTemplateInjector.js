@@ -1,5 +1,8 @@
 import { ASSET_TYPE } from "@/newgame/constants/Asset";
-import ReplaceStringToken from "@/newgame/utils/ReplaceStringToken";
+
+import ReplaceStringToken from "./ReplaceStringToken";
+
+import Layout from "@/newgame/managers/Layout";
 import Assets from "@/newgame/managers/Assets";
 
 class AssetTemplateInjector {
@@ -66,6 +69,12 @@ class AssetTemplateInjector {
                 break;
             };
         };
+    }
+
+    static applyResolution (string) {
+        return ReplaceStringToken.replace(string, {
+            resolution: Layout.ref.resolution
+        });
     }
 };
 

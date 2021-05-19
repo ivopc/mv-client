@@ -88,11 +88,7 @@
                 this.socket.on("99", payload => this.handleInit(payload));
             },
             handleInit (payload) {
-                new Boot(
-                    this.gameInstance, 
-                    this.socket, 
-                    payload
-                );
+                new Boot(this.socket, payload);
             },
             getDebugCredentials () {
                 const current = localStorage.getItem("auth");

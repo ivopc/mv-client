@@ -2,18 +2,11 @@ import Database from "./Database";
 import { ASSET_TYPE } from "@/newgame/constants/Asset";
 import AssetTemplateInjector from "@/newgame/utils/AssetTemplateInjector";
 
-const RESOLUTIONS = {
-    FULL_HD: 0,
-    HD: 1,
-    STANDARD: 2,
-    MOBILE: 3
-};
-
 class Assets {
 
-    constructor ({ template, base }) {
+    constructor ({ template, ui }) {
         this.template = template;
-        this.base = base;
+        this.ui = ui;
     }
 
     getOverworldCharacter (id) {
@@ -48,7 +41,9 @@ class Assets {
         };
     }
 
-    getUiComponent (key) {}
+    getUIComponents () {
+        return this.ui;
+    }
 
     static ref
 };

@@ -11,7 +11,6 @@ import { loadComplete } from "@/newgame/utils/scene.promisify";
 class Loader extends RawLoader {
     fetchAssets () {
         const { scene } = this;
-        scene.load.setBaseURL(process.env.gameClientBaseURL);
         // player character sprite
         const playerOverworldSprite = Assets.ref.getOverworldCharacter(PlayerData.ref.character.sprite);
         scene.load.atlas(

@@ -33,10 +33,6 @@ class Player extends Character {
             );
         this.scene.$manager.changeLevel(teleport);
     }
-
-    interact () {
-        const interaction = super.interact();
-    }
 };
 
 export default Player;

@@ -17,6 +17,7 @@ class SlotElement extends DragglableGridElement {
         this.healthText;
         this.gender;
         this.statusProblem;
+        scene.add.existing(this);
 
     }
 

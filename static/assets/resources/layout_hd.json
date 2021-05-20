@@ -2,7 +2,7 @@
     "wildEncounter": {
         "background": {
             "x": 22,
-            "y": 488,
+            "y": 490,
             "texture": "wild_encounter_background"
         },
         "nameBox": {
@@ -26,6 +26,28 @@
             "y": 571,
             "spritesheet": "wild_button",
             "frames": {"click": 1, "over": 2, "up": 0, "out": 0}
+        },
+        "ratingStars": {
+            "spritesheet": "wild_star_rating",
+            "frames": {"filled": 0, "void": 1},
+            "positions": [
+                {
+                    "x": 236,
+                    "y": 644
+                },
+                {
+                    "x": 296,
+                    "y": 644
+                },
+                {
+                    "x": 356,
+                    "y": 644
+                },
+                {
+                    "x": 416,
+                    "y": 644
+                }
+            ]
         }
     },
     "party": {

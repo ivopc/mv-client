@@ -11,44 +11,46 @@ import { TYPES } from "@/newgame/constants/Party";
 class Party extends Phaser.GameObjects.Container {
     constructor (scene, params = {}) {
         super(scene);
+        this.layout = Layout.ref.data.party;
         this.type = params.type;
-        this.slots = [];
-        this.slotElements = [];
+        this.slots = new Array(6);
         this.tooltip;
     }
 
     append () {
         this.background = this.scene.add.sprite(
-            Layout.ref.party.background.x, 
-            Layout.ref.party.background.y, 
-            Layout.ref.party.background.texture
+            this.layout.background.x, 
+            this.layout.background.y, 
+            this.layout.background.texture
         )
             .setOrigin(0, 0)
             .setInteractive()
             .on("pointerdown", () => this.clearTooltip());
         this.add(this.background);
         this.appendSlots();
+        this.appendSlotElements();
     }
 
     appendSlots () {
-        this.slots = Layout.ref.party.slots.positions
-            .map(({ x, y }) => new Slot(this.scene, { x, y } ))
-            .forEach(slot => this.add(slot));
+        this.slots = this.layout.slots.positions
+            .map(position => {
+                const slot = new Slot(this.scene, position);
+                this.add(slot);
+                return slot;
+            });
     }
 
     appendSlotElements () {
         this.slots.forEach((slot, index) => {
-            this.slotElements[index] = new SlotElement(this.scene);
-            slot.setCurrentElement(this.slotElements[index]);
+            const slotElements = new SlotElement(this.scene);
+            slot.add(slotElements);
+            slotElements.setParentBasePosition(slot.x, slot.y);
             const monster = PlayerData.ref.partyMonsters[index];
             if (monster) {
-                this.slotElements[index].updateMonsterData(monster);
+                slot.elements.updateMonsterData(monster);
             };
-            this.add(this.slotElements[index]);
         });
     }
-
-    clear () {}
 };
 
 export default Party;

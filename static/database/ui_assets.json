@@ -19,5 +19,16 @@
                 "frameHeight": 82
             }
         }
+    },
+    "wild_star_rating": {
+        "key": "wild_star_rating",
+        "type": "spritesheet",
+        "path": "assets/img/ui/wild-encounter/{resolution}/rating_star.png",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 53, 
+                "frameHeight": 51
+            }
+        }
     }
 }

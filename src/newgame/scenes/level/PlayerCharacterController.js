@@ -1,8 +1,6 @@
 import PlayerData from "@/newgame/managers/PlayerData";
 import Player from "@/newgame/prefabs/Player";
 
-import { positionToRealWorld } from "@/newgame/utils";
-
 class PlayerCharacterController {
 
     constructor (scene) {
@@ -20,6 +18,7 @@ class PlayerCharacterController {
             },
             sprite: character.sprite
         });
+        this.scene.add.existing(player);
         this.scene.$cameraController.followGameObject(player);
         this.scene.$containers.main.add(player);
         this.player = player;

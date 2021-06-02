@@ -34,6 +34,7 @@ class Button extends Phaser.GameObjects.Container {
             this.addText(config.text.display, config.text.style);
 
         this.setListeners();
+        scene.add.existing(this);
     }
 
     addSprite () {

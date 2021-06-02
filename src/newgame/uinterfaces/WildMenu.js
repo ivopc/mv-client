@@ -20,15 +20,12 @@ class WildMenu extends Phaser.GameObjects.Container {
             this.layout.background.texture
         )
         .setOrigin(0);
-        console.log("position", this.background.position);
-        this.add(this.background);
         this.nameBox = this.scene.add.sprite(
             this.layout.nameBox.x,
             this.layout.nameBox.y,
             this.layout.nameBox.texture
         )
         .setOrigin(0);
-        this.add(this.nameBox);
         this.btnBattle = new Button(this.scene, {
             x: this.layout.btnBattle.x,
             y: this.layout.btnBattle.y,
@@ -40,7 +37,7 @@ class WildMenu extends Phaser.GameObjects.Container {
             },
             on: {
                 click: () => {
-                    console.log("OLÁ, CLICOU NO BUTTON DE BATALHAR")
+                    console.log("OLÁ, CLICOU NO BUTTON DE BATALHAR");
                 }
             }
         });
@@ -48,16 +45,28 @@ class WildMenu extends Phaser.GameObjects.Container {
             x: this.layout.btnRun.x,
             y: this.layout.btnRun.y,
             spritesheet: this.layout.btnRun.spritesheet,
-            frames: this.layout.btnRun.frames
+            frames: this.layout.btnRun.frames,
+            text: {
+                display: "Tentar Fugir",
+                style: this.layout.btnRun.textStyle
+            },
+            on: {
+                click: () => {
+                    console.log("CLICOU NO BUTTON DE FUGIR CRL!");
+                }
+            }
         });
-        this.add(this.btnRun);
         this.ratingStars = new Rating(this.scene, this.monsterData.rating);
+        this.add(this.background);
+        this.add(this.nameBox);
+        this.add(this.btnBattle);
+        this.add(this.btnRun);
         this.add(this.ratingStars);
     }
 
     get monsterData () {
         return {
-            rating: 3
+            rating: 1
         }
     }
 };

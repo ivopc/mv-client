@@ -53,8 +53,8 @@ class PlayerCharacterController {
         return this.player._data.position;
     }
 
-    rawSetPosition (position) {
-        this.player.rawSetPosition(position.x, position.y);
+    rawSetPosition ({x, y}) {
+        this.player.rawSetPosition(x, y);
     }
 };
 

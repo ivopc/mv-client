@@ -63,6 +63,7 @@ class Level extends Phaser.Scene {
         this.$network.addListener();
         // Level Behavior is instancied in Loader class
         this.$levelBehavior.create();
+        this.$cameraController.setDefaultZoom();
         //this.$network.subscribeLevel();
         this.$inputListener.addListener();
         SceneManager.ref.setLevel(this);

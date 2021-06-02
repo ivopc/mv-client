@@ -27,8 +27,8 @@ class Overworld extends Phaser.Scene {
         this.scene.launch(SCENE.LEVEL);
         this.scene.bringToTop();
         SceneManager.ref.setOverworld(this);
-        /*const wild = new WildMenu(this);
-        wild.append();*/
+        const wild = new WildMenu(this);
+        wild.append();
     }
 };
 

@@ -1,4 +1,7 @@
 import { game } from "@/newgame";
+import LevelData from "@/newgame/managers/LevelData";
+
+import { DEFAULT_LEVEL_ZOOM } from "@/newgame/constants/Overworld";
 
 class CameraController {
     constructor (scene) {
@@ -7,7 +10,6 @@ class CameraController {
 
     setup () {
         this.camera.roundPixels = true;
-        this.camera.setZoom(2);
         this.camera.width = game.canvas.width;
         this.camera.height = game.canvas.height;
         this.camera.x = 0;
@@ -21,6 +23,11 @@ class CameraController {
 
     followGameObject (gameObject) {
         this.camera.startFollow(gameObject, false, 1, 1);
+    }
+
+    setDefaultZoom () {
+        // the zoom is related to specific level config
+        this.camera.setZoom(LevelData.ref.script.map.zoom || DEFAULT_LEVEL_ZOOM);
     }
 
     zoomIn (val = 0.05) {

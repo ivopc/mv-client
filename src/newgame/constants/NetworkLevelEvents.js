@@ -1,6 +1,7 @@
 const LEVEL_EVENTS = {
     PONG: "0",
-    CHAT_MESSAGE: "1"
+    CHAT_MESSAGE: "1",
+    SEARCH_WILD: "20"
 };
 
 const OVERWORLD_ACTIONS = {

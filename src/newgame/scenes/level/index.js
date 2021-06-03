@@ -17,6 +17,8 @@ import PlayerCharacterController from "./PlayerCharacterController";
 import GenericCharactersController from "./GenericCharactersController";
 import LookerPathfinding from "./LookerPathfinding";
 
+import { requestWildEncounter } from "./network/wild.network";
+
 class Level extends Phaser.Scene {
     constructor () {
         super(SCENE.LEVEL);
@@ -69,6 +71,12 @@ class Level extends Phaser.Scene {
         SceneManager.ref.setLevel(this);
         // tests
         //this.$runtime.run(this.$runtime.parse());
+        this.lol();
+    }
+
+    async lol () {
+        const data = await requestWildEncounter();
+        console.log("wild", data);
     }
 
     update (time) {

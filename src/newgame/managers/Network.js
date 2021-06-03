@@ -5,7 +5,13 @@ class Network {
     }
 
     send (event, data) {
-        return new Promise(resolve => this.socket.emit(event, data, resolve));
+        return new Promise((resolve, reject) =>
+            this.socket.emit(
+                event, 
+                data, 
+                (err, response) => err ? reject(err) : resolve(response)
+            )
+        );
     }
 
     addEvent (event, fn) {

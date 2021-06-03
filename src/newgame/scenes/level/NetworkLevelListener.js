@@ -40,15 +40,15 @@ class NetworkLevelListener {
         levelId = levelId || LevelData.ref.id;
     	this.subscribe.level.conn = Network.ref.socket.subscribe("m" + levelId);
     	this.subscribe.level.conn.watch(payload => this.dispatchLevelPayload(payload));
-        // TODO: we need a better soluction based on a network event
-        this.subscribe.level.isSubscribed = true;
+        this.subscribe.level.conn.on("subscribe", () => {
+            this.subscribe.level.isSubscribed = true;
+        });
     }
 
     unsubscribeLevel (levelId) {
         //levelId = levelId || LevelData.ref.id;
         this.subscribe.level.conn.unsubscribe();
         this.subscribe.level.conn.unwatch();
-        // TODO: we need a better soluction based on a network event
         this.subscribe.level.isSubscribed = false;
         //Network.ref.socket.unwatch("m" + levelId);
     }

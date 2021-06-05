@@ -19,6 +19,10 @@ class LevelData {
         this.script = data;
     }
 
+    update (newLevelData) {
+        this.id = newLevelData.id;
+    }
+
     static ref
 };
 

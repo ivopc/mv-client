@@ -1,27 +1,46 @@
 {
     "wildEncounter": {
+        "mainContainer": {
+            "name": "mainContainer",
+            "basePosition": {
+                "x": 22,
+                "y": 490
+            }
+        },
         "background": {
-            "x": 22,
-            "y": 490,
-            "texture": "wild_encounter_background"
+            "name": "background",
+            "texture": "wild_encounter_background",
+            "position": {
+                "x": 0,
+                "y": 0
+            }
         },
         "nameBox": {
-            "x": 172,
-            "y": 548,
-            "texture": "wild_encounte_name_box"
+            "name": "nameBox",
+            "texture": "wild_encounte_name_box",
+            "position": {
+                "x": 150,
+                "y": 58
+            }
         },
         "btnBattle": {
-            "x": 865,
-            "y": 571,
+            "name": "btnBattle",
+            "x": 843,
+            "y": 81,
             "spritesheet": "wild_button",
             "frames": {"click": 1, "over": 2, "up": 0, "out": 0},
             "textStyle": { 
                 "fontFamily": "Century Gothic", 
                 "fontSize": 25, 
                 "color": "#fff"
+            },
+            "position": {
+                "x": 843,
+                "y": 81
             }
         },
         "btnRun": {
+            "name": "btnRun",
             "x": 1033,
             "y": 571,
             "spritesheet": "wild_button",
@@ -30,27 +49,32 @@
                 "fontFamily": "Century Gothic", 
                 "fontSize": 24, 
                 "color": "#fff"
+            },
+            "position": {
+                "x": 1011,
+                "y": 81
             }
         },
         "ratingStars": {
+            "name": "ratingStars",
             "spritesheet": "wild_star_rating",
             "frames": {"filled": 0, "void": 1},
             "positions": [
                 {
-                    "x": 236,
-                    "y": 644
+                    "x": 214,
+                    "y": 154
                 },
                 {
-                    "x": 296,
-                    "y": 644
+                    "x": 274,
+                    "y": 154
                 },
                 {
-                    "x": 356,
-                    "y": 644
+                    "x": 334,
+                    "y": 154
                 },
                 {
-                    "x": 416,
-                    "y": 644
+                    "x": 394,
+                    "y": 154
                 }
             ]
         }

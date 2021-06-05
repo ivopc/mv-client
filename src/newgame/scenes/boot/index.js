@@ -5,7 +5,6 @@ import { RESOLUTION } from "@/newgame/constants/Resolutions";
 
 import Loader from "./Loader";
 
-import SceneManager from "@/newgame/managers/SceneManager";
 import Database from "@/newgame/managers/Database";
 import Assets from "@/newgame/managers/Assets";
 import Layout from "@/newgame/managers/Layout";
@@ -15,13 +14,14 @@ import {
     UI_ASSETS, 
     CHARACTERS,
     MONSTERS,
+    MONSTER_EXP,
     LEVELS,
     LAYOUT
 } from "@/newgame/constants/Loader";
 
 class Boot extends Phaser.Scene {
     constructor () {
-        super(SCENE.BOOT);
+        super({ key: SCENE.BOOT });
     }
 
     init (params) {
@@ -34,11 +34,11 @@ class Boot extends Phaser.Scene {
     }
 
     create () {
-        SceneManager.ref = new SceneManager();
         Database.ref = new Database({
             level: this.cache.json.get(LEVELS),
             character: this.cache.json.get(CHARACTERS),
-            monster: this.cache.json.get(MONSTERS)
+            monster: this.cache.json.get(MONSTERS),
+            monstersExp: this.cache.json.get(MONSTER_EXP)
         });
         Assets.ref = new Assets({
             template: this.cache.json.get(CUSTOM_TEMPLATE_LOADER),

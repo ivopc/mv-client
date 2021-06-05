@@ -52,10 +52,11 @@ class GenericCharactersController {
         this.staticCharacters = {};
         this.followers = {};
         this.remotePlayers = {};
+        console.log(this);
     }
 
     addStaticCharacter (gameObject) {
-        this.staticCharacters[gameObject.name] = gameObject;
+        this.staticCharacters[gameObject._data.name] = gameObject;
         this.scene.$tilemap.objectsMap.add(
             gameObject, 
             gameObject._data.position
@@ -67,7 +68,7 @@ class GenericCharactersController {
     }
 
     addFollower (gameObject) {
-        this.followers[gameObject.id] = gameObject;
+        this.followers[gameObject._data.id] = gameObject;
     }
     
 

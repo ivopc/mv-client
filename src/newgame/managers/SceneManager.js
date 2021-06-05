@@ -1,39 +1,37 @@
 import { Scene } from "phaser";
 
 class SceneManager {
-    constructor () {
-        this.overworld;
-        this.level;
-        this.battle;
-    }
+    static overworld;
+    static level;
+    static battle;
 
-    setOverworld (scene) {
+    static setOverworld (scene) {
         this.overworld = scene;
     }
 
-    setLevel (scene) {
+    static setLevel (scene) {
         this.level = scene;
     }
 
-    setBattle (scene) {
+    static setBattle (scene) {
         this.battle = scene;
     }
 
-    getOverworld () {
+    static getOverworld () {
         return this.overworld;
     }
 
-    getLevel () {
+    static getLevel () {
         return this.level;
     }
 
-    getBattle () {
+    static getBattle () {
         return this.battle;
     }
 
-    getCurrent () {}
+    static getCurrent () {}
 
-    destroy (scene) {
+    static destroy (scene) {
         if (scene in this && this[scene] instanceof Scene) {
             this[scene].destroy();
             return true;
@@ -41,13 +39,11 @@ class SceneManager {
         return false;
     }
 
-    destroyAll () {
+    static destroyAll () {
         Object.keys(this)
             .filter(attr => this[attr] instanceof Scene)
             .forEach(scene => this[scene].destroy());
     }
-
-    static ref
 };
 
 export default SceneManager;

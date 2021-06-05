@@ -6,6 +6,8 @@ class Audio {
     setScene (scene) {
         this.scene = scene;
     }
+
+    static ref
 };
 
 export default Audio;

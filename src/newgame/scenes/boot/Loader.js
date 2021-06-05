@@ -1,12 +1,16 @@
 import RawLoader from "@/newgame/managers/RawLoader";
+
 import { 
     CUSTOM_TEMPLATE_LOADER, 
     UI_ASSETS, 
     CHARACTERS, 
     LEVELS,
     MONSTERS,
+    MONSTER_EXP,
     LAYOUT
 } from "@/newgame/constants/Loader";
+
+
 class Loader extends RawLoader {
     fetchAssets () {
         const { scene } = this;
@@ -14,6 +18,7 @@ class Loader extends RawLoader {
         scene.load.json(CUSTOM_TEMPLATE_LOADER, "database/custom_asset_template_loader.json");
         scene.load.json(CHARACTERS, "database/characters.json");
         scene.load.json(MONSTERS, "database/monsters.json");
+        scene.load.json(MONSTER_EXP, "database/experience.json");
         scene.load.json(LEVELS, "database/levels.json");
         scene.load.json(LAYOUT, "assets/resources/layout_hd.json");
     }

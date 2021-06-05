@@ -13,12 +13,15 @@ class Tilemap {
         this.scene = scene;
         this.objectsMap = new LevelObjectsMap();
         //this.objectsMap = new LevelObjectsList();
-        this.levelData = Database.ref.level[LevelData.ref.id];
         this.tilemap;
         this.tileset;
         this.layers = [];
         this.overlay;
         this.collisionLayer;
+    }
+
+    get levelData () {
+        return Database.ref.level[LevelData.ref.id];
     }
 
     create () {
@@ -58,10 +61,6 @@ class Tilemap {
         this.overlay.destroy();
         this.collisionLayer = null;
         this.objectsMap.clear();
-    }
-
-    setLevelData (data) {
-        this.levelData = data;
     }
 };
 

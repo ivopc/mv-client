@@ -42,6 +42,7 @@ class NetworkLevelListener {
     	this.subscribe.level.conn.watch(payload => this.dispatchLevelPayload(payload));
         this.subscribe.level.conn.on("subscribe", () => {
             this.subscribe.level.isSubscribed = true;
+            console.log("subscribe");
         });
     }
 

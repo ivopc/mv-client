@@ -8,13 +8,11 @@ import { CHAR_TYPES } from "@/newgame/constants/Character";
 
 class BaseLevelScript {
     constructor (scene) {
-        this.scene = scene;
-        this.scriptData;
+        this.scene = scene;//$levelBehavior
     }
 
     create () {
         const scriptData = this.scene.cache.json.get(Assets.ref.getLevelScript(LevelData.ref.id).key);
-        this.setScript(scriptData);
         LevelData.ref.setScript(scriptData);
         this.insertLevelObjects();
     }
@@ -65,6 +63,7 @@ class BaseLevelScript {
     }
 
     insertLevelObject (levelObjectData) {
+        console.log("inseriu objects do level");
         const { scene } = this;
         const character = new Character(scene, levelObjectData);
         scene.add.existing(character);
@@ -73,8 +72,8 @@ class BaseLevelScript {
 
     autoExec () {}
 
-    setScript (data) {
-        this.scriptData = data;
+    get scriptData () {
+        return LevelData.ref.script;
     }
 };
 

@@ -33,7 +33,7 @@ class MonsterModel {
         return this.current_HP > 0;
     }
 
-    getAllStatsSum () {
+    get allStatsSum () {
         return this.stats_attack + this.stats_defense + this.stats_speed + this.stats_HP + this.stats_MP;
     }
 
@@ -43,7 +43,7 @@ class MonsterModel {
 
     get numberToPedia () {
         // right, we need to refactor this
-        num = String(this.monsterpedia_id);
+        const num = String(this.monsterpedia_id);
         if (num.length === 1)
             return "00" + num;
         if (num.length === 2)

@@ -27,9 +27,9 @@ class Player extends Character {
 
     requestLevelChange () {
         const teleport = this.scene.$levelBehavior.scriptData.map.teleport
-            .find(position => 
-                position.x === this._data.position.x && 
-                position.y === this._data.position.y
+            .find(({ x, y }) =>
+                x === this._data.position.x && 
+                y === this._data.position.y
             );
         this.scene.$manager.changeLevel(teleport);
     }

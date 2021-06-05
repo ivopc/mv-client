@@ -3,14 +3,16 @@
 * class to store and handle all player data received from server
 */
 
+import { treatMonsterList } from "@/newgame/utils";
+
 class PlayerData {
 
     constructor (data) {
         this.nickname = data.nickname;
         this.character = data.character;
-        this.partyMonsters = data.monsters;
+        this.partyMonsters = treatMonsterList(data.monsters);
         this.items = data.items;
-        this.notifications = data.notify;
+        this.notifications = data.notification;
     }
 
     get data () {

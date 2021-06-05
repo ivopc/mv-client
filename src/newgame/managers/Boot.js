@@ -60,13 +60,13 @@ class Boot {
     }
 
     setPlayerData (payload) {
-        const { monsters, items, sprite, position, notify, nickname } = payload.param;
+        const { monsters, items, sprite, position, notification, nickname } = payload.param;
         PlayerData.ref = new PlayerData({
             nickname,
             character: { sprite, position },
             monsters, 
             items, 
-            notify
+            notification
         });
     }
 };

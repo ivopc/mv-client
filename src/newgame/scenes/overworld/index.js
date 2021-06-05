@@ -2,8 +2,8 @@ import Phaser from "phaser";
 
 import { SCENE } from "@/newgame/constants/GameScene";
 
-import Layout from "@/newgame/managers/Layout";
 import SceneManager from "@/newgame/managers/SceneManager";
+import LayoutResponsivityManager from "@/newgame/managers/LayoutResponsivityManager";
 
 import LoadingUInterface from "./LoadingUInterface";
 import Loader from "./Loader";
@@ -12,7 +12,7 @@ import WildMenu from "@/newgame/uinterfaces/WildMenu";
 
 class Overworld extends Phaser.Scene {
     constructor () {
-        super(SCENE.OVERWORLD);
+        super({ key: SCENE.OVERWORLD });
     }
 
     init (params) {}
@@ -26,9 +26,12 @@ class Overworld extends Phaser.Scene {
     create () {
         this.scene.launch(SCENE.LEVEL);
         this.scene.bringToTop();
-        SceneManager.ref.setOverworld(this);
+        SceneManager.setOverworld(this);
+        LayoutResponsivityManager.addListener();
+        // tests
         const wild = new WildMenu(this);
         wild.append();
+        window.wild = wild;
     }
 };
 

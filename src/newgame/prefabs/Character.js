@@ -6,7 +6,7 @@ import Database from "@/newgame/managers/Database";
 
 import CharacterModel from "@/newgame/models/Character";
 
-import { positionToRealWorld } from "@/newgame/utils";
+import { positionToOverworld } from "@/newgame/utils";
 import { timedEvent } from "@/newgame/utils/scene.promisify";
 
 import { STEP_TIME, TILE, DIRECTIONS, DIRECTIONS_HASH } from "@/newgame/constants/Overworld";
@@ -23,8 +23,8 @@ class Character extends RawCharacter {
     constructor (scene, data) {
         super(
             scene, 
-            positionToRealWorld(data.position.x), 
-            positionToRealWorld(data.position.y),
+            positionToOverworld(data.position.x), 
+            positionToOverworld(data.position.y),
             data
         );
         this._data = new CharacterModel(data);
@@ -55,8 +55,8 @@ class Character extends RawCharacter {
         };
     }
 
-    rawSetPosition (x, y) {
-        this.setPosition(positionToRealWorld(x), positionToRealWorld(y));
+    setOverworldPosition (x, y) {
+        this.setPosition(positionToOverworld(x), positionToOverworld(y));
         this._data.setPosition(x, y);
     }
 
@@ -362,6 +362,8 @@ class Character extends RawCharacter {
         };
         this.setFrame(Database.ref.character[this._data.sprite].name + "_" + DIRECTIONS[direction] + "_" + type + flag);
     }
+
+    static add () {}
 };
 
 export default Character;

@@ -52,7 +52,7 @@ class Loader extends RawLoader {
     }
 
     async changeLevel (levelData) {
-        const loadingInterface = SceneManager.ref.getOverworld().$loadingInterface;
+        const loadingInterface = SceneManager.getOverworld().$loadingInterface;
         const { scene } = this;
         //loadingInterface.show();
         this.fetchLevel(levelData);

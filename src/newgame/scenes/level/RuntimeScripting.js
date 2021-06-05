@@ -13,7 +13,7 @@ class RuntimeScripting {
         this.level = {
             script: LevelData.ref.script,
             behavior: scene.$levelBehavior
-        }
+        };
     }
 
     parse (actions) {

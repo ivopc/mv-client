@@ -21,7 +21,7 @@ import { requestWildEncounter } from "./network/wild.network";
 
 class Level extends Phaser.Scene {
     constructor () {
-        super(SCENE.LEVEL);
+        super({ key: SCENE.LEVEL });
         this.$loader;
         this.$network;
         this.$manager;
@@ -66,9 +66,9 @@ class Level extends Phaser.Scene {
         // Level Behavior is instancied in Loader class
         this.$levelBehavior.create();
         this.$cameraController.setDefaultZoom();
-        //this.$network.subscribeLevel();
+        this.$network.subscribeLevel();
         this.$inputListener.addListener();
-        SceneManager.ref.setLevel(this);
+        SceneManager.setLevel(this);
         // tests
         //this.$runtime.run(this.$runtime.parse());
         this.lol();

@@ -6,8 +6,8 @@
             {
                 "x": 15,
                 "y": 28,
-                "mid": 1,
-                "tid": 1
+                "levelId": 1,
+                "teleportId": 1
             }
         ],
         "incomingteleport": {

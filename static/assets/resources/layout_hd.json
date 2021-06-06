@@ -17,7 +17,7 @@
         },
         "nameBox": {
             "name": "nameBox",
-            "texture": "wild_encounte_name_box",
+            "texture": "wild_encounter_name_box",
             "position": {
                 "x": 150,
                 "y": 58

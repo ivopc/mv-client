@@ -12,6 +12,11 @@ class LevelObjectsMap {
         this.data[`${x}|${y}`] = gameObject;
     }
 
+    switch (gameObject, oldPosition, newPosition) {
+        this.removeFrom(oldPosition);
+        this.add(gameObject, newPosition);
+    }
+
     removeFrom ({x, y}) {
         delete this.data[`${x}|${y}`];
     }

@@ -7,13 +7,37 @@ import InterfaceContainer from "@/newgame/uinterfaces/components/InterfaceContai
 class LayoutResponsivityManager {
 
     static addListener () {
-        game.scale.on("resize", this.resize.bind(this));
+        game.scale.on("resize", this.resizeEvent.bind(this));
     }
 
-    static resize ( ... args) {
+    static resizeEvent ( ... args) {
         SceneManager.getOverworld().children.list
             .filter(child => child instanceof InterfaceContainer)
             .forEach(interfaceContainer => interfaceContainer.resize( ... args));
+    }
+
+    static normalizeGameObject (gameObject) {
+        gameObject.scale = 1;
+        if (
+            "normalizePosition" in gameObject &&
+            typeof(gameObject.normalizePosition) === "function"
+        )
+            gameObject.normalizePosition();
+    }
+
+    static fitToFullScreen (gameObject, gameObjectSize, gameSize) {
+        const scale = {
+            x: gameSize.width / gameObjectSize.width,
+            y: gameSize.height / gameObjectSize.height
+        };
+        const remainderX = scale.x < 1 ? 1 - scale.x : 0;
+        gameObject.scaleX = scale.x + remainderX;
+        gameObject.scaleY = Math.max(scale.x, scale.y);
+        /*console.log("dimension authenticity scale test", {
+            widthWithScale: gameObjectSize.width * gameObject.scaleX, 
+            heightWithScale: gameObjectSize.height * gameObject.scaleY
+        });*/
+        gameObject.setPosition(0, 0);
     }
 };
 

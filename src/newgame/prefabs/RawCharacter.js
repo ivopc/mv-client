@@ -10,7 +10,6 @@ import { loadComplete } from "@/newgame/utils/scene.promisify";
 class RawCharacter extends Phaser.GameObjects.Sprite {
     constructor (scene, x, y, data) {
         super(scene, x, y, data);
-        this.scene = scene;
         this._data = data;
         // checking if sprite is already loaded, if don't we need to load it async
         if (scene.textures.exists(Database.ref.character[data.sprite].atlas)) {

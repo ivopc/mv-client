@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 
 import { SCENE } from "@/newgame/constants/GameScene";
-import { RESOLUTION } from "@/newgame/constants/Resolutions";
+import { RESOLUTION_TYPES } from "@/newgame/constants/Resolutions";
 
 import Loader from "./Loader";
 
@@ -45,7 +45,7 @@ class Boot extends Phaser.Scene {
             ui: this.cache.json.get(UI_ASSETS)
         });
         Layout.ref = new Layout({
-            resolution: RESOLUTION.HD,
+            resolution: RESOLUTION_TYPES.HD,
             data: this.cache.json.get(LAYOUT)
         });
         this.scene.start(this.transitionData.scene);

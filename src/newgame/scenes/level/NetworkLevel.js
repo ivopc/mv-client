@@ -3,19 +3,11 @@ import LevelData from "@/newgame/managers/LevelData";
 
 import { 
     LEVEL_EVENTS, 
-    OVERWORLD_ACTIONS 
+    OVERWORLD_ACTIONS,
+    LEVEL_P2P_STRUCT
 } from "@/newgame/constants/NetworkLevelEvents";
 
-/*
-    dispatchLevelData
-    dataType:
-    1 = char moving
-    2 = char facing
-    3 = remove char from map
-*/
-// in the channels of level change 'm' to 'l'
-
-class NetworkLevelListener {
+class NetworkLevel {
     constructor (scene) {
         this.scene = scene;
         this.subscribe = {
@@ -38,11 +30,15 @@ class NetworkLevelListener {
 
     subscribeLevel (levelId) {
         levelId = levelId || LevelData.ref.id;
-    	this.subscribe.level.conn = Network.ref.socket.subscribe("m" + levelId);
+        // in the channels of level change 'm' to 'l'
+    	this.subscribe.level.conn = Network.ref.socket.subscribe("l" + levelId);
     	this.subscribe.level.conn.watch(payload => this.dispatchLevelPayload(payload));
         this.subscribe.level.conn.on("subscribe", () => {
             this.subscribe.level.isSubscribed = true;
-            console.log("subscribe");
+        });
+        this.subscribe.level.conn.on("subscribeFail", () => {
+            this.subscribe.level.isSubscribed = false;
+            // reiniciar client | dar erro ao client (?)
         });
     }
 
@@ -54,14 +50,14 @@ class NetworkLevelListener {
         //Network.ref.socket.unwatch("m" + levelId);
     }
 
-    sendCharacterOverworldAction (dir, dataType) {
+    sendCharacterOverworldAction (direction, actionType) {
         if (!this.subscribe.level.isSubscribed)
             return;
-        this.subscribe.level.conn.publish({ dir, dataType });
+        this.subscribe.level.conn.publish([ direction, actionType ]);
     }
 
     dispatchLevelPayload (payload) {
-        switch (payload.dataType) {
+        switch (payload[LEVEL_P2P_STRUCT.ACTION_TYPE]) {
             case OVERWORLD_ACTIONS.MOVE:
             case OVERWORLD_ACTIONS.FACING:
             {
@@ -72,4 +68,4 @@ class NetworkLevelListener {
     }
 };
 
-export default NetworkLevelListener;
+export default NetworkLevel;

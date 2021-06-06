@@ -15,6 +15,14 @@ class PlayerData {
         this.notifications = data.notification;
     }
 
+    setPosition ({ x, y, facing }) {
+        this.character.position = { x, y, facing };
+    }
+
+    setFacing (direction) {
+        this.character.position.facing = direction;
+    }
+
     get data () {
         const { nickname, character, partyMonsters, items, notifications } = this;
         return { nickname, character, partyMonsters, items, notifications };

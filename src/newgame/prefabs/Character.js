@@ -1,5 +1,5 @@
 import RawCharacter from "./RawCharacter";
-import MovableOverworldGameObject from "./MovableOverworldGameObject";
+import OverworldCollider from "./OverworldCollider";
 import BalloonDialog from "./BalloonDialog";
 
 import Database from "@/newgame/managers/Database";
@@ -10,7 +10,7 @@ import { positionToOverworld } from "@/newgame/utils";
 import { timedEvent } from "@/newgame/utils/scene.promisify";
 
 import { STEP_TIME, TILE, DIRECTIONS, DIRECTIONS_HASH } from "@/newgame/constants/Overworld";
-import { CHAR_TYPES } from "@/newgame/constants/Character";
+import { CHAR_TYPES, MOVE_TYPES } from "@/newgame/constants/Character";
 
 
 /*
@@ -28,7 +28,7 @@ class Character extends RawCharacter {
             data
         );
         this._data = new CharacterModel(data);
-        this.physicsController = new MovableOverworldGameObject(this._data, scene.$tilemap);
+        this.physics = new OverworldCollider(this);
         this.elementsContainer = scene.add.container();
         this.elements = {
             nickname: null,
@@ -189,9 +189,7 @@ class Character extends RawCharacter {
     }
 
     async move (direction) {
-        if (this._data.isPlayer && (this._data.moveInProgress || this._data.stop))
-            return;
-        const collision = this.physicsController.collide(direction);
+        const collision = this.physics.collide(direction);
         await this.walk(direction, collision);
         switch (this._data.type) {
             case CHAR_TYPES.PLAYER: {
@@ -221,6 +219,7 @@ class Character extends RawCharacter {
                 };
             };
         };
+        return collision;
     }
 
     startToMove (direction, older) {
@@ -229,13 +228,11 @@ class Character extends RawCharacter {
         this._data.setFacing(direction);
         this.anims.stop();
         this.followMe(older);
-        if (this._data.isPlayer)
-            this.sendMove(direction);
     }
 
     preventedToMove (direction) {
         this.face(direction);
-        this.physicsController.triggerCantMove({
+        this.physics.triggerCantMove({
             facing: direction,
             x: this._data.position.x,
             y: this._data.position.y
@@ -255,9 +252,7 @@ class Character extends RawCharacter {
     }
 
     face (direction) {
-        if (this._data.moveInProgress)
-            return;
-        if (direction == "toPlayer") {
+        if (direction === "toPlayer") {
             switch(this.scene.$playerController.getFacing()) {
                 case DIRECTIONS_HASH.UP: {
                     direction = DIRECTIONS_HASH.DOWN;
@@ -277,12 +272,9 @@ class Character extends RawCharacter {
                 };
             };
         };
-        const needToSendFacing = this._data.isPlayer && this._data.position.facing !== direction;
         this._data.setFacing(direction);
         this.anims.stop();
         this.playIdleAnim(direction);
-        if (needToSendFacing)
-            this.sendFacing(direction);
     }
 
     async walkAnimation (direction) {
@@ -330,25 +322,25 @@ class Character extends RawCharacter {
     }
 
     walkStepFeet (direction) {
-        this.physicsController.triggerStartMove({
+        this.physics.triggerStartMove({
             facing: direction,
             x: this._data.position.x,
             y: this._data.position.y
         });
         this.changeOrigin(direction);
-        this.switchSpriteWalkStep(direction, this._data.stepFlag, "walk");
+        this.switchSpriteWalkStep(direction, this._data.stepFlag, MOVE_TYPES.WALK);
         return timedEvent(STEP_TIME.STEP * 2, this.scene);
     }
 
     walkStepIdle (direction) {
-        this.switchSpriteWalkStep(direction, 0, "idle");
+        this.switchSpriteWalkStep(direction, 0, MOVE_TYPES.IDLE);
         return timedEvent(STEP_TIME.STEP * 2, this.scene);
     }
 
     walkStepEnd (direction) {
         this._data.setMoveInProgress(false);
         this.playIdleAnim(direction);
-        this.physicsController.triggerEndMove({
+        this.physics.triggerEndMove({
             facing: direction,
             x: this._data.position.x,
             y: this._data.position.y
@@ -356,14 +348,18 @@ class Character extends RawCharacter {
     }
 
     switchSpriteWalkStep (direction, flag, type) {
-        if (typeof(flag) == "number" && type == "walk") {
+        if (typeof(flag) === "number" && type === MOVE_TYPES.WALK) {
             flag = flag ? 0 : 1;
             this._data.stepFlag = flag;
         };
         this.setFrame(Database.ref.character[this._data.sprite].name + "_" + DIRECTIONS[direction] + "_" + type + flag);
     }
 
-    static add () {}
+    static addtoLevel (scene, characterData) {
+        const gameObject = new Character(scene, characterData);
+        scene.add.existing(gameObject);
+        scene.$charactersController.addStaticCharacter(gameObject);
+    }
 };
 
 export default Character;

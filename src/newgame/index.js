@@ -1,6 +1,7 @@
 import Phaser from "phaser";
 
 import { SCENE } from "@/newgame/constants/GameScene";
+import { RESOLUTION_TYPES, RESOLUTION_SIZES } from "@/newgame/constants/Resolutions";
 
 import Boot from "./scenes/boot";
 import Overworld from "./scenes/overworld";
@@ -13,7 +14,7 @@ import AwaitLoaderPlugin from "phaser3-rex-plugins/plugins/awaitloader-plugin.js
 
 export let game;
 
-function launch (containerId) {
+export function createInstance (containerId) {
     // game core instance
     game = new Phaser.Game({
         type: Phaser.WEBGL,
@@ -22,8 +23,8 @@ function launch (containerId) {
             mode: Phaser.Scale.FIT,
             parent: containerId,
             autoCenter: Phaser.Scale.CENTER_BOTH,
-            width: 1280,
-            height: 720
+            width: RESOLUTION_SIZES[RESOLUTION_TYPES.HD].width,
+            height: RESOLUTION_SIZES[RESOLUTION_TYPES.HD].height
         },
         autoRound: false,
         plugins: {
@@ -56,6 +57,3 @@ function launch (containerId) {
     game.scene.add(SCENE.BATTLE, Battle);
     return game;
 };
-
-export default launch;
-export { launch };

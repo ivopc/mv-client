@@ -2,10 +2,13 @@ class InterfaceContainer extends Phaser.GameObjects.Container {
 
     constructor (scene, layout) {
         super(scene);
+        this.originalSize = {
+            width: 0,
+            height: 0
+        };
         this.setLayout(layout);
         this.setName(this.layout.mainContainer.name);
         this.normalizePosition();
-        this.originalSize = {};
     }
 
     setLayout (layoutData) {
@@ -16,6 +19,7 @@ class InterfaceContainer extends Phaser.GameObjects.Container {
         this.setSize(displayWidth, displayHeight);
         this.originalSize.width = displayWidth;
         this.originalSize.height = displayHeight;
+        Object.freeze(this.originalSize);
     }
 
     normalizePosition () {
@@ -25,6 +29,8 @@ class InterfaceContainer extends Phaser.GameObjects.Container {
         );
     }
 
+    // #abstract method is called when the game change resolution, this is for responsivity
+    // purpouses
     resize () {}
 
 };

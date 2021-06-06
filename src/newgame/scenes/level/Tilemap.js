@@ -20,10 +20,6 @@ class Tilemap {
         this.collisionLayer;
     }
 
-    get levelData () {
-        return Database.ref.level[LevelData.ref.id];
-    }
-
     create () {
         this.tilemap = this.scene.add.tilemap(Assets.ref.getLevelTilemap(this.levelData.id).key);
         this.tileset = this.fetchTilesets().map(tileset => this.tilemap.addTilesetImage(tileset.name, tileset.key, 32, 32, 1, 2));
@@ -61,6 +57,10 @@ class Tilemap {
         this.overlay.destroy();
         this.collisionLayer = null;
         this.objectsMap.clear();
+    }
+
+    get levelData () {
+        return Database.ref.level[LevelData.ref.id];
     }
 };
 

@@ -2,7 +2,8 @@ import Character from "./Character";
 
 import {
     OVERWORLD_ACTIONS, 
-    CHARACTER_OVERWORLD_ACTIONS_HASH 
+    CHARACTER_OVERWORLD_ACTIONS_HASH,
+    LEVEL_P2P_STRUCT
 } from "@/newgame/constants/NetworkLevelEvents";
 
 class RemotePlayer extends Character {
@@ -27,10 +28,10 @@ class RemotePlayer extends Character {
     }
 
     dispatchAction (payload) {
-        if ((this.isActionQueueNotEmpty() || this._data.moveInProgress) && payload.dataType === OVERWORLD_ACTIONS.MOVE) {
-            this.insertActionToQueue(payload.dir);
+        if ((this.isActionQueueNotEmpty() || this._data.moveInProgress) && payload[LEVEL_P2P_STRUCT.ACTION_TYPE] === OVERWORLD_ACTIONS.MOVE) {
+            this.insertActionToQueue(payload[LEVEL_P2P_STRUCT.DIRECTION]);
         } else {
-            this[CHARACTER_OVERWORLD_ACTIONS_HASH[payload.dataType]](payload.dir);
+            this[CHARACTER_OVERWORLD_ACTIONS_HASH[payload[LEVEL_P2P_STRUCT.ACTION_TYPE]]](payload[LEVEL_P2P_STRUCT.DIRECTION]);
         };
     }
 
@@ -38,6 +39,13 @@ class RemotePlayer extends Character {
         await super.move(direction);
         if (this.isActionQueueNotEmpty())
             this.execQueuedAction();
+    }
+
+    static addtoLevel (scene, playerData) {
+        const gameObject = new RemotePlayer(scene, playerData);
+        scene.add.existing(gameObject);
+        scene.$charactersController.addRemotePlayerGameObject(gameObject, playerData.userId);
+        scene.$containers.main.add(gameObject);
     }
 };
 

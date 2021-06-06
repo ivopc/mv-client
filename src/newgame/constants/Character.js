@@ -1,4 +1,4 @@
-const CHAR_TYPES = {
+export const CHAR_TYPES = {
     PLAYER: 0,
     ONLINE_PLAYER: 1,
     NPC: 2,
@@ -7,4 +7,7 @@ const CHAR_TYPES = {
     WILD: 5
 };
 
-export { CHAR_TYPES };
+export const MOVE_TYPES = {
+    IDLE: "idle",
+    WALK: "walk"
+};

@@ -63,7 +63,7 @@
                 this.eventBus.$emit("hide-elements");
                 
                 const game = await import("@/newgame");
-                this.gameInstance = game.launch(this.containerId);
+                this.gameInstance = game.createInstance(this.containerId);
                 this.gameStarted = true;
 
                 if (process.env.NODE_ENV == "development") {
@@ -86,6 +86,8 @@
                     hostname: location.hostname
                 });
                 this.socket.on("99", payload => this.handleInit(payload));
+                this.socket.on("subscribe", channel => console.log(channel))
+                this.socket.on("subscribeFail", channel => console.log("fail", channel));
             },
             handleInit (payload) {
                 new Boot(this.socket, payload);

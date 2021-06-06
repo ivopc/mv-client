@@ -4,15 +4,17 @@ import MonsterModel from "@/newgame/models/Monster";
 import MonsterListModel from "@/newgame/models/MonsterList";
 
 import { TILE } from "@/newgame/constants/Overworld";
+import { RESOLUTION_SIZES } from "@/newgame/constants/Resolutions";
+
+// merge objects
+export const merge = (object, merge) =>
+    Object.keys(merge).forEach(toMerge => object[toMerge] = merge[toMerge]);
 
 export const promisesWaterfall = callbacks =>
-    callbacks.reduce((accumulator, callback) => 
+    callbacks.reduce((accumulator, callback) =>
         accumulator.then(callback),
         Promise.resolve(null)
     );
-
-// convert tile X and Y position to overworld pixel based position
-export const positionToOverworld = position => position * TILE.SIZE;
 
 // check if device is mobile
 const checkMobile = function () {
@@ -21,6 +23,26 @@ const checkMobile = function () {
     return check;
 };
 export const isMobile = checkMobile();
+
+// convert tile X and Y position to overworld pixel based position
+export const positionToOverworld = position => position * TILE.SIZE;
+
+// convert raw monster list to treated monster list model
+export const treatMonsterList = monsterList =>
+    new MonsterListModel(monsterList.map(monster => new MonsterModel(monster)));
+
+// get resolution dimensions
+export const getResolution = type => RESOLUTION_SIZES[type];
+
+// add generic UI component to main UI container
+export const addGenericUIComponent = (scene, layout) =>
+    scene.add.sprite(
+        layout.position.x,
+        layout.position.y,
+        layout.texture
+    )
+        .setOrigin(0)
+        .setName(layout.name);
 
 // how many time to reach the date
 export const convertMsToDate = function (miliseconds, format) {
@@ -66,11 +88,3 @@ export const treatVipDate = function (date) {
     };
     return Text.ref.get("profile", "vipLessThanOneMin");
 };
-
-// merge objects
-export const merge = (object, merge) =>
-    Object.keys(merge).forEach(toMerge => object[toMerge] = merge[toMerge]);
-
-// convert raw monster list to treated monster list model
-export const treatMonsterList = monsterList =>
-    new MonsterListModel(monsterList.map(monster => new MonsterModel(monster)));

@@ -1,6 +1,11 @@
 import Phaser from "phaser";
 
+import { RESOLUTION_TYPES } from "@/newgame/constants/Resolutions";
+
 import Layout from "@/newgame/managers/Layout";
+import LayoutResponsivityManager from "@/newgame/managers/LayoutResponsivityManager";
+
+import { getResolution, addGenericUIComponent } from "@/newgame/utils";
 
 import InterfaceContainer from "./components/InterfaceContainer";
 import Button from "./components/Button";
@@ -8,26 +13,14 @@ import Rating from "./components/wildmenu/Rating";
 
 class WildMenu extends InterfaceContainer {
     constructor (scene) {
-        super(scene, Layout.ref.data.wildEncounter);
+        super(scene, Layout.ref.get("wildEncounter"));
         scene.add.existing(this);
         //scene.plugins.get("rexDrag").add(this);
     }
 
     append () {
-        this.background = this.scene.add.sprite(
-            this.layout.background.position.x,
-            this.layout.background.position.y,
-            this.layout.background.texture
-        )
-            .setOrigin(0)
-            .setName(this.layout.background.name);
-        this.nameBox = this.scene.add.sprite(
-            this.layout.nameBox.position.x,
-            this.layout.nameBox.position.y,
-            this.layout.nameBox.texture
-        )
-            .setOrigin(0)
-            .setName(this.layout.nameBox.name);
+        this.background = addGenericUIComponent(this.scene, this.layout.background);
+        this.nameBox = addGenericUIComponent(this.scene, this.layout.nameBox);
         this.btnBattle = new Button(this.scene, {
             x: this.layout.btnBattle.position.x,
             y: this.layout.btnBattle.position.y,
@@ -75,22 +68,10 @@ class WildMenu extends InterfaceContainer {
     }
 
     resize (gameSize, baseSize, displaySize, previousWidth, previousHeight) {
-        if (displaySize.width <= 480) {
-            const scale = {
-                x: gameSize.width / this.originalSize.width,
-                y: gameSize.height / this.originalSize.height
-            };
-            const remainderX = scale.x < 1 ? 1 - scale.x : 0;
-            this.scaleX = scale.x + remainderX;
-            this.scaleY = Math.max(scale.x, scale.y);
-            console.log("dimension authenticity scale test", {
-                widthWithScale: this.originalSize.width * this.scaleX, 
-                heightWithScale: this.originalSize.height * this.scaleY
-            });
-            this.setPosition(0, 0);
+        if (displaySize.width <= getResolution(RESOLUTION_TYPES.MOBILE).width) {
+            LayoutResponsivityManager.fitToFullScreen(this, this.originalSize, gameSize);
         } else {
-            this.scale = 1;
-            this.normalizePosition();
+            LayoutResponsivityManager.normalizeGameObject(this);
         };
     }
 };

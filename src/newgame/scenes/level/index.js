@@ -6,16 +6,16 @@ import SceneManager from "@/newgame/managers/SceneManager";
 
 import Loader from "./Loader";
 import LevelManager from "./LevelManager";
-import NetworkLevelListener from "./NetworkLevelListener";
+import NetworkLevel from "./NetworkLevel";
 import InputListener from "./InputListener";
 import InputController from "./InputController";
 import CameraController from "./CameraController";
 import Tilemap from "./Tilemap";
 import Container from "./Container";
-import RuntimeScripting from "./RuntimeScripting";
+import RuntimeScript from "./RuntimeScript";
 import PlayerCharacterController from "./PlayerCharacterController";
 import GenericCharactersController from "./GenericCharactersController";
-import LookerPathfinding from "./LookerPathfinding";
+import LookerPathfind from "./LookerPathfind";
 
 import { requestWildEncounter } from "./network/wild.network";
 
@@ -45,17 +45,17 @@ class Level extends Phaser.Scene {
     }
 
     create () {
-        this.$network = new NetworkLevelListener(this);
+        this.$network = new NetworkLevel(this);
         this.$manager = new LevelManager(this);
         this.$inputListener = new InputListener(this);
         this.$inputController = new InputController(this);
         this.$cameraController = new CameraController(this);
         this.$containers = new Container(this);
         this.$tilemap = new Tilemap(this);
-        this.$runtime = new RuntimeScripting(this);
+        this.$runtime = new RuntimeScript(this);
         this.$playerController = new PlayerCharacterController(this);
         this.$charactersController = new GenericCharactersController(this);
-        //this.$lookerPathfinding = new LookerPathfinding(this);
+        //this.$lookerPathfinding = new LookerPathfind(this);
         // **-----------------------------------**
         this.$cameraController.setup();
         this.$containers.create();

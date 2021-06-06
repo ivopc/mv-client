@@ -4,8 +4,8 @@
         "type": "image",
         "path": "assets/img/ui/wild-encounter/{resolution}/background.png"
     },
-    "wild_encounte_name_box": {
-        "key": "wild_encounte_name_box",
+    "wild_encounter_name_box": {
+        "key": "wild_encounter_name_box",
         "type": "image",
         "path": "assets/img/ui/wild-encounter/{resolution}/name_box.png"
     },

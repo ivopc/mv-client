@@ -1,6 +1,6 @@
 import LevelData from "@/newgame/managers/LevelData";
 
-class LookerPathfinding {
+class LookerPathfind {
     constructor (scene) {
         this.scene = scene;
         this.enabled = false;
@@ -179,4 +179,4 @@ Overworld.checkPlayerTamerRange = function (axis, equalAxis, viewDirection, walk
     };
 };*/
 
-export default LookerPathfinding;
+export default LookerPathfind;

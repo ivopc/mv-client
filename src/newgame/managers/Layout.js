@@ -5,6 +5,10 @@ class Layout {
         this.data = data;
     }
 
+    get (layout) {
+        return this.data[layout];
+    }
+
     static ref
 };
 

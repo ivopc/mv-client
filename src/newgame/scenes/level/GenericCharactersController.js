@@ -4,7 +4,8 @@ import RemotePlayer from "@/newgame/prefabs/RemotePlayer";
 import { CHAR_TYPES } from "@/newgame/constants/Character";
 import { 
     OVERWORLD_ACTIONS, 
-    CHARACTER_OVERWORLD_ACTIONS_HASH 
+    CHARACTER_OVERWORLD_ACTIONS_HASH,
+    LEVEL_P2P_STRUCT
 } from "@/newgame/constants/NetworkLevelEvents";
 
 /*remote player data coming from server = {
@@ -18,32 +19,6 @@ import {
     "char": 2,
     "nickname": "SouXiterMex1"
 }*/
-
-const LEVEL_P2P_DATA = {
-    MOVEMENT: {
-        DIRECTION: 0,
-        DATA_TYPE: 1,
-        UID: 2,
-        POSITION: 3,
-        X: 0,
-        Y: 1,
-        CHARACTER: 4,
-        NICKNAME: 5
-    }
-};
-
-const LEVEL_P2P_DATA_ = {
-    DATA_TYPE: 0,
-    MOVEMENT: {
-        DIRECTION: 1,
-        UID: 2,
-        POSITION: 3, // ->
-            X: 0,
-            Y: 1,
-        CHARACTER: 4,
-        NICKNAME: 5
-    }
-};
 
 
 class GenericCharactersController {
@@ -73,18 +48,16 @@ class GenericCharactersController {
     
 
     handleRemotePlayerData (payload) {
-        switch (payload.dataType) {
+        switch (payload[LEVEL_P2P_STRUCT.ACTION_TYPE]) {
             case OVERWORLD_ACTIONS.MOVE:
             case OVERWORLD_ACTIONS.FACING:
             {
-                payload.type = CHAR_TYPES.ONLINE_PLAYER;
                 // checking if remote player isn't in level
-                if ( !(payload.uid in this.remotePlayers) ) {
+                if ( !(payload[LEVEL_P2P_STRUCT.USER_ID] in this.remotePlayers) ) {
                     this.addRemotePlayer(payload);
                     return;
                 };
-                //this.remotePlayers[payload.uid][CHARACTER_OVERWORLD_ACTIONS_HASH[payload.dataType]](payload.dir);
-                this.getRemotePlayer(payload.uid).dispatchAction(payload);
+                this.getRemotePlayer(payload[LEVEL_P2P_STRUCT.USER_ID]).dispatchAction(payload);
                 break;
             };
         }
@@ -95,18 +68,21 @@ class GenericCharactersController {
     }
 
     addRemotePlayer (playerData) {
-        const gameObject = new RemotePlayer(this.scene, {
-            type: playerData.type,
+        RemotePlayer.addToLevel(this.scene, {
+            type: CHAR_TYPES.ONLINE_PLAYER,
             position: {
-                x: playerData.pos.x,
-                y: playerData.pos.y,
-                facing: playerData.dir
+                x: playerData[LEVEL_P2P_STRUCT.X],
+                y: playerData[LEVEL_P2P_STRUCT.Y],
+                facing: playerData[LEVEL_P2P_STRUCT.DIRECTION]
             },
-            sprite: playerData.char,
-            nickname: playerData.nickname
+            sprite: playerData[LEVEL_P2P_STRUCT.CHARACTER],
+            nickname: playerData[LEVEL_P2P_STRUCT.NICKNAME],
+            userId: playerData[LEVEL_P2P_STRUCT.USER_ID]
         });
-        this.remotePlayers[playerData.uid] = gameObject;
-        this.scene.$containers.main.add(gameObject);
+    }
+
+    addRemotePlayerGameObject (gameObject, userId) {
+        this.remotePlayers[userId] = gameObject;
     }
 
     getFollower (id) {

@@ -4,7 +4,7 @@ import behaviors from "./runtime.scripts";
 
 import { promisesWaterfall } from "@/newgame/utils";
 
-class RuntimeScripting {
+class RuntimeScript {
 
     behaviors = behaviors;
 
@@ -52,4 +52,4 @@ class RuntimeScripting {
     }
 };
 
-export default RuntimeScripting;
+export default RuntimeScript;

@@ -3,6 +3,8 @@ import Phaser from "phaser";
 import { SCENE } from "@/newgame/constants/GameScene";
 import { RESOLUTION_TYPES, RESOLUTION_SIZES } from "@/newgame/constants/Resolutions";
 
+import SceneBoot from "@/newgame/managers/SceneBoot";
+
 import Boot from "./scenes/boot";
 import Overworld from "./scenes/overworld";
 import Level from "./scenes/level";
@@ -56,4 +58,8 @@ export function createInstance (containerId) {
     game.scene.add(SCENE.LEVEL, Level);
     game.scene.add(SCENE.BATTLE, Battle);
     return game;
+};
+
+export function boot (payload) {
+    new SceneBoot(payload);
 };

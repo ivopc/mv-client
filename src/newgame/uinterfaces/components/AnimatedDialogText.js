@@ -1,8 +1,5 @@
+import Phaser from "phaser";
 //import Text from "@/newgame/managers/Text";
-
-import { timedEvent } from "@/newgame/utils/scene.promisify";
-import { animationTimerDelay, interactionLockDelay } from "@/newgame/constants/Dialog";
-
 // placeholder
 const Text = {
     ref: {
@@ -10,14 +7,16 @@ const Text = {
     }
 };
 
-class AnimatedDialogText {
-    constructor (scene, text) {
-        this.scene = scene;
-        this.text = text;
+import { timedEvent } from "@/newgame/utils/scene.promisify";
+import { animationTimerDelay, interactionLockDelay } from "@/newgame/constants/Dialog";
+
+class AnimatedDialogText extends Phaser.GameObjects.Text {
+    constructor (scene, style) {
+        super(scene, style.x, style.y, "", style);
+        this.textContainer = text;
         this.textListIndex = 0;
         this.specificTextPhraseIndex = 0;
         this.phraseLetterIndex = 0;
-        this.textComponent;
         this.animationTimer;
         this.animationInProgress = false;
         this.isInteractionLocked = false;
@@ -25,20 +24,10 @@ class AnimatedDialogText {
         this.onEndCallbackList = [];
     }
 
-    createText (textPosition, textStyle) {
-        this.textComponent = this.scene.add.text(
-            textPosition.x, 
-            textPosition.y, 
-            "", 
-            textStyle
-        );
-        return this.textComponent;
-    }
-
-    setAnimationTimer (delay) {
+    setAnimationTimer (delay = animationTimerDelay) {
         this.animationInProgress = true;
         this.animationTimer = this.scene.time.addEvent({
-            delay: delay || animationTimerDelay, 
+            delay: delay, 
             callback: this.animate, 
             callbackScope: this,
             loop: true
@@ -55,22 +44,22 @@ class AnimatedDialogText {
             return;
         this.isInteractionLocked = true;
         // check if is in the last dialog and if the animation is not in progress
-        if (this.specificTextPhraseIndex >= this.text[this.textListIndex][Text.ref.lang].length && !this.animationInProgress) {
+        if (this.specificTextPhraseIndex >= this.textContainer[this.textListIndex][Text.ref.lang].length && !this.animationInProgress) {
             console.log("último dialogo");
-            this.remove();
             this.onEnd();
+            this.destroy();
             return;
         };
         // if dialog is in progress skip animation and set to the last letter directly
         if (this.animationInProgress) {
             this.animationTimer.destroy();
-            this.textComponent.setText(this.text[this.textListIndex][Text.ref.lang][this.specificTextPhraseIndex]);
+            this.setText(this.textContainer[this.textListIndex][Text.ref.lang][this.specificTextPhraseIndex]);
             this.specificTextPhraseIndex ++;
             this.phraseLetterIndex = 0;
             this.animationInProgress = false;
         // if not in progress throw to the next dialog
         } else {
-            this.textComponent.setText("");
+            this.setText("");
             this.setAnimationTimer();
             this.animationInProgress = true;
         };
@@ -85,33 +74,33 @@ class AnimatedDialogText {
             this.phraseLetterIndex = 0;
             return;
         };
-        this.textComponent.setText(
-            this.textComponent.text + 
+        this.setText(
+            this.text + 
             this.text[this.textListIndex][Text.ref.lang][this.specificTextPhraseIndex][this.phraseLetterIndex++]
         );
-    }
-
-    remove () {
-        this.textComponent.destroy();
-        this.animationTimer.destroy();
     }
 
     setOnEnd (callback) {
         this.onEndCallback = callback;
     }
 
-    addEndEvent (callback) {
+    addOnEndEvent (callback) {
         this.onEndCallbackList.push(callback);
     }
 
     onEnd () {
-        if (typeof this.onEndCallback == "function")
+        if (typeof this.onEndCallback === "function")
             this.onEndCallback();
         this.onEndCallbackList.forEach(callback => callback());
     }
 
     waitForEnd () {
         return new Promise(resolve => this.setOnEnd(resolve));
+    }
+
+    destroy () {
+        super.destroy();
+        this.animationTimer.destroy();
     }
 };
 

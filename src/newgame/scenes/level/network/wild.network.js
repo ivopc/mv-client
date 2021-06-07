@@ -1,6 +1,6 @@
 import Network from "@/newgame/managers/Network";
 
-import { LEVEL_EVENTS } from "@/newgame/constants/NetworkLevelEvents";
+import { LEVEL_EVENTS } from "@/newgame/constants/NetworkEvents";
 
 export async function requestWildEncounter () {
     let response;

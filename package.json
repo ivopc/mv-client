@@ -25,6 +25,7 @@
     "phaser3-rex-plugins": "^1.1.47",
     "popper.js": "^1.15.0",
     "sc-channel": "^2.0.0",
+    "sc-codec-min-bin": "^3.0.0",
     "sc-errors": "^2.0.1",
     "sc-formatter": "^3.0.2",
     "socketcluster-client": "^14.3.1",

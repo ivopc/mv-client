@@ -6,13 +6,13 @@ import SlotElement from "./components/party/SlotElement";
 import Layout from "@/newgame/managers/Layout";
 import PlayerData from "@/newgame/managers/PlayerData";
 
-import { TYPES } from "@/newgame/constants/Party";
+import { PARTY_INTERFACE_TYPES } from "@/newgame/constants/Party";
 
 class Party extends Phaser.GameObjects.Container {
     constructor (scene, params = {}) {
         super(scene);
         this.layout = Layout.ref.data.party;
-        this.type = params.type;
+        this.type = params.type || PARTY_INTERFACE_TYPES.COMMON;
         this.slots = new Array(6);
         this.tooltip;
     }

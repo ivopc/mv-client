@@ -14,6 +14,7 @@
     "2": {
         "id": 2,
         "name": "map22",
+        "hasParticularBehavior": true,
         "tiles": [
             {"key": "tileset1", "src": "assets/img/tileset/tiles1.png", "name": "Tiles1"}
         ],

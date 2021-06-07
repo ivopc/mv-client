@@ -4,7 +4,7 @@ for es6 and webpack reasons extending the MonsterList as
 so we're using this provisional solution
 */
 
-class MonsterList {
+class MonsterListModel {
     
     constructor (monsterList) {
         this.monsterList = monsterList;
@@ -56,4 +56,4 @@ class MonsterList extends Array {
 };
 */
 
-export default MonsterList;
+export default MonsterListModel;

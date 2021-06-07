@@ -2,7 +2,7 @@ import Database from "@/newgame/managers/Database";
 
 import { CHAR_TYPES } from "@/newgame/constants/Character";
 
-class Character {
+class CharacterModel {
 
     constructor (data) {
         // treat the data coming from another class method
@@ -83,4 +83,4 @@ class Character {
     }
 };
 
-export default Character;
+export default CharacterModel;

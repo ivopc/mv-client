@@ -42,13 +42,23 @@ class Loader extends RawLoader {
         // level custom asset (if there's)
         if (level.customAssets && level.customAssets.length > 0)
             this.fetchLoaders(level.customAssets);
-        // load level particular behavior for advanced scripting (if there's)
-        scene.load.rexAwait(callback =>
-            import(`./particularbehavior/${level.id}`)
-                .then(behavior => scene.$levelBehavior = new behavior.default(scene))
-                .catch(() => scene.$levelBehavior = new BaseLevelScript(scene))
-                .finally(callback)
-        );
+        // subscribe to level in network and load level particular
+        //  behavior for advanced scripting (if there's)
+        scene.load.rexAwait(async callback => {
+            const promises = [
+                async () => await scene.$network.subscribeLevel(level.id)
+            ];
+            if (level.hasParticularBehavior) {
+                promises.push(async () => await import(`./particularbehavior/${level.id}`));
+            };
+            const [ subscription, levelBehavior ] = await Promise.all(promises.map(fn => fn()));
+            if (level.hasParticularBehavior)
+                scene.$levelBehavior = new levelBehavior.default(scene);
+            else
+                scene.$levelBehavior = new BaseLevelScript(scene);
+            callback();
+        });
+
     }
 
     async changeLevel (levelData) {

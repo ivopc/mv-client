@@ -4,7 +4,7 @@ import {
     OVERWORLD_ACTIONS, 
     CHARACTER_OVERWORLD_ACTIONS_HASH,
     LEVEL_P2P_STRUCT
-} from "@/newgame/constants/NetworkLevelEvents";
+} from "@/newgame/constants/NetworkEvents";
 
 class RemotePlayer extends Character {
     constructor (scene, data) {

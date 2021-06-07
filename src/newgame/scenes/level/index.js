@@ -17,13 +17,15 @@ import PlayerCharacterController from "./PlayerCharacterController";
 import GenericCharactersController from "./GenericCharactersController";
 import LookerPathfind from "./LookerPathfind";
 
-import { requestWildEncounter } from "./network/wild.network";
+import { getPing } from "./network/ping.network";
 
 class Level extends Phaser.Scene {
     constructor () {
         super({ key: SCENE.LEVEL });
         this.$loader;
-        this.$network;
+        // network need to be instancied here cause `Loader` depends 
+        // on it for level channel subscribe success event
+        this.$network = new NetworkLevel(this);
         this.$manager;
         this.$inputListener;
         this.$inputController;
@@ -45,7 +47,6 @@ class Level extends Phaser.Scene {
     }
 
     create () {
-        this.$network = new NetworkLevel(this);
         this.$manager = new LevelManager(this);
         this.$inputListener = new InputListener(this);
         this.$inputController = new InputController(this);
@@ -55,7 +56,7 @@ class Level extends Phaser.Scene {
         this.$runtime = new RuntimeScript(this);
         this.$playerController = new PlayerCharacterController(this);
         this.$charactersController = new GenericCharactersController(this);
-        //this.$lookerPathfinding = new LookerPathfind(this);
+        //this.$lookerPathfind = new LookerPathfind(this);
         // **-----------------------------------**
         this.$cameraController.setup();
         this.$containers.create();
@@ -66,17 +67,24 @@ class Level extends Phaser.Scene {
         // Level Behavior is instancied in Loader class
         this.$levelBehavior.create();
         this.$cameraController.setDefaultZoom();
-        this.$network.subscribeLevel();
         this.$inputListener.addListener();
         SceneManager.setLevel(this);
         // tests
         //this.$runtime.run(this.$runtime.parse());
-        this.lol();
+        //console.log(this.cache.tilemap.get("level_2"));
+        this.test();
+        this.time.addEvent({
+            delay: 5000,
+            callback: this.test,
+            callbackScope: this,
+            loop: true
+        });
     }
 
-    async lol () {
-        const data = await requestWildEncounter();
-        console.log("wild", data);
+    async test () {
+        console.time("ping");
+        const time = await getPing();
+        console.timeEnd("ping");
     }
 
     update (time) {

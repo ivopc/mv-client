@@ -4,6 +4,12 @@ const prodEnv = require('./prod.env');
 
 module.exports = merge(prodEnv, {
     NODE_ENV: '"development"',
-    baseURL: '"http://localhost:3000/"',
-    gameClientBaseURL: '"/static"'
-})
+    httpClientBaseURL: '"http://localhost:3000/"',
+    gameClientAssetsBaseURL: '"/static"',
+    gameClientNetwork: {
+        hostname: '"localhost"',
+        path: '"/gameserver/"',
+        port: 8000,
+        secure: false
+    }
+});

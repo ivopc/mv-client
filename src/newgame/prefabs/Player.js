@@ -4,7 +4,7 @@ import PlayerData from "@/newgame/managers/PlayerData";
 
 import { CHAR_TYPES } from "@/newgame/constants/Character";
 import { TILE } from "@/newgame/constants/Overworld";
-import { OVERWORLD_ACTIONS } from "@/newgame/constants/NetworkLevelEvents";
+import { OVERWORLD_ACTIONS } from "@/newgame/constants/NetworkEvents";
 
 class Player extends Character {
     constructor (scene, data) {

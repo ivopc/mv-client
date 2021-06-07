@@ -71,7 +71,7 @@ const routes = [
     }
 ];
 
-if (process.env.NODE_ENV == "development") {
+/*if (process.env.NODE_ENV == "development") {
     routes.push(
         {
             path: "/levelmanager",
@@ -82,7 +82,7 @@ if (process.env.NODE_ENV == "development") {
             }
         }
     );
-};
+};*/
 
 
 export default new Router({ mode: "history", routes });

@@ -1,3 +1,5 @@
+import { stringTokens } from "@/newgame/constants/DialogTokens";
+
 class ReplaceStringToken {
     static replace (text, attr) {
         const obj = Object.getOwnPropertyNames(attr);
@@ -7,6 +9,13 @@ class ReplaceStringToken {
                 attr[obj[i]]
             );
         };
+        return text;
+    }
+
+    static replaceGameDialogTokens (text) {
+        stringTokens.forEach(token => {
+            text = text.replace(new RegExp(token.key, "gi"), token.replacer());
+        });
         return text;
     }
 };

@@ -1,9 +1,10 @@
+import PlayerData from "@/newgame/managers/PlayerData";
+
 import ReplaceStringToken from "@/newgame/utils/ReplaceStringToken";
 
 class Text {
-    constructor (texts, lang) {
+    constructor (texts) {
     	this.texts = text;
-        this.lang = lang;
     }
 
     get (category, textKey, templateString) {
@@ -13,8 +14,8 @@ class Text {
     	return text;
     }
 
-    setLang (lang) {
-        this.lang = lang;
+    get lang () {
+        return PlayerData.ref.lang;
     }
     
     static ref

@@ -11,7 +11,7 @@ import InterfaceContainer from "./components/InterfaceContainer";
 import Button from "./components/Button";
 import Rating from "./components/wildmenu/Rating";
 
-class WildMenu extends InterfaceContainer {
+class WildMenu extends InterfaceContainer {                                                                                                                                                                                                                      
     constructor (scene) {
         super(scene, Layout.ref.get("wildEncounter"));
         scene.add.existing(this);

@@ -6,20 +6,7 @@ import {
     OVERWORLD_ACTIONS, 
     CHARACTER_OVERWORLD_ACTIONS_HASH,
     LEVEL_P2P_STRUCT
-} from "@/newgame/constants/NetworkLevelEvents";
-
-/*remote player data coming from server = {
-    "dir": 3,
-    "dataType": 1,
-    "uid": 2,
-    "pos": {
-        "x": 12,
-        "y": 23
-    },
-    "char": 2,
-    "nickname": "SouXiterMex1"
-}*/
-
+} from "@/newgame/constants/NetworkEvents";
 
 class GenericCharactersController {
     constructor (scene) {

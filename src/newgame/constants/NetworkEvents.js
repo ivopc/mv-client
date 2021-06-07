@@ -1,7 +1,11 @@
+export const GAME_EVENTS = {
+    GAME_CLIENT_BOOT: 0,
+    PING: 1
+};
+
 export const LEVEL_EVENTS = {
-    PONG: "0",
-    CHAT_MESSAGE: "1",
-    SEARCH_WILD: "20"
+    CHAT_MESSAGE: 3,
+    SEARCH_WILD: 20
 };
 
 export const OVERWORLD_ACTIONS = {

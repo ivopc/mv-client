@@ -3,13 +3,14 @@ import Assets from "./Assets";
 import Layout from "./Layout";
 
 import { ASSET_TYPE } from "@/newgame/constants/Asset";
+
 import ReplaceStringToken from "@/newgame/utils/ReplaceStringToken";
 import AssetTemplateInjector from "@/newgame/utils/AssetTemplateInjector";
 
 class RawLoader {
     constructor (scene) {
         this.scene = scene;
-        scene.load.setBaseURL(process.env.gameClientBaseURL);
+        scene.load.setBaseURL(process.env.gameClientAssetsBaseURL);
         if (!RawLoader.alreadyLoadedBase)
             this.fetchBaseAssets();
     }

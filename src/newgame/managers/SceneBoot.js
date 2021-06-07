@@ -1,7 +1,7 @@
 /*
-* Boot.js
-* class to control the game boot, to handle which scene we need to start, according to
-* server payload data (initial base data to start the game), make singletons of a lot of
+* SceneBoot.js
+* class to control the scene boot, to handle which scene we need to start, according to
+* server payload data (initial base data to start the scenes), make singletons of a lot of
 * manager classes
 */
 import { STATE } from "@/newgame/constants/GameBootStates";
@@ -10,13 +10,11 @@ import { SCENE } from "@/newgame/constants/GameScene";
 import PlayerData from "./PlayerData";
 import LevelData from "./LevelData";
 import BattleData from "./BattleData";
-import Network from "./Network";
 
 import { game } from "@/newgame";
 
-class Boot {
-    constructor (socket, payload) {
-        Network.ref = new Network(socket);
+class SceneBoot {
+    constructor (payload) {
         switch (payload.state) {
             case STATE.OVERWORLD: {
                 this.initOverworld(payload);
@@ -71,4 +69,4 @@ class Boot {
     }
 };
 
-export default Boot;
+export default SceneBoot;

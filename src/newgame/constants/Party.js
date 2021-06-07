@@ -1,9 +1,9 @@
-const TYPES = {
-    PARTY: 1,
+export const PARTY_INTERFACE_TYPES = {
+    COMMON: 1,
     ITEM: 2,
     BATTLE_PARTY: 3,
     BATTLE_ITEM: 4,
-    DEFEATED: 5
+    BATTLE_DEFEATED: 5
 };
 
-export { TYPES };
+export const MAX_MONSTERS_IN_PARTY = 6;

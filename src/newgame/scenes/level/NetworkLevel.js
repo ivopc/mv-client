@@ -5,7 +5,7 @@ import {
     LEVEL_EVENTS, 
     OVERWORLD_ACTIONS,
     LEVEL_P2P_STRUCT
-} from "@/newgame/constants/NetworkLevelEvents";
+} from "@/newgame/constants/NetworkEvents";
 
 class NetworkLevel {
     constructor (scene) {
@@ -19,8 +19,8 @@ class NetworkLevel {
 
     addListener () {
         Network.ref
-            .addEvent(LEVEL_EVENTS.PONG, () => this.ping())
-            .addEvent(LEVEL_EVENTS.CHAT_MESSAGE, payload => this.newChatMessage(payload));
+            .addEvent(LEVEL_EVENTS.SEARCH_WILD, data => this.dispatchWild(data))
+            .addEvent(LEVEL_EVENTS.CHAT_MESSAGE, data => this.dispatchChatMessage(data));
     }
 
     removeListener () {
@@ -28,17 +28,20 @@ class NetworkLevel {
             .forEach(event => Network.ref.removeEvent(LEVEL_EVENTS[event]));
     }
 
-    subscribeLevel (levelId) {
+    async subscribeLevel (levelId) {
         levelId = levelId || LevelData.ref.id;
         // in the channels of level change 'm' to 'l'
     	this.subscribe.level.conn = Network.ref.socket.subscribe("l" + levelId);
     	this.subscribe.level.conn.watch(payload => this.dispatchLevelPayload(payload));
-        this.subscribe.level.conn.on("subscribe", () => {
-            this.subscribe.level.isSubscribed = true;
-        });
-        this.subscribe.level.conn.on("subscribeFail", () => {
-            this.subscribe.level.isSubscribed = false;
-            // reiniciar client | dar erro ao client (?)
+        return new Promise((resolve, reject) => {
+            this.subscribe.level.conn.once("subscribe", () => {
+                this.subscribe.level.isSubscribed = true;
+                resolve();
+            });
+            this.subscribe.level.conn.once("subscribeFail", () => {
+                this.subscribe.level.isSubscribed = false;
+                reject();
+            });
         });
     }
 
@@ -51,8 +54,6 @@ class NetworkLevel {
     }
 
     sendCharacterOverworldAction (direction, actionType) {
-        if (!this.subscribe.level.isSubscribed)
-            return;
         this.subscribe.level.conn.publish([ direction, actionType ]);
     }
 

@@ -20,6 +20,9 @@ class CharacterModel {
         this.stop = false;
         this.stepFlag = 0;
         this.moveInProgress = false;
+        // experimental
+        // em qual 'andar' do mapa o character está?
+        this.floor = 0;
         if (normalizedData.isTamer) {
             this.isTamer = true;
             this.maxView = normalizedData.maxView;
@@ -80,6 +83,10 @@ class CharacterModel {
 
     get hasFollower () {
         return this.follower.has;
+    }
+
+    getCurrentFloor () {
+        return this.floor;
     }
 };
 

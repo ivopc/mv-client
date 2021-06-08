@@ -1,6 +1,6 @@
 import Database from "@/newgame/managers/Database";
 
-import { merge } from "@/newgame/utils";
+import { merge } from "@/lib/utils";
 
 class MonsterModel {
     constructor (data) {

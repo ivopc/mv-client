@@ -63,28 +63,20 @@
                 this.gameStarted = true;
                 if (process.env.NODE_ENV == "development")
                     this._debug();
-                console.time("get gameboot data");
                 const bootData = await this.waitGameConn();
-                console.timeEnd("get gameboot data");
                 game.boot(bootData);
             },
             async waitGameConn () {
-                // TODO: need to create a wrapper to socket reference
-                const [ socketCluster, Network ] = await Promise.all([
-                    import("socketcluster-client"),
-                    import("@/newgame/managers/Network")
-                ]);
+                const Network = await import("@/newgame/managers/Network");
                 // 
                 const ntwk = Network.default;
-                ntwk.ref = new ntwk(socketCluster);
+                ntwk.ref = new ntwk();
                 ntwk.ref.setAuth({
                     userId: String($Authentication.id),
                     token: $Authentication.token.auth
                 });
                 ntwk.ref.startConn();
-                console.time("init conexão");
                 await ntwk.ref.waitConn();
-                console.timeEnd("init conexão");
                 return await ntwk.ref.getGameBootData();
             },
             _debug () {

@@ -51,15 +51,14 @@ export function createInstance (containerId) {
             ]
         }
     });
-
     // add scenes to game instance
     game.scene.add(SCENE.BOOT, Boot);
     game.scene.add(SCENE.OVERWORLD, Overworld);
     game.scene.add(SCENE.LEVEL, Level);
     game.scene.add(SCENE.BATTLE, Battle);
+    // stop the native full screen method to implement my own 
+    game.scale.stopListeners();
     return game;
 };
 
-export function boot (payload) {
-    new SceneBoot(payload);
-};
+export const boot = payload => new SceneBoot(payload);

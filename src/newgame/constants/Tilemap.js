@@ -3,3 +3,5 @@ export const LAYER_TYPES = {
     OVERLAY: 1,
     COLLISION: 2
 };
+
+export const getCollisionFloorName = floor => `COLLISION[${floor}]`;

@@ -5,7 +5,7 @@ import Database from "@/newgame/managers/Database";
 import Assets from "@/newgame/managers/Assets";
 import LevelData from "@/newgame/managers/LevelData";
 
-import { LAYER_TYPES } from "@/newgame/constants/Tilemap";
+import { LAYER_TYPES, getCollisionFloorName } from "@/newgame/constants/Tilemap";
 
 class Tilemap {
 
@@ -16,8 +16,8 @@ class Tilemap {
         this.tilemap;
         this.tileset;
         this.layers = [];
+        this.collisionLayers = [];
         this.overlay;
-        this.collisionLayer;
     }
 
     create () {
@@ -36,7 +36,7 @@ class Tilemap {
                     break;
                 };
                 case LAYER_TYPES.COLLISION: {
-                    this.collisionLayer = layer;
+                    this.collisionLayers.push(this.tilemap.createLayer(layer.name, this.tileset));
                     break;
                 };
             };
@@ -53,10 +53,15 @@ class Tilemap {
         this.tilemap.destroy();
         this.layers.forEach(layer => layer.destroy());
         this.layers = [];
+        this.collisionLayers(collisionLayer => collisionLayer.destroy());
+        this.collisionLayer = [];
         this.tileset = null;
         this.overlay.destroy();
-        this.collisionLayer = null;
         this.objectsMap.clear();
+    }
+
+    getCollisionTileData ({ x, y }, floorIndex) {
+        return this.tilemap.getTileAt(x, y, true, getCollisionFloorName(floorIndex));
     }
 
     get levelData () {

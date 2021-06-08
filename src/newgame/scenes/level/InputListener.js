@@ -9,7 +9,7 @@
 import { DIRECTIONS } from "@/newgame/constants/Directions";
 import { KEYS_LISTENER } from "@/newgame/constants/KeyListener";
 
-import { isMobile } from "@/newgame/utils";
+import { isMobile } from "@/lib/utils";
 
 class InputListener {
     constructor (scene) {

@@ -1,13 +1,18 @@
+import SceneManager from "./SceneManager";
+
 class Audio {
-    constructor (scene) {
-        this.scene = scene;
+
+    static get levelTheme () {
+        return LevelData.ref;
     }
 
-    setScene (scene) {
-        this.scene = scene;
+    static playLevelTheme (levelId) {
+        SceneManager.getLevel();
     }
 
-    static ref
+    static playMechanicSFX () {}
+
+    static playUISFX () {}
 };
 
 export default Audio;

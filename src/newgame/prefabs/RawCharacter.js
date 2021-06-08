@@ -17,7 +17,7 @@ class RawCharacter extends Phaser.GameObjects.Sprite {
         } else {
             this.rawSetSprite(1);
             const sprite = data.sprite;
-            this.loadSpriteAsync(sprite);
+            this.loadSprite(sprite);
             this._data.sprite = 1;
         };
     }
@@ -51,7 +51,7 @@ class RawCharacter extends Phaser.GameObjects.Sprite {
         this.setOrigin(origin.x, origin.y);
     }
 
-    async loadSpriteAsync (sprite) {
+    async loadSprite (sprite) {
         const atlas = Database.ref.character[sprite].atlas;
         const characterSprite = Assets.ref.getOverworldCharacter(sprite);
         this.scene.load.atlas(

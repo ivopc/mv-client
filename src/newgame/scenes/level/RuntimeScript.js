@@ -2,7 +2,7 @@ import LevelData from "@/newgame/managers/LevelData";
 
 import behaviors from "./runtime.scripts";
 
-import { promisesWaterfall } from "@/newgame/utils";
+import { promisesWaterfall } from "@/lib/utils";
 
 class RuntimeScript {
 

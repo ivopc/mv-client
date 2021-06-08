@@ -12,7 +12,6 @@ import { timedEvent } from "@/newgame/utils/scene.promisify";
 import { STEP_TIME, TILE, DIRECTIONS, DIRECTIONS_HASH } from "@/newgame/constants/Overworld";
 import { CHAR_TYPES, MOVE_TYPES } from "@/newgame/constants/Character";
 
-
 /*
 TODO:
 checkPlayerPositionTamer, depthSort ath the end of move
@@ -51,7 +50,7 @@ class Character extends RawCharacter {
             this._data.setSprite(sprite);
             this.rawSetSprite(sprite);
         } else {
-            this.loadSpriteAsync(sprite);
+            this.loadSprite(sprite);
         };
     }
 

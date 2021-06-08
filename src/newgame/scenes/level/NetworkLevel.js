@@ -7,13 +7,17 @@ import {
     LEVEL_P2P_STRUCT
 } from "@/newgame/constants/NetworkEvents";
 
+import SocketClusterChannel from "@/ws/SocketClusterChannel";
+
 class NetworkLevel {
     constructor (scene) {
         this.scene = scene;
+        /**
+         * @type {SocketClusterChannel}
+         */
+        this.levelSubscription;
         this.subscribe = {
-        	level: {
-                isSubscribed: false
-            }
+        	level: {}
         };
     }
 
@@ -30,31 +34,17 @@ class NetworkLevel {
 
     async subscribeLevel (levelId) {
         levelId = levelId || LevelData.ref.id;
-        // in the channels of level change 'm' to 'l'
-    	this.subscribe.level.conn = Network.ref.socket.subscribe("l" + levelId);
-    	this.subscribe.level.conn.watch(payload => this.dispatchLevelPayload(payload));
-        return new Promise((resolve, reject) => {
-            this.subscribe.level.conn.once("subscribe", () => {
-                this.subscribe.level.isSubscribed = true;
-                resolve();
-            });
-            this.subscribe.level.conn.once("subscribeFail", () => {
-                this.subscribe.level.isSubscribed = false;
-                reject();
-            });
-        });
+        this.levelSubscription = Network.ref.subscribe("l" + levelId);
+        this.levelSubscription.addListener(payload => this.dispatchLevelPayload(payload));
+        return await this.levelSubscription.awaitSubscription();
     }
 
     unsubscribeLevel (levelId) {
-        //levelId = levelId || LevelData.ref.id;
-        this.subscribe.level.conn.unsubscribe();
-        this.subscribe.level.conn.unwatch();
-        this.subscribe.level.isSubscribed = false;
-        //Network.ref.socket.unwatch("m" + levelId);
+        this.levelSubscription.destroy();
     }
 
     sendCharacterOverworldAction (direction, actionType) {
-        this.subscribe.level.conn.publish([ direction, actionType ]);
+        this.levelSubscription.publish([ direction, actionType ]);
     }
 
     dispatchLevelPayload (payload) {

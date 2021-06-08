@@ -58,7 +58,6 @@ class Loader extends RawLoader {
                 scene.$levelBehavior = new BaseLevelScript(scene);
             callback();
         });
-
     }
 
     async changeLevel (levelData) {

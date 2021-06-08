@@ -57,39 +57,39 @@ class OverworldCollider {
                 break;
             };
         };
-        const 
-            tileY = this.scene.$tilemap.collisionLayer.data[newPosition.y] ? this.scene.$tilemap.collisionLayer.data[newPosition.y] : 0,
-            tileX = tileY[newPosition.x] ? tileY[newPosition.x] : 0,
-            tilesXY = tileY ? TILE.PROPERTIES[tileX.index] : 0;
+        // ok alright, that's ugly. it's a method to get current tile collision properties
+        const tile = TILE.PROPERTIES[
+            this.scene.$tilemap.getCollisionTileData(newPosition, this.gameObject._data.getCurrentFloor()).index || 0
+        ];
         switch (this.gameObject._data.type) {
             case CHAR_TYPES.PLAYER: {
-                return this.playerCollision(newPosition, tileY, tileX, tilesXY);
+                return this.playerCollision(newPosition, tile);
             };
             case CHAR_TYPES.ONLINE_PLAYER:
             case CHAR_TYPES.FOLLOWER:
             {
-                return this.withoutPlayerCollision(newPosition, tilesXY); 
+                return this.withoutPlayerCollision(newPosition, tile); 
             };
             default: {
-                return this.withPlayerCollision(newPosition, tilesXY);
+                return this.withPlayerCollision(newPosition, tile);
             };
         };
     }
 
-    playerCollision (newPosition, tileY, tileX, tilesXY) {
-        if (!tileY || !tileX || !tilesXY || tilesXY.block || this.scene.$tilemap.objectsMap.exists(newPosition))
+    playerCollision (newPosition, tile) {
+        if (!tile || tile.block || this.scene.$tilemap.objectsMap.exists(newPosition))
             return TILE.TYPES.BLOCK;
         this.gameObject._data.setPosition(newPosition.x, newPosition.y);
-        if (tilesXY.door)
+        if (tile.door)
             return TILE.TYPES.WARP;
-        if (tilesXY.wild)
+        if (tile.wild)
             return TILE.TYPES.WILD_GRASS;
-        if (tilesXY.event)
+        if (tile.event)
             return TILE.TYPES.EVENT;
         return TILE.TYPES.DEFAULT;
     }
 
-    withPlayerCollision (newPosition, tilesXY) {
+    withPlayerCollision (newPosition, tile) {
         const { x, y } = this.scene.$playerController.getPosition();
         const doesItCollidedWithPlayer = newPosition.x === x && newPosition.y === y;
         if (!doesItCollidedWithPlayer) {
@@ -100,14 +100,14 @@ class OverworldCollider {
             );
             this.gameObject._data.setPosition(newPosition.x, newPosition.y);
         };
-        if (tilesXY.wild)
+        if (tile.wild)
             return TILE.TYPES.WILD_GRASS;
         return doesItCollidedWithPlayer ? TILE.TYPES.BLOCK : TILE.TYPES.DEFAULT;
     }
 
-    withoutPlayerCollision (newPosition, tilesXY) {
+    withoutPlayerCollision (newPosition, tile) {
         this.gameObject._data.setPosition(newPosition.x, newPosition.y);
-        if (tilesXY.wild)
+        if (tile.wild)
             return TILE.TYPES.WILD_GRASS;
         return TILE.TYPES.DEFAULT;
     }

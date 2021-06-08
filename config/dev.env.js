@@ -11,5 +11,6 @@ module.exports = merge(prodEnv, {
         path: '"/gameserver/"',
         port: 8000,
         secure: false
-    }
+    },
+    gameSocketFramework: '"sc"'
 });

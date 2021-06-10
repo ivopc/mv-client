@@ -14,7 +14,18 @@
         data: () => ({
             game: false,
             containerId: "game",
+            /**
+             * @var
+             * @type {GameManagerObject}
+             */
+            game: {
+                inited: false,
+                booted: false,
+                instance: null,
+                network: null
+            },
             gameInstance: null,
+            gameNetwork: null,
             socket: null,
             debug: {
                 currentClient: 0,
@@ -37,7 +48,7 @@
         },
         methods: {
             callClient () {
-                if (this.gameStarted) {
+                if (this.game.inited) {
                     this.eventBus.$emit("hide-elements");
                     this.$el.style.display = "block";
                 } else {
@@ -57,29 +68,35 @@
                 this.eventBus.$on("call-client", this.callClient);
             },
             async appendGameClient () {
+                this._debug();
                 this.eventBus.$emit("hide-elements");
-                const game = await import("@/newgame");
-                game.createInstance(this.containerId);
-                this.gameStarted = true;
-                if (process.env.NODE_ENV == "development")
-                    this._debug();
-                const bootData = await this.waitGameConn();
+                const game = await import("@/game");
+                this.game.instance = game.createInstance(this.containerId);
+                this.game.inited = true;
+                await this.waitGameConn();
+                const bootData = await this.waitGameBootData();
                 game.boot(bootData);
+                this.game.booted = true;
+                console.log(this.game.instance);
             },
             async waitGameConn () {
-                const Network = await import("@/newgame/managers/Network");
-                // 
+                const Network = await import("@/game/managers/Network");
                 const ntwk = Network.default;
                 ntwk.ref = new ntwk();
+                this.game.network = ntwk.ref;
                 ntwk.ref.setAuth({
                     userId: String($Authentication.id),
                     token: $Authentication.token.auth
                 });
                 ntwk.ref.startConn();
                 await ntwk.ref.waitConn();
-                return await ntwk.ref.getGameBootData();
+            },
+            waitGameBootData () {
+                return this.game.network.getGameBootData();
             },
             _debug () {
+                if (process.env.NODE_ENV !== "development")
+                    return;
                 const { debug } = this;
                 $Authentication.id = debug.clientTokens[debug.currentClient].userId;
                 $Authentication.token.auth = debug.clientTokens[debug.currentClient].token;

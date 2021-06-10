@@ -70,7 +70,7 @@ class SocketClusterWrapper {
      * @param {any} data - Event params.
      * @returns {Promise}
      */
-    send (event, data) {
+    ajax (event, data) {
         return new Promise((resolve, reject) =>
             this._socket.emit(
                 event, 
@@ -78,6 +78,17 @@ class SocketClusterWrapper {
                 (err, response) => err ? reject(err) : resolve(response)
             )
         );
+    }
+
+    /**
+     * Just send data to server, it don't returns nothing, cause this method is created
+     * to just send data and not expect any response.
+     * @param {number|string} event - Event name.
+     * @param {any} data - Event params.
+     * @returns {void}
+     */
+    send (event, data) {
+        this._socket.emit(event, data);
     }
 
     /**

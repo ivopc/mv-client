@@ -29,11 +29,11 @@ class NetworkLevel {
             .forEach(event => Network.ref.removeEvent(LEVEL_EVENTS[event]));
     }
 
-    async subscribeLevel (levelId) {
+    subscribeLevel (levelId) {
         levelId = levelId || LevelData.ref.id;
         this.levelSubscription = Network.ref.subscribe("l" + levelId);
         this.levelSubscription.addListener(payload => this.dispatchLevelPayload(payload));
-        return await this.levelSubscription.awaitSubscription();
+        return this.levelSubscription.awaitSubscription();
     }
 
     unsubscribeLevel (levelId) {

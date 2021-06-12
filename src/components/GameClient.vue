@@ -24,9 +24,6 @@
                 instance: null,
                 network: null
             },
-            gameInstance: null,
-            gameNetwork: null,
-            socket: null,
             debug: {
                 currentClient: 0,
                 clientTokens: [
@@ -70,7 +67,13 @@
             async appendGameClient () {
                 this._debug();
                 this.eventBus.$emit("hide-elements");
-                const game = await import("@/game");
+                const [ game, Network ] = await Promise.all([
+                    await import("@/game"),
+                    await import("@/game/managers/Network")
+                ]);
+                const ntwk = Network.default;
+                ntwk.ref = new ntwk();
+                this.game.network = ntwk.ref;
                 this.game.instance = game.createInstance(this.containerId);
                 this.game.inited = true;
                 await this.waitGameConn();
@@ -80,16 +83,12 @@
                 console.log(this.game.instance);
             },
             async waitGameConn () {
-                const Network = await import("@/game/managers/Network");
-                const ntwk = Network.default;
-                ntwk.ref = new ntwk();
-                this.game.network = ntwk.ref;
-                ntwk.ref.setAuth({
+                this.game.network.setAuth({
                     userId: String($Authentication.id),
                     token: $Authentication.token.auth
                 });
-                ntwk.ref.startConn();
-                await ntwk.ref.waitConn();
+                this.game.network.startConn();
+                await this.game.network.waitConn();
             },
             waitGameBootData () {
                 return this.game.network.getGameBootData();

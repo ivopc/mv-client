@@ -1,9 +1,7 @@
-import Phaser from "phaser";
-
-import { RESOLUTION_TYPES } from "@/game/constants/Resolutions";
-
 import Layout from "@/game/managers/Layout";
 import LayoutResponsivityManager from "@/game/managers/LayoutResponsivityManager";
+
+import { RESOLUTION_TYPES } from "@/game/constants/Resolutions";
 
 import { getResolution, addGenericUIComponent } from "@/game/utils";
 

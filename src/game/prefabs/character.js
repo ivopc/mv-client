@@ -12,11 +12,6 @@ import { timedEvent } from "@/game/utils/scene.promisify";
 import { STEP_TIME, TILE, DIRECTIONS, DIRECTIONS_HASH } from "@/game/constants/Overworld";
 import { CHAR_TYPES, MOVE_TYPES } from "@/game/constants/Character";
 
-/*
-TODO:
-checkPlayerPositionTamer, depthSort ath the end of move
-*/
-
 class Character extends RawCharacter {
 
     constructor (scene, data) {
@@ -279,45 +274,34 @@ class Character extends RawCharacter {
     async walkAnimation (direction) {
         switch(direction) {
             case DIRECTIONS_HASH.UP: {
-                this.scene.tweens.add({
-                    targets: [this, ... this.elementsToFollow],
-                    ease: "Linear",
-                    duration: STEP_TIME.STEP * 4,
-                    y: "-=" + TILE.SIZE
-                });
+                this.walkTween("y", "-=");
                 break;
             };
             case DIRECTIONS_HASH.RIGHT: {
-                this.scene.tweens.add({
-                    targets: [this, ... this.elementsToFollow],
-                    ease: "Linear",
-                    duration: STEP_TIME.STEP * 4,
-                    x: "+=" + TILE.SIZE
-                });
+                this.walkTween("x", "+=");
                 break;
             };
             case DIRECTIONS_HASH.DOWN: {
-                this.scene.tweens.add({
-                    targets: [this, ... this.elementsToFollow],
-                    ease: "Linear",
-                    duration: STEP_TIME.STEP * 4,
-                    y: "+=" + TILE.SIZE
-                });
+                this.walkTween("y", "+=");
                 break;
             };
             case DIRECTIONS_HASH.LEFT: {
-                this.scene.tweens.add({
-                    targets: [this, ... this.elementsToFollow],
-                    ease: "Linear",
-                    duration: STEP_TIME.STEP * 4,
-                    x: "-=" + TILE.SIZE
-                });
+                this.walkTween("x", "-=");
                 break;
             };
         };
         await this.walkStepFeet(direction);
         await this.walkStepIdle(direction);
         this.walkStepEnd(direction);
+    }
+
+    walkTween (axis, operator) {
+        this.scene.tweens.add({
+            targets: [this, ... this.elementsToFollow],
+            ease: "Linear",
+            duration: STEP_TIME.STEP * 4,
+            [axis]: operator + TILE.SIZE
+        });
     }
 
     walkStepFeet (direction) {

@@ -42,8 +42,8 @@ class RawCharacter extends Phaser.GameObjects.Sprite {
         this.changeOrigin(this._data.position.facing);
     }
 
-    playIdleAnim (direction) {
-        this.anims.play(Database.ref.character[this._data.sprite].name + "_idle_" + DIRECTIONS[direction]);
+    playIdleAnim (direction, type = "idle") {
+        this.anims.play(Database.ref.character[this._data.sprite].name + "_" + type + "_" + DIRECTIONS[direction]);
     }
 
     changeOrigin (direction) {

@@ -4,11 +4,11 @@ class LevelObjectsMap {
         this.data = {};
     }
 
-    get ({x, y}) {
+    get ({ x, y }) {
         return this.data[`${x}|${y}`] || null;
     }
 
-    add (gameObject, {x, y}) {
+    add (gameObject, { x, y }) {
         this.data[`${x}|${y}`] = gameObject;
     }
 
@@ -17,11 +17,11 @@ class LevelObjectsMap {
         this.add(gameObject, newPosition);
     }
 
-    removeFrom ({x, y}) {
+    removeFrom ({ x, y }) {
         delete this.data[`${x}|${y}`];
     }
 
-    exists ({x, y}) {
+    exists ({ x, y }) {
         return !!this.data[`${x}|${y}`];
     }
 

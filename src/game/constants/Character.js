@@ -11,3 +11,7 @@ export const MOVE_TYPES = {
     IDLE: "idle",
     WALK: "walk"
 };
+
+export const CHARACTERS = {
+    BASE: 1
+};

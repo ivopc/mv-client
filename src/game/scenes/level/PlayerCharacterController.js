@@ -53,7 +53,7 @@ class PlayerCharacterController {
         return this.player._data.position;
     }
 
-    setOverworldPosition ( {x, y} ) {
+    setOverworldPosition ( { x, y } ) {
         this.player.setOverworldPosition(x, y);
     }
 };

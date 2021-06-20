@@ -1,8 +1,8 @@
 import RawCharacter from "./RawCharacter";
 import OverworldCollider from "./OverworldCollider";
-import BalloonDialog from "./BalloonDialog";
 
 import Database from "@/game/managers/Database";
+import SceneManager from "@/game/managers/SceneManager";
 
 import CharacterModel from "@/game/models/Character";
 
@@ -137,20 +137,6 @@ class Character extends RawCharacter {
     }
 
     removeGrass () {}
-
-    addTypingBalloon () {
-        this.elements.balloon.typing = new BalloonDialog(this.scene)
-            .setOrigin(0.5)
-            .setX(this.getCenter().x)
-            .setY(this.y - this.displayHeight + 10);
-    }
-
-    removeTypingBalloon () {
-        if (this.elements.balloon.typing) {
-            this.elements.balloon.typing.destroy();
-            this.elements.balloon.typing = null;
-        };
-    }
 
     displayNickname (name) {
         this.elements.nickname = this.scene.add.text(0, 0, name, { 
@@ -338,7 +324,9 @@ class Character extends RawCharacter {
         this.setFrame(Database.ref.character[this._data.sprite].name + "_" + DIRECTIONS[direction] + "_" + type + flag);
     }
 
-    static addtoLevel (scene, characterData) {
+    static addtoLevel (characterData) {
+        const scene = SceneManager.getLevel();
+        console.log(scene);
         const gameObject = new Character(scene, characterData);
         scene.add.existing(gameObject);
         scene.$charactersController.addStaticCharacter(gameObject);

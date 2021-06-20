@@ -1,7 +1,5 @@
 import DragglableGridElement from "../DragglableGridElement";
 
-import Layout from "@/game/managers/Layout";
-
 import { TYPES } from "@/game/constants/Party";
 
 class SlotElement extends DragglableGridElement {
@@ -18,7 +16,6 @@ class SlotElement extends DragglableGridElement {
         this.gender;
         this.statusProblem;
         scene.add.existing(this);
-
     }
 
     append () {

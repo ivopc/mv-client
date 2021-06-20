@@ -63,7 +63,7 @@ class BaseLevelScript {
     }
 
     insertLevelObject (levelObjectData) {
-        Character.addtoLevel(this.scene, levelObjectData);
+        Character.addtoLevel(levelObjectData);
     }
 
     get scriptData () {

@@ -38,6 +38,7 @@ class OverworldCollider {
     }
 
     collide (direction) {
+        return TILE.TYPES.DEFAULT; // {placeholder}
         const newPosition = { ... this.gameObject._data.position };
         switch(direction) {
             case DIRECTIONS_HASH.UP: {

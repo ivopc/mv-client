@@ -55,7 +55,7 @@ class GenericCharactersController {
     }
 
     addRemotePlayer (playerData) {
-        RemotePlayer.addToLevel(this.scene, {
+        RemotePlayer.addToLevel({
             type: CHAR_TYPES.ONLINE_PLAYER,
             position: {
                 x: playerData[LEVEL_P2P_STRUCT.X],

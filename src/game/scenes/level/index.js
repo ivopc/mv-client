@@ -58,6 +58,7 @@ class Level extends Phaser.Scene {
         this.$charactersController = new GenericCharactersController(this);
         //this.$lookerPathfind = new LookerPathfind(this);
         // **-----------------------------------**
+        SceneManager.setLevel(this);
         this.$cameraController.setup();
         this.$containers.create();
         this.$tilemap.create();
@@ -68,17 +69,17 @@ class Level extends Phaser.Scene {
         this.$levelBehavior.create();
         this.$cameraController.setDefaultZoom();
         this.$inputListener.addListener();
-        SceneManager.setLevel(this);
         // tests
         //this.$runtime.run(this.$runtime.parse());
         //console.log(this.cache.tilemap.get("level_2"));
-        this.test();
+        this.$containers.test.add(this.add.image(0, 0, "_test").setOrigin(0, 0).setDepth(999999999)); // {placeholder}
+        this.test(); // {placeholder}
         this.time.addEvent({
             delay: 5000,
             callback: this.test,
             callbackScope: this,
             loop: true
-        });
+        }); // {placeholder}
     }
 
     async test () {

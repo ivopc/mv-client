@@ -1,7 +1,7 @@
 export const timedEvent = (delay, scene) => 
     new Promise(callback => scene.time.addEvent({ delay, callback }));
 
-export const tween = (scene, tweenConfig) =>
+export const tween = (tweenConfig, scene) =>
     new Promise(resolve => 
         scene.tweens.add({
             ... tweenConfig,

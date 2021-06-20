@@ -18,6 +18,8 @@ class CameraController {
 
     setBounds () {
         const { tilemap } = this.scene.$tilemap;
+        this.camera.setBounds(0, 0, 800, 512); // {placeholder}
+        return;
         this.camera.setBounds(0, 0, tilemap.widthInPixels, tilemap.heightInPixels);
     }
 

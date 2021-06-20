@@ -29,9 +29,10 @@ class Overworld extends Phaser.Scene {
         SceneManager.setOverworld(this);
         LayoutResponsivityManager.addListener();
         // tests
-        /*const wild = new WildMenu(this);
+        const wild = new WildMenu(this);
         wild.append();
-        window.wild = wild;*/
+        window.wild = wild;
+        this.plugins.get("rexDrag").add(wild);
     }
 };
 

@@ -1,5 +1,7 @@
 import Character from "./Character";
 
+import SceneManager from "@/game/managers/SceneManager";
+
 import {
     OVERWORLD_ACTIONS, 
     CHARACTER_OVERWORLD_ACTIONS_HASH,
@@ -41,7 +43,8 @@ class RemotePlayer extends Character {
             this.execQueuedAction();
     }
 
-    static addtoLevel (scene, playerData) {
+    static addtoLevel (playerData) {
+        const scene = SceneManager.getLevel();
         const gameObject = new RemotePlayer(scene, playerData);
         scene.add.existing(gameObject);
         scene.$charactersController.addRemotePlayerGameObject(gameObject, playerData.userId);

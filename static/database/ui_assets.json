@@ -30,5 +30,10 @@
                 "frameHeight": 51
             }
         }
+    },
+    "party_background": {
+        "key": "party_background",
+        "type": "image",
+        "path": "assets/img/ui/party/{resolution}/background.png"
     }
 }

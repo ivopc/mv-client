@@ -12,7 +12,6 @@
     export default {
         name: "GameClient",
         data: () => ({
-            game: false,
             containerId: "game",
             /**
              * @var
@@ -68,19 +67,21 @@
                 this._debug();
                 this.eventBus.$emit("hide-elements");
                 const [ game, Network ] = await Promise.all([
-                    await import("@/game"),
-                    await import("@/game/managers/Network")
+                    import("@/game"),
+                    import("@/game/managers/Network")
                 ]);
-                const ntwk = Network.default;
-                ntwk.ref = new ntwk();
-                this.game.network = ntwk.ref;
+                this.setNetwork(Network);
                 this.game.instance = game.createInstance(this.containerId);
                 this.game.inited = true;
                 await this.waitGameConn();
-                const bootData = await this.waitGameBootData();
+                const bootData = await this.getGameBootData();
                 game.boot(bootData);
                 this.game.booted = true;
-                console.log(this.game.instance);
+            },
+            setNetwork (network) {
+                const ntwk = network.default;
+                ntwk.ref = new ntwk();
+                this.game.network = ntwk.ref;
             },
             async waitGameConn () {
                 this.game.network.setAuth({
@@ -90,7 +91,7 @@
                 this.game.network.startConn();
                 await this.game.network.waitConn();
             },
-            waitGameBootData () {
+            getGameBootData () {
                 return this.game.network.getGameBootData();
             },
             _debug () {

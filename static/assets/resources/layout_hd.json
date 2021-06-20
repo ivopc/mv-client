@@ -83,7 +83,7 @@
         "background": {
             "x": 0,
             "y": 0,
-            "texture": "party-background"
+            "texture": "party_background"
         },
         "slot": {
             "width": 148,

@@ -11,6 +11,7 @@ import { loadComplete } from "@/game/utils/scene.promisify";
 class Loader extends RawLoader {
     fetchAssets () {
         const { scene } = this;
+        scene.load.image("_test", "/assets/img/tileset/test.png"); // {placeholder}
         // player character sprite
         const playerOverworldSprite = Assets.ref.getOverworldCharacter(PlayerData.ref.character.sprite);
         scene.load.atlas(

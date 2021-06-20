@@ -4,6 +4,7 @@ import Database from "@/game/managers/Database";
 import Assets from "@/game/managers/Assets";
 
 import { DIRECTIONS } from "@/game/constants/Overworld";
+import { CHARACTERS } from "@/game/constants/Character";
 
 import { loadComplete } from "@/game/utils/scene.promisify";
 
@@ -15,10 +16,10 @@ class RawCharacter extends Phaser.GameObjects.Sprite {
         if (scene.textures.exists(Database.ref.character[data.sprite].atlas)) {
             this.rawSetSprite(data.sprite);
         } else {
-            this.rawSetSprite(1);
+            this.rawSetSprite(CHARACTERS.BASE);
             const sprite = data.sprite;
             this.loadSprite(sprite);
-            this._data.sprite = 1;
+            this._data.sprite = CHARACTERS.BASE;
         };
     }
 

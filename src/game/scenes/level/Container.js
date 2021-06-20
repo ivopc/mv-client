@@ -5,19 +5,21 @@ class Container {
 
     create () {
         this.map = this.scene.add.container();
+        this.test = this.scene.add.container();
         this.main = this.scene.add.container();
         this.preOverlay = this.scene.add.container();
         this.overlay = this.scene.add.container();
+        [this.map, this.overlay].forEach(layer => layer.visible = false); // {placeholder}
+    }
+
+    forEach (fn) {
+        [this.map, this.main, this.preOverlay, this.overlay].forEach(fn);
     }
 
     characterDepthSort () {}
 
     reorganize () {
-        const { scene } = this;
-        scene.bringToTop(this.map);
-        scene.bringToTop(this.main);
-        scene.bringToTop(this.preOverlay);
-        scene.bringToTop(this.overlay);
+        this.forEach(layer => this.scene.bringToTop(layer));
     }
 };
 export default Container;

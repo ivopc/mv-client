@@ -1,6 +1,6 @@
 import DragglableGridElement from "../DragglableGridElement";
 
-import { TYPES } from "@/game/constants/Party";
+import { PARTY_INTERFACE_TYPES } from "@/game/constants/Party";
 
 class SlotElement extends DragglableGridElement {
     constructor (scene, gridListData, gridElementIndex) {
@@ -19,7 +19,7 @@ class SlotElement extends DragglableGridElement {
     }
 
     append () {
-        if (this.type === TYPES.PARTY)
+        if (this.type === PARTY_INTERFACE_TYPES.COMMON)
             this.setDragListeners();
     }
 

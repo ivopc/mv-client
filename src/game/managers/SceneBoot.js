@@ -11,6 +11,10 @@ import PlayerData from "./PlayerData";
 import LevelData from "./LevelData";
 import BattleData from "./BattleData";
 
+import PlayerModel from "@/game/models/PlayerModel";
+import LevelModel from "@/game/models/LevelModel";
+import BattleModel from "@/game/models/BattleModel";
+
 import { game } from "@/game";
 
 class SceneBoot {
@@ -33,17 +37,19 @@ class SceneBoot {
     }
 
     initOverworld (payload) {
-        this.setPlayerData(payload);
+        this.setPlayerModelData(payload);
         const { level, wild, flag, tamers } = payload.param;
-        LevelData.ref = new LevelData({ level, flag, wild, tamers });
+        LevelData.ref = new LevelData({ level, flag, wild, tamers }); // {legacy}
+        LevelModel.create({ level, flag, wild, tamers });
         game.scene.start(SCENE.BOOT, {
             scene: SCENE.OVERWORLD
         });
     }
 
     initBattle (payload) {
-        this.setPlayerData(payload);
-        BattleData.ref = new BattleData(/*{ ... }*/);
+        this.setPlayerModelData(payload);
+        BattleData.ref = new BattleData(/*{ ... }*/); // {legacy}
+        BattleModel.create(/*{ ... }*/);
         game.scene.start(SCENE.BOOT, {
             scene: SCENE.BATTLE
         });
@@ -57,9 +63,16 @@ class SceneBoot {
         });
     }
 
-    setPlayerData (payload) {
+    setPlayerModelData (payload) {
         const { monsters, items, sprite, position, notification, nickname } = payload.param;
         PlayerData.ref = new PlayerData({
+            nickname,
+            character: { sprite, position },
+            monsters, 
+            items, 
+            notification
+        }); // {legacy}
+        PlayerModel.create({
             nickname,
             character: { sprite, position },
             monsters, 

@@ -1,11 +1,11 @@
-const STEP_TIME = {
+export const STEP_TIME = {
     STEP: 85,
     RUN: 55,
     RIDE: 40,
     INPUT: 150
 };
 
-const TILE = {
+export const TILE = {
     SIZE: 32,
     PROPERTIES: [
         null,
@@ -38,15 +38,13 @@ const TILE = {
     }
 };
 
-const DIRECTIONS = ["up", "right", "down", "left"];
+export const DIRECTIONS = ["up", "right", "down", "left"];
 
-const DIRECTIONS_HASH = {
+export const DIRECTIONS_HASH = {
     UP: 0,
     RIGHT: 1,
     DOWN: 2,
     LEFT: 3
 };
 
-const DEFAULT_LEVEL_ZOOM = 2;
-
-export { STEP_TIME, TILE, DIRECTIONS, DIRECTIONS_HASH, DEFAULT_LEVEL_ZOOM };
+export const DEFAULT_LEVEL_ZOOM = 2;

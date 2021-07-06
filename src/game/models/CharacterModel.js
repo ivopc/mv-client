@@ -20,8 +20,7 @@ class CharacterModel {
         this.stop = false;
         this.stepFlag = 0;
         this.moveInProgress = false;
-        // experimental
-        // em qual 'andar' do mapa o character está?
+        // {experimental} which tilemap floor we where in?
         this.floor = 0;
         if (normalizedData.isTamer) {
             this.isTamer = true;

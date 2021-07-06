@@ -1,7 +1,6 @@
 import SceneManager from "./SceneManager";
 
 class Audio {
-
     static get levelTheme () {
         return LevelData.ref;
     }

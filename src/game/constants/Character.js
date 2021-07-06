@@ -15,3 +15,8 @@ export const MOVE_TYPES = {
 export const CHARACTERS = {
     BASE: 1
 };
+
+export const WALK_STEP_FLAGS = {
+    LEFT: 0,
+    RIGHT: 1
+};

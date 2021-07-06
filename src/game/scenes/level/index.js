@@ -72,7 +72,7 @@ class Level extends Phaser.Scene {
         // tests
         //this.$runtime.run(this.$runtime.parse());
         //console.log(this.cache.tilemap.get("level_2"));
-        this.$containers.test.add(this.add.image(0, 0, "_test").setOrigin(0, 0).setDepth(999999999)); // {placeholder}
+        this.$containers.test.add(this.add.image(0, 0, "_test").setOrigin(0, 0)); // {placeholder}
         this.test(); // {placeholder}
         this.time.addEvent({
             delay: 5000,
@@ -83,9 +83,10 @@ class Level extends Phaser.Scene {
     }
 
     async test () {
-        console.time("ping");
-        const time = await getPing();
-        console.timeEnd("ping");
+        const { pingText } = this.scene.get(SCENE.OVERWORLD);
+        const now = Date.now();
+        await getPing();
+        pingText.setText(`Ping: ${Date.now() - now}`);
     }
 
     update (time) {

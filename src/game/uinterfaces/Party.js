@@ -17,12 +17,13 @@ class Party extends InterfaceContainer {
     }
 
     append () {
-        this.background = addGenericUIComponent(this.scene, this.layout.background)
-            .setInteractive()
-            .on("pointerdown", () => this.clearTooltip());
+        this.background = addGenericUIComponent(this.layout.background, this.scene)
+        /*    .setInteractive()
+            .on("pointerdown", () => this.clearTooltip());*/
+        console.log(this.layout.background);
         this.add(this.background);
-        this.appendSlots();
-        this.appendSlotElements();
+        /*this.appendSlots();
+        this.appendSlotElements();*/
         this.setOriginalBaseSize(this.background);
     }
 

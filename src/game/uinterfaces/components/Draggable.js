@@ -2,7 +2,7 @@ import Phaser from "phaser";
 
 class Draggable extends Phaser.GameObjects.Container {
     constructor (scene) {
-        this.scene = scene;
+        super(scene);
         scene.plugins.get("rexDrag").add(this);
     }
 

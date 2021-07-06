@@ -1,7 +1,7 @@
 import Text from "@/game/managers/Text";
 
-import MonsterModel from "@/game/models/Monster";
-import MonsterListModel from "@/game/models/MonsterList";
+import MonsterModel from "@/game/models/MonsterModel";
+import MonsterListModel from "@/game/models/MonsterListModel";
 
 import { convertMsToDate } from "@/lib/utils";
 
@@ -19,31 +19,31 @@ export const treatMonsterList = monsterList =>
 export const getResolution = type => RESOLUTION_SIZES[type];
 
 // add generic UI component to main UI container
-export const addGenericUIComponent = (scene, layout) =>
+export const addGenericUIComponent = (layout, scene) =>
     scene.add.sprite(
         layout.position.x,
         layout.position.y,
         layout.texture
     )
-        .setOrigin(0)
+        .setOrigin(0, 0)
         .setName(layout.name);
 
 // get how many time vip have
 export const treatVipDate = function (date) {
-    const time = convertMsToDate(date - Date.now());
-    if (time.days > 0) {
+    const { days, hours, minutes } = convertMsToDate(date - Date.now());
+    if (days > 0) {
         return Text.ref.get("profile", "vipDays", {
-            time: time.days
+            time: days
         });
     };
-    if (time.hours > 0) {
+    if (hours > 0) {
         return Text.ref.get("profile", "vipHours", {
-            time: time.hours
+            time: hours
         });
     };
-    if (time.minutes > 0) {
+    if (minutes > 0) {
         return Text.ref.get("profile", "vipMinutes", {
-            time: time.minutes
+            time: minutes
         });
     };
     return Text.ref.get("profile", "vipLessThanOneMin");

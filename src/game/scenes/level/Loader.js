@@ -25,7 +25,9 @@ class Loader extends RawLoader {
     fetchLevel (level) {
         const { scene } = this;
         // level tilesets
-        Assets.ref.getLevelTilesets(level.id).forEach(tileset => scene.load.image(tileset.key, tileset.src));
+        Assets.ref.getLevelTilesets(level.id).forEach(tileset => 
+            scene.load.image(tileset.key, tileset.src)
+        );
         // level tilemap
         const tilemap = Assets.ref.getLevelTilemap(level.id);
         scene.load.tilemapTiledJSON(tilemap.key, tilemap.src);
@@ -36,7 +38,9 @@ class Loader extends RawLoader {
         const levelMusic = Assets.ref.getLevelMainMusic(level.id);
         scene.load.audio(levelMusic.key, levelMusic.src);
         // get all characters from level
-        Assets.ref.getLevelCharacters(level.id).forEach(character => scene.load.atlas(character.key, character.path.texture, character.path.atlas));
+        Assets.ref.getLevelCharacters(level.id).forEach(character => 
+            scene.load.atlas(character.key, character.path.texture, character.path.atlas)
+        );
         // wild monsters (if there's)
         if (level.hasWild) 
             level.wildAppearence.forEach(wildId => this.loadMonster(wildId));

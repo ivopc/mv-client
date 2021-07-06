@@ -1,8 +1,6 @@
-/*
-for es6 and webpack reasons extending the MonsterList as 
+/*for es6 and webpack-babel reasons extending the MonsterList as 
 `MonsterList extends Array` isn't working cause it's exclusive to es6,
-so we're using this provisional solution
-*/
+so we're using this provisional solution*/
 
 class MonsterListModel {
     

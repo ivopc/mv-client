@@ -9,7 +9,7 @@ import InterfaceContainer from "./components/InterfaceContainer";
 import Button from "./components/Button";
 import Rating from "./components/wildmenu/Rating";
 
-class WildMenu extends InterfaceContainer {                                                                                                                                                                                                                      
+class WildMenu extends InterfaceContainer {                                                                                                                                                                                                                    
     constructor (scene) {
         super(scene, Layout.ref.get("wildEncounter"));
         scene.add.existing(this);
@@ -17,8 +17,8 @@ class WildMenu extends InterfaceContainer {
     }
 
     append () {
-        this.background = addGenericUIComponent(this.scene, this.layout.background);
-        this.nameBox = addGenericUIComponent(this.scene, this.layout.nameBox);
+        this.background = addGenericUIComponent(this.layout.background, this.scene);
+        this.nameBox = addGenericUIComponent(this.layout.nameBox, this.scene);
         this.btnBattle = new Button(this.scene, {
             x: this.layout.btnBattle.position.x,
             y: this.layout.btnBattle.position.y,
@@ -61,7 +61,7 @@ class WildMenu extends InterfaceContainer {
 
     get monsterData () {
         return {
-            rating: 1
+            rating: 3
         }
     }
 

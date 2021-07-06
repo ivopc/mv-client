@@ -10,10 +10,10 @@ class LayoutResponsivityManager {
         game.scale.on("resize", this.resizeEvent.bind(this));
     }
 
-    static resizeEvent ( ... args) {
+    static resizeEvent () {
         SceneManager.getOverworld().children.list
             .filter(child => child instanceof InterfaceContainer)
-            .forEach(interfaceContainer => interfaceContainer.resize( ... args));
+            .forEach(interfaceContainer => interfaceContainer.resize( ... arguments));
     }
 
     static normalizeGameObject (gameObject) {

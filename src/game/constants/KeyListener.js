@@ -1,4 +1,4 @@
-const KEYS_LISTENER = {
+export const KEYS_LISTENER = {
     LEFT: 37,
     UP: 38,
     RIGHT: 39,
@@ -8,5 +8,3 @@ const KEYS_LISTENER = {
     S: 83,
     D: 68
 };
-
-export { KEYS_LISTENER };

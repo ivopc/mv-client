@@ -9,6 +9,10 @@ import Database from "@/game/managers/Database";
 import Assets from "@/game/managers/Assets";
 import Layout from "@/game/managers/Layout";
 
+import ResourcesDatabaseModel from "@/game/models/ResourcesDatabaseModel";
+import AssetsStaticDatabase from "@/game/models/AssetsStaticDatabase";
+import LayoutStaticDatabase from "@/game/models/LayoutStaticDatabase";
+
 import {
     CUSTOM_TEMPLATE_LOADER, 
     UI_ASSETS, 
@@ -39,13 +43,27 @@ class Boot extends Phaser.Scene {
             character: this.cache.json.get(CHARACTERS),
             monster: this.cache.json.get(MONSTERS),
             monstersExp: this.cache.json.get(MONSTER_EXP)
+        }); // {legacy}
+        ResourcesDatabaseModel.create({
+            level: this.cache.json.get(LEVELS),
+            character: this.cache.json.get(CHARACTERS),
+            monster: this.cache.json.get(MONSTERS),
+            monstersExp: this.cache.json.get(MONSTER_EXP)
         });
         Assets.ref = new Assets({
+            template: this.cache.json.get(CUSTOM_TEMPLATE_LOADER),
+            ui: this.cache.json.get(UI_ASSETS)
+        }); // {legacy}
+        AssetsStaticDatabase.create({
             template: this.cache.json.get(CUSTOM_TEMPLATE_LOADER),
             ui: this.cache.json.get(UI_ASSETS)
         });
         Layout.ref = new Layout({
             resolution: RESOLUTION_TYPES.HD,
+            data: this.cache.json.get(LAYOUT)
+        }); // {legacy}
+        LayoutStaticDatabase.create({
+            resolution: RESOLUTION_TYPES.HD, // {placeholder}
             data: this.cache.json.get(LAYOUT)
         });
         this.scene.start(this.transitionData.scene);

@@ -33,6 +33,7 @@ class RemotePlayer extends Character {
         if ((this.isActionQueueNotEmpty() || this._data.moveInProgress) && payload[LEVEL_P2P_STRUCT.ACTION_TYPE] === OVERWORLD_ACTIONS.MOVE) {
             this.insertActionToQueue(payload[LEVEL_P2P_STRUCT.DIRECTION]);
         } else {
+            // I know, it hurts
             this[CHARACTER_OVERWORLD_ACTIONS_HASH[payload[LEVEL_P2P_STRUCT.ACTION_TYPE]]](payload[LEVEL_P2P_STRUCT.DIRECTION]);
         };
     }
@@ -42,6 +43,8 @@ class RemotePlayer extends Character {
         if (this.isActionQueueNotEmpty())
             this.execQueuedAction();
     }
+
+    displayNickname (name) {}
 
     static addtoLevel (playerData) {
         const scene = SceneManager.getLevel();

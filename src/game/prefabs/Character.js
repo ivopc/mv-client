@@ -4,13 +4,13 @@ import OverworldCollider from "./OverworldCollider";
 import Database from "@/game/managers/Database";
 import SceneManager from "@/game/managers/SceneManager";
 
-import CharacterModel from "@/game/models/Character";
+import CharacterModel from "@/game/models/CharacterModel";
 
 import { positionToOverworld } from "@/game/utils";
 import { timedEvent } from "@/game/utils/scene.promisify";
 
 import { STEP_TIME, TILE, DIRECTIONS, DIRECTIONS_HASH } from "@/game/constants/Overworld";
-import { CHAR_TYPES, MOVE_TYPES } from "@/game/constants/Character";
+import { CHAR_TYPES, MOVE_TYPES, WALK_STEP_FLAGS } from "@/game/constants/Character";
 
 class Character extends RawCharacter {
 
@@ -34,7 +34,7 @@ class Character extends RawCharacter {
                 quest: null
             },
             grassOverlay: null
-        };
+        }; // {legacy}
         if ("visible" in data)
             this.visible = data.visible;
         this.changeOrigin(this._data.position.facing);
@@ -137,36 +137,6 @@ class Character extends RawCharacter {
     }
 
     removeGrass () {}
-
-    displayNickname (name) {
-        this.elements.nickname = this.scene.add.text(0, 0, name, { 
-            fontFamily: "Century Gothic", 
-            fontSize: 12,
-            color: "#fff" 
-        })
-            .setOrigin(0.5)
-            .setX(this.getCenter().x)
-            .setY(this.y + this.displayHeight);
-        this.scene.containers.main.add(this.elements.nickname);
-    }
-
-    get elementsToFollow () {
-        const els = [];
-        if (this.elements.nickname)
-            els.push(this.elements.nickname);
-
-        if (this.elements.balloon.typing)
-            els.push(this.elements.balloon.typing);
-
-        return els;
-    }
-
-    removeSprite () {
-        if (this.elements.nickname)
-            this.elements.nickname.destroy();
-        this.removeTypingBalloon();
-        this.destroy();
-    }
 
     async move (direction) {
         const collision = this.physics.collide(direction);
@@ -283,7 +253,7 @@ class Character extends RawCharacter {
 
     walkTween (axis, operator) {
         this.scene.tweens.add({
-            targets: [this, ... this.elementsToFollow],
+            targets: this,
             ease: "Linear",
             duration: STEP_TIME.STEP * 4,
             [axis]: operator + TILE.SIZE
@@ -318,15 +288,19 @@ class Character extends RawCharacter {
 
     switchSpriteWalkStep (direction, flag, type) {
         if (typeof(flag) === "number" && type === MOVE_TYPES.WALK) {
-            flag = flag ? 0 : 1;
+            flag = flag ? WALK_STEP_FLAGS.LEFT : WALK_STEP_FLAGS.RIGHT;
             this._data.stepFlag = flag;
         };
         this.setFrame(Database.ref.character[this._data.sprite].name + "_" + DIRECTIONS[direction] + "_" + type + flag);
     }
 
+    destroy () {
+        super.destroy();
+        this.container.destroy();
+    }
+
     static addtoLevel (characterData) {
         const scene = SceneManager.getLevel();
-        console.log(scene);
         const gameObject = new Character(scene, characterData);
         scene.add.existing(gameObject);
         scene.$charactersController.addStaticCharacter(gameObject);

@@ -6,8 +6,8 @@ class DragglableGridElement extends Draggable {
         this.gridListData = gridListData;
         this.gridElementIndex = gridElementIndex;
         this.parentBasePosition = {
-            x: undefined,
-            y: undefined
+            x: 0,
+            y: 0
         };
     }
 
@@ -23,7 +23,9 @@ class DragglableGridElement extends Draggable {
             if (
                 elementPosition.x >= this.gridListData[i].basePosition.x && elementPosition.x <= this.gridListData[i].basePosition.x + this.displayWidth &&
                 elementPosition.y >= this.gridListData[i].basePosition.y && elementPosition.y <= this.gridListData[i].basePosition.y + this.displayHeight
-            )
+            ) {
+                
+            };
         };
     }
 

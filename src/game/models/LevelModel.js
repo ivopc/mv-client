@@ -1,5 +1,5 @@
-import Assets from "./Assets";
-import Database from "./Database";
+/*import Assets from "./Assets";
+import Database from "./Database";*/
 
 class LevelModel {
     static create ({ level, wild, flag, tamers }) {

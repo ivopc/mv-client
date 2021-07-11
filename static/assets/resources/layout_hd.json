@@ -25,8 +25,6 @@
         },
         "btnBattle": {
             "name": "btnBattle",
-            "x": 843,
-            "y": 81,
             "spritesheet": "wild_button",
             "frames": {"click": 1, "over": 2, "up": 0, "out": 0},
             "textStyle": { 
@@ -41,8 +39,6 @@
         },
         "btnRun": {
             "name": "btnRun",
-            "x": 1033,
-            "y": 571,
             "spritesheet": "wild_button",
             "frames": {"click": 1, "over": 2, "up": 0, "out": 0},
             "textStyle": { 

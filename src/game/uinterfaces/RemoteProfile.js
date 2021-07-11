@@ -1,8 +1,8 @@
 import Layout from "@/game/managers/Layout";
 
-import InterfaceContainer from "./components/InterfaceContainer";
+import UInterfaceContainer from "./components/generics/UInterfaceContainer";
 
-class RemoteProfile extends InterfaceContainer {
+class RemoteProfile extends UInterfaceContainer {
     constructor (scene) {
         super(scene, Layout.ref.get("remoteProfile"));
     }

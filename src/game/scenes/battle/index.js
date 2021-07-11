@@ -10,6 +10,8 @@ import NetworkBattle from "./NetworkBattle";
 class Battle extends Phaser.Scene {
     constructor () {
         super({ key: SCENE.BATTLE });
+        // create static reference of current instance
+        Battle.ref = this;
         this.$loader;
         this.$network;
     }
@@ -22,6 +24,12 @@ class Battle extends Phaser.Scene {
     }
 
     create () {}
+
+    /**
+     * Static reference to self `Battle` scene instance
+     * @type {Battle}
+     */
+     static ref
 };
 
 export default Battle;

@@ -58,7 +58,7 @@ class BaseLevelScript {
                 break;
             };
         };
-        characterData.sprite = 2;
+        characterData.sprite = 2; // {placeholder}
         return characterData;
     }
 

@@ -4,6 +4,7 @@ import Assets from "@/game/managers/Assets";
 import PlayerData from "@/game/managers/PlayerData";
 import LevelData from "@/game/managers/LevelData";
 import SceneManager from "@/game/managers/SceneManager";
+import Overworld from "@/game/scenes/overworld";
 import BaseLevelScript from "./particularbehavior/BaseLevelScript";
 
 import { loadComplete } from "@/game/utils/scene.promisify";
@@ -66,7 +67,7 @@ class Loader extends RawLoader {
     }
 
     async changeLevel (levelData) {
-        const loadingInterface = SceneManager.getOverworld().$loadingInterface;
+        const loadingInterface = Overworld.ref.$loadingInterface;
         const { scene } = this;
         //loadingInterface.show();
         this.fetchLevel(levelData);

@@ -1,4 +1,4 @@
-import DraggableGridSlot from "../DraggableGridSlot";
+import DraggableGridSlot from "../generics/DraggableGridSlot";
 
 class Slot extends DraggableGridSlot {
     constructor (scene, gridListData, gridSlotIndex) {

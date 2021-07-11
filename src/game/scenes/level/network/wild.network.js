@@ -5,10 +5,9 @@ import { LEVEL_EVENTS } from "@/game/constants/NetworkEvents";
 export async function requestWildEncounter () {
     let response;
     try {
-        response = await Network.ref.ajax(LEVEL_EVENTS.SEARCH_WILD);
+        response = await Network.ajax(LEVEL_EVENTS.SEARCH_WILD);
     } catch (err) {
-        console.error(err);
-        return;
+        throw new Error(err);
     };
     return response;
 };

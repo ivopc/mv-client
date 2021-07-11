@@ -1,8 +1,6 @@
 import { game } from "@/game";
-
-import SceneManager from "./SceneManager";
-
-import InterfaceContainer from "@/game/uinterfaces/components/InterfaceContainer";
+import Overworld from "@/game/scenes/overworld";
+import UInterfaceContainer from "@/game/uinterfaces/components/generics/UInterfaceContainer";
 
 class LayoutResponsivityManager {
 
@@ -11,9 +9,9 @@ class LayoutResponsivityManager {
     }
 
     static resizeEvent () {
-        SceneManager.getOverworld().children.list
-            .filter(child => child instanceof InterfaceContainer)
-            .forEach(interfaceContainer => interfaceContainer.resize( ... arguments));
+        Overworld.ref.children.list
+            .filter(child => child instanceof UInterfaceContainer)
+            .forEach(container => container.resize( ... arguments));
     }
 
     static normalizeGameObject (gameObject) {

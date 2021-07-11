@@ -1,5 +1,4 @@
-class InterfaceContainer extends Phaser.GameObjects.Container {
-
+class UInterfaceContainer extends Phaser.GameObjects.Container {
     constructor (scene, layout) {
         super(scene);
         this.originalSize = {
@@ -29,10 +28,12 @@ class InterfaceContainer extends Phaser.GameObjects.Container {
         );
     }
 
-    // #abstract method is called when the game change resolution, this is for responsivity
-    // purpouses
+    /**
+     * Is called when the game change resolution, this is for responsivity purpouses
+     * @abstract
+     * @method
+     */
     resize () {}
-
 };
 
-export default InterfaceContainer;
+export default UInterfaceContainer;

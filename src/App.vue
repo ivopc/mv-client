@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <div class="row" v-if="!hidden">
-            <cHeader />
+            <Header />
             <router-view></router-view>
         </div>
         <GameClient />
@@ -9,14 +9,13 @@
 </template>
 
 <script>
-    import Loader from "@/components/Loader";
-    import cHeader from "@/components/Header";
+    import Header from "@/components/Header";
     import GameClient from "@/components/GameClient";
 
     export default {
         name: "App",
         components: {
-            cHeader,
+            Header,
             GameClient
         },
         data: () => ({

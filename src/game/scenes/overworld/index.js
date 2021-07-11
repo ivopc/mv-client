@@ -13,6 +13,7 @@ import WildMenu from "@/game/uinterfaces/WildMenu";
 class Overworld extends Phaser.Scene {
     constructor () {
         super({ key: SCENE.OVERWORLD });
+        Overworld.ref = this;
     }
 
     init (params) {}
@@ -25,7 +26,6 @@ class Overworld extends Phaser.Scene {
     create () {
         this.scene.launch(SCENE.LEVEL);
         this.scene.bringToTop();
-        SceneManager.setOverworld(this);
         LayoutResponsivityManager.addListener();
         // tests
         /*const party = new Party(this);
@@ -45,6 +45,12 @@ class Overworld extends Phaser.Scene {
             .setScrollFactor(0)
             .setDepth(999999999); // {placeholder}
     }
+
+    /**
+     * Static reference to self `Overworld` scene instance
+     * @type {Overworld}
+     */
+     static ref
 };
 
 export default Overworld;

@@ -1,4 +1,4 @@
-import InterfaceContainer from "./components/InterfaceContainer";
+import UInterfaceContainer from "./components/generics/UInterfaceContainer";
 import Slot from "./components/party/Slot";
 import SlotElement from "./components/party/SlotElement";
 
@@ -8,7 +8,7 @@ import PlayerData from "@/game/managers/PlayerData";
 import { PARTY_INTERFACE_TYPES } from "@/game/constants/Party";
 import { addGenericUIComponent } from "@/game/utils";
 
-class Party extends InterfaceContainer {
+class Party extends UInterfaceContainer {
     constructor (scene, params = {}) {
         super(scene, Layout.ref.get("party"));
         this.type = params.type || PARTY_INTERFACE_TYPES.COMMON;

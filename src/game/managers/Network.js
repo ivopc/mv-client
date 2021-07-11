@@ -15,6 +15,18 @@ class Network extends getSocketWrapper() {
     }
 
     /**
+     * Static method to send 'ajax' req. to gameserver avoiding `ref` static attr. boilerplate
+     * @static
+     * @param {number|string} event 
+     * @param {JSON} data
+     * @async 
+     * @returns {JSON}
+     */
+    static async ajax (event, data) {
+        return Network.ref.ajax(event, data);
+    }
+
+    /**
      * Static reference to self (`Network`) object, to use in all game application
      * @static
      * @type {Network}

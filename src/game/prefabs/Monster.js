@@ -4,37 +4,37 @@ class Monster extends Phaser.GameObjects.Sprite {
     constructor (scene, data, position) {
         super(scene, position.x, position.y);
         this._data = data;
-        this.spriteData = this.scene.database.battle.sprites[this._data.monsterpedia_id];
+        this.spriteLayout = this.scene.database.battle.sprites[this._data.monsterpedia_id];
         this.setTexture("monster_" + data.monsterpedia_id);
         this.addAnims();
         scene.add.existing(this);
     }
 
     addAnims () {
-        const name = this.spriteData.name;
+        const name = this.spriteLayout.name;
         const frames = {
             idle: [],
             attack: []
         };
-        frames.idle = this.spriteData.animation.idle.map((anim, index) => ({
-            key: this.spriteData.atlas,
+        frames.idle = this.spriteLayout.animation.idle.map((anim, index) => ({
+            key: this.spriteLayout.atlas,
             frame: name + "_idle" + (index)
         }));
         this.scene.anims.create({
             key: name + "_idle",
             frames: frames.idle,
-            frameRate: this.spriteData.framerate.idle,
+            frameRate: this.spriteLayout.framerate.idle,
             repeat: -1
         });
         this.anims.load(name + "_idle");
-        frames.attack = this.spriteData.animation.physicalattack.map((anim, index) => ({
-            key: this.spriteData.atlas,
+        frames.attack = this.spriteLayout.animation.physicalattack.map((anim, index) => ({
+            key: this.spriteLayout.atlas,
             frame: name + "_physicalattack" + (index)
         }));
         this.scene.anims.create({
             key: name + "_physicalattack",
             frames:frames.attack,
-            frameRate: this.spriteData.framerate.physicalattack,
+            frameRate: this.spriteLayout.framerate.physicalattack,
             repeat: 0
         });
         this.anims.load(name + "_physicalattack");

@@ -9,3 +9,10 @@ export const ASSET_TYPE = {
     TILEMAP: "tilemap",
     LEVEL_SCRIPT: "levelscript"
 };
+
+export const ASSETS_LAZY_LOAD_STRUCTS = {
+    [ASSET_TYPE.CHARACTER_OVERWORLD]: {
+        assetType: ASSET_TYPE.ATLAS,
+        template: ""
+    }
+};

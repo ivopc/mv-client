@@ -1,12 +1,14 @@
 import Phaser from "phaser";
 
-import Database from "@/game/managers/Database";
-import Assets from "@/game/managers/Assets";
+import Database from "@/game/managers/Database"; // {legacy}
+import Assets from "@/game/managers/Assets"; // {legacy}
 
 import { DIRECTIONS } from "@/game/constants/Overworld";
 import { CHARACTERS } from "@/game/constants/Character";
 
-import { loadComplete } from "@/game/utils/scene.promisify";
+import { loadComplete } from "@/game/utils/scene.promisify"; // {legacy}
+import { characterLazyLoad } from "@/game/utils/lazy-load";
+
 
 class RawCharacter extends Phaser.GameObjects.Sprite {
     constructor (scene, x, y, data) {
@@ -53,7 +55,7 @@ class RawCharacter extends Phaser.GameObjects.Sprite {
     }
 
     async loadSprite (sprite) {
-        const atlas = Database.ref.character[sprite].atlas;
+        // {legacy}
         const characterSprite = Assets.ref.getOverworldCharacter(sprite);
         this.scene.load.atlas(
             characterSprite.key, 
@@ -62,6 +64,8 @@ class RawCharacter extends Phaser.GameObjects.Sprite {
         );
         this.scene.load.start();
         await loadComplete(this.scene);
+        // {/legacy}
+        await characterLazyLoad(sprite);
         this._data.sprite = sprite;
         this.rawSetSprite(sprite);
     }

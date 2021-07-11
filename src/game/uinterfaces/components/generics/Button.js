@@ -73,7 +73,6 @@ class Button extends Phaser.GameObjects.Container {
         click: function (pointer) {
             if (!pointer.leftButtonDown())
                 return;
-            
             this.sprite.setFrame(this.config.frames.click);
             this.config.on.click();
         },
@@ -88,6 +87,10 @@ class Button extends Phaser.GameObjects.Container {
         out: function () {
             this.sprite.setFrame(this.config.frames.out);
             this.config.on.out();
+        },
+        contextMenu: function () {
+            this.sprite.setFrame(this.config.frames.contextMenu);
+            this.config.on.contextMenu();
         }
     }
 };

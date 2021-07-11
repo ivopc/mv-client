@@ -1,3 +1,5 @@
+import * as Phaser from "phaser";
+
 const PointsBar = function (scene, config) {
     this.scene = scene;
     this.container = null;
@@ -171,3 +173,28 @@ PointsBar.prototype.destroy = function () {
 };
 
 export default PointsBar;
+
+class _PointsBar extends Phaser.GameObjects.Container {
+    constructor (scene, config) {
+        super(scene);
+        this.barConfig = this.setupConfiguration(config);
+    }
+
+    setupConfiguration () {}
+
+    drawBackground () {}
+
+    drawPointsBar () {}
+
+    setPosition () {}
+
+    async setPercent () {}
+
+    async setWidth () {}
+
+    setPercentWithoutAnim () {}
+
+    setFixedToCamera () {}
+
+    destroy () {}
+};

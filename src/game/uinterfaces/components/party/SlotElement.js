@@ -1,4 +1,4 @@
-import DragglableGridElement from "../DragglableGridElement";
+import DragglableGridElement from "../generics/DragglableGridElement";
 
 import { PARTY_INTERFACE_TYPES } from "@/game/constants/Party";
 

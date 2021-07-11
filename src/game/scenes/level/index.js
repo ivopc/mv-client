@@ -22,6 +22,8 @@ import { getPing } from "./network/ping.network";
 class Level extends Phaser.Scene {
     constructor () {
         super({ key: SCENE.LEVEL });
+        // create static reference of current instance
+        Level.ref = this;
         this.$loader;
         // network need to be instancied here cause `Loader` depends 
         // on it for level channel subscribe success event
@@ -58,7 +60,6 @@ class Level extends Phaser.Scene {
         this.$charactersController = new GenericCharactersController(this);
         //this.$lookerPathfind = new LookerPathfind(this);
         // **-----------------------------------**
-        SceneManager.setLevel(this);
         this.$cameraController.setup();
         this.$containers.create();
         this.$tilemap.create();
@@ -92,6 +93,12 @@ class Level extends Phaser.Scene {
     update (time) {
         this.$inputListener.update(time);
     }
+
+    /**
+     * Static reference to self `Level` scene instance
+     * @type {Level}
+     */
+    static ref
 };
 
 export default Level;

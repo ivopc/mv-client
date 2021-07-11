@@ -1,7 +1,5 @@
 class ErrorManager {
-	constructor (scene) {
-		this.scene = scene;
-	}
+	static registerLog () {}
 };
 
 export default ErrorManager;

@@ -2,7 +2,7 @@ import RawCharacter from "./RawCharacter";
 import OverworldCollider from "./OverworldCollider";
 
 import Database from "@/game/managers/Database";
-import SceneManager from "@/game/managers/SceneManager";
+import Level from "@/game/scenes/level";
 
 import CharacterModel from "@/game/models/CharacterModel";
 
@@ -11,6 +11,7 @@ import { timedEvent } from "@/game/utils/scene.promisify";
 
 import { STEP_TIME, TILE, DIRECTIONS, DIRECTIONS_HASH } from "@/game/constants/Overworld";
 import { CHAR_TYPES, MOVE_TYPES, WALK_STEP_FLAGS } from "@/game/constants/Character";
+import { game } from "../index";
 
 class Character extends RawCharacter {
 
@@ -105,16 +106,7 @@ class Character extends RawCharacter {
                 break;
             };
         };
-        const follower = this.scene.appendCharacter({
-            name: "follower_" + Date.now(),
-            char: sprite,
-            pos: {
-                x: position.x,
-                y: position.y
-            },
-            dir: this._data.position.facing,
-            type: CHAR_TYPES.FOLLOWER
-        });
+        const follower = Character.addtoLevel(/*{ ... }*/);
         this._data.setFollower(follower._data.name);
     }
 
@@ -300,10 +292,11 @@ class Character extends RawCharacter {
     }
 
     static addtoLevel (characterData) {
-        const scene = SceneManager.getLevel();
+        const scene = Level.ref;
         const gameObject = new Character(scene, characterData);
         scene.add.existing(gameObject);
         scene.$charactersController.addStaticCharacter(gameObject);
+        return gameObject;
     }
 };
 

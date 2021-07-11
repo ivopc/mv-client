@@ -28,6 +28,10 @@ export const addGenericUIComponent = (layout, scene) =>
         .setOrigin(0, 0)
         .setName(layout.name);
 
+export const outOfCameraZoomRange = (val, camera, gameObject) => 
+    (camera.zoom - val) * gameObject.width < camera.width || 
+    (camera.zoom - val) * gameObject.height < camera.height;
+
 // get how many time vip have
 export const treatVipDate = function (date) {
     const { days, hours, minutes } = convertMsToDate(date - Date.now());

@@ -1,6 +1,8 @@
 import { game } from "@/game";
 import LevelData from "@/game/managers/LevelData";
 
+import { outOfCameraZoomRange } from "@/game/utils";
+
 import { DEFAULT_LEVEL_ZOOM } from "@/game/constants/Overworld";
 
 class CameraController {
@@ -38,10 +40,8 @@ class CameraController {
 
     zoomOut (val = 0.05) {
         // just checking if is in out of camera range
-        if (
-            (this.camera.zoom - val) * this.scene.$tilemap.tilemap.widthInPixels < this.camera.width ||
-            (this.camera.zoom - val) * this.scene.$tilemap.tilemap.heightInPixels < this.camera.height
-        )
+        const { widthInPixels,  heightInPixels } = scene.$tilemap.tilemap;
+        if (outOfCameraZoomRange(val, this.camera, { width: widthInPixels, height: heightInPixels }))
             return;
         this.camera.zoom -= val;
     }

@@ -5,11 +5,11 @@ import { RESOLUTION_TYPES } from "@/game/constants/Resolutions";
 
 import { getResolution, addGenericUIComponent } from "@/game/utils";
 
-import InterfaceContainer from "./components/InterfaceContainer";
-import Button from "./components/Button";
+import UInterfaceContainer from "./components/generics/UInterfaceContainer";
+import Button from "./components/generics/Button";
 import Rating from "./components/wildmenu/Rating";
 
-class WildMenu extends InterfaceContainer {                                                                                                                                                                                                                    
+class WildMenu extends UInterfaceContainer {                                                                                                                                                                                                                    
     constructor (scene) {
         super(scene, Layout.ref.get("wildEncounter"));
         scene.add.existing(this);

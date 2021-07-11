@@ -1,6 +1,5 @@
 import Character from "./Character";
-
-import SceneManager from "@/game/managers/SceneManager";
+import Level from "@/game/scenes/level";
 
 import {
     OVERWORLD_ACTIONS, 
@@ -47,11 +46,12 @@ class RemotePlayer extends Character {
     displayNickname (name) {}
 
     static addtoLevel (playerData) {
-        const scene = SceneManager.getLevel();
+        const scene = Level.ref;
         const gameObject = new RemotePlayer(scene, playerData);
         scene.add.existing(gameObject);
         scene.$charactersController.addRemotePlayerGameObject(gameObject, playerData.userId);
         scene.$containers.main.add(gameObject);
+        return gameObject;
     }
 };
 

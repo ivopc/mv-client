@@ -73,7 +73,7 @@ class SocketClusterWrapper {
     ajax (event, data) {
         return new Promise((resolve, reject) =>
             this._socket.emit(
-                event, 
+                event,
                 data, 
                 (err, response) => err ? reject(err) : resolve(response)
             )
@@ -153,7 +153,7 @@ class SocketClusterWrapper {
      * @returns {any}
      */
     get _codec () {
-        return process.env.NODE_ENV == "development" ? 
+        return process.env.NODE_ENV === "development" ? 
         {} : {
             codecEngine: scCodecMinBin
         }; 

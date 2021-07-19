@@ -21,8 +21,17 @@ export const COMPONENTS_TYPE = {
     DRAGGABLE_GRID_SLOT: "DRAGGABLE_GRID_SLOT",
     DRAGGABLE_GRID_ELEMENT: "DRAGGABLE_GRID_ELEMENT",
     ANIMATED_DIALOG_TEXT: "ANIMATED_DIALOG_TEXT",
-    COMPONENTS_GROUP: "COMPONENTS_GROUP"
+    COMPONENTS_GROUP: "COMPONENTS_GROUP",
+    BUTTONS_GROUP: "BUTTONS_GROUP"
 };
+
+/**
+ * Get the component group primitive component type according to many diferents names
+ * @param {string} groupName dynamic group name 
+ * @returns 
+ */
+export const getComponentsGroupType = groupName => groupName.split("_")[2]; 
+
 
 // JSON Script Array Elements Index Structrure
 
@@ -35,6 +44,16 @@ export const UI_BEHAVIOR_COMPONENT_NAME = 0;
  * @constant
  */
 export const UI_BEHAVIOR_PARAMS = 1;
+
+/**
+ * Components that will not be renderend in `IDLE` state
+ */
+export const FILTER_UI_IN_IDLE = [
+    COMPONENTS_TYPE.WINDOW, 
+    COMPONENTS_TYPE.CONTEXT_MENU, 
+    COMPONENTS_TYPE.TOOLTIP,
+     COMPONENTS_TYPE.LOADING
+];
 
 /**
  * Dynamic enum to get and create the UI states

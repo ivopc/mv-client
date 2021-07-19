@@ -1,14 +1,19 @@
-import { UI_BEHAVIOR_COMPONENT_NAME, COMPONENTS_TYPE } from "@/game/constants/UI";
+import { 
+    UI_BEHAVIOR_COMPONENT_NAME, 
+    COMPONENTS_TYPE, 
+    UI_STATES, 
+    FILTER_UI_IN_IDLE 
+} from "@/game/constants/UI";
 
 import uiRuntimeBehaviors from "@/game/script-behaviors/ui-behavior.runtime";
 
 class RuntimeUIManager {
-    constructor (scene) {
+    constructor (runtimeUI, layout) {
         /**
          * Current `Scene` instance reference
          * @type {Phaser.Scene}
          */
-        this.scene = scene;
+        this.scene = runtimeUI.scene;
         /**
          * UI ID
          * @type {string|number}
@@ -23,27 +28,26 @@ class RuntimeUIManager {
         this.runtimeWindowsBehaviorsList = [];
         this.runtimeVFXBehaviorsList = [];
         this.runtimeSFXBehaviorsList = [];
+        this.runtimeLayoutResponsivityBehavaiorsList = [];
+        
+        /**
+         * Layout data
+         * @type {JSON}
+         */
+        this.layout = layout;
 
         /**
-         * `RuntimeUI` instance reference to handle the entire UI
+         * `RuntimeUI` instance reference to handle the entire UI  
+         * @type {RuntimeUI}
          */
-        this.UI = new RuntimeUI(scene);
-    }
-
-    /**
-     * UI ID setter
-     * @param {string}
-     * @returns {void}
-     */
-    setUI (id) {
-        this.id = id;
+        this.UI = runtimeUI;
     }
 
     /**
      * Parse the UI JSON template
      * @param JSONData - JSON behavior template to transform to runtime execution
      */
-    parse (JSONData) {}
+    parse () {}
 
     /**
      * Renderize the UI in the scene runtime
@@ -51,22 +55,37 @@ class RuntimeUIManager {
      */
     renderize () {}
 
+
+    /**
+     * 
+     * @param {JSON} layout - the JSON layout loaded from Phaser
+     */
+    addIdleBehavior () {
+        this.runtimeIdleBehaviorList = Object.values(this.layout)
+            .filter(component => !FILTER_UI_IN_IDLE.includes(component) && "type" in component);
+    }
+
     renderizeIdle () {
         this.runtimeIdleBehaviorList.forEach(behavior => {
-            const staticAppender = this.behaviorsMap[behavior[UI_BEHAVIOR_COMPONENT_NAME]].bind(this);
-            staticAppender(this.UI);
+            const idleComponentCreator = this.idleBehaviors[behavior.type || COMPONENTS_TYPE.STATIC].bind(this);
+            idleComponentCreator(this.UI, behavior);
         });
     }
 
-    behaviorsMap = {
-        [COMPONENTS_TYPE.STATIC]: function (uiContext) {
-            uiRuntimeBehaviors.addStatic(uiContext);
+    idleBehaviors = {
+        [COMPONENTS_TYPE.STATIC]: function (uiContext, behavior) {
+            uiRuntimeBehaviors.addGenericComponent(uiContext, behavior);
         },
-        [COMPONENTS_TYPE.BACKGROUND]: function (uiContext) {
-            uiRuntimeBehaviors.addBackground(uiContext);
+        [COMPONENTS_TYPE.BACKGROUND]: function (uiContext, behavior) {
+            uiRuntimeBehaviors.addBackground(uiContext, behavior);
         },
-        [COMPONENTS_TYPE.BUTTON]: function (uiContext) {
-            uiRuntimeBehaviors.addButton(uiContext);
+        [COMPONENTS_TYPE.BUTTONS_GROUP]: function (uiContext, behavior) {
+            behavior.list.forEach(buttonComponent => 
+                uiRuntimeBehaviors.addButton(uiContext, buttonComponent)
+            );
+        },
+        [COMPONENTS_TYPE.BUTTON]: function (uiContext, behavior) {
+            uiRuntimeBehaviors.addButton(uiContext, behavior);
         },
     }
 };

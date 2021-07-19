@@ -1,14 +1,14 @@
-import Layout from "@/game/managers/Layout";
+import Layout from "@/game/managers/Layout"; // {legacy}
 
-import UInterfaceContainer from "./components/generics/UInterfaceContainer";
+import RuntimeUI from "./RuntimeUI";
 
-class RemoteProfile extends UInterfaceContainer {
+class RemoteProfile extends RuntimeUI {
     constructor (scene) {
-        super(scene, Layout.ref.get("remoteProfile"));
+        super(scene, "profile"); // {legacy}
     }
 
     append () {
-
+        super.append();
     }
 };
 

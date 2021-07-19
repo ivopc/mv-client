@@ -93,10 +93,9 @@ class InputListener {
 
     update (time) {
         this.gameTime = time;
+        this.checkKeyboard();
         if (isMobile)
             this.checkDPad();
-        else
-            this.checkKeyboard();
     }
 
     getInputTiming () {

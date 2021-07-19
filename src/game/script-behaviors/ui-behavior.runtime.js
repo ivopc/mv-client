@@ -1,6 +1,6 @@
 import { COMPONENTS_TYPE, UI_BEHAVIOR_PARAMS } from "@/game/constants/UI";
 import { addGenericUIComponent } from "@/game/utils";
-import Button from "@/game/uinterface/components/generics/Button";
+import Button from "@/game/uinterfaces/components/generics/Button";
 
 
 // behavior layout reference {test}
@@ -10,28 +10,31 @@ import Button from "@/game/uinterface/components/generics/Button";
     ["BUTTON", {id: "buttonId"}]
 ];
 
-export function addGeneric (uiContext, behaviorData) {
-    const component = addGenericUIComponent(uiContext.layout[behaviorData[UI_BEHAVIOR_PARAMS].id], uiContext.scene);
+function addGenericComponent (uiContext, behaviorData) {
+    const component = addGenericUIComponent(behaviorData, uiContext.scene);
     uiContext.add(component);
     return component;
 };
 
-export function addBackground (uiContext, behaviorData) {
-    uiContext.setOriginalBaseSize(addGeneric(uiContext, behaviorData));
+function addBackground (uiContext, behaviorData) {
+    uiContext.setOriginalBaseSize(addGenericComponent(uiContext, behaviorData));
 };
 
-export function addButton (uiContext, behaviorData) {
-    const { scene, layout, texts } = uiContext;
-    const behaviorParams = behaviorData[UI_BEHAVIOR_PARAMS];
-    const { id } = behaviorParams;
-    const btnLayout = layout[id];
-    const text = behaviorParams.hasText ? { display: texts[id], style: btnLayout.textStyle } : {};
+function addButton (uiContext, behaviorData) {
+    /*const { scene, texts } = uiContext;
+    const text = !behaviorData.textStyle ? { display: texts[id], style: btnLayout.textStyle } : {};
     const button = new Button(scene, {
-        x: btnLayout.position.x,
-        y: btnLayout.position.y,
-        spritesheet: btnLayout.spritesheet,
-        frames: btnLayout.frames,
+        x: behaviorData.position.x,
+        y: behaviorData.position.y,
+        spritesheet: behaviorData.spritesheet,
+        frames: behaviorData.frames,
         ... text
     });
-    uiContext.add(button);
+    uiContext.add(button);*/
+};
+
+export default { 
+    addGenericComponent,
+    addBackground,
+    addButton
 };

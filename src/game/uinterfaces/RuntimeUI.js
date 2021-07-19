@@ -6,11 +6,11 @@ import UInterfaceContainer from "./components/generics/UInterfaceContainer";
 import { UI_STATES } from "@/game/constants/UI";
 
 class RuntimeUI extends UInterfaceContainer {
-    constructor (scene, layoutId, state = UI_STATES.IDLE) {
-        super(scene, Layout.ref.get(layoutId));
-        scene.add.existing(this);
+    constructor (scene, layout, state = UI_STATES.IDLE()) {
+        super(scene, Layout.ref.get(layout));  // {legacy}
         this.currentState = state;
-        this.manager = new RuntimeUIManager(this);
+        this.manager = new RuntimeUIManager(this, Layout.ref.get(layout));
+        scene.add.existing(this);
     }
 
     /**
@@ -18,7 +18,9 @@ class RuntimeUI extends UInterfaceContainer {
      * @abstract
      * @returns {void}
      */
-    append () {}
+    append () {
+        this.manager.renderizeIdle();
+    }
 
     /**
      * Resize event that is called with window `resize` handled by `LayoutResponsivityManager` class

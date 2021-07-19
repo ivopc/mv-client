@@ -9,6 +9,7 @@ import Loader from "./Loader";
 
 import Party from "@/game/uinterfaces/Party";
 import WildMenu from "@/game/uinterfaces/WildMenu";
+import RemoteProfile from "@/game/uinterfaces/RemoteProfile";
 
 class Overworld extends Phaser.Scene {
     constructor () {
@@ -44,6 +45,14 @@ class Overworld extends Phaser.Scene {
             .setOrigin(0, 0)
             .setScrollFactor(0)
             .setDepth(999999999); // {placeholder}
+        this.addRemoteProfile(); // {test}
+    }
+
+    addRemoteProfile () {
+        const remote = new RemoteProfile(this);
+        remote.manager.addIdleBehavior();
+        remote.append();
+        window.remote = remote;
     }
 
     /**

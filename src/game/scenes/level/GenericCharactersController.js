@@ -14,7 +14,6 @@ class GenericCharactersController {
         this.staticCharacters = {};
         this.followers = {};
         this.remotePlayers = {};
-        console.log(this);
     }
 
     addStaticCharacter (gameObject) {

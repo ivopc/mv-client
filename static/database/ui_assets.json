@@ -35,5 +35,31 @@
         "key": "party_background",
         "type": "image",
         "path": "assets/img/ui/party/{resolution}/background.png"
+    },
+    "profile_background": {
+        "key": "profile_background",
+        "type": "image",
+        "path": "assets/img/ui/profile/{resolution}/background.png"
+    },
+    "profile_infos": {
+        "key": "profile_infos",
+        "type": "image",
+        "path": "assets/img/ui/profile/{resolution}/infos.png"
+    },
+    "profile_achievements": {
+        "key": "profile_achievements",
+        "type": "image",
+        "path": "assets/img/ui/profile/{resolution}/achievements.png"
+    },
+    "profile_monsters_button": {
+        "key": "profile_monsters_button",
+        "type": "spritesheet",
+        "path": "assets/img/ui/profile/{resolution}/background.png",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 108,
+                "frameHeight": 102
+            }
+        }
     }
 }

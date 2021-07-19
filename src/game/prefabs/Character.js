@@ -1,7 +1,7 @@
 import RawCharacter from "./RawCharacter";
 import OverworldCollider from "./OverworldCollider";
 
-import Database from "@/game/managers/Database";
+import Database from "@/game/managers/Database"; // {legacy}
 import Level from "@/game/scenes/level";
 
 import CharacterModel from "@/game/models/CharacterModel";
@@ -11,7 +11,6 @@ import { timedEvent } from "@/game/utils/scene.promisify";
 
 import { STEP_TIME, TILE, DIRECTIONS, DIRECTIONS_HASH } from "@/game/constants/Overworld";
 import { CHAR_TYPES, MOVE_TYPES, WALK_STEP_FLAGS } from "@/game/constants/Character";
-import { game } from "../index";
 
 class Character extends RawCharacter {
 
@@ -25,7 +24,7 @@ class Character extends RawCharacter {
         this._data = new CharacterModel(data);
         this.physics = new OverworldCollider(this);
         this.elementsContainer = scene.add.container();
-        this.elements = {
+        this.elements = { // {legacy}
             nickname: null,
             clan: null,
             balloon: {
@@ -34,9 +33,11 @@ class Character extends RawCharacter {
                 emotion: null,
                 quest: null
             },
-            grassOverlay: null
-        }; // {legacy}
-        if ("visible" in data)
+            overlay: {
+                grass: null
+            }
+        }; 
+        if ("visible" in data) // {legacy}
             this.visible = data.visible;
         this.changeOrigin(this._data.position.facing);
     }
@@ -50,13 +51,11 @@ class Character extends RawCharacter {
         };
     }
 
-    setOverworldPosition (x, y) {
+    setOverworldPositionRaw (x, y) {
         this.setPosition(positionToOverworld(x), positionToOverworld(y));
         this._data.setPosition(x, y);
     }
 
-    // abstract method to make current gameObject to interact with gameObject 
-    // that it  facing 
     interact () {
         const position = { ... this._data.position };
         const gameObjectsMap = this.scene.$tilemap.objectsMap;
@@ -81,6 +80,8 @@ class Character extends RawCharacter {
         };
         return gameObject;
     }
+
+    lookAt (gameObject) {}
 
     addPointerInteraction (fn) {
         this.setInteractive().on("pointerdown", fn);

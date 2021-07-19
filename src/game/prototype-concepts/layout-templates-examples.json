@@ -1,0 +1,20 @@
+{
+    "btnMons": {
+        "type": "COMPONENTS_GROUP_BUTTON",
+        "list": [
+            {
+                "spritesheet": "wild_button",
+                "frames": {"click": 1, "over": 2, "up": 0, "out": 0},
+                "textStyle": { 
+                    "fontFamily": "Century Gothic", 
+                    "fontSize": 24, 
+                    "color": "#fff"
+                },
+                "position": {
+                    "x": 1011,
+                    "y": 81
+                }
+            }
+        ]
+    }
+}

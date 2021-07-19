@@ -1,4 +1,4 @@
-import PlayerData from "@/game/managers/PlayerData";
+import PlayerData from "@/game/managers/PlayerData"; // {legacy}
 import Player from "@/game/prefabs/Player";
 
 class PlayerCharacterController {
@@ -9,7 +9,7 @@ class PlayerCharacterController {
     }
 
     create () {
-        const { character } = PlayerData.ref;
+        const { character } = PlayerData.ref; // {legacy}
         const player = new Player(this.scene, {
             position: {
                 x: character.position.x,
@@ -53,8 +53,8 @@ class PlayerCharacterController {
         return this.player._data.position;
     }
 
-    setOverworldPosition ( { x, y } ) {
-        this.player.setOverworldPosition(x, y);
+    setOverworldPosition ({ x, y }) {
+        this.player.setOverworldPositionRaw(x, y);
     }
 };
 

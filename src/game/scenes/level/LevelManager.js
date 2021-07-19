@@ -1,5 +1,5 @@
 import Database from "@/game/managers/Database";
-import LevelData from "@/game/managers/LevelData";
+import LevelData from "@/game/managers/LevelData"; // {legacy}
 
 class LevelManager {
     constructor (scene) {
@@ -11,7 +11,7 @@ class LevelManager {
         const levelData = Database.ref.level[warpData.levelId];
         LevelData.ref.update({
             id: warpData.levelId
-        });
+        }); // {legacy}
         //console.log("characters1", scene.$charactersController);
         scene.$charactersController.clear();
         scene.$tilemap.clear();
@@ -19,7 +19,7 @@ class LevelManager {
         //console.log("characters2", scene.$charactersController);
         scene.$tilemap.create();
         //this.$levelBehavior.create();
-        scene.$playerController.setOverworldPosition(warpData);
+        scene.$playerController.setOverworldPositionRaw(warpData);
         scene.$cameraController.setBounds();
         scene.$network.subscribeLevel(warpData.levelId);
     }

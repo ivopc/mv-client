@@ -1,6 +1,8 @@
 import { TILE, DIRECTIONS, DIRECTIONS_HASH } from "@/game/constants/Overworld";
 import { CHAR_TYPES } from "@/game/constants/Character";
 
+// {todo} - we need to abstract this class to specific gameObjects behaviors and avoid the switch in collide method
+
 class OverworldCollider {
 
     constructor (gameObject) {
@@ -9,7 +11,8 @@ class OverworldCollider {
         this.events = {
             startMove: [],
             endMove: [],
-            cantMove: []
+            cantMove: [],
+            face: []
         };
     }
 
@@ -58,7 +61,7 @@ class OverworldCollider {
                 break;
             };
         };
-        // ok alright, that's ugly. it's a method to get current tile collision properties
+        // alright, that's ugly. it's a method to get current tile collision properties
         const tile = TILE.PROPERTIES[
             this.scene.$tilemap.getCollisionTileData(newPosition, this.gameObject._data.getCurrentFloor()).index || 0
         ];

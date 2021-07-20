@@ -4,7 +4,7 @@ import RuntimeUI from "./RuntimeUI";
 
 class RemoteProfile extends RuntimeUI {
     constructor (scene) {
-        super(scene, "profile"); // {legacy}
+        super(scene, "selfProfile"); // {legacy}
     }
 
     append () {

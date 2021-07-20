@@ -1,3 +1,24 @@
+import Bag from "@/game/uinterfaces/Bag";
+
+/**
+ * All genereal UIs map
+ * @enum
+ */
+export const UIs = [
+    { name: "Bag", layout: "bag", class: Bag },
+    { name: "Chat", layout: "chat" },
+    { name: "Market", layout: "market" },
+    { name: "MarketPlace", layout: "marketPlace" },
+    { name: "MonsterBox", layout: "monsterBox" },
+    { name: "MonsterStatus", layout: "Monsterstatus" },
+    { name: "Notification", layout: "notification" },
+    { name: "Party", layout: "party" },
+    { name: "Quest", layout: "quest" },
+    { name: "RemoteProfile", layout: "remoteProfile" },
+    { name: "SelfProfile", layout: "selfProfile" },
+    { name: "WildMenu", layout: "wildEncounter" }
+];
+
 /**
  * All components types enumerator
  * @enum
@@ -21,8 +42,10 @@ export const COMPONENTS_TYPE = {
     DRAGGABLE_GRID_SLOT: "DRAGGABLE_GRID_SLOT",
     DRAGGABLE_GRID_ELEMENT: "DRAGGABLE_GRID_ELEMENT",
     ANIMATED_DIALOG_TEXT: "ANIMATED_DIALOG_TEXT",
+
     COMPONENTS_GROUP: "COMPONENTS_GROUP",
-    BUTTONS_GROUP: "BUTTONS_GROUP"
+    BUTTONS_GROUP: "BUTTONS_GROUP",
+    SWITCHABLE_SPRITE_GROUP: "SWITCHABLE_SPRITE_GROUP"
 };
 
 /**
@@ -44,16 +67,6 @@ export const UI_BEHAVIOR_COMPONENT_NAME = 0;
  * @constant
  */
 export const UI_BEHAVIOR_PARAMS = 1;
-
-/**
- * Components that will not be renderend in `IDLE` state
- */
-export const FILTER_UI_IN_IDLE = [
-    COMPONENTS_TYPE.WINDOW, 
-    COMPONENTS_TYPE.CONTEXT_MENU, 
-    COMPONENTS_TYPE.TOOLTIP,
-     COMPONENTS_TYPE.LOADING
-];
 
 /**
  * Dynamic enum to get and create the UI states

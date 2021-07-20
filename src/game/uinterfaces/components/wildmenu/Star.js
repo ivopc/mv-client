@@ -1,8 +1,8 @@
-import Phaser from "phaser";
+import { GameObjects } from "phaser";
 
 import Layout from "@/game/managers/Layout";
 
-class Star extends Phaser.GameObjects.Sprite {
+class Star extends GameObjects.Sprite {
     constructor (scene) {
         super(scene);
         this.layout = Layout.ref.data.wildEncounter;

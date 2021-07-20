@@ -1,20 +1,184 @@
 {
-    "btnMons": {
-        "type": "COMPONENTS_GROUP_BUTTON",
-        "list": [
-            {
+    "IDLE": {
+        "monButtons": {
+            "name": "monButtons",
+            "type": "BUTTONS_GROUP",
+            "list": [{
                 "spritesheet": "wild_button",
-                "frames": {"click": 1, "over": 2, "up": 0, "out": 0},
-                "textStyle": { 
-                    "fontFamily": "Century Gothic", 
-                    "fontSize": 24, 
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 24,
                     "color": "#fff"
                 },
                 "position": {
-                    "x": 1011,
-                    "y": 81
+                    "x": 409,
+                    "y": 47
                 }
-            }
-        ]
+            }, {
+                "spritesheet": "wild_button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 24,
+                    "color": "#fff"
+                },
+                "position": {
+                    "x": 122,
+                    "y": 0
+                }
+            }, {
+                "spritesheet": "wild_button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 24,
+                    "color": "#fff"
+                },
+                "position": {
+                    "x": 245,
+                    "y": 0
+                }
+            }, {
+                "spritesheet": "wild_button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 24,
+                    "color": "#fff"
+                },
+                "position": {
+                    "x": 368,
+                    "y": 0
+                }
+            }, {
+                "spritesheet": "wild_button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 24,
+                    "color": "#fff"
+                },
+                "position": {
+                    "x": 492,
+                    "y": 0
+                }
+            }, {
+                "spritesheet": "wild_button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 24,
+                    "color": "#fff"
+                },
+                "position": {
+                    "x": 614,
+                    "y": 0
+                }
+            }]
+        },
+        "achievements": {
+            "name": "achievements",
+            "texture": "selfProfile_achievements",
+            "position": {
+                "x": 360,
+                "y": 152
+            },
+            "type": "STATIC"
+        },
+        "infos": {
+            "name": "infos",
+            "texture": "selfProfile_infos",
+            "position": {
+                "x": 53,
+                "y": 38
+            },
+            "type": "STATIC"
+        },
+        "background": {
+            "name": "background",
+            "texture": "selfProfile_background",
+            "position": {
+                "x": 0,
+                "y": 0
+            },
+            "type": "STATIC"
+        },
+        "switchable": {
+            "type": "SWITCHABLE_SPRITE_GROUP",
+            "amount": 4,
+            "spritemap": [
+                [1, 0, 0, 0],
+                [1, 1, 0, 0],
+                [1, 1, 1, 0],
+                [1, 1, 1, 1]
+            ],
+            "spritesheet": "wild_star_rating",
+            "frames": {
+                "type": "TOGGLE",
+                "options": [0, 1]
+            },
+            "positions": [
+                {
+                    "x": 214,
+                    "y": 154
+                }, 
+                {
+                    "x": 274,
+                    "y": 154
+                }, 
+                {
+                    "x": 334,
+                    "y": 154
+                }, 
+                {
+                    "x": 394,
+                    "y": 154
+                }
+            ]
+        }
+    },
+    "mainContainer": {
+        "name": "mainContainer",
+        "basePosition": {
+            "x": 10,
+            "y": 17
+        }
+    },
+    "behaviors": {
+        "IDLE": {
+            "effect": "fadeIn",
+            "timing": 600
+        }
     }
 }

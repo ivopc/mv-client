@@ -21,7 +21,7 @@ function addBackground (uiContext, behaviorData) {
 };
 
 function addButton (uiContext, behaviorData) {
-    /*const { scene, texts } = uiContext;
+    const { scene, texts } = uiContext;
     const text = !behaviorData.textStyle ? { display: texts[id], style: btnLayout.textStyle } : {};
     const button = new Button(scene, {
         x: behaviorData.position.x,
@@ -30,7 +30,7 @@ function addButton (uiContext, behaviorData) {
         frames: behaviorData.frames,
         ... text
     });
-    uiContext.add(button);*/
+    uiContext.add(button);
 };
 
 export default { 

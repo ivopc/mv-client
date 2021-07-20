@@ -1,8 +1,7 @@
 import { 
     UI_BEHAVIOR_COMPONENT_NAME, 
-    COMPONENTS_TYPE, 
-    UI_STATES, 
-    FILTER_UI_IN_IDLE 
+    COMPONENTS_TYPE,
+    UI_STATES
 } from "@/game/constants/UI";
 
 import uiRuntimeBehaviors from "@/game/script-behaviors/ui-behavior.runtime";
@@ -61,8 +60,7 @@ class RuntimeUIManager {
      * @param {JSON} layout - the JSON layout loaded from Phaser
      */
     addIdleBehavior () {
-        this.runtimeIdleBehaviorList = Object.values(this.layout)
-            .filter(component => !FILTER_UI_IN_IDLE.includes(component) && "type" in component);
+        this.runtimeIdleBehaviorList = Object.values(this.layout[UI_STATES.IDLE()]).map(component => component);;
     }
 
     renderizeIdle () {

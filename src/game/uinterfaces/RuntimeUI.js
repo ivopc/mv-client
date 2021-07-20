@@ -4,12 +4,13 @@ import RuntimeUIManager from "@/game/managers/RuntimeUIManager";
 import UInterfaceContainer from "./components/generics/UInterfaceContainer";
 
 import { UI_STATES } from "@/game/constants/UI";
+import { timedEvent } from "../utils/scene.promisify";
 
 class RuntimeUI extends UInterfaceContainer {
     constructor (scene, layout, state = UI_STATES.IDLE()) {
         super(scene, Layout.ref.get(layout));  // {legacy}
         this.currentState = state;
-        this.manager = new RuntimeUIManager(this, Layout.ref.get(layout));
+        this.manager = new RuntimeUIManager(this, this.layout);
         scene.add.existing(this);
     }
 

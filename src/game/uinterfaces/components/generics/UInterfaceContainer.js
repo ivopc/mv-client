@@ -29,7 +29,7 @@ class UInterfaceContainer extends Phaser.GameObjects.Container {
     }
 
     /**
-     * Is called when the game change resolution, this is for responsivity purpouses
+     * Is called when the game change resolution, for responsivity purpouses
      * @abstract
      * @method
      */

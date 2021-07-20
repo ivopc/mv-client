@@ -2,14 +2,13 @@ import Phaser from "phaser";
 
 import { SCENE } from "@/game/constants/GameScene";
 
-import SceneManager from "@/game/managers/SceneManager";
+import { UIs, UI_STATES } from "@/game/constants/UI";
+
 import LayoutResponsivityManager from "@/game/managers/LayoutResponsivityManager";
 
-import Loader from "./Loader";
+import RuntimeUI from "@/game/uinterfaces/RuntimeUI";
 
-import Party from "@/game/uinterfaces/Party";
-import WildMenu from "@/game/uinterfaces/WildMenu";
-import RemoteProfile from "@/game/uinterfaces/RemoteProfile";
+import Loader from "./Loader";
 
 class Overworld extends Phaser.Scene {
     constructor () {
@@ -45,14 +44,15 @@ class Overworld extends Phaser.Scene {
             .setOrigin(0, 0)
             .setScrollFactor(0)
             .setDepth(999999999); // {placeholder}
-        this.addRemoteProfile(); // {test}
+        this.addRuntimeUI("SelfProfile"); // {test}
     }
 
-    addRemoteProfile () {
-        const remote = new RemoteProfile(this);
-        remote.manager.addIdleBehavior();
-        remote.append();
-        window.remote = remote;
+    addRuntimeUI (name) {
+        const UI = UIs.find(ui => ui.name === name);
+        const runtimeUI = UI.class ? new UI.class(this) : new RuntimeUI(this, UI.layout);
+        runtimeUI.manager.addIdleBehavior();
+        runtimeUI.append();
+        window.runtimeUI = runtimeUI;
     }
 
     /**

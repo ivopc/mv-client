@@ -38,7 +38,7 @@ class RawLoader {
     }
 
     fetchLoaders (assets) {
-        Object.keys(assets).forEach(asset => this.fetchLoader(assets[asset]));
+        Object.values(assets).forEach(asset => this.fetchLoader(asset));
     }
 
     fetchLoader (asset) {

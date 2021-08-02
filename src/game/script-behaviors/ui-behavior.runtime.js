@@ -22,13 +22,12 @@ function addBackground (uiContext, behaviorData) {
 
 function addButton (uiContext, behaviorData) {
     const { scene, texts } = uiContext;
-    const text = !behaviorData.textStyle ? { display: texts[id], style: btnLayout.textStyle } : {};
     const button = new Button(scene, {
         x: behaviorData.position.x,
         y: behaviorData.position.y,
         spritesheet: behaviorData.spritesheet,
         frames: behaviorData.frames,
-        ... text
+        ... !behaviorData.textStyle ? { display: texts[id], style: btnLayout.textStyle } : {}
     });
     uiContext.add(button);
 };

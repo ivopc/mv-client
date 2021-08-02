@@ -14,7 +14,7 @@ export const UIs = [
     { name: "Notification", layout: "notification" },
     { name: "Party", layout: "party" },
     { name: "Quest", layout: "quest" },
-    { name: "RemoteProfile", layout: "remoteProfile" },
+    { name: "Profile", layout: "profile" },
     { name: "SelfProfile", layout: "selfProfile" },
     { name: "WildMenu", layout: "wildEncounter" }
 ];
@@ -45,7 +45,9 @@ export const COMPONENTS_TYPE = {
 
     COMPONENTS_GROUP: "COMPONENTS_GROUP",
     BUTTONS_GROUP: "BUTTONS_GROUP",
-    SWITCHABLE_SPRITE_GROUP: "SWITCHABLE_SPRITE_GROUP"
+    SWITCHABLE_SPRITES_GROUP: "SWITCHABLE_SPRITES_GROUP",
+
+    PLACEHOLDER: "PLACEHOLDER"
 };
 
 /**

@@ -37,3 +37,8 @@ export const LEVEL_P2P_STRUCT = {
         NICKNAME: 6
     }
 };
+
+export const LAYOUT_BUILDER_EVENTS = {
+    UPDATE_LAYOUT: 300,
+    SEND_NEW_LAYOUT_DATA: 301
+};

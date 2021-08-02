@@ -1,4 +1,4 @@
-import Layout from "@/game/managers/Layout"; // {legacy}
+import LayoutStaticDatabase from "@/game/models/LayoutStaticDatabase";
 import RuntimeUIManager from "@/game/managers/RuntimeUIManager";
 
 import UInterfaceContainer from "./components/generics/UInterfaceContainer";
@@ -8,7 +8,7 @@ import { timedEvent } from "../utils/scene.promisify";
 
 class RuntimeUI extends UInterfaceContainer {
     constructor (scene, layout, state = UI_STATES.IDLE()) {
-        super(scene, Layout.ref.get(layout));  // {legacy}
+        super(scene, LayoutStaticDatabase.get(layout));  // {legacy}
         this.currentState = state;
         this.manager = new RuntimeUIManager(this, this.layout);
         scene.add.existing(this);

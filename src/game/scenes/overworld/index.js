@@ -44,7 +44,8 @@ class Overworld extends Phaser.Scene {
             .setOrigin(0, 0)
             .setScrollFactor(0)
             .setDepth(999999999); // {placeholder}
-        this.addRuntimeUI("SelfProfile"); // {test}
+        this.addRuntimeUI("Profile"); // {test}
+        this.startDevelopMode();
     }
 
     addRuntimeUI (name) {
@@ -52,7 +53,20 @@ class Overworld extends Phaser.Scene {
         const runtimeUI = UI.class ? new UI.class(this) : new RuntimeUI(this, UI.layout);
         runtimeUI.manager.addIdleBehavior();
         runtimeUI.append();
-        window.runtimeUI = runtimeUI;
+        this.runtimeUI = runtimeUI;
+    }
+
+    async startDevelopMode () {
+        if (process.env.NODE_ENV !== "development")
+            return;
+        const [ debugstarter, _engineIniter ] = await Promise.all([
+            import("@/game/debug/DebugStarter"),
+            import("@/game/engine")
+        ]);
+        const DebugStarter = debugstarter.default;
+        const engineIniter = _engineIniter.default;
+        DebugStarter.setup(this);
+        engineIniter(this);
     }
 
     /**

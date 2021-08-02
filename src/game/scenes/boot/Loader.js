@@ -20,7 +20,7 @@ class Loader extends RawLoader {
         scene.load.json(MONSTERS, "database/monsters.json");
         scene.load.json(MONSTER_EXP, "database/experience.json");
         scene.load.json(LEVELS, "database/levels.json");
-        scene.load.json(LAYOUT, "assets/resources/layout_hd.json");
+        scene.load.json(LAYOUT, "assets/resources/layout_hd.json"); // {placeholder}
     }
 };
 

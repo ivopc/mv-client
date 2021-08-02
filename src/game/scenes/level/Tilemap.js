@@ -8,7 +8,6 @@ import LevelData from "@/game/managers/LevelData";
 import { LAYER_TYPES, getCollisionFloorName } from "@/game/constants/Tilemap";
 
 class Tilemap {
-
     constructor (scene) {
         this.scene = scene;
         this.objectsMap = new LevelObjectsMap();
@@ -23,24 +22,26 @@ class Tilemap {
     create () {
         this.tilemap = this.scene.add.tilemap(Assets.ref.getLevelTilemap(this.levelData.id).key);
         this.tileset = this.fetchTilesets().map(tileset => this.tilemap.addTilesetImage(tileset.name, tileset.key, 32, 32, 1, 2));
-        this.tilemap.layers.forEach((layer, index) => {
-            switch (Number(layer.properties.type)) {
-                case LAYER_TYPES.DEFAULT: {
-                    this.layers[index] = this.tilemap.createLayer(layer.name, this.tileset);
-                    this.scene.$containers.map.add(this.layers[index]);
-                    break;
-                };
-                case LAYER_TYPES.OVERLAY: {
-                    this.overlay = this.tilemap.createLayer(layer.name, this.tileset);
-                    this.scene.$containers.overlay.add(this.overlay);
-                    break;
-                };
-                case LAYER_TYPES.COLLISION: {
-                    this.collisionLayers.push(this.tilemap.createLayer(layer.name, this.tileset));
-                    break;
-                };
+        this.tilemap.layers.forEach((layer, index) => this.appendLayerEach(layer, index));
+    }
+
+    appendLayerEach (layer, index) {
+        switch (Number(layer.properties.type)) {
+            case LAYER_TYPES.DEFAULT: {
+                this.layers[index] = this.tilemap.createLayer(layer.name, this.tileset);
+                this.scene.$containers.map.add(this.layers[index]);
+                break;
             };
-        });
+            case LAYER_TYPES.OVERLAY: {
+                this.overlay = this.tilemap.createLayer(layer.name, this.tileset);
+                this.scene.$containers.overlay.add(this.overlay);
+                break;
+            };
+            case LAYER_TYPES.COLLISION: {
+                this.collisionLayers.push(this.tilemap.createLayer(layer.name, this.tileset));
+                break;
+            };
+        };
     }
 
     fetchTilesets () {

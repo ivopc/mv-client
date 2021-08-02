@@ -59,7 +59,7 @@ class Boot extends Phaser.Scene {
             ui: this.cache.json.get(UI_ASSETS)
         });
         Layout.ref = new Layout({
-            resolution: RESOLUTION_TYPES.HD,
+            resolution: RESOLUTION_TYPES.HD,  // {placeholder}
             data: this.cache.json.get(LAYOUT)
         }); // {legacy}
         LayoutStaticDatabase.create({

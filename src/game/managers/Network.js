@@ -23,7 +23,7 @@ class Network extends getSocketWrapper() {
      * @returns {JSON}
      */
     static async ajax (event, data) {
-        return Network.ref.ajax(event, data);
+        return this.ref.ajax(event, data);
     }
 
     /**

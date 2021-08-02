@@ -2,12 +2,14 @@
     "wild_encounter_background": {
         "key": "wild_encounter_background",
         "type": "image",
-        "path": "assets/img/ui/wild-encounter/{resolution}/background.png"
+        "path": "assets/img/ui/wild-encounter/{resolution}/background.png",
+        "category": "wildEncounter"
     },
     "wild_encounter_name_box": {
         "key": "wild_encounter_name_box",
         "type": "image",
-        "path": "assets/img/ui/wild-encounter/{resolution}/name_box.png"
+        "path": "assets/img/ui/wild-encounter/{resolution}/name_box.png",
+        "category": "wildEncounter"
     },
     "wild_button": {
         "key": "wild_button",
@@ -18,7 +20,8 @@
                 "frameWidth": 149, 
                 "frameHeight": 82
             }
-        }
+        },
+        "category": "wildEncounter"
     },
     "wild_star_rating": {
         "key": "wild_star_rating",
@@ -29,37 +32,47 @@
                 "frameWidth": 53, 
                 "frameHeight": 51
             }
-        }
+        },
+        "category": "wildEncounter"
     },
     "party_background": {
         "key": "party_background",
         "type": "image",
-        "path": "assets/img/ui/party/{resolution}/background.png"
+        "path": "assets/img/ui/party/{resolution}/background.png",
+        "category": "party"
     },
-    "selfProfile_background": {
-        "key": "selfProfile_background",
+    "profile_background": {
+        "key": "profile_background",
         "type": "image",
-        "path": "assets/img/ui/profile/{resolution}/background.png"
+        "path": "assets/img/ui/profile/{resolution}/background.png",
+        "componentType": "STATIC",
+        "category": "profile"
     },
-    "selfProfile_infos": {
-        "key": "selfProfile_infos",
+    "profile_infos": {
+        "key": "profile_infos",
         "type": "image",
-        "path": "assets/img/ui/profile/{resolution}/infos.png"
+        "path": "assets/img/ui/profile/{resolution}/infos.png",
+        "componentType": "STATIC",
+        "category": "profile"
     },
-    "selfProfile_achievements": {
-        "key": "selfProfile_achievements",
+    "profile_achievements": {
+        "key": "profile_achievements",
         "type": "image",
-        "path": "assets/img/ui/profile/{resolution}/achievements.png"
+        "path": "assets/img/ui/profile/{resolution}/achievements.png",
+        "componentType": "STATIC",
+        "category": "profile"
     },
-    "selfProfile_monsters_button": {
-        "key": "selfProfile_monsters_button",
+    "profile_monsters_button": {
+        "key": "profile_monsters_button",
         "type": "spritesheet",
         "path": "assets/img/ui/profile/{resolution}/background.png",
+        "componentType": "BUTTON",
         "dimensions": {
             "hd": {
                 "frameWidth": 108,
                 "frameHeight": 102
             }
-        }
+        },
+        "category": "profile"
     }
 }

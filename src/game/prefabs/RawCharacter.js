@@ -55,16 +55,14 @@ class RawCharacter extends Phaser.GameObjects.Sprite {
     }
 
     async loadSprite (sprite) {
-        // {legacy}
-        const characterSprite = Assets.ref.getOverworldCharacter(sprite);
+        const characterSprite = Assets.ref.getOverworldCharacter(sprite); // {legacy}
         this.scene.load.atlas(
             characterSprite.key, 
             characterSprite.path.texture, 
             characterSprite.path.atlas
-        );
-        this.scene.load.start();
-        await loadComplete(this.scene);
-        // {/legacy}
+        ); // {legacy}
+        this.scene.load.start(); // {legacy}
+        await loadComplete(this.scene); // {legacy}
         await characterLazyLoad(sprite);
         this._data.sprite = sprite;
         this.rawSetSprite(sprite);

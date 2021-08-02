@@ -1,4 +1,4 @@
-class LayoutModel {
+class LayoutStaticDatabase {
     static create ({ resolution, data }) {
         this.resolution = resolution;
         this.data = data;
@@ -7,6 +7,10 @@ class LayoutModel {
     static get (layout) {
         return this.data[layout];
     }
+
+    static setData (layoutData) {
+        this.data = layoutData;
+    }
 };
 
-export default LayoutModel;
+export default LayoutStaticDatabase;

@@ -9,6 +9,10 @@ class Layout {
         return this.data[layout];
     }
 
+    setData (layoutData) {
+        this.data = layoutData;
+    }
+
     static ref
 };
 

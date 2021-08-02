@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import { Scene } from "phaser";
 
 import { SCENE } from "@/game/constants/GameScene";
 
@@ -19,7 +19,7 @@ import LookerPathfind from "./LookerPathfind";
 
 import { getPing } from "./network/ping.network";
 
-class Level extends Phaser.Scene {
+class Level extends Scene {
     constructor () {
         super({ key: SCENE.LEVEL });
         // create static reference of current instance

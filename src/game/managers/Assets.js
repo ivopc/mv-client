@@ -45,6 +45,9 @@ class Assets {
         return this.ui;
     }
 
+    /**
+     * @type {Assets}
+     */
     static ref
 };
 

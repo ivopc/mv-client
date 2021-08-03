@@ -19,6 +19,7 @@ export function startLayoutBuilder () {
 };
 
 export async function reloadUserInterfaceLayout () {
+    console.log("chamou");
     const scene = Overworld.ref;
     scene.cache.json.remove(LAYOUT);
     scene.load.json(LAYOUT, "assets/resources/layout_hd.json");
@@ -27,4 +28,5 @@ export async function reloadUserInterfaceLayout () {
     LayoutStaticDatabase.setData(scene.cache.json.get(LAYOUT));
     scene.runtimeUI.destroy();
     scene.addRuntimeUI(currentUI.name);
+    console.log("appendou");
 };

@@ -2,14 +2,6 @@ import { COMPONENTS_TYPE, UI_BEHAVIOR_PARAMS } from "@/game/constants/UI";
 import { addGenericUIComponent } from "@/game/utils";
 import Button from "@/game/uinterfaces/components/generics/Button";
 
-
-// behavior layout reference {test}
-[
-    ["BACKGROUND", {id: "background"}],
-    ["STATIC", {id: "achieviments"}],
-    ["BUTTON", {id: "buttonId"}]
-];
-
 function addGenericComponent (uiContext, behaviorData) {
     const component = addGenericUIComponent(behaviorData, uiContext.scene);
     uiContext.add(component);
@@ -27,7 +19,7 @@ function addButton (uiContext, behaviorData) {
         y: behaviorData.position.y,
         spritesheet: behaviorData.spritesheet,
         frames: behaviorData.frames,
-        ... !behaviorData.textStyle ? { display: texts[id], style: btnLayout.textStyle } : {}
+        //... behaviorData.textStyle ? { display: texts[id], style: btnLayout.textStyle } : {}
     });
     uiContext.add(button);
 };

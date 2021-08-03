@@ -44,7 +44,7 @@ class Overworld extends Phaser.Scene {
             .setOrigin(0, 0)
             .setScrollFactor(0)
             .setDepth(999999999); // {placeholder}
-        this.addRuntimeUI("Profile"); // {test}
+        this.addRuntimeUI("InitialMonster"); // {test}
         this.startDevelopMode();
     }
 

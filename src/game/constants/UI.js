@@ -5,7 +5,7 @@ import Bag from "@/game/uinterfaces/Bag";
  * @enum
  */
 export const UIs = [
-    { name: "Bag", layout: "bag", class: Bag },
+    { name: "Bag", layout: "bag", class: async () => import("@/game/uinterfaces/Bag") },
     { name: "Chat", layout: "chat" },
     { name: "Market", layout: "market" },
     { name: "MarketPlace", layout: "marketPlace" },
@@ -16,7 +16,8 @@ export const UIs = [
     { name: "Quest", layout: "quest" },
     { name: "Profile", layout: "profile" },
     { name: "SelfProfile", layout: "selfProfile" },
-    { name: "WildMenu", layout: "wildEncounter" }
+    { name: "WildMenu", layout: "wildEncounter" },
+    { name: "InitialMonster", layout: "initial" }
 ];
 
 /**

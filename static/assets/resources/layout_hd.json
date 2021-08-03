@@ -1,1 +1,772 @@
-{"wildEncounter":{"IDLE":{"info":{"name":"info","spritesheet":"wild_button","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"Century Gothic","fontSize":24,"color":"#fff"},"position":{"x":746,"y":86}},"battle":{"name":"battle","type":"BUTTONS_GROUP","list":[{"spritesheet":"wild_button","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"Century Gothic","fontSize":24,"color":"#fff"},"position":{"x":865,"y":571}},{"spritesheet":"wild_button","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"Century Gothic","fontSize":24,"color":"#fff"},"position":{"x":167,"y":0}}]},"monsterRating":{"name":"monsterRating","type":"SWITCHABLE_SPRITES_GROUP","amount":4,"frames":{"type":"TOGGLE","options":[0,1]},"spritesheet":"TODO","spritemap":[[1,0,0,0],[1,1,0,0],[1,1,1,0],[1,1,1,1]],"positions":[{"x":236,"y":644},{"x":60,"y":0},{"x":120,"y":0},{"x":180,"y":0}]},"nameBackground":{"name":"nameBackground","texture":"wildEncounter_nameBackground","position":{"x":152,"y":58},"type":"STATIC"},"background":{"name":"background","texture":"wildEncounter_background","position":{"x":0,"y":0},"type":"STATIC"}},"mainContainer":{"name":"mainContainer","basePosition":{"x":20,"y":490}}},"party":{"mainContainer":{"name":"mainContainer","basePosition":{"x":0,"y":0}},"background":{"position":{"x":0,"y":0},"texture":"party_background"},"slot":{"width":148,"height":39,"spritesheet":"party-slot"},"slots":[{"x":0,"y":0},{"x":0,"y":0},{"x":0,"y":0},{"x":0,"y":0},{"x":0,"y":0},{"x":0,"y":0}]},"battle":{"floor":[{"x":58,"y":120},{"x":315,"y":120}],"monsterHud":{"player":{"base":{"x":26,"y":2},"healthBar":{"x":42,"y":18,"width":114,"height":6},"manaBar":{"x":42,"y":23,"width":111,"height":6,"bar":{"color":2730978}},"expBar":{"x":42,"y":30,"width":78,"height":4,"bar":{"color":65535}},"text":{"name":{"x":42,"y":7,"style":{"fontFamily":"Century Gothic","fontSize":9,"color":"#000"}},"level":{"x":168,"y":7,"style":{"fontFamily":"Century Gothic","fontSize":9,"color":"#000"}}}},"opponent":{"base":{"x":288,"y":5},"healthBar":{"x":318,"y":22,"width":114,"height":6},"text":{"name":{"x":316,"y":11,"style":{"fontFamily":"Century Gothic","fontSize":9,"color":"#000"}},"level":{"x":418,"y":10,"style":{"fontFamily":"Century Gothic","fontSize":9,"color":"#000"}}}}},"actionMenu":{"movesBtn":{"x":268,"y":166,"spritesheet":"button","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"Century Gothic","fontSize":15,"color":"#fff"}},"bagBtn":{"x":371,"y":166,"spritesheet":"button","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"Century Gothic","fontSize":15,"color":"#fff"}},"partyBtn":{"x":268,"y":200,"spritesheet":"button","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"Century Gothic","fontSize":15,"color":"#fff"}},"runBtn":{"x":371,"y":200,"spritesheet":"button","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"Century Gothic","fontSize":15,"color":"#fff"}},"textBox":{"style":{"fontFamily":"Century Gothic","fontSize":14,"color":"#fff","padding":{"left":5,"top":5}}}},"fightMenu":{"movesBtn":[{"x":12,"y":166,"spritesheet":"button","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"Century Gothic","fontSize":14,"color":"#fff"}},{"x":115,"y":166,"spritesheet":"button","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"Century Gothic","fontSize":14,"color":"#fff"}},{"x":12,"y":200,"spritesheet":"button","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"Century Gothic","fontSize":14,"color":"#fff"}},{"x":115,"y":200,"spritesheet":"button","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"Century Gothic","fontSize":14,"color":"#fff"}}],"backBtn":{"x":343,"y":185,"spritesheet":"button-back","frames":{"click":1,"over":2,"up":0,"out":0}}}},"profile":{"IDLE":{"monButton":{"name":"monButton","type":"BUTTONS_GROUP","list":[{"spritesheet":"PLACEHOLDER","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"PLACEHOLDER","fontSize":"PLACEHOLDER","color":"PLACEHOLDER"},"position":{"x":409,"y":47}},{"spritesheet":"PLACEHOLDER","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"PLACEHOLDER","fontSize":"PLACEHOLDER","color":"PLACEHOLDER"},"position":{"x":122,"y":0}},{"spritesheet":"PLACEHOLDER","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"PLACEHOLDER","fontSize":"PLACEHOLDER","color":"PLACEHOLDER"},"position":{"x":245,"y":0}},{"spritesheet":"PLACEHOLDER","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"PLACEHOLDER","fontSize":"PLACEHOLDER","color":"PLACEHOLDER"},"position":{"x":368,"y":0}},{"spritesheet":"PLACEHOLDER","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"PLACEHOLDER","fontSize":"PLACEHOLDER","color":"PLACEHOLDER"},"position":{"x":492,"y":0}},{"spritesheet":"PLACEHOLDER","frames":{"click":1,"over":2,"up":0,"out":0},"textStyle":{"fontFamily":"PLACEHOLDER","fontSize":"PLACEHOLDER","color":"PLACEHOLDER"},"position":{"x":614,"y":0}}]},"achievements":{"name":"achievements","texture":"profile_achievements","position":{"x":360,"y":143},"type":"STATIC"},"infos":{"name":"infos","texture":"profile_infos","position":{"x":174,"y":49},"type":"STATIC"},"background":{"name":"background","texture":"profile_background","position":{"x":0,"y":0},"type":"STATIC"}},"mainContainer":{"name":"mainContainer","basePosition":{"x":10,"y":17}}}}
+{
+    "wildEncounter": {
+        "IDLE": {
+            "info": {
+                "name": "info",
+                "spritesheet": "wild_button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 24,
+                    "color": "#fff"
+                },
+                "position": {
+                    "x": 746,
+                    "y": 86
+                }
+            },
+            "battle": {
+                "name": "battle",
+                "type": "BUTTONS_GROUP",
+                "list": [{
+                    "spritesheet": "wild_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "Century Gothic",
+                        "fontSize": 24,
+                        "color": "#fff"
+                    },
+                    "position": {
+                        "x": 865,
+                        "y": 571
+                    }
+                }, {
+                    "spritesheet": "wild_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "Century Gothic",
+                        "fontSize": 24,
+                        "color": "#fff"
+                    },
+                    "position": {
+                        "x": 167,
+                        "y": 0
+                    }
+                }]
+            },
+            "monsterRating": {
+                "name": "monsterRating",
+                "type": "SWITCHABLE_SPRITES_GROUP",
+                "amount": 4,
+                "frames": {
+                    "type": "TOGGLE",
+                    "options": [0, 1]
+                },
+                "spritesheet": "TODO",
+                "spritemap": [
+                    [1, 0, 0, 0],
+                    [1, 1, 0, 0],
+                    [1, 1, 1, 0],
+                    [1, 1, 1, 1]
+                ],
+                "positions": [{
+                    "x": 236,
+                    "y": 644
+                }, {
+                    "x": 60,
+                    "y": 0
+                }, {
+                    "x": 120,
+                    "y": 0
+                }, {
+                    "x": 180,
+                    "y": 0
+                }]
+            },
+            "nameBackground": {
+                "name": "nameBackground",
+                "texture": "wildEncounter_nameBackground",
+                "position": {
+                    "x": 152,
+                    "y": 58
+                },
+                "type": "STATIC"
+            },
+            "background": {
+                "name": "background",
+                "texture": "wildEncounter_background",
+                "position": {
+                    "x": 0,
+                    "y": 0
+                },
+                "type": "STATIC"
+            }
+        },
+        "mainContainer": {
+            "name": "mainContainer",
+            "basePosition": {
+                "x": 20,
+                "y": 490
+            }
+        }
+    },
+    "party": {
+        "mainContainer": {
+            "name": "mainContainer",
+            "basePosition": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "background": {
+            "position": {
+                "x": 0,
+                "y": 0
+            },
+            "texture": "party_background"
+        },
+        "slot": {
+            "width": 148,
+            "height": 39,
+            "spritesheet": "party-slot"
+        },
+        "slots": [{
+            "x": 0,
+            "y": 0
+        }, {
+            "x": 0,
+            "y": 0
+        }, {
+            "x": 0,
+            "y": 0
+        }, {
+            "x": 0,
+            "y": 0
+        }, {
+            "x": 0,
+            "y": 0
+        }, {
+            "x": 0,
+            "y": 0
+        }]
+    },
+    "battle": {
+        "floor": [{
+            "x": 58,
+            "y": 120
+        }, {
+            "x": 315,
+            "y": 120
+        }],
+        "monsterHud": {
+            "player": {
+                "base": {
+                    "x": 26,
+                    "y": 2
+                },
+                "healthBar": {
+                    "x": 42,
+                    "y": 18,
+                    "width": 114,
+                    "height": 6
+                },
+                "manaBar": {
+                    "x": 42,
+                    "y": 23,
+                    "width": 111,
+                    "height": 6,
+                    "bar": {
+                        "color": 2730978
+                    }
+                },
+                "expBar": {
+                    "x": 42,
+                    "y": 30,
+                    "width": 78,
+                    "height": 4,
+                    "bar": {
+                        "color": 65535
+                    }
+                },
+                "text": {
+                    "name": {
+                        "x": 42,
+                        "y": 7,
+                        "style": {
+                            "fontFamily": "Century Gothic",
+                            "fontSize": 9,
+                            "color": "#000"
+                        }
+                    },
+                    "level": {
+                        "x": 168,
+                        "y": 7,
+                        "style": {
+                            "fontFamily": "Century Gothic",
+                            "fontSize": 9,
+                            "color": "#000"
+                        }
+                    }
+                }
+            },
+            "opponent": {
+                "base": {
+                    "x": 288,
+                    "y": 5
+                },
+                "healthBar": {
+                    "x": 318,
+                    "y": 22,
+                    "width": 114,
+                    "height": 6
+                },
+                "text": {
+                    "name": {
+                        "x": 316,
+                        "y": 11,
+                        "style": {
+                            "fontFamily": "Century Gothic",
+                            "fontSize": 9,
+                            "color": "#000"
+                        }
+                    },
+                    "level": {
+                        "x": 418,
+                        "y": 10,
+                        "style": {
+                            "fontFamily": "Century Gothic",
+                            "fontSize": 9,
+                            "color": "#000"
+                        }
+                    }
+                }
+            }
+        },
+        "actionMenu": {
+            "movesBtn": {
+                "x": 268,
+                "y": 166,
+                "spritesheet": "button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 15,
+                    "color": "#fff"
+                }
+            },
+            "bagBtn": {
+                "x": 371,
+                "y": 166,
+                "spritesheet": "button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 15,
+                    "color": "#fff"
+                }
+            },
+            "partyBtn": {
+                "x": 268,
+                "y": 200,
+                "spritesheet": "button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 15,
+                    "color": "#fff"
+                }
+            },
+            "runBtn": {
+                "x": 371,
+                "y": 200,
+                "spritesheet": "button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 15,
+                    "color": "#fff"
+                }
+            },
+            "textBox": {
+                "style": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 14,
+                    "color": "#fff",
+                    "padding": {
+                        "left": 5,
+                        "top": 5
+                    }
+                }
+            }
+        },
+        "fightMenu": {
+            "movesBtn": [{
+                "x": 12,
+                "y": 166,
+                "spritesheet": "button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 14,
+                    "color": "#fff"
+                }
+            }, {
+                "x": 115,
+                "y": 166,
+                "spritesheet": "button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 14,
+                    "color": "#fff"
+                }
+            }, {
+                "x": 12,
+                "y": 200,
+                "spritesheet": "button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 14,
+                    "color": "#fff"
+                }
+            }, {
+                "x": 115,
+                "y": 200,
+                "spritesheet": "button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 14,
+                    "color": "#fff"
+                }
+            }],
+            "backBtn": {
+                "x": 343,
+                "y": 185,
+                "spritesheet": "button-back",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                }
+            }
+        }
+    },
+    "profile": {
+        "IDLE": {
+            "monButton": {
+                "name": "monButton",
+                "type": "BUTTONS_GROUP",
+                "list": [{
+                    "spritesheet": "profile_monsters_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "PLACEHOLDER",
+                        "fontSize": "PLACEHOLDER",
+                        "color": "PLACEHOLDER"
+                    },
+                    "position": {
+                        "x": 410,
+                        "y": 47
+                    }
+                }, {
+                    "spritesheet": "profile_monsters_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "PLACEHOLDER",
+                        "fontSize": "PLACEHOLDER",
+                        "color": "PLACEHOLDER"
+                    },
+                    "position": {
+                        "x": 122,
+                        "y": 0
+                    }
+                }, {
+                    "spritesheet": "profile_monsters_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "PLACEHOLDER",
+                        "fontSize": "PLACEHOLDER",
+                        "color": "PLACEHOLDER"
+                    },
+                    "position": {
+                        "x": 245,
+                        "y": 0
+                    }
+                }, {
+                    "spritesheet": "profile_monsters_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "PLACEHOLDER",
+                        "fontSize": "PLACEHOLDER",
+                        "color": "PLACEHOLDER"
+                    },
+                    "position": {
+                        "x": 368,
+                        "y": 0
+                    }
+                }, {
+                    "spritesheet": "profile_monsters_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "PLACEHOLDER",
+                        "fontSize": "PLACEHOLDER",
+                        "color": "PLACEHOLDER"
+                    },
+                    "position": {
+                        "x": 492,
+                        "y": 0
+                    }
+                }, {
+                    "spritesheet": "profile_monsters_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "PLACEHOLDER",
+                        "fontSize": "PLACEHOLDER",
+                        "color": "PLACEHOLDER"
+                    },
+                    "position": {
+                        "x": 614,
+                        "y": 0
+                    }
+                }]
+            },
+            "actionButton": {
+                "name": "actionButton",
+                "type": "BUTTONS_GROUP",
+                "list": [{
+                    "spritesheet": "profile_actions_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "PLACEHOLDER",
+                        "fontSize": "PLACEHOLDER",
+                        "color": "PLACEHOLDER"
+                    },
+                    "position": {
+                        "x": 401,
+                        "y": 577
+                    }
+                }, {
+                    "spritesheet": "profile_actions_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "PLACEHOLDER",
+                        "fontSize": "PLACEHOLDER",
+                        "color": "PLACEHOLDER"
+                    },
+                    "position": {
+                        "x": 192,
+                        "y": 0
+                    }
+                }, {
+                    "spritesheet": "profile_actions_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "PLACEHOLDER",
+                        "fontSize": "PLACEHOLDER",
+                        "color": "PLACEHOLDER"
+                    },
+                    "position": {
+                        "x": 383,
+                        "y": 0
+                    }
+                }, {
+                    "spritesheet": "profile_actions_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "PLACEHOLDER",
+                        "fontSize": "PLACEHOLDER",
+                        "color": "PLACEHOLDER"
+                    },
+                    "position": {
+                        "x": 192,
+                        "y": 0
+                    }
+                }, {
+                    "spritesheet": "profile_actions_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "PLACEHOLDER",
+                        "fontSize": "PLACEHOLDER",
+                        "color": "PLACEHOLDER"
+                    },
+                    "position": {
+                        "x": 576,
+                        "y": 0
+                    }
+                }]
+            },
+            "achievements": {
+                "name": "achievements",
+                "texture": "profile_achievements",
+                "position": {
+                    "x": 368,
+                    "y": 151
+                },
+                "type": "STATIC"
+            },
+            "infos": {
+                "name": "infos",
+                "texture": "profile_infos",
+                "position": {
+                    "x": 61,
+                    "y": 37
+                },
+                "type": "STATIC"
+            },
+            "background": {
+                "name": "background",
+                "texture": "profile_background",
+                "position": {
+                    "x": 0,
+                    "y": 0
+                },
+                "type": "STATIC"
+            }
+        },
+        "mainContainer": {
+            "name": "mainContainer",
+            "basePosition": {
+                "x": 2,
+                "y": 18
+            }
+        }
+    },
+    "initial": {
+        "IDLE": {
+            "monSelection": {
+                "name": "monSelection",
+                "type": "BUTTONS_GROUP",
+                "list": [{
+                    "spritesheet": "initial_monster_select_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "PLACEHOLDER",
+                        "fontSize": "PLACEHOLDER",
+                        "color": "PLACEHOLDER"
+                    },
+                    "position": {
+                        "x": 105,
+                        "y": 36
+                    }
+                }, {
+                    "spritesheet": "initial_monster_select_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "PLACEHOLDER",
+                        "fontSize": "PLACEHOLDER",
+                        "color": "PLACEHOLDER"
+                    },
+                    "position": {
+                        "x": 367,
+                        "y": 0
+                    }
+                }, {
+                    "spritesheet": "initial_monster_select_button",
+                    "frames": {
+                        "click": 1,
+                        "over": 2,
+                        "up": 0,
+                        "out": 0
+                    },
+                    "textStyle": {
+                        "fontFamily": "PLACEHOLDER",
+                        "fontSize": "PLACEHOLDER",
+                        "color": "PLACEHOLDER"
+                    },
+                    "position": {
+                        "x": 734,
+                        "y": 0
+                    }
+                }]
+            },
+            "background": {
+                "name": "background",
+                "texture": "initial_background",
+                "position": {
+                    "x": 0,
+                    "y": 0
+                },
+                "type": "STATIC"
+            }
+        },
+        "WINDOW": {
+            "ACCEPT_REJECT_MONSTER": {
+                "mainContainer": {
+                    "name": "mainContainer",
+                    "basePosition": {
+                        "x": 338,
+                        "y": 249
+                    }
+                },
+                "acceptReject": {
+                    "name": "acceptReject",
+                    "type": "BUTTONS_GROUP",
+                    "list": [{
+                        "spritesheet": "initial_window_accept_reject_button",
+                        "frames": {
+                            "click": 1,
+                            "over": 2,
+                            "up": 0,
+                            "out": 0
+                        },
+                        "textStyle": {
+                            "fontFamily": "PLACEHOLDER",
+                            "fontSize": "PLACEHOLDER",
+                            "color": "PLACEHOLDER"
+                        },
+                        "position": {
+                            "x": 371,
+                            "y": 321
+                        }
+                    }, {
+                        "spritesheet": "initial_window_accept_reject_button",
+                        "frames": {
+                            "click": 1,
+                            "over": 2,
+                            "up": 0,
+                            "out": 0
+                        },
+                        "textStyle": {
+                            "fontFamily": "PLACEHOLDER",
+                            "fontSize": "PLACEHOLDER",
+                            "color": "PLACEHOLDER"
+                        },
+                        "position": {
+                            "x": 288,
+                            "y": 0
+                        }
+                    }]
+                },
+                "background": {
+                    "name": "background",
+                    "texture": "initial_background",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "type": "STATIC"
+                }
+            }
+        },
+        "mainContainer": {
+            "name": "mainContainer",
+            "basePosition": {
+                "x": 12,
+                "y": 113
+            }
+        }
+    }
+}

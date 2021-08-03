@@ -3,13 +3,13 @@
         "key": "wild_encounter_background",
         "type": "image",
         "path": "assets/img/ui/wild-encounter/{resolution}/background.png",
-        "category": "wildEncounter"
+        "layout": "wildEncounter"
     },
     "wild_encounter_name_box": {
         "key": "wild_encounter_name_box",
         "type": "image",
         "path": "assets/img/ui/wild-encounter/{resolution}/name_box.png",
-        "category": "wildEncounter"
+        "layout": "wildEncounter"
     },
     "wild_button": {
         "key": "wild_button",
@@ -21,7 +21,7 @@
                 "frameHeight": 82
             }
         },
-        "category": "wildEncounter"
+        "layout": "wildEncounter"
     },
     "wild_star_rating": {
         "key": "wild_star_rating",
@@ -33,46 +33,89 @@
                 "frameHeight": 51
             }
         },
-        "category": "wildEncounter"
+        "layout": "wildEncounter"
     },
     "party_background": {
         "key": "party_background",
         "type": "image",
         "path": "assets/img/ui/party/{resolution}/background.png",
-        "category": "party"
+        "layout": "party"
     },
     "profile_background": {
         "key": "profile_background",
         "type": "image",
         "path": "assets/img/ui/profile/{resolution}/background.png",
         "componentType": "STATIC",
-        "category": "profile"
+        "layout": "profile"
     },
     "profile_infos": {
         "key": "profile_infos",
         "type": "image",
         "path": "assets/img/ui/profile/{resolution}/infos.png",
         "componentType": "STATIC",
-        "category": "profile"
+        "layout": "profile"
     },
     "profile_achievements": {
         "key": "profile_achievements",
         "type": "image",
         "path": "assets/img/ui/profile/{resolution}/achievements.png",
         "componentType": "STATIC",
-        "category": "profile"
+        "layout": "profile"
     },
     "profile_monsters_button": {
         "key": "profile_monsters_button",
         "type": "spritesheet",
-        "path": "assets/img/ui/profile/{resolution}/background.png",
+        "path": "assets/img/ui/profile/{resolution}/buttonsheet_monster.png",
         "componentType": "BUTTON",
         "dimensions": {
             "hd": {
-                "frameWidth": 108,
+                "frameWidth": 109,
                 "frameHeight": 102
             }
         },
-        "category": "profile"
+        "layout": "profile"
+    },
+    "profile_actions_button": {
+        "key": "profile_actions_button",
+        "type": "spritesheet",
+        "path": "assets/img/ui/profile/{resolution}/buttonsheet.png",
+        "componentType": "BUTTON",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 176,
+                "frameHeight": 60
+            }
+        }
+    },
+    "initial_background": {
+        "key": "initial_background",
+        "type": "image",
+        "path": "assets/img/ui/initial/{resolution}/background.png",
+        "componentType": "STATIC",
+        "layout": "initial"
+    },
+    "initial_monster_select_button": {
+        "key": "initial_monster_select_button",
+        "type": "spritesheet",
+        "path": "assets/img/ui/initial/{resolution}/monsters_select_spritesheet.png",
+        "componentType": "BUTTON",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 349.6666666666667,
+                "frameHeight": 367
+            }
+        }
+    },
+    "initial_window_accept_reject_button": {
+        "key": "initial_window_accept_reject_button",
+        "type": "spritesheet",
+        "path": "assets/img/ui/initial/{resolution}/choose_spritesheet.png",
+        "componentType": "BUTTON",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 252,
+                "frameHeight": 87
+            }
+        }
     }
 }

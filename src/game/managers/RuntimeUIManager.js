@@ -78,9 +78,17 @@ class RuntimeUIManager {
             uiRuntimeBehaviors.addBackground(uiContext, behavior);
         },
         [COMPONENTS_TYPE.BUTTONS_GROUP]: function (uiContext, behavior) {
-            behavior.list.forEach(buttonComponent => 
-                uiRuntimeBehaviors.addButton(uiContext, buttonComponent)
-            );
+            const newBehaviorList = behavior.list.map((behavior, index, arr) => ({
+                ... behavior,
+                ... {
+                    // we need to get the first array element because it's the base position of all elements above
+                    position: {
+                        x: index !== 0 ? arr[0].position.x + behavior.position.x : behavior.position.x,
+                        y: index !== 0 ? arr[0].position.y + behavior.position.y : behavior.position.y,
+                    } 
+                }
+            }));
+            newBehaviorList.forEach(buttonLayout => uiRuntimeBehaviors.addButton(uiContext, buttonLayout));
         },
         [COMPONENTS_TYPE.BUTTON]: function (uiContext, behavior) {
             uiRuntimeBehaviors.addButton(uiContext, behavior);

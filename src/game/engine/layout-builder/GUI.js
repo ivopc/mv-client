@@ -1,6 +1,7 @@
 import { appendGUIBase } from "../index";
 import { currentUI } from "./index";
 import { UI_STATES, COMPONENTS_TYPE } from "@/game/constants/UI";
+import { sendBrokeLayoutComponentFix } from "./network";
 import LayoutStaticDatabase from "@/game/models/LayoutStaticDatabase";
 import Assets from "@/game/managers/Assets";
 
@@ -20,9 +21,9 @@ export function appendGUI () {
     addDOMEventsListeners();
 };
 
-const fetchCurrentLayoutUIComponents = () => 
+const fetchCurrentLayoutUIComponents = () =>
     Object.values(Assets.ref.getUIComponents())
-        .filter(component => component.category === currentUI.layout);
+        .filter(component => component.layout === currentUI.layout);
 
 function appendUILayoutComponents () {
     const uiComponents = fetchCurrentLayoutUIComponents();
@@ -37,9 +38,7 @@ function appendUILayoutComponents () {
     GUI.appendChild(el);
     el.appendChild(opt);
     GUI.appendChild(opt);
-    uiComponents.forEach(component => 
-        opt.add(new Option(component.key, component.key))
-    );
+    uiComponents.forEach(component => opt.add(new Option(component.key, component.key)));
 };
 
 const fetchBrokeLayout = () =>
@@ -61,18 +60,8 @@ function appendCurrentBrokeLayout () {
     GUI.appendChild(el);
     const opt = document.createElement("select");
     opt.setAttribute("id", "broke-layout-selector");
-    buttonGroup.forEach((btn, index) => opt.add(new Option(btn.name, btn.name)));
+    buttonGroup.forEach(btn => opt.add(new Option(btn.name, btn.name)));
     GUI.appendChild(opt);
-    // deve enviar isso para o server side
-    /*
-    component name
-    spritesheet
-    textStyle: {
-        fontFamily,
-        fontSize,
-        color
-    }*/
-    
 };
 
 function mergeNewLayoutButton () {
@@ -90,6 +79,30 @@ function mergeNewLayoutButton () {
     GUI.append(el);
 };
 
+function fixBrokeLayout () {
+
+    console.log(
+        GUI.querySelector("#component-selector").value,
+        GUI.querySelector("#broke-layout-selector").value
+    );
+
+    sendBrokeLayoutComponentFix({
+        newComponent: GUI.querySelector("#component-selector").value,
+        broke: GUI.querySelector("#broke-layout-selector").value
+    });
+
+    // deve enviar isso para o server side
+    /*
+    component name
+    spritesheet
+    textStyle: {
+        fontFamily,
+        fontSize,
+        color
+    }*/
+    
+};
+
 function addDOMEventsListeners () {
     document.addEventListener("keydown", evt => {
         if (evt.key === "Escape") {
@@ -98,7 +111,7 @@ function addDOMEventsListeners () {
         };
     });
     GUI.querySelector("#component-selector").addEventListener("change", evt => console.log(evt.target.value));
-    GUI.querySelector("#merge-layout").addEventListener("click", () => console.log("oi"));
+    GUI.querySelector("#merge-layout").addEventListener("click", fixBrokeLayout);
 };
 
 /*

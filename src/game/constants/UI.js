@@ -1,11 +1,12 @@
 import Bag from "@/game/uinterfaces/Bag";
+import InitialMonster from "@/game/uinterfaces/InitialMonster";
 
 /**
  * All genereal UIs map
  * @enum
  */
 export const UIs = [
-    { name: "Bag", layout: "bag", class: async () => import("@/game/uinterfaces/Bag") },
+    { name: "Bag", layout: "bag", class: Bag },
     { name: "Chat", layout: "chat" },
     { name: "Market", layout: "market" },
     { name: "MarketPlace", layout: "marketPlace" },
@@ -17,7 +18,7 @@ export const UIs = [
     { name: "Profile", layout: "profile" },
     { name: "SelfProfile", layout: "selfProfile" },
     { name: "WildMenu", layout: "wildEncounter" },
-    { name: "InitialMonster", layout: "initial" }
+    { name: "InitialMonster", layout: "initial", class: InitialMonster }
 ];
 
 /**
@@ -25,12 +26,16 @@ export const UIs = [
  * @enum
  */
 export const COMPONENTS_TYPE = {
+
+    MAIN_CONTAINER: "mainContainer",
+
     STATIC: "STATIC",
     TILE_SPRITE: "TILE_SPRITE",
     SWITCHABLE_SPRITE: "SWITCHABLE_SPRITE",
     BACKGROUND: "BACKGROUND",
     BACKGROUND_TILE_SPRITE: "BACKGROUND_TILE_SPRITE",
     BUTTON: "BUTTON",
+    WINDOW_CONTAINER: "WINDOW_CONTAINER",
     WINDOW: "WINDOW",
     CONTEXT_MENU: "CONTEXT_MENU",
     TOOLTIP: "TOOLTIP",

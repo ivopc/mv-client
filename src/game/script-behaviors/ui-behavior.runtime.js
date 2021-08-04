@@ -1,26 +1,31 @@
 import { COMPONENTS_TYPE, UI_BEHAVIOR_PARAMS } from "@/game/constants/UI";
 import { addGenericUIComponent } from "@/game/utils";
 import Button from "@/game/uinterfaces/components/generics/Button";
+import RuntimeUI from "@/game/uinterfaces/RuntimeUI";
 
-function addGenericComponent (uiContext, behaviorData) {
-    const component = addGenericUIComponent(behaviorData, uiContext.scene);
+function addGenericComponent (uiContext, masterParentContext, layout) {
+    const component = addGenericUIComponent(layout, uiContext.scene);
     uiContext.add(component);
     return component;
 };
 
-function addBackground (uiContext, behaviorData) {
-    uiContext.setOriginalBaseSize(addGenericComponent(uiContext, behaviorData));
+function addBackground (uiContext, masterParentContext, layout) {
+    uiContext.setOriginalBaseSize(addGenericComponent(uiContext, layout));
 };
 
-function addButton (uiContext, behaviorData) {
+function addButton (uiContext, masterParentContext, layout) {
     const { scene, texts } = uiContext;
     const button = new Button(scene, {
-        x: behaviorData.position.x,
-        y: behaviorData.position.y,
-        spritesheet: behaviorData.spritesheet,
-        frames: behaviorData.frames,
+        x: layout.position.x,
+        y: layout.position.y,
+        spritesheet: layout.spritesheet,
+        frames: layout.frames,
+        on: {
+            click: () => masterParentContext.behaviors[layout.name].bind(masterParentContext)()
+        }
         //... behaviorData.textStyle ? { display: texts[id], style: btnLayout.textStyle } : {}
-    });
+    })
+        .setName(layout.name);
     uiContext.add(button);
 };
 

@@ -10,11 +10,11 @@ class Button extends Phaser.GameObjects.Container {
         config.y = config.y || 0;
         config.spritesheet = config.spritesheet || "button";
 
-        config.on = config.on || {};
-        config.on.click = config.on.click || function () {};
-        config.on.over = config.on.over || function () {};
-        config.on.up = config.on.up || function () {};
-        config.on.out = config.on.out || function () {};
+        const on = config.on || {};
+        on.click = on.click || function () {};
+        on.over = on.over || function () {};
+        on.up = on.up || function () {};
+        on.out = on.out || function () {};
 
         config.frames = config.frames || {};
         config.frames.click = config.frames.click || 0;
@@ -28,6 +28,7 @@ class Button extends Phaser.GameObjects.Container {
 
         this.hasText = !!config.text.display;
         this.config = config;
+        this.on = on;
 
         this.addSprite();
         if (this.hasText)
@@ -74,23 +75,23 @@ class Button extends Phaser.GameObjects.Container {
             if (!pointer.leftButtonDown())
                 return;
             this.sprite.setFrame(this.config.frames.click);
-            this.config.on.click();
+            this.on.click();
         },
         over: function () {
             this.sprite.setFrame(this.config.frames.over);
-            this.config.on.over();
+            this.on.over();
         },
         up: function () {
             this.sprite.setFrame(this.config.frames.up);
-            this.config.on.up();
+            this.on.up();
         },
         out: function () {
             this.sprite.setFrame(this.config.frames.out);
-            this.config.on.out();
+            this.on.out();
         },
         contextMenu: function () {
             this.sprite.setFrame(this.config.frames.contextMenu);
-            this.config.on.contextMenu();
+            this.on.contextMenu();
         }
     }
 };

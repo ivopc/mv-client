@@ -48,10 +48,18 @@ class Overworld extends Phaser.Scene {
         this.startDevelopMode();
     }
 
-    addRuntimeUI (name) {
+    async addRuntimeUI (name) {
         const UI = UIs.find(ui => ui.name === name);
-        const runtimeUI = UI.class ? new UI.class(this) : new RuntimeUI(this, UI.layout);
+        let runtimeUI;
+        if (UI.class) {
+            const runtimeUIImport = await import("@/game/uinterfaces/" + UI.name);
+            runtimeUI = new runtimeUIImport.default(this);
+        } else {
+            runtimeUI = new RuntimeUI(this, UI.layout);
+        };
         runtimeUI.manager.addIdleBehavior();
+        if (runtimeUI.hasWindows)
+            runtimeUI.manager.addWindowsBehavior();
         runtimeUI.append();
         this.runtimeUI = runtimeUI;
     }

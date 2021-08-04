@@ -8,6 +8,8 @@ import { convertMsToDate } from "@/lib/utils";
 import { TILE } from "@/game/constants/Overworld";
 import { RESOLUTION_SIZES } from "@/game/constants/Resolutions";
 
+import Button from "@/game/uinterfaces/components/generics/Button";
+
 // convert tile X and Y position to overworld pixel based position
 export const positionToOverworld = position => position * TILE.SIZE;
 
@@ -52,3 +54,8 @@ export const treatVipDate = function (date) {
     };
     return Text.ref.get("profile", "vipLessThanOneMin");
 };
+
+export const setEnabledButtonsList = (container, enabled) =>
+    container
+        .filter(component => component instanceof Button)
+        .forEach(button => button.sprite.input.enabled = enabled);

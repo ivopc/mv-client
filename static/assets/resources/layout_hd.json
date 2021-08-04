@@ -640,6 +640,7 @@
                 "name": "monSelection",
                 "type": "BUTTONS_GROUP",
                 "list": [{
+                    "name": "monSelection0",
                     "spritesheet": "initial_monster_select_button",
                     "frames": {
                         "click": 1,
@@ -653,10 +654,11 @@
                         "color": "PLACEHOLDER"
                     },
                     "position": {
-                        "x": 105,
-                        "y": 36
+                        "x": 93,
+                        "y": 34
                     }
                 }, {
+                    "name": "monSelection1",
                     "spritesheet": "initial_monster_select_button",
                     "frames": {
                         "click": 1,
@@ -674,6 +676,7 @@
                         "y": 0
                     }
                 }, {
+                    "name": "monSelection2",
                     "spritesheet": "initial_monster_select_button",
                     "frames": {
                         "click": 1,
@@ -707,14 +710,15 @@
                 "mainContainer": {
                     "name": "mainContainer",
                     "basePosition": {
-                        "x": 338,
-                        "y": 249
+                        "x": 325,
+                        "y": 136
                     }
                 },
                 "acceptReject": {
                     "name": "acceptReject",
                     "type": "BUTTONS_GROUP",
                     "list": [{
+                        "name": "acceptReject0",
                         "spritesheet": "initial_window_accept_reject_button",
                         "frames": {
                             "click": 1,
@@ -728,10 +732,11 @@
                             "color": "PLACEHOLDER"
                         },
                         "position": {
-                            "x": 371,
-                            "y": 321
+                            "x": 33,
+                            "y": 72
                         }
                     }, {
+                        "name": "acceptReject1",
                         "spritesheet": "initial_window_accept_reject_button",
                         "frames": {
                             "click": 1,
@@ -752,7 +757,7 @@
                 },
                 "background": {
                     "name": "background",
-                    "texture": "initial_background",
+                    "texture": "initial_window_background",
                     "position": {
                         "x": 0,
                         "y": 0

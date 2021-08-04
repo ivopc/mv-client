@@ -17,7 +17,7 @@
         "path": "assets/img/ui/wild-encounter/{resolution}/buttonsheet.png",
         "dimensions": {
             "hd": {
-                "frameWidth": 149, 
+                "frameWidth": 149,
                 "frameHeight": 82
             }
         },
@@ -29,7 +29,7 @@
         "path": "assets/img/ui/wild-encounter/{resolution}/rating_star.png",
         "dimensions": {
             "hd": {
-                "frameWidth": 53, 
+                "frameWidth": 53,
                 "frameHeight": 51
             }
         },
@@ -117,5 +117,12 @@
                 "frameHeight": 87
             }
         }
+    },
+    "initial_window_background": {
+        "key": "initial_window_background",
+        "type": "image",
+        "path": "assets/img/ui/initial/{resolution}/choose_window.png",
+        "componentType": "STATIC",
+        "layout": "initial"
     }
 }

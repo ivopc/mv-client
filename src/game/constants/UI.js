@@ -6,19 +6,19 @@ import InitialMonster from "@/game/uinterfaces/InitialMonster";
  * @enum
  */
 export const UIs = [
-    { name: "Bag", layout: "bag", class: Bag },
+    { name: "Bag", layout: "bag" },
     { name: "Chat", layout: "chat" },
     { name: "Market", layout: "market" },
     { name: "MarketPlace", layout: "marketPlace" },
     { name: "MonsterBox", layout: "monsterBox" },
-    { name: "MonsterStatus", layout: "Monsterstatus" },
+    { name: "MonsterStatus", layout: "monsterStatus" },
     { name: "Notification", layout: "notification" },
     { name: "Party", layout: "party" },
     { name: "Quest", layout: "quest" },
     { name: "Profile", layout: "profile" },
     { name: "SelfProfile", layout: "selfProfile" },
     { name: "WildMenu", layout: "wildEncounter" },
-    { name: "InitialMonster", layout: "initial", class: InitialMonster }
+    { name: "InitialMonster", layout: "initial" }
 ];
 
 /**
@@ -37,6 +37,7 @@ export const COMPONENTS_TYPE = {
     BUTTON: "BUTTON",
     WINDOW_CONTAINER: "WINDOW_CONTAINER",
     WINDOW: "WINDOW",
+    TAB: "TAB",
     CONTEXT_MENU: "CONTEXT_MENU",
     TOOLTIP: "TOOLTIP",
     STATIC_DIALOG: "STATIC_DIALOG",

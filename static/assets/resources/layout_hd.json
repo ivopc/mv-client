@@ -773,5 +773,62 @@
                 "y": 113
             }
         }
+    },
+    "monsterStatus": {
+        "IDLE": {
+            "monsterInfos": {
+                "name": "monsterInfos",
+                "type": "TAB",
+                "position": {
+                    "x": 65,
+                    "y": 17
+                },
+                "tabs": [{
+                    "name": "status",
+                    "sprite": "monsterStatus_tab_status",
+                    "hitbox": {
+                        "x": 75,
+                        "y": 26,
+                        "width": 210,
+                        "height": 50
+                    }
+                }, {
+                    "name": "stats",
+                    "sprite": "monsterStatus_tab_stats",
+                    "hitbox": {
+                        "x": 297,
+                        "y": 26,
+                        "width": 210,
+                        "height": 50
+                    }
+                }, {
+                    "name": "moves",
+                    "sprite": "monsterStatus_tab_moves",
+                    "hitbox": {
+                        "x": 520,
+                        "y": 26,
+                        "width": 210,
+                        "height": 50
+                    }
+                }]
+            },
+            "background": {
+                "name": "background",
+                "texture": "monsterStatus_background",
+                "position": {
+                    "x": 0,
+                    "y": 0
+                },
+                "type": "STATIC"
+            }
+        },
+        "WINDOW": {},
+        "mainContainer": {
+            "name": "mainContainer",
+            "basePosition": {
+                "x": 10,
+                "y": 9
+            }
+        }
     }
 }

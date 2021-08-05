@@ -124,5 +124,33 @@
         "path": "assets/img/ui/initial/{resolution}/choose_window.png",
         "componentType": "STATIC",
         "layout": "initial"
+    },
+    "monsterStatus_background": {
+        "key": "monsterStatus_background",
+        "type": "image",
+        "path": "assets/img/ui/status/{resolution}/background.png",
+        "componentType": "STATIC",
+        "layout": "monsterStatus"
+    },
+    "monsterStatus_tab_status": {
+        "key": "monsterStatus_tab_status",
+        "type": "image",
+        "path": "assets/img/ui/status/{resolution}/tab0_status.png",
+        "componentType": "TAB",
+        "layout": "monsterStatus"
+    },
+    "monsterStatus_tab_stats": {
+        "key": "monsterStatus_tab_stats",
+        "type": "image",
+        "path": "assets/img/ui/status/{resolution}/tab1_stats.png",
+        "componentType": "TAB",
+        "layout": "monsterStatus"
+    },
+    "monsterStatus_tab_moves": {
+        "key": "monsterStatus_tab_moves",
+        "type": "image",
+        "path": "assets/img/ui/status/{resolution}/tab2_moves.png",
+        "componentType": "TAB",
+        "layout": "monsterStatus"
     }
 }

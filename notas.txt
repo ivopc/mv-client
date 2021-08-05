@@ -1,0 +1,4 @@
+Grupo de tab no photoshop:
+{Tab}nomeDaTab
+filhos:
+nome,sprite

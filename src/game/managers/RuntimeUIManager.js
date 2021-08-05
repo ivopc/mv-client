@@ -70,6 +70,7 @@ class RuntimeUIManager {
 
     renderizeIdle () {
         this.runtimeIdleBehaviorList.forEach(layout => {
+            console.log(layout);
             const staticComponentCreator = this.staticBehaviors[layout.type || COMPONENTS_TYPE.STATIC].bind(this);
             staticComponentCreator(
                 this.UI, 
@@ -112,7 +113,7 @@ class RuntimeUIManager {
             const newBehaviorList = layout.list.map((layout, index, arr) => ({
                 ... layout,
                 ... {
-                    // we need to get the first array element because it's the base position of all elements above
+                    // we need to get the first array element cuz it's the base position of all elements above
                     position: {
                         x: index !== 0 ? arr[0].position.x + layout.position.x : layout.position.x,
                         y: index !== 0 ? arr[0].position.y + layout.position.y : layout.position.y,
@@ -120,6 +121,9 @@ class RuntimeUIManager {
                 }
             }));
             newBehaviorList.forEach(layout => uiRuntimeBehaviors.addButton(uiContext, masterParentContext, layout));
+        },
+        [COMPONENTS_TYPE.TAB]: function (uiContext, masterParentContext, layout) {
+            uiRuntimeBehaviors.addTab(uiContext, masterParentContext. layout);
         }
     }
 };

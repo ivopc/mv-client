@@ -44,19 +44,14 @@ class Overworld extends Phaser.Scene {
             .setOrigin(0, 0)
             .setScrollFactor(0)
             .setDepth(999999999); // {placeholder}
-        this.addRuntimeUI("InitialMonster"); // {test}
+        this.addRuntimeUI("Profile"); // {test}
         this.startDevelopMode();
     }
 
     async addRuntimeUI (name) {
         const UI = UIs.find(ui => ui.name === name);
-        let runtimeUI;
-        if (UI.class) {
-            const runtimeUIImport = await import("@/game/uinterfaces/" + UI.name);
-            runtimeUI = new runtimeUIImport.default(this);
-        } else {
-            runtimeUI = new RuntimeUI(this, UI.layout);
-        };
+        const runtimeUIImport = await import("@/game/uinterfaces/" + UI.name);
+        const runtimeUI = new runtimeUIImport.default(this, UI.layout);
         runtimeUI.manager.addIdleBehavior();
         if (runtimeUI.hasWindows)
             runtimeUI.manager.addWindowsBehavior();

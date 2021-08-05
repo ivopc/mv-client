@@ -10,7 +10,7 @@ function addGenericComponent (uiContext, masterParentContext, layout) {
 };
 
 function addBackground (uiContext, masterParentContext, layout) {
-    uiContext.setOriginalBaseSize(addGenericComponent(uiContext, layout));
+    uiContext.setOriginalBaseSize(addGenericComponent(uiContext, masterParentContext, layout));
 };
 
 function addButton (uiContext, masterParentContext, layout) {
@@ -29,8 +29,13 @@ function addButton (uiContext, masterParentContext, layout) {
     uiContext.add(button);
 };
 
+function addTab () {
+    addGenericComponent()
+};
+
 export default { 
     addGenericComponent,
     addBackground,
-    addButton
+    addButton,
+    addTab
 };

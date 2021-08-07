@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import { Game, WEBGL, Scale } from "phaser";
 
 import { SCENE } from "@/game/constants/GameScene";
 import { RESOLUTION_TYPES, RESOLUTION_SIZES } from "@/game/constants/Resolutions";
@@ -18,13 +18,13 @@ export let game;
 
 export function createInstance (containerId) {
     // game core instance
-    game = new Phaser.Game({
-        type: Phaser.WEBGL,
+    game = new Game({
+        type: WEBGL,
         autoStart: false,
         scale: {
-            mode: Phaser.Scale.FIT,
+            mode: Scale.FIT,
             parent: containerId,
-            autoCenter: Phaser.Scale.CENTER_BOTH,
+            autoCenter: Scale.CENTER_BOTH,
             width: RESOLUTION_SIZES[RESOLUTION_TYPES.HD].width,
             height: RESOLUTION_SIZES[RESOLUTION_TYPES.HD].height
         },

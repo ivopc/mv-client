@@ -29,10 +29,11 @@ class DragglableGridElement extends Draggable {
         };
     }
 
-    setParentBasePosition (x, y) {
+    /*setParentBasePosition (x, y) {
+        this.setPosition(x, y);
         this.parentBasePosition.x = x;
         this.parentBasePosition.y = y;
-    }
+    }*/
 };
 
 export default DragglableGridElement;

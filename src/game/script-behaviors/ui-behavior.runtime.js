@@ -1,7 +1,5 @@
-import { COMPONENTS_TYPE, UI_BEHAVIOR_PARAMS } from "@/game/constants/UI";
 import { addGenericUIComponent } from "@/game/utils";
 import Button from "@/game/uinterfaces/components/generics/Button";
-import RuntimeUI from "@/game/uinterfaces/RuntimeUI";
 
 function addGenericComponent (uiContext, masterParentContext, layout) {
     const component = addGenericUIComponent(layout, uiContext.scene);
@@ -29,8 +27,21 @@ function addButton (uiContext, masterParentContext, layout) {
     uiContext.add(button);
 };
 
-function addTab () {
-    addGenericComponent()
+function addTab (uiContext, masterParentContext, layout) {
+    const [ firstTab ] = layout.tabs;
+    const { scene } = uiContext;
+    const tab = addGenericUIComponent({
+        position: layout.position,
+        texture: firstTab.sprite,
+        name: layout.name
+    }, scene);
+    uiContext.add(tab);
+    uiContext.tabsHitbox = layout.tabs.map(({ hitbox: { x, y, width, height } }, index) => 
+        scene.add.zone(x, y, width, height)
+            .setOrigin(0, 0)
+            .setInteractive()
+            .on("pointerdown", () => masterParentContext.switchTab(layout, index))
+    );
 };
 
 export default { 

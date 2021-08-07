@@ -120,40 +120,67 @@
             "name": "mainContainer",
             "basePosition": {
                 "x": 0,
-                "y": 0
+                "y": 104
             }
         },
         "background": {
+            "name": "background",
             "position": {
                 "x": 0,
                 "y": 0
             },
-            "texture": "party_background"
+            "texture": "party_background",
+            "type": "STATIC"
         },
         "slot": {
-            "width": 148,
-            "height": 39,
-            "spritesheet": "party-slot"
+            "width": 390,
+            "height": 140,
+            "spritesheet": "party_slot",
+            "frames": {
+                "click": 1,
+                "over": 2,
+                "up": 0,
+                "out": 0
+            },
+            "type": "SLOT",
+            "list": [{
+                "x": 20,
+                "y": 75
+            }, {
+                "x": 414,
+                "y": 75
+            }, {
+                "x": 809,
+                "y": 75
+            }, {
+                "x": 82,
+                "y": 231
+            }, {
+                "x": 483,
+                "y": 231
+            }, {
+                "x": 883,
+                "y": 231
+            }]
         },
-        "slots": [{
-            "x": 0,
-            "y": 0
-        }, {
-            "x": 0,
-            "y": 0
-        }, {
-            "x": 0,
-            "y": 0
-        }, {
-            "x": 0,
-            "y": 0
-        }, {
-            "x": 0,
-            "y": 0
-        }, {
-            "x": 0,
-            "y": 0
-        }]
+        "slotMonIcon": {
+            "name": "slotMonIcon",
+            "position": {
+                "x": 13,
+                "y": 20
+            },
+            "texture": "party_slot_mon_icon",
+            "type": "STATIC"
+        },
+        "slotMonName": {
+            "name": "slotMonIcon",
+            "position": {
+                "x": 114,
+                "y": 20
+            },
+            "texture": "party_slot_mon_name",
+            "type": "STATIC"
+        }
     },
     "battle": {
         "floor": [{

@@ -70,7 +70,6 @@ class RuntimeUIManager {
 
     renderizeIdle () {
         this.runtimeIdleBehaviorList.forEach(layout => {
-            console.log(layout);
             const staticComponentCreator = this.staticBehaviors[layout.type || COMPONENTS_TYPE.STATIC].bind(this);
             staticComponentCreator(
                 this.UI, 
@@ -123,7 +122,15 @@ class RuntimeUIManager {
             newBehaviorList.forEach(layout => uiRuntimeBehaviors.addButton(uiContext, masterParentContext, layout));
         },
         [COMPONENTS_TYPE.TAB]: function (uiContext, masterParentContext, layout) {
-            uiRuntimeBehaviors.addTab(uiContext, masterParentContext. layout);
+            this.runtimeTabsBehaviorsList.push(layout);
+            console.log({ uiContext, masterParentContext, layout });
+            uiRuntimeBehaviors.addTab(uiContext, masterParentContext, layout);
+        }
+    }
+
+    tabBehaviors = {
+        switch: function (tabComponent, name) {
+            
         }
     }
 };

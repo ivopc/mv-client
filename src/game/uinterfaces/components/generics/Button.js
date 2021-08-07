@@ -50,12 +50,8 @@ class Button extends Phaser.GameObjects.Container {
     }
 
     addText (text, style) {
-        this.text = this.scene.add.text(0, 0, text, style);
-        const btnCenter = this.sprite.getCenter();
-        this.text
-            .setX(btnCenter.x)
-            .setY(btnCenter.y)
-            .setOrigin(0.5);
+        const { x, y } = this.sprite.getCenter();
+        this.text = this.scene.add.text(x, y, text, style).setOrigin(0.5);
         this.add(this.text);
     }
 
@@ -72,8 +68,10 @@ class Button extends Phaser.GameObjects.Container {
 
     listeners = {
         click: function (pointer) {
-            if (!pointer.leftButtonDown())
+            if (!pointer.leftButtonDown()) {
+                this.listeners.contextMenu();
                 return;
+            };
             this.sprite.setFrame(this.config.frames.click);
             this.on.click();
         },

@@ -41,6 +41,27 @@
         "path": "assets/img/ui/party/{resolution}/background.png",
         "layout": "party"
     },
+    "party_slot": {
+        "key": "party_slot",
+        "type": "spritesheet",
+        "path": "assets/img/ui/party/{resolution}/slot.png",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 390.3333333333333,
+                "frameHeight": 140
+            }
+        }
+    },
+    "party_slot_mon_name": {
+        "key": "party_slot_mon_name",
+        "type": "image",
+        "path": "assets/img/ui/party/{resolution}/monster_name_background.png"
+    },
+    "party_slot_mon_icon": {
+        "key": "party_slot_mon_icon",
+        "type": "image",
+        "path": "assets/img/ui/party/{resolution}/monster_icon_background.png"
+    },
     "profile_background": {
         "key": "profile_background",
         "type": "image",

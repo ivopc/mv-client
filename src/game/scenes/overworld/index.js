@@ -7,6 +7,7 @@ import { UIs, UI_STATES } from "@/game/constants/UI";
 import LayoutResponsivityManager from "@/game/managers/LayoutResponsivityManager";
 
 import RuntimeUI from "@/game/uinterfaces/RuntimeUI";
+import Party from "@/game/uinterfaces/Party";
 
 import Loader from "./Loader";
 
@@ -28,7 +29,7 @@ class Overworld extends Phaser.Scene {
         this.scene.bringToTop();
         LayoutResponsivityManager.addListener();
         // tests
-        /*const party = new Party(this);
+        const party = new Party(this);
         party.append();
         window.party = party;
         /*const wild = new WildMenu(this);
@@ -44,7 +45,7 @@ class Overworld extends Phaser.Scene {
             .setOrigin(0, 0)
             .setScrollFactor(0)
             .setDepth(999999999); // {placeholder}
-        this.addRuntimeUI("Profile"); // {test}
+        //this.addRuntimeUI("MonsterStatus"); // {test}
         this.startDevelopMode();
     }
 

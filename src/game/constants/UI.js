@@ -88,6 +88,14 @@ export const UI_STATES = {
 };
 
 /**
+ * `EventEmitter` events namespaces
+ * @enum
+ */
+export const UI_EVENTS = {
+    SWITCH_TAB: ({ container, tab }) => `switch-tab|${container}|${tab}`
+};
+
+/**
  * Dynamic enum to get and create the UI sub states
  * @enum
  */

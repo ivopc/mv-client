@@ -5,10 +5,6 @@ class Slot extends DraggableGridSlot {
         super(scene, gridListData, gridSlotIndex);
         scene.add.existing(this);
     }
-
-    add (children) {
-        super.add(children);
-    }
 };
 
 export default Slot;

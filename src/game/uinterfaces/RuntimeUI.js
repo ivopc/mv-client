@@ -3,12 +3,12 @@ import RuntimeUIManager from "@/game/managers/RuntimeUIManager";
 
 import UInterfaceContainer from "./components/generics/UInterfaceContainer";
 
-import { UI_STATES } from "@/game/constants/UI";
+import { UI_STATES, UI_EVENTS } from "@/game/constants/UI";
 import { timedEvent } from "../utils/scene.promisify";
 
 class RuntimeUI extends UInterfaceContainer {
     constructor (scene, layout, state = UI_STATES.IDLE()) {
-        super(scene, LayoutStaticDatabase.get(layout));  // {legacy}
+        super(scene, LayoutStaticDatabase.get(layout));
         this.currentState = state;
         /**
          * @type {RuntimeUIManager}
@@ -31,7 +31,21 @@ class RuntimeUI extends UInterfaceContainer {
      * Open/close the `Window` to current UI by `name` param
      * @param {string} name 
      */
-    toggleWindow (name) {}
+    toggleWindow (componentName, index) {}
+
+    /**
+     * When the player change the tab clicking on hitbox.
+     * @param {JSON} layout 
+     * @param {number} index 
+     */
+    switchTab (layout, tabIndex) {
+        this.getByName(layout.name).setTexture(layout.tabs[tabIndex].sprite);
+        // dispatch to specific UI the event to handle specific tab behavior
+        this.emit(UI_EVENTS.SWITCH_TAB({
+            container: layout.name,
+            tab: layout.tabs[tabIndex].name
+        }));
+    }
 
     /**
      * Resize event that is called with window `resize` handled by `LayoutResponsivityManager` class
@@ -52,6 +66,9 @@ class RuntimeUI extends UInterfaceContainer {
         this.currentState = state;
     }
 
+    /**
+     * Getter to knows if layout
+     */
     get hasWindows () {
         return !!this.layout["WINDOW"];
     }

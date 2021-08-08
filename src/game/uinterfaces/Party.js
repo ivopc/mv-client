@@ -49,7 +49,6 @@ class Party extends UInterfaceContainer {
                 slotElements.updateMonster(monster);
             };
             slot.add(slotElements);
-            console.log(slot);
         });
     }
 

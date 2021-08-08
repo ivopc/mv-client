@@ -62,6 +62,32 @@
         "type": "image",
         "path": "assets/img/ui/party/{resolution}/monster_icon_background.png"
     },
+    "party_slot_mon_gender": {
+        "key": "party_slot_mon_gender",
+        "type": "spritesheet",
+        "path": "assets/img/ui/party/{resolution}/gender.png",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 26,
+                "frameHeight": 26
+            }
+        }
+    },
+    "party_pointsbar_frame": {
+        "key": "party_pointsbar_frame",
+        "type": "image",
+        "path": "assets/img/ui/party/{resolution}/bar.png"
+    },
+    "party_hp_icon": {
+        "key": "party_hp_icon",
+        "type": "image",
+        "path": "assets/img/ui/party/{resolution}/hpico_hd.png"
+    },
+    "party_mp_icon": {
+        "key": "party_mp_icon",
+        "type": "image",
+        "path": "assets/img/ui/party/{resolution}/mpico_hd.png"
+    },
     "profile_background": {
         "key": "profile_background",
         "type": "image",

@@ -25,7 +25,23 @@ class DragglableGridSlot extends GameObjects.Container {
         this.setSize(displayWidth, displayHeight);
         this.setPosition(x, y);
         this.scene.plugins.get("rexDrag").add(this);
+        this.input.hitArea.setTo(displayWidth / 2, displayHeight / 2, displayWidth, displayHeight);
+        this.baseElement.sprite.input.enabled = false;
+        this
+            .on("pointerdown", () => {
+                this.baseElement.sprite.setFrame(1);
+            })
+            .on("pointerup", () => {
+                this.baseElement.sprite.setFrame(0);
+            })
+            .on("pointerover", () => {
+                this.baseElement.sprite.setFrame(2);
+            })
+            .on("pointerout", () => {
+                this.baseElement.sprite.setFrame(0);
+            });
         this.setDragListeners();
+        //this.scene.input.enableDebug(this);
     }
 
     setDragListeners () {
@@ -37,6 +53,7 @@ class DragglableGridSlot extends GameObjects.Container {
 
     onDragStart () {
         console.log(this.gridSlotIndex);
+        this.parentContainer.bringToTop(this);
     }
 
     onDragging () {}

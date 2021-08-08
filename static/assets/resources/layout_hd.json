@@ -180,6 +180,79 @@
             },
             "texture": "party_slot_mon_name",
             "type": "STATIC"
+        },
+        "slotMonGender": {
+            "name": "slotMonGender",
+            "position": {
+                "x": 297,
+                "y": 22
+            },
+            "texture": "party_slot_mon_gender",
+            "type": "STATIC"
+        },
+        "slotHpBar": {
+            "name": "slotHpBar",
+            "position": {
+                "x": 136,
+                "y": 78
+            },
+            "width": 209,
+            "height": 9,
+            "color": {
+                "bar": 4172109,
+                "bg": 5199445
+            },
+            "type": "POINTS_BAR"
+        },
+        "slotHpBarIcon": {
+            "name": "slotHpBarIcon",
+            "margin": {
+                "x": 5,
+                "y": 5
+            },
+            "texture": "party_hp_icon",
+            "type": "STATIC"
+        },
+        "slotHpBarFrame": {
+            "name": "slotHpBarFrame",
+            "position": {
+                "x": 136,
+                "y": 78
+            },
+            "texture": "party_pointsbar_frame",
+            "type": "STATIC"
+        },
+        "slotMpBar": {
+            "name": "slotMpBar",
+            "position": {
+                "x": 136,
+                "y": 96
+            },
+            "width": 209,
+            "height": 9,
+            "color": {
+                "bar": 4151977,
+                "bg": 5199445
+            },
+            "type": "POINTS_BAR"
+        },
+        "slotMpBarIcon": {
+            "name": "slotHpBarIcon",
+            "margin": {
+                "x": 5,
+                "y": 6
+            },
+            "texture": "party_mp_icon",
+            "type": "STATIC"
+        },
+        "slotMpBarFrame": {
+            "name": "slotMpBarFrame",
+            "position": {
+                "x": 136,
+                "y": 96
+            },
+            "texture": "party_pointsbar_frame",
+            "type": "STATIC"
         }
     },
     "battle": {

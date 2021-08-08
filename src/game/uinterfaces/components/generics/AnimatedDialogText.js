@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 //import Text from "@/game/managers/Text";
-// placeholder
+// {placeholder}
 const Text = {
     ref: {
         lang: "br"
@@ -27,7 +27,7 @@ class AnimatedDialogText extends Phaser.GameObjects.Text {
     setAnimationTimer (delay = animationTimerDelay) {
         this.animationInProgress = true;
         this.animationTimer = this.scene.time.addEvent({
-            delay: delay, 
+            delay, 
             callback: this.animate, 
             callbackScope: this,
             loop: true

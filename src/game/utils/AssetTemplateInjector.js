@@ -8,9 +8,7 @@ import Assets from "@/game/managers/Assets";
 class AssetTemplateInjector {
     static inject (assetType, assetData) {
         switch (assetType) {
-            case ASSET_TYPE.MONSTER:
-            case ASSET_TYPE.OVERWORLD_MONSTER:
-            {
+            case ASSET_TYPE.MONSTER: {
                 const template = Assets.ref.template[assetType];
                 return {
                     key: ReplaceStringToken.replace(template.key, {
@@ -25,7 +23,6 @@ class AssetTemplateInjector {
                         })
                     }
                 };
-                break;
             };
             case ASSET_TYPE.CHARACTER_OVERWORLD: {
                 const template = Assets.ref.template.characteroverworld;
@@ -41,9 +38,24 @@ class AssetTemplateInjector {
                             name: assetData.name
                         })
                     }
-                }
-                break;
+                };
             };
+            case ASSET_TYPE.MONSTER_OVERWORLD: {
+                const template = Assets.ref.template.monsteroverworld;
+                return {
+                    key: ReplaceStringToken.replace(template.key, {
+                        monsterpediaId: assetData
+                    }),
+                    path: {
+                        texture: ReplaceStringToken.replace(template.path.texture, {
+                            monsterpediaId: assetData
+                        }),
+                        atlas: ReplaceStringToken.replace(template.path.atlas, {
+                            monsterpediaId: assetData
+                        })
+                    }
+                };
+            }
             case ASSET_TYPE.TILEMAP: {
                 const template = Assets.ref.template.tilemap;
                 return {
@@ -54,7 +66,6 @@ class AssetTemplateInjector {
                         name: assetData.name
                     })
                 };
-                break;
             };
             case ASSET_TYPE.LEVEL_SCRIPT: {
                 const template = Assets.ref.template.levelscript;
@@ -66,7 +77,6 @@ class AssetTemplateInjector {
                         name: assetData.name
                     })
                 }
-                break;
             };
         };
     }

@@ -1,4 +1,3 @@
-import Character from "@/game/prefabs/Character";
 import RemotePlayer from "@/game/prefabs/RemotePlayer";
 
 import { CHAR_TYPES } from "@/game/constants/Character";

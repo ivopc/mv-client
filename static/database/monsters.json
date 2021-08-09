@@ -2,41 +2,112 @@
     "1": {
         "name": "Fogara",
         "types": ["fire"],
-        "rating": 3
+        "rating": 3,
+        "atlas": "monster_1",
+        "animation": {
+            "idle": 22,
+            "physicalattack": 1
+        },
+        "framerate": {
+            "idle": 10,
+            "physicalattack": 1
+        }
     },
     "4": {
         "name": "Maritin",
         "types": ["water"],
-        "rating": 3
+        "rating": 3,
+        "atlas": "monster_4",
+        "animation": {
+            "idle": 23,
+            "physicalattack": 1
+        },
+        "framerate": {
+            "idle": 20,
+            "physicalattack": 20
+        }
     },
     "7": {
         "name": "Graenn",
         "types": ["plant"],
-        "rating": 3
+        "rating": 3,
+        "atlas": "monster_7",
+        "animation": {
+            "idle": 14,
+            "physicalattack": 3
+        },
+        "framerate": {
+            "idle": 14,
+            "physicalattack": 3
+        }
     },
     "10": {
         "name": "Dinnox",
         "types": ["ground", "null"],
-        "rating": 0
+        "rating": 0,
+        "animation": {
+            "idle": 4,
+            "physicalattack": 3
+        },
+        "framerate": {
+            "idle": 7,
+            "physicalattack": 5
+        }
     },
     "12": {
         "name": "Atataiob",
         "types": ["fire"],
-        "rating": 0
+        "rating": 0,
+        "atlas": "monster_12",
+        "animation": {
+            "idle": 4,
+            "physicalattack": 3
+        },
+        "framerate": {
+            "idle": 7,
+            "physicalattack": 5
+        }
     },
     "15": {
         "name": "Shifarie",
         "types": ["light"],
-        "rating": 2
+        "rating": 2,
+        "atlas": "monster_15",
+        "animation": {
+            "idle": 28,
+            "physicalattack": 1
+        },
+        "framerate": {
+            "idle": 16,
+            "physicalattack": 1
+        }
     },
     "18": {
         "name": "Frutara",
         "types": ["plant"],
-        "rating": 0
+        "rating": 0,
+        "atlas": "monster_18",
+        "animation": {
+            "idle": 23,
+            "physicalattack": 1
+        },
+        "framerate": {
+            "idle": 13,
+            "physicalattack": 1
+        }
     },
     "21": {
         "name": "Horie",
         "types": ["null", "fire"],
-        "rating": 0
+        "rating": 0,
+        "atlas": "monster_21",
+        "animation": {
+            "idle": 16,
+            "physicalattack": 1
+        },
+        "framerate": {
+            "idle": 13,
+            "physicalattack": 1
+        }
     }
 }

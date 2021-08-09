@@ -8,6 +8,10 @@ import LayoutResponsivityManager from "@/game/managers/LayoutResponsivityManager
 
 import RuntimeUI from "@/game/uinterfaces/RuntimeUI";
 import Party from "@/game/uinterfaces/Party";
+import WildMenu from "@/game/uinterfaces/WildMenu";
+
+import Monster from "@/game/prefabs/Monster";
+import PlayerModel from "@/game/models/PlayerModel";
 
 import Loader from "./Loader";
 
@@ -29,13 +33,13 @@ class Overworld extends Phaser.Scene {
         this.scene.bringToTop();
         LayoutResponsivityManager.addListener();
         // tests
-        const party = new Party(this);
+        /*const party = new Party(this);
         party.append();
-        window.party = party;
+        window.party = party;*/
         /*const wild = new WildMenu(this);
         wild.append();
-        window.wild = wild;
-        this.plugins.get("rexDrag").add(wild);*/
+        window.wild = wild;*/
+        //this.plugins.get("rexDrag").add(wild);
         this.pingText = this.add.text(0, 0, "Ping:", {
             fontSize: 32,
             fontText: "Century Gothic",
@@ -45,6 +49,18 @@ class Overworld extends Phaser.Scene {
             .setOrigin(0, 0)
             .setScrollFactor(0)
             .setDepth(999999999); // {placeholder}
+        const monster = new Monster(
+            this,
+            PlayerModel.partyMonsters.get(0),
+            {
+                x: 1280 / 2,
+                y: 720 / 2
+            }
+        );
+        monster.playAnim("idle");
+        monster.scale = 4;
+
+        
         //this.addRuntimeUI("MonsterStatus"); // {test}
         this.startDevelopMode();
     }
@@ -69,7 +85,7 @@ class Overworld extends Phaser.Scene {
         ]);
         const DebugStarter = debugstarter.default;
         const engineIniter = _engineIniter.default;
-        DebugStarter.setup(this);
+        DebugStarter.setup(this.game);
         engineIniter(this);
     }
 

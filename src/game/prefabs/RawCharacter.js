@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import { GameObjects } from "phaser";
 
 import Database from "@/game/managers/Database"; // {legacy}
 import Assets from "@/game/managers/Assets"; // {legacy}
@@ -10,7 +10,7 @@ import { loadComplete } from "@/game/utils/scene.promisify"; // {legacy}
 import { characterLazyLoad } from "@/game/utils/lazy-load";
 
 
-class RawCharacter extends Phaser.GameObjects.Sprite {
+class RawCharacter extends GameObjects.Sprite {
     constructor (scene, x, y, data) {
         super(scene, x, y, data);
         this._data = data;
@@ -63,7 +63,7 @@ class RawCharacter extends Phaser.GameObjects.Sprite {
         ); // {legacy}
         this.scene.load.start(); // {legacy}
         await loadComplete(this.scene); // {legacy}
-        await characterLazyLoad(sprite);
+        //await characterLazyLoad(sprite);
         this._data.sprite = sprite;
         this.rawSetSprite(sprite);
     }

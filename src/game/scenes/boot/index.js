@@ -11,6 +11,9 @@ import Layout from "@/game/managers/Layout";
 
 import ResourcesDatabaseModel from "@/game/models/ResourcesDatabaseModel";
 import AssetsStaticDatabase from "@/game/models/AssetsStaticDatabase";
+
+import MonstersStaticDatabase from "@/game/models/MonstersStaticDatabase";
+
 import LayoutStaticDatabase from "@/game/models/LayoutStaticDatabase";
 
 import {
@@ -44,12 +47,14 @@ class Boot extends Phaser.Scene {
             monster: this.cache.json.get(MONSTERS),
             monstersExp: this.cache.json.get(MONSTER_EXP)
         }); // {legacy}
+        console.log(Database.ref.character);
         ResourcesDatabaseModel.create({
             level: this.cache.json.get(LEVELS),
             character: this.cache.json.get(CHARACTERS),
             monster: this.cache.json.get(MONSTERS),
             monstersExp: this.cache.json.get(MONSTER_EXP)
         });
+        MonstersStaticDatabase.create(this.cache.json.get(MONSTERS));
         Assets.ref = new Assets({
             template: this.cache.json.get(CUSTOM_TEMPLATE_LOADER),
             ui: this.cache.json.get(UI_ASSETS)

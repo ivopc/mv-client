@@ -33,7 +33,8 @@ class Party extends UInterfaceContainer {
             .map((position, index) => {
                 const slot = new Slot(this.scene, [], index);
                 slot.appendBase(this.layout.slot);
-                slot.setDragglable(position);
+                slot.setupBaseSprite(position)
+                slot.setDragListeners();
                 this.add(slot);
                 return slot;
             });

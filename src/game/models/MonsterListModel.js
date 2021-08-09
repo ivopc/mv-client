@@ -12,6 +12,10 @@ class MonsterListModel {
         return this.monsterList[index];
     }
 
+    get list () {
+        return this.monsterList;
+    }
+
     fetchById (id) {
         return this.monsterList.find(monster => monster.id === id);
     }

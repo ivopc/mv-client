@@ -14,6 +14,10 @@ class Assets {
         return AssetTemplateInjector.inject(ASSET_TYPE.CHARACTER_OVERWORLD, character);
     }
 
+    getOverworlMonster (monsterpediaId) {
+        return AssetTemplateInjector.inject(ASSET_TYPE.MONSTER_OVERWORLD, monsterpediaId);
+    }
+
     getLevelCharacters (id) {
         return Database.ref.level[id].npcs
             .map(npc => this.getOverworldCharacter(npc.id));

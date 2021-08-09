@@ -2,6 +2,8 @@ import PlayerData from "./PlayerData";
 import Assets from "./Assets";
 import Layout from "./Layout";
 
+import MonstersStaticDatabase from "@/game/models/MonstersStaticDatabase";
+
 import { ASSET_TYPE } from "@/game/constants/Asset";
 
 import ReplaceStringToken from "@/game/utils/ReplaceStringToken";
@@ -30,11 +32,12 @@ class RawLoader {
             type: ASSET_TYPE.MONSTER,
             monsterpediaId
         });
-
-        this.fetchLoader({
-            type: ASSET_TYPE.MONSTER_OVERWORLD,
-            monsterpediaId
-        });
+        const overworldSprite = Assets.ref.getOverworlMonster(monsterpediaId);
+        this.scene.load.atlas(
+            overworldSprite.key, 
+            overworldSprite.path.texture, 
+            overworldSprite.path.atlas
+        );
     }
 
     fetchLoaders (assets) {
@@ -56,9 +59,7 @@ class RawLoader {
                 scene.load.atlas(asset.key, AssetTemplateInjector.applyResolution(asset.path.texture), AssetTemplateInjector.applyResolution(asset.path.atlas));
                 break;
             };
-            case ASSET_TYPE.MONSTER:
-            case ASSET_TYPE.OVERWORLD_MONSTER:
-            {
+            case ASSET_TYPE.MONSTER: {
                 const assetData = AssetTemplateInjector.inject(asset.type, asset);
                 scene.load.atlas(assetData.key, assetData.path.texture, assetData.path.atlas);
                 break;

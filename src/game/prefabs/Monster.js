@@ -1,54 +1,52 @@
-import Phaser from "phaser";
+import { GameObjects } from "phaser";
 
-class Monster extends Phaser.GameObjects.Sprite {
+import MonstersStaticDatabase from "@/game/models/MonstersStaticDatabase";
+
+class Monster extends GameObjects.Sprite {
     constructor (scene, data, position) {
         super(scene, position.x, position.y);
         this._data = data;
-        this.spriteLayout = this.scene.database.battle.sprites[this._data.monsterpedia_id];
+        this.database = MonstersStaticDatabase.get(data.monsterpedia_id);
+        this.animName = this.database.name.toLowerCase();
         this.setTexture("monster_" + data.monsterpedia_id);
         this.addAnims();
         scene.add.existing(this);
     }
 
     addAnims () {
-        const name = this.spriteLayout.name;
-        const frames = {
-            idle: [],
-            attack: []
-        };
-        frames.idle = this.spriteLayout.animation.idle.map((anim, index) => ({
-            key: this.spriteLayout.atlas,
-            frame: name + "_idle" + (index)
-        }));
+        const { name, animation, atlas, framerate } = this.database;
+        const { animName } = this;
         this.scene.anims.create({
-            key: name + "_idle",
-            frames: frames.idle,
-            frameRate: this.spriteLayout.framerate.idle,
+            key: animName + "_idle",
+            frames: [ ... Array(animation.idle)].map((anim, index) => ({
+                key: atlas,
+                frame: animName + "_idle" + (index)
+            })),
+            frameRate: framerate.idle,
             repeat: -1
         });
-        this.anims.load(name + "_idle");
-        frames.attack = this.spriteLayout.animation.physicalattack.map((anim, index) => ({
-            key: this.spriteLayout.atlas,
-            frame: name + "_physicalattack" + (index)
-        }));
+        this.anims.load(animName + "_idle");
         this.scene.anims.create({
-            key: name + "_physicalattack",
-            frames:frames.attack,
-            frameRate: this.spriteLayout.framerate.physicalattack,
+            key: animName + "_physicalattack",
+            frames: [ ... Array(animation.physicalattack)].map((anim, index) => ({
+                key: atlas,
+                frame: animName + "_physicalattack" + (index)
+            })),
+            frameRate: framerate.physicalattack,
             repeat: 0
         });
-        this.anims.load(name + "_physicalattack");
+        this.anims.load(animName + "_physicalattack");
         this.on("animationcomplete", (anim, frame) =>
             this.emit("anim_" + anim.key.split("_")[1], anim, frame)
         );
         this.on("anim_physicalattack", () =>
-            this.anims.play(name + "_idle")
+            this.anims.play(animName + "_idle")
         );
     }
 
     playAnim (anim) {
         //anim: idle|physicalattack
-        this.anims.play(this.scene.database.battle.sprites[this._data.monsterpedia_id].name + "_" + anim);
+        this.anims.play(this.animName + "_" + anim);
     }
 };
 

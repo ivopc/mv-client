@@ -2,7 +2,7 @@ import { Scene } from "phaser";
 
 import { SCENE } from "@/game/constants/GameScene";
 
-import SceneManager from "@/game/managers/SceneManager";
+import Character from "@/game/prefabs/Character";
 
 import Loader from "./Loader";
 import LevelManager from "./LevelManager";
@@ -81,6 +81,18 @@ class Level extends Scene {
             callbackScope: this,
             loop: true
         }); // {placeholder}
+        Character.addtoLevel({
+            name: "testswddsdsd",
+            sprite: "Graenn",
+            position: {
+                x: 5,
+                y: 5,
+                facing: 2
+            },
+            type: 5,
+            visible: true
+        });
+
     }
 
     async test () {

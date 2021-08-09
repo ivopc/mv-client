@@ -133,6 +133,7 @@
             "type": "STATIC"
         },
         "slot": {
+            "name": "slot",
             "width": 390,
             "height": 140,
             "spritesheet": "party_slot",
@@ -142,7 +143,6 @@
                 "up": 0,
                 "out": 0
             },
-            "type": "SLOT",
             "list": [{
                 "x": 20,
                 "y": 75
@@ -161,7 +161,8 @@
             }, {
                 "x": 883,
                 "y": 231
-            }]
+            }],
+            "type": "SLOT"
         },
         "slotMonIcon": {
             "name": "slotMonIcon",

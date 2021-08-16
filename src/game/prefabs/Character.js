@@ -2,9 +2,10 @@ import RawCharacter from "./RawCharacter";
 import OverworldCollider from "./OverworldCollider";
 
 import Database from "@/game/managers/Database"; // {legacy}
-import Level from "@/game/scenes/level";
 
 import CharacterModel from "@/game/models/CharacterModel";
+
+import SceneManager from "@/game/managers/SceneManager";
 
 import { positionToOverworld } from "@/game/utils";
 import { timedEvent } from "@/game/utils/scene.promisify";
@@ -107,7 +108,7 @@ class Character extends RawCharacter {
                 break;
             };
         };
-        const follower = Character.addtoLevel(/*{ ... }*/);
+        const follower = Character.addToLevel(/*{ ... }*/);
         this._data.setFollower(follower._data.name);
     }
 
@@ -292,8 +293,8 @@ class Character extends RawCharacter {
         this.container.destroy();
     }
 
-    static addtoLevel (characterData) {
-        const scene = Level.ref;
+    static addToLevel (characterData) {
+        const scene = SceneManager.getLevel();
         const gameObject = new Character(scene, characterData);
         scene.add.existing(gameObject);
         scene.$charactersController.addStaticCharacter(gameObject);

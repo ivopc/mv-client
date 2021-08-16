@@ -54,7 +54,7 @@ class Party extends UInterfaceContainer {
     }
 
     get playerMonstersData () {
-        return PlayerModel.partyMonsters;
+        return PlayerModel.partyMonsters.list;
     }
 
     clearTooltip () {}

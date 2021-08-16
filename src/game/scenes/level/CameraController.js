@@ -1,7 +1,8 @@
 import { game } from "@/game";
-import LevelData from "@/game/managers/LevelData";
+import LevelData from "@/game/managers/LevelData"; // {legacy}
 
 import { outOfCameraZoomRange } from "@/game/utils";
+import { timedEvent } from "@/game/utils/scene.promisify";
 
 import { DEFAULT_LEVEL_ZOOM } from "@/game/constants/Overworld";
 
@@ -48,6 +49,14 @@ class CameraController {
 
     get camera () {
         return this.scene.cameras.main;
+    }
+
+    async powerZoom (gameObject) {
+        const { x, y } = gameObject.getCenter();
+        const delay = 1200;
+        this.camera.stopFollow();
+        this.camera.pan(x, y, delay, "Power2");
+        this.camera.zoomTo(5, delay, "Power2", true);
     }
 };
 

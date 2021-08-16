@@ -1,17 +1,16 @@
-import Phaser from "phaser";
+import { Scene } from "phaser";
 
 import { SCENE } from "@/game/constants/GameScene";
 
 import SceneManager from "@/game/managers/SceneManager";
 
 import Loader from "./Loader";
-import NetworkBattle from "./NetworkBattle";
 
-class Battle extends Phaser.Scene {
+class Battle extends Scene {
     constructor () {
         super({ key: SCENE.BATTLE });
         // create static reference of current instance
-        Battle.ref = this;
+        SceneManager.setBattle(this);
         this.$loader;
         this.$network;
     }
@@ -24,12 +23,6 @@ class Battle extends Phaser.Scene {
     }
 
     create () {}
-
-    /**
-     * Static reference to self `Battle` scene instance
-     * @type {Battle}
-     */
-     static ref
 };
 
 export default Battle;

@@ -1,6 +1,3 @@
-import Bag from "@/game/uinterfaces/Bag";
-import InitialMonster from "@/game/uinterfaces/InitialMonster";
-
 /**
  * All genereal UIs map
  * @enum

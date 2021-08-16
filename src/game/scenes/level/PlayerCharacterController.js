@@ -1,15 +1,14 @@
-import PlayerData from "@/game/managers/PlayerData"; // {legacy}
+import PlayerModel from "@/game/models/PlayerModel";
 import Player from "@/game/prefabs/Player";
 
 class PlayerCharacterController {
-
     constructor (scene) {
         this.scene = scene; // $playerController
         this.player;
     }
 
     create () {
-        const { character } = PlayerData.ref; // {legacy}
+        const { character } = PlayerModel;
         const player = new Player(this.scene, {
             position: {
                 x: character.position.x,
@@ -22,6 +21,10 @@ class PlayerCharacterController {
         this.scene.$cameraController.followGameObject(player);
         this.scene.$containers.main.add(player);
         this.player = player;
+    }
+
+    setStop (enabled) {
+        this.player._data.setStop(enabled);
     }
 
     getPlayerGameObject () {
@@ -55,6 +58,10 @@ class PlayerCharacterController {
 
     setOverworldPosition ({ x, y }) {
         this.player.setOverworldPositionRaw(x, y);
+    }
+
+    lookAt (direction) {
+        this.player.face(direction);
     }
 };
 

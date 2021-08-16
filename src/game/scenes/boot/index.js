@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import { Scene } from "phaser";
 
 import { SCENE } from "@/game/constants/GameScene";
 import { RESOLUTION_TYPES } from "@/game/constants/Resolutions";
@@ -11,6 +11,7 @@ import Layout from "@/game/managers/Layout";
 
 import ResourcesDatabaseModel from "@/game/models/ResourcesDatabaseModel";
 import AssetsStaticDatabase from "@/game/models/AssetsStaticDatabase";
+import TextStaticDatabase from "@/game/models/TextStaticDatabase";
 
 import MonstersStaticDatabase from "@/game/models/MonstersStaticDatabase";
 
@@ -23,10 +24,11 @@ import {
     MONSTERS,
     MONSTER_EXP,
     LEVELS,
-    LAYOUT
+    LAYOUT,
+    TEXTS
 } from "@/game/constants/Loader";
 
-class Boot extends Phaser.Scene {
+class Boot extends Scene {
     constructor () {
         super({ key: SCENE.BOOT });
     }
@@ -47,7 +49,6 @@ class Boot extends Phaser.Scene {
             monster: this.cache.json.get(MONSTERS),
             monstersExp: this.cache.json.get(MONSTER_EXP)
         }); // {legacy}
-        console.log(Database.ref.character);
         ResourcesDatabaseModel.create({
             level: this.cache.json.get(LEVELS),
             character: this.cache.json.get(CHARACTERS),
@@ -55,6 +56,7 @@ class Boot extends Phaser.Scene {
             monstersExp: this.cache.json.get(MONSTER_EXP)
         });
         MonstersStaticDatabase.create(this.cache.json.get(MONSTERS));
+        TextStaticDatabase.create(this.cache.json.get(TEXTS));
         Assets.ref = new Assets({
             template: this.cache.json.get(CUSTOM_TEMPLATE_LOADER),
             ui: this.cache.json.get(UI_ASSETS)

@@ -2,6 +2,8 @@ import DragglableGridElement from "../generics/DragglableGridElement";
 
 import PointsBar from "../generics/PointsBar";
 
+import Character from "@/game/prefabs/Character";
+
 import { PARTY_INTERFACE_TYPES } from "@/game/constants/Party";
 
 import { addGenericUIComponent } from "@/game/utils";
@@ -14,7 +16,9 @@ class SlotElement extends DragglableGridElement {
         this.type;
         // components
         this.iconBackground;
+        this.icon;
         this.nameBackground;
+        this.nameText;
         this.level;
         this.healthBar;
         this.healthText;
@@ -71,7 +75,9 @@ class SlotElement extends DragglableGridElement {
         ]);
     }
 
-    updateMonster (monsterData) {}
+    updateMonster (monsterData) {
+        console.log(monsterData);
+    }
 
 };
 

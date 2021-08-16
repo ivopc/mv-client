@@ -7,9 +7,9 @@ import {
     LEVELS,
     MONSTERS,
     MONSTER_EXP,
-    LAYOUT
+    LAYOUT,
+    TEXTS
 } from "@/game/constants/Loader";
-
 
 class Loader extends RawLoader {
     fetchAssets () {
@@ -21,6 +21,7 @@ class Loader extends RawLoader {
         scene.load.json(MONSTER_EXP, "database/experience.json");
         scene.load.json(LEVELS, "database/levels.json");
         scene.load.json(LAYOUT, "assets/resources/layout_hd.json"); // {placeholder}
+        scene.load.json(TEXTS, "database/texts.json");
     }
 };
 

@@ -8,6 +8,10 @@ class LayoutStaticDatabase {
         return this.data[layout];
     }
 
+    static getIdle (layout) {
+        return this.data.IDLE[layout];
+    }
+
     static setData (layoutData) {
         this.data = layoutData;
     }

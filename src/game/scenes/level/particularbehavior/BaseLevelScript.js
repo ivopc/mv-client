@@ -63,7 +63,7 @@ class BaseLevelScript {
     }
 
     insertLevelObject (levelObjectData) {
-        Character.addtoLevel(levelObjectData);
+        Character.addToLevel(levelObjectData);
     }
 
     get scriptData () {

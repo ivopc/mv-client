@@ -1,50 +1,37 @@
-import LayoutStaticDatabase from "@/game/models/LayoutStaticDatabase";
-import TextStaticDatabase from "@/game/models/TextStaticDatabase";
-import MonstersStaticDatabase from "@/game/models/MonstersStaticDatabase";
-
+import Layout from "@/game/managers/Layout";
 import LayoutResponsivityManager from "@/game/managers/LayoutResponsivityManager";
-import SceneManager from "@/game/managers/SceneManager";
-
-import { acceptBattle, rejectBattle } from "@/game/scenes/level/network/wild.network";
 
 import { RESOLUTION_TYPES } from "@/game/constants/Resolutions";
 
 import { getResolution, addGenericUIComponent } from "@/game/utils";
-import { timedEvent } from "@/game/utils/scene.promisify";
 
 import UInterfaceContainer from "./components/generics/UInterfaceContainer";
 import Button from "./components/generics/Button";
 import Rating from "./components/wildmenu/Rating";
 
-import ScaleDownDestroy from "phaser3-rex-plugins/plugins/scale-down-destroy";
-import FadeOutDestroy from "phaser3-rex-plugins/plugins/fade-out-destroy";
-
 class WildMenu extends UInterfaceContainer {                                                                                                                                                                                                                    
-    constructor (scene, monster) {
-        super(scene, LayoutStaticDatabase.get("wildEncounter"));
-        this.monsterData = monster;
-        this.monsterInOverworld;
+    constructor (scene) {
+        super(scene, Layout.ref.get("wildEncounter"));
         scene.add.existing(this);
         //scene.plugins.get("rexDrag").add(this);
     }
 
     append () {
-        const monsterInfo = MonstersStaticDatabase.get(this.monsterData.monsterpediaId);
         this.background = addGenericUIComponent(this.layout.background, this.scene);
         this.nameBox = addGenericUIComponent(this.layout.nameBox, this.scene);
-        const { x, y } = this.nameBox.getCenter();
-        this.monsterNameDisplay = this.scene.add.text(x, y, monsterInfo.name, this.layout.monsterNameDisplay).setOrigin(0.5);
         this.btnBattle = new Button(this.scene, {
             x: this.layout.btnBattle.position.x,
             y: this.layout.btnBattle.position.y,
             spritesheet: this.layout.btnBattle.spritesheet,
             frames: this.layout.btnBattle.frames,
             text: {
-                display: TextStaticDatabase.get("prebattle", "acceptbattle"),
+                display: "Batalhar",
                 style: this.layout.btnBattle.textStyle
             },
             on: {
-                click: () => this.onAcceptBattle()
+                click: () => {
+                    console.log("OLÁ, CLICOU NO BUTTON DE BATALHAR");
+                }
             }
         });
         this.btnRun = new Button(this.scene, {
@@ -53,42 +40,29 @@ class WildMenu extends UInterfaceContainer {
             spritesheet: this.layout.btnRun.spritesheet,
             frames: this.layout.btnRun.frames,
             text: {
-                display: TextStaticDatabase.get("prebattle", "tryrun"),
+                display: "Tentar Fugir",
                 style: this.layout.btnRun.textStyle
             },
             on: {
-                click: () => this.onRejectBattle()
+                click: () => {
+                    console.log("CLICOU NO BUTTON DE FUGIR CRL!");
+                }
             }
         });
-        this.ratingStars = new Rating(this.scene, monsterInfo.rating);
+        this.ratingStars = new Rating(this.scene, this.monsterData.rating);
         this.ratingStars.setName(this.layout.ratingStars.name);
+        this.add(this.background);
+        this.add(this.nameBox);
+        this.add(this.btnBattle);
+        this.add(this.btnRun);
+        this.add(this.ratingStars);
         this.setOriginalBaseSize(this.background);
-        this.add([
-            this.background, 
-            this.nameBox, 
-            this.monsterNameDisplay, 
-            this.btnBattle, 
-            this.btnRun, 
-            this.ratingStars
-        ]);
     }
 
-    async onAcceptBattle () {
-        acceptBattle();
-        const levelScene = SceneManager.getLevel();
-        const delay = 500; // {placeholder}
-        ScaleDownDestroy(this, delay);
-        FadeOutDestroy(this, delay);
-        await timedEvent(delay, this.scene);
-        levelScene.$cameraController.powerZoom(this.monsterInOverworld);
-    }
-
-    onRejectBattle () {
-        rejectBattle();
-    }
-
-    setMonsterInOverworld (gameObject) {
-        this.monsterInOverworld = gameObject;
+    get monsterData () {
+        return {
+            rating: 3
+        }
     }
 
     resize (gameSize, baseSize, displaySize, previousWidth, previousHeight) {

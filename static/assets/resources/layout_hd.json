@@ -1,111 +1,81 @@
 {
     "wildEncounter": {
-        "IDLE": {
-            "info": {
-                "name": "info",
-                "spritesheet": "wild_button",
-                "frames": {
-                    "click": 1,
-                    "over": 2,
-                    "up": 0,
-                    "out": 0
-                },
-                "textStyle": {
-                    "fontFamily": "Century Gothic",
-                    "fontSize": 24,
-                    "color": "#fff"
-                },
-                "position": {
-                    "x": 746,
-                    "y": 86
-                }
-            },
-            "battle": {
-                "name": "battle",
-                "type": "BUTTONS_GROUP",
-                "list": [{
-                    "spritesheet": "wild_button",
-                    "frames": {
-                        "click": 1,
-                        "over": 2,
-                        "up": 0,
-                        "out": 0
-                    },
-                    "textStyle": {
-                        "fontFamily": "Century Gothic",
-                        "fontSize": 24,
-                        "color": "#fff"
-                    },
-                    "position": {
-                        "x": 865,
-                        "y": 571
-                    }
-                }, {
-                    "spritesheet": "wild_button",
-                    "frames": {
-                        "click": 1,
-                        "over": 2,
-                        "up": 0,
-                        "out": 0
-                    },
-                    "textStyle": {
-                        "fontFamily": "Century Gothic",
-                        "fontSize": 24,
-                        "color": "#fff"
-                    },
-                    "position": {
-                        "x": 167,
-                        "y": 0
-                    }
-                }]
-            },
-            "monsterRating": {
-                "name": "monsterRating",
-                "type": "SWITCHABLE_SPRITES_GROUP",
-                "amount": 4,
-                "frames": {
-                    "type": "TOGGLE",
-                    "options": [0, 1]
-                },
-                "spritesheet": "TODO",
-                "spritemap": [
-                    [1, 0, 0, 0],
-                    [1, 1, 0, 0],
-                    [1, 1, 1, 0],
-                    [1, 1, 1, 1]
-                ],
-                "positions": [{
-                    "x": 236,
-                    "y": 644
-                }, {
-                    "x": 60,
-                    "y": 0
-                }, {
-                    "x": 120,
-                    "y": 0
-                }, {
-                    "x": 180,
-                    "y": 0
-                }]
-            },
-            "nameBackground": {
-                "name": "nameBackground",
-                "texture": "wildEncounter_nameBackground",
-                "position": {
-                    "x": 152,
-                    "y": 58
-                },
-                "type": "STATIC"
-            },
-            "background": {
-                "name": "background",
-                "texture": "wildEncounter_background",
-                "position": {
-                    "x": 0,
-                    "y": 0
-                },
-                "type": "STATIC"
+        "monsterNameDisplay": {
+            "fontFamily": "Century Gothic",
+            "fontSize": 40,
+            "color": "#fff",
+            "type": "TEXT"
+        },
+        "ratingStars": {
+            "name": "ratingStars",
+            "positions": [
+                {"x": 216, "y": 154},
+                {"x": 276, "y": 154},
+                {"x": 336, "y": 154},
+                {"x": 396, "y": 154}
+            ],
+            "spritesheet": "wild_star_rating",
+            "frames": {
+                "filled": 0,
+                "void": 1
             }
+        },
+        "btnRun": {
+            "name": "btnRun",
+            "spritesheet": "wild_button",
+            "frames": {
+                "click": 1,
+                "over": 2,
+                "up": 0,
+                "out": 0
+            },
+            "textStyle": {
+                "fontFamily": "Century Gothic",
+                "fontSize": 24,
+                "color": "#fff"
+            },
+            "position": {
+                "x": 1032,
+                "y": 81
+            }
+        },
+        "btnBattle": {
+            "name": "btnBattle",
+            "spritesheet": "wild_button",
+            "frames": {
+                "click": 1,
+                "over": 2,
+                "up": 0,
+                "out": 0
+            },
+            "textStyle": {
+                "fontFamily": "Century Gothic",
+                "fontSize": 24,
+                "color": "#fff"
+            },
+            "position": {
+                "x": 865,
+                "y": 81
+            },
+            "type": "BUTTON"
+        },
+        "nameBox": {
+            "name": "nameBox",
+            "texture": "wild_encounter_name_box",
+            "position": {
+                "x": 152,
+                "y": 58
+            },
+            "type": "STATIC"
+        },
+        "background": {
+            "name": "background",
+            "texture": "wild_encounter_background",
+            "position": {
+                "x": 0,
+                "y": 0
+            },
+            "type": "STATIC"
         },
         "mainContainer": {
             "name": "mainContainer",

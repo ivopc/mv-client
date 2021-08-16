@@ -36,7 +36,7 @@ class RuntimeUI extends UInterfaceContainer {
     /**
      * When the player change the tab clicking on hitbox.
      * @param {JSON} layout 
-     * @param {number} index 
+     * @param {number} tabIndex 
      */
     switchTab (layout, tabIndex) {
         this.getByName(layout.name).setTexture(layout.tabs[tabIndex].sprite);

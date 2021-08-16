@@ -11,3 +11,11 @@ export async function requestWildEncounter () {
     };
     return response;
 };
+
+export async function acceptBattle () {
+    console.log("Aceitou wild!");
+};
+
+export async function rejectBattle () {
+    console.log("Rejeitou wild!");
+};

@@ -5,3 +5,4 @@ export const LEVELS = "levelsJSON";
 export const MONSTERS = "monstersJSON";
 export const LAYOUT = "layoutJSON";
 export const MONSTER_EXP = "monsterexpJSON";
+export const TEXTS = "textsJSON";

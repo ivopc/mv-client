@@ -87,6 +87,10 @@ class CharacterModel {
     getCurrentFloor () {
         return this.floor;
     }
-};
+
+    setStop (enabled) {
+        this.stop = enabled;
+    }
+}; 
 
 export default CharacterModel;

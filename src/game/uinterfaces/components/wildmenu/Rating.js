@@ -1,6 +1,6 @@
-import Phaser from "phaser";
+import { GameObjects } from "phaser";
 
-import Layout from "@/game/managers/Layout";
+import LayoutStaticDatabase from "@/game/models/LayoutStaticDatabase";
 
 import Star from "./Star";
 
@@ -11,10 +11,10 @@ const types = [
     ["filled", "filled", "filled", "filled"]
 ];
 
-class Rating extends Phaser.GameObjects.Container {
+class Rating extends GameObjects.Container {
     constructor (scene, rating) {
         super(scene);
-        this.layout = Layout.ref.data.wildEncounter;
+        this.layout = LayoutStaticDatabase.get("wildEncounter");
         // just a reference to know how many stars there's in array,
         // but it is irrelevant to programming
         this.starsList = new Array(4);

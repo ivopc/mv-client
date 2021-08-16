@@ -1,5 +1,7 @@
 import { Scene } from "phaser";
 
+import SceneManager from "@/game/managers/SceneManager";
+
 import { SCENE } from "@/game/constants/GameScene";
 
 import Character from "@/game/prefabs/Character";
@@ -15,6 +17,7 @@ import Container from "./Container";
 import RuntimeScript from "./RuntimeScript";
 import PlayerCharacterController from "./PlayerCharacterController";
 import GenericCharactersController from "./GenericCharactersController";
+import Wild from "./Wild";
 import LookerPathfind from "./LookerPathfind";
 
 import { getPing } from "./network/ping.network";
@@ -23,7 +26,7 @@ class Level extends Scene {
     constructor () {
         super({ key: SCENE.LEVEL });
         // create static reference of current instance
-        Level.ref = this;
+        SceneManager.setLevel(this);
         this.$loader;
         // network need to be instancied here cause `Loader` depends 
         // on it for level channel subscribe success event
@@ -39,6 +42,7 @@ class Level extends Scene {
         this.$characterController;
         this.$lookerPathfinding;
         this.$levelBehavior;
+        this.$wild;
     }
 
     init (params) {}
@@ -58,6 +62,7 @@ class Level extends Scene {
         this.$runtime = new RuntimeScript(this);
         this.$playerController = new PlayerCharacterController(this);
         this.$charactersController = new GenericCharactersController(this);
+        this.$wild = new Wild(this);
         //this.$lookerPathfind = new LookerPathfind(this);
         // **-----------------------------------**
         this.$cameraController.setup();
@@ -81,7 +86,7 @@ class Level extends Scene {
             callbackScope: this,
             loop: true
         }); // {placeholder}
-        Character.addtoLevel({
+        Character.addToLevel({
             name: "testswddsdsd",
             sprite: "Graenn",
             position: {
@@ -92,6 +97,7 @@ class Level extends Scene {
             type: 5,
             visible: true
         });
+        this.$wild.requestEncounter();
 
     }
 
@@ -105,12 +111,6 @@ class Level extends Scene {
     update (time) {
         this.$inputListener.update(time);
     }
-
-    /**
-     * Static reference to self `Level` scene instance
-     * @type {Level}
-     */
-    static ref
 };
 
 export default Level;

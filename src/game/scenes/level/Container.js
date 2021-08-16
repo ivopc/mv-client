@@ -12,14 +12,14 @@ class Container {
         [this.map, this.overlay].forEach(layer => layer.visible = false); // {placeholder}
     }
 
-    forEach (fn) {
+    iterate (fn) {
         [this.map, this.main, this.preOverlay, this.overlay].forEach(fn);
     }
 
     characterDepthSort () {}
 
     reorganize () {
-        this.forEach(layer => this.scene.bringToTop(layer));
+        this.iterate(layer => this.scene.bringToTop(layer));
     }
 };
 export default Container;

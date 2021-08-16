@@ -5,8 +5,8 @@ import { SCENE } from "@/game/constants/GameScene";
 import { UIs, UI_STATES } from "@/game/constants/UI";
 
 import LayoutResponsivityManager from "@/game/managers/LayoutResponsivityManager";
+import SceneManager from "@/game/managers/SceneManager";
 
-import RuntimeUI from "@/game/uinterfaces/RuntimeUI";
 import Party from "@/game/uinterfaces/Party";
 import WildMenu from "@/game/uinterfaces/WildMenu";
 
@@ -18,7 +18,7 @@ import Loader from "./Loader";
 class Overworld extends Phaser.Scene {
     constructor () {
         super({ key: SCENE.OVERWORLD });
-        Overworld.ref = this;
+        SceneManager.setOverworld(this);
     }
 
     init (params) {}
@@ -49,7 +49,7 @@ class Overworld extends Phaser.Scene {
             .setOrigin(0, 0)
             .setScrollFactor(0)
             .setDepth(999999999); // {placeholder}
-        const monster = new Monster(
+        /*const monster = new Monster(
             this,
             PlayerModel.partyMonsters.get(0),
             {
@@ -58,10 +58,10 @@ class Overworld extends Phaser.Scene {
             }
         );
         monster.playAnim("idle");
-        monster.scale = 4;
+        monster.scale = 4;*/
 
         
-        //this.addRuntimeUI("MonsterStatus"); // {test}
+        //this.addRuntimeUI("WildMenu"); // {test}
         this.startDevelopMode();
     }
 
@@ -88,12 +88,6 @@ class Overworld extends Phaser.Scene {
         DebugStarter.setup(this.game);
         engineIniter(this);
     }
-
-    /**
-     * Static reference to self `Overworld` scene instance
-     * @type {Overworld}
-     */
-     static ref
 };
 
 export default Overworld;

@@ -1,6 +1,5 @@
 import Character from "./Character";
-
-import PlayerData from "@/game/managers/PlayerData";
+import PlayerModel from "@/game/models/PlayerModel";
 
 import { CHAR_TYPES } from "@/game/constants/Character";
 import { TILE } from "@/game/constants/Overworld";
@@ -23,7 +22,7 @@ class Player extends Character {
             case TILE.TYPES.WILD_GRASS:
             case TILE.TYPES.EVENT:
             {
-                PlayerData.ref.setPosition(this._data.position);
+                PlayerModel.setPosition(this._data.position);
                 break;
             };
         };
@@ -35,13 +34,13 @@ class Player extends Character {
     }
 
     face (direction) {
-        if (this._data.moveInProgress)
+        if (this._data.moveInProgress  || this._data.stop)
             return;
         const oldFacing = this._data.position.facing;
         super.face(direction);
         if (oldFacing !== direction)
             this.sendFacing(direction);
-        PlayerData.ref.setFacing(direction);
+        PlayerModel.setFacing(direction);
     }
 
     sendMove (direction) {

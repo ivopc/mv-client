@@ -1,6 +1,10 @@
 import ResourcesDatabaseModel from "./ResourcesDatabaseModel";
+
 import { ASSET_TYPE } from "@/game/constants/Asset";
+import { FIELD_TYPES } from "@/game/constants/Battle";
+
 import AssetTemplateInjector from "@/game/utils/AssetTemplateInjector";
+
 
 class AssetsStaticDatabase {
     static create ({ template, ui }) {
@@ -38,6 +42,22 @@ class AssetsStaticDatabase {
             key: level.music.name,
             src: "assets/audio/" + level.music.src
         };
+    }
+
+    static getBattleField (fieldType) {
+        switch (fieldType) {
+            case FIELD_TYPES.GRASS: {
+                return "battle_grass_background";
+            };
+        }
+    }
+
+    static getBattleFloor (fieldType) {
+        switch (fieldType) {
+            case FIELD_TYPES.GRASS: {
+                return "battle_grass_floor";
+            };
+        }
     }
 
     static getUIComponents () {

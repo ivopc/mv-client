@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import { Scene } from "phaser";
 
 import { SCENE } from "@/game/constants/GameScene";
 
@@ -15,7 +15,7 @@ import PlayerModel from "@/game/models/PlayerModel";
 
 import Loader from "./Loader";
 
-class Overworld extends Phaser.Scene {
+class Overworld extends Scene {
     constructor () {
         super({ key: SCENE.OVERWORLD });
         SceneManager.setOverworld(this);

@@ -86,7 +86,7 @@ class Level extends Scene {
             callbackScope: this,
             loop: true
         }); // {placeholder}
-        Character.addToLevel({
+        /*Character.addToLevel({
             name: "testswddsdsd",
             sprite: "Graenn",
             position: {
@@ -96,7 +96,7 @@ class Level extends Scene {
             },
             type: 5,
             visible: true
-        });
+        });*/
         this.$wild.requestEncounter();
 
     }

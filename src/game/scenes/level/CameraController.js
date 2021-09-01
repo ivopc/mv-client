@@ -53,10 +53,11 @@ class CameraController {
 
     async powerZoom (gameObject) {
         const { x, y } = gameObject.getCenter();
-        const delay = 1200;
+        const delay = 900; // {placeholder}
         this.camera.stopFollow();
         this.camera.pan(x, y, delay, "Power2");
         this.camera.zoomTo(5, delay, "Power2", true);
+        await timedEvent(delay, this.scene);
     }
 };
 

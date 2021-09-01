@@ -1,4 +1,19 @@
 {
+    "generic_pointsbar_frame": {
+        "key": "generic_pointsbar_frame",
+        "type": "image",
+        "path": "assets/img/ui/generic/{resolution}/bar.png"
+    },
+    "generic_hp_icon": {
+        "key": "generic_hp_icon",
+        "type": "image",
+        "path": "assets/img/ui/generic/{resolution}/hpico_hd.png"
+    },
+    "generic_mp_icon": {
+        "key": "generic_mp_icon",
+        "type": "image",
+        "path": "assets/img/ui/generic/{resolution}/mpico_hd.png"
+    },
     "wild_encounter_background": {
         "key": "wild_encounter_background",
         "type": "image",
@@ -199,5 +214,40 @@
         "path": "assets/img/ui/status/{resolution}/tab2_moves.png",
         "componentType": "TAB",
         "layout": "monsterStatus"
+    },
+    "battle_grass_background": {
+        "key": "battle_grass_background",
+        "type": "image",
+        "path": "assets/img/ui/battle/{resolution}/background_grass.png",
+        "componentType": "STATIC",
+        "layout": "battle"
+    },
+    "battle_grass_floor": {
+        "key": "battle_grass_floor",
+        "type": "image",
+        "path": "assets/img/ui/battle/{resolution}/floor_grass.png",
+        "componentType": "STATIC",
+        "layout": "battle"
+    },
+    "battle_action_menu": {
+        "key": "battle_action_menu",
+        "type": "image",
+        "path": "assets/img/ui/battle/{resolution}/action_menu.png",
+        "componentType": "STATIC",
+        "layout": "battle"
+    },
+    "battle_hud_left": {
+        "key": "battle_hud_left",
+        "type": "image",
+        "path": "assets/img/ui/battle/{resolution}/hud_left.png",
+        "componentType": "STATIC",
+        "layout": "battle"
+    },
+    "battle_hud_right": {
+        "key": "battle_hud_right",
+        "type": "image",
+        "path": "assets/img/ui/battle/{resolution}/hud_right.png",
+        "componentType": "STATIC",
+        "layout": "battle"
     }
 }

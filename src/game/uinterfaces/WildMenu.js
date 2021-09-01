@@ -19,7 +19,7 @@ import Rating from "./components/wildmenu/Rating";
 import ScaleDownDestroy from "phaser3-rex-plugins/plugins/scale-down-destroy";
 import FadeOutDestroy from "phaser3-rex-plugins/plugins/fade-out-destroy";
 
-class WildMenu extends UInterfaceContainer {                                                                                                                                                                                                                    
+class WildMenu extends UInterfaceContainer {
     constructor (scene, monster) {
         super(scene, LayoutStaticDatabase.get("wildEncounter"));
         this.monsterData = monster;
@@ -74,13 +74,15 @@ class WildMenu extends UInterfaceContainer {
     }
 
     async onAcceptBattle () {
-        acceptBattle();
-        const levelScene = SceneManager.getLevel();
-        const delay = 500; // {placeholder}
+        const { $cameraController, $manager } = SceneManager.getLevel();
+        const delay = 400; // {placeholder}
         ScaleDownDestroy(this, delay);
         FadeOutDestroy(this, delay);
         await timedEvent(delay, this.scene);
-        levelScene.$cameraController.powerZoom(this.monsterInOverworld);
+        await $cameraController.powerZoom(this.monsterInOverworld);
+        const battleData = await acceptBattle();
+        console.log("dados da battle", battleData);
+        $manager.launchBattle(battleData);
     }
 
     onRejectBattle () {

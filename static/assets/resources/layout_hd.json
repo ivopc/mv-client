@@ -227,14 +227,130 @@
         }
     },
     "battle": {
-        "floor": [{
-            "x": 58,
-            "y": 120
-        }, {
-            "x": 315,
-            "y": 120
-        }],
+        "floor": {
+            "grass": {
+                "x1": [
+                    {
+                        "x": 154,
+                        "y": 360
+                    },
+                    {
+                        "x": 815,
+                        "y": 360
+                    }
+                ],
+                "x2": []
+            }
+        },
         "monsterHud": {
+            "x1": {
+                "player": {
+                    "base": {
+                        "name": "base",
+                        "texture": "battle_hud_left",
+                        "position": {
+                            "x": 7,
+                            "y": 9
+                        },
+                        "type": "STATIC"
+                    },
+                    "healthBar": {
+                        "x": 93,
+                        "y": 48,
+                        "width": 213,
+                        "height": 11,
+                        "color": {
+                            "bar": 4172109,
+                            "bg": 5199445
+                        },
+                        "type": "POINTS_BAR"
+                    },
+                    "healthBarFrame": {
+                        "name": "healthBarFrame",
+                        "position": {
+                            "x": 93,
+                            "y": 48
+                        },
+                        "texture": "generic_pointsbar_frame",
+                        "type": "STATIC"
+                    },
+                    "manaBar": {
+                        "x": 93,
+                        "y": 66,
+                        "width": 213,
+                        "height": 11,
+                        "color": {
+                            "bar": 4151977,
+                            "bg": 5199445
+                        },
+                        "type": "POINTS_BAR"
+                    },
+                    "manaBarFrame": {
+                        "name": "manaBarFrame",
+                        "position": {
+                            "x": 93,
+                            "y": 66
+                        },
+                        "texture": "generic_pointsbar_frame",
+                        "type": "STATIC"
+                    },
+                    "expBar": {
+                        "x": 93,
+                        "y": 81,
+                        "width": 114,
+                        "height": 6,
+                        "color": {
+                            "bar": "TODO",
+                            "bg": 5199445
+                        },
+                        "type": "POINTS_BAR"
+                    },
+                    "expBarFrame": {
+                        "name": "expBarFrame",
+                        "position": {
+                            "x": 93,
+                            "y": 81
+                        },
+                        "texture": "generic_pointsbar_frame",
+                        "type": "STATIC"
+                    },
+                    "text": {
+                        "name": {},
+                        "level": {}
+                    }
+                },
+                "opponent": {
+                    "base": {
+                        "name": "base",
+                        "texture": "battle_hud_right",
+                        "position": {
+                            "x": 903,
+                            "y": 9
+                        },
+                        "type": "STATIC"
+                    },
+                    "healthBar": {},
+                    "text": {
+                        "name": {},
+                        "level": {}
+                    }
+                }
+            },
+            "x2": {}
+        },
+        "actionMenu": {
+            "base": {
+                "name": "actionMenu",
+                "texture": "battle_action_menu",
+                "position": {
+                    "x": 6,
+                    "y": 446
+                },
+                "type": "STATIC"
+            }
+        },
+        "fightMenu": {},
+        "_monsterHud": {
             "player": {
                 "base": {
                     "x": 26,
@@ -318,7 +434,7 @@
                 }
             }
         },
-        "actionMenu": {
+        "_actionMenu": {
             "movesBtn": {
                 "x": 268,
                 "y": 166,
@@ -395,7 +511,7 @@
                 }
             }
         },
-        "fightMenu": {
+        "_fightMenu": {
             "movesBtn": [{
                 "x": 12,
                 "y": 166,
@@ -467,6 +583,13 @@
                     "up": 0,
                     "out": 0
                 }
+            }
+        },
+        "mainContainer": {
+            "name": "mainContainer",
+            "basePosition": {
+                "x": 0,
+                "y": 0
             }
         }
     },

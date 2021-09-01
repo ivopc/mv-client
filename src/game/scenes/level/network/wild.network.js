@@ -13,7 +13,13 @@ export async function requestWildEncounter () {
 };
 
 export async function acceptBattle () {
-    console.log("Aceitou wild!");
+    let response;
+    try {
+        response = await Network.ajax(LEVEL_EVENTS.ACCEPT_WILD_BATTLE);
+    } catch (err) {
+        throw new Error(err);
+    };
+    return response;
 };
 
 export async function rejectBattle () {

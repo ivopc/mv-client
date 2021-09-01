@@ -24,11 +24,15 @@ class MonsterListModel {
         return this.monsterList.filter(monster => monster.monsterpedia_id === specieId);
     }
 
-    getAllAlive () {
+    get firstAlive () {
+        return this.monsterList.find(monster => monster.isAlive);
+    }
+
+    get allAlive () {
         return this.monsterList.filter(monster => monster.isAlive);
     }
 
-    isEmpty () {
+    get isEmpty () {
         return this.monsterList.length === 0;
     }
 }

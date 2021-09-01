@@ -5,7 +5,8 @@ export const GAME_EVENTS = {
 
 export const LEVEL_EVENTS = {
     CHAT_MESSAGE: 3,
-    SEARCH_WILD: 20
+    SEARCH_WILD: 20,
+    ACCEPT_WILD_BATTLE: 22
 };
 
 export const OVERWORLD_ACTIONS = {

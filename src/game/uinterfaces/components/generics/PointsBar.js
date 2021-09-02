@@ -79,7 +79,6 @@ class PointsBar extends Phaser.GameObjects.Container {
     addFrame (texture) {
         const frame = this.scene.add.sprite(0, 0, texture).setOrigin(0, 0).setName("frame");
         this.add(frame);
-        this.sendToBack(frame);
     }
 
     async setPercent (newValue) {

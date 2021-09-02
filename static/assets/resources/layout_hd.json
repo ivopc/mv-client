@@ -255,8 +255,10 @@
                         "type": "STATIC"
                     },
                     "healthBar": {
-                        "x": 93,
-                        "y": 48,
+                        "position": {
+                            "x": 93,
+                            "y": 48
+                        },
                         "width": 213,
                         "height": 11,
                         "color": {
@@ -274,9 +276,20 @@
                         "texture": "generic_pointsbar_frame",
                         "type": "STATIC"
                     },
+                    "healthBarIcon": {
+                        "name": "healthBarIcon",
+                        "margin": {
+                            "x": 5,
+                            "y": 5
+                        },
+                        "texture": "party_hp_icon",
+                        "type": "STATIC"
+                    },
                     "manaBar": {
-                        "x": 93,
-                        "y": 66,
+                        "position": {
+                            "x": 93,
+                            "y": 66
+                        },
                         "width": 213,
                         "height": 11,
                         "color": {
@@ -294,13 +307,24 @@
                         "texture": "generic_pointsbar_frame",
                         "type": "STATIC"
                     },
+                    "manaBarIcon": {
+                        "name": "manaBarIcon",
+                        "margin": {
+                            "x": 5,
+                            "y": 6
+                        },
+                        "texture": "party_mp_icon",
+                        "type": "STATIC"
+                    },
                     "expBar": {
-                        "x": 93,
-                        "y": 81,
-                        "width": 114,
-                        "height": 6,
+                        "position": {
+                            "x": 93,
+                            "y": 81
+                        },
+                        "width": 213,
+                        "height": 11,
                         "color": {
-                            "bar": "TODO",
+                            "bar": 2411203,
                             "bg": 5199445
                         },
                         "type": "POINTS_BAR"
@@ -315,8 +339,26 @@
                         "type": "STATIC"
                     },
                     "text": {
-                        "name": {},
-                        "level": {}
+                        "name": {
+                            "fontFamily": "Century Gothic",
+                            "fontSize": 18,
+                            "color": "#fff",
+                            "position": {
+                                "x": 95,
+                                "y": 26
+                            },
+                            "type": "TEXT"
+                        },
+                        "level": {
+                            "fontFamily": "Century Gothic",
+                            "fontSize": 18,
+                            "color": "#fff",
+                            "position": {
+                                "x": 290,
+                                "y": 26
+                            },
+                            "type": "TEXT"
+                        }
                     }
                 },
                 "opponent": {
@@ -329,10 +371,58 @@
                         },
                         "type": "STATIC"
                     },
-                    "healthBar": {},
+                    "healthBar": {
+                        "position": {
+                            "x": 982,
+                            "y": 48
+                        },
+                        "width": 213,
+                        "height": 11,
+                        "color": {
+                            "bar": 4172109,
+                            "bg": 5199445
+                        },
+                        "type": "POINTS_BAR"
+                    },
+                    "healthBarFrame": {
+                        "name": "healthBarFrame",
+                        "position": {
+                            "x": 982,
+                            "y": 48
+                        },
+                        "texture": "generic_pointsbar_frame",
+                        "type": "STATIC"
+                    },
+                    "healthBarIcon": {
+                        "name": "healthBarIcon",
+                        "margin": {
+                            "x": 5,
+                            "y": 5
+                        },
+                        "texture": "party_hp_icon",
+                        "type": "STATIC"
+                    },
                     "text": {
-                        "name": {},
-                        "level": {}
+                        "name": {
+                            "fontFamily": "Century Gothic",
+                            "fontSize": 18,
+                            "color": "#fff",
+                            "position": {
+                                "x": 1149,
+                                "y": 26
+                            },
+                            "type": "TEXT"
+                        },
+                        "level": {
+                            "fontFamily": "Century Gothic",
+                            "fontSize": 18,
+                            "color": "#fff",
+                            "position": {
+                                "x": 930,
+                                "y": 26
+                            },
+                            "type": "TEXT"
+                        }
                     }
                 }
             },
@@ -347,9 +437,111 @@
                     "y": 446
                 },
                 "type": "STATIC"
+            },
+            "fightBtn": {
+                "name": "fightBtn",
+                "spritesheet": "battle_fight_button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 24,
+                    "color": "#fff"
+                },
+                "position": {
+                    "x": 734,
+                    "y": 507
+                },
+                "type": "BUTTON"
+            },
+            "bagBtn": {
+                "name": "bagBtn",
+                "spritesheet": "battle_bag_button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 24,
+                    "color": "#fff"
+                },
+                "position": {
+                    "x": 961,
+                    "y": 507
+                },
+                "type": "BUTTON"
+            },
+            "partyBtn": {
+                "name": "partyBtn",
+                "spritesheet": "battle_party_button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 24,
+                    "color": "#fff"
+                },
+                "position": {
+                    "x": 734,
+                    "y": 595
+                },
+                "type": "BUTTON"
+            },
+            "runBtn": {
+                "name": "runBtn",
+                "spritesheet": "battle_run_button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 24,
+                    "color": "#fff"
+                },
+                "position": {
+                    "x": 961,
+                    "y": 595
+                },
+                "type": "BUTTON"
             }
         },
-        "fightMenu": {},
+        "fightMenu": {
+            "movesBtn": [
+                {},
+                {},
+                {},
+                {}
+            ],
+            "backBtn": {
+                "name": "backBtn",
+                "spritesheet": "battle_back_button",
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "position": {
+                    "x": 1080,
+                    "y": 547
+                },
+                "type": "BUTTON"
+            }
+        },
         "_monsterHud": {
             "player": {
                 "base": {

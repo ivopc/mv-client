@@ -17,3 +17,15 @@ export const HUD_TYPES = {
 	PLAYER: 0,
 	OPPONENT: 2
 };
+
+export const HUD_TYPES_STR = {
+	[HUD_TYPES.PLAYER]: "player",
+	[HUD_TYPES.OPPONENT]: "opponent"
+};
+
+export const BATTLE_MENU_STATES = {
+	IDLE: 0,
+	FIGHT: 1,
+	BAG: 2,
+	PARTY: 3
+};

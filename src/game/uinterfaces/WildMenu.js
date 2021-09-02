@@ -25,7 +25,6 @@ class WildMenu extends UInterfaceContainer {
         this.monsterData = monster;
         this.monsterInOverworld;
         scene.add.existing(this);
-        //scene.plugins.get("rexDrag").add(this);
     }
 
     append () {
@@ -81,7 +80,6 @@ class WildMenu extends UInterfaceContainer {
         await timedEvent(delay, this.scene);
         await $cameraController.powerZoom(this.monsterInOverworld);
         const battleData = await acceptBattle();
-        console.log("dados da battle", battleData);
         $manager.launchBattle(battleData);
     }
 

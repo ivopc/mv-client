@@ -7,7 +7,6 @@ class Container {
 
     create () {
         this.main = this.scene.add.container();
-        console.log("oikkkk", this.main);
     }
 };
 

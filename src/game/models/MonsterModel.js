@@ -38,7 +38,7 @@ class MonsterModel {
     }
 
     getName () {
-        return this.nickname || Database.ref.monster[this.monsterpedia_id].name;
+        return this.nickname || Database.ref.monster[this.monsterpedia_id].name; // {legacy}
     }
 
     get numberToPedia () {

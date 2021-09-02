@@ -249,5 +249,70 @@
         "path": "assets/img/ui/battle/{resolution}/hud_right.png",
         "componentType": "STATIC",
         "layout": "battle"
+    },
+    "battle_fight_button": {
+        "key": "battle_fight_button",
+        "type": "spritesheet",
+        "path": "assets/img/ui/battle/{resolution}/buttonsheet_fight.png",
+        "componentType": "BUTTON",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 210,
+                "frameHeight": 71
+            }
+        },
+        "layout": "battle"
+    },
+    "battle_bag_button": {
+        "key": "battle_bag_button",
+        "type": "spritesheet",
+        "path": "assets/img/ui/battle/{resolution}/buttonsheet_bag.png",
+        "componentType": "BUTTON",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 210,
+                "frameHeight": 71
+            }
+        },
+        "layout": "battle"
+    },
+    "battle_party_button": {
+        "key": "battle_party_button",
+        "type": "spritesheet",
+        "path": "assets/img/ui/battle/{resolution}/buttonsheet_party.png",
+        "componentType": "BUTTON",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 210,
+                "frameHeight": 71
+            }
+        },
+        "layout": "battle"
+    },
+    "battle_run_button": {
+        "key": "battle_run_button",
+        "type": "spritesheet",
+        "path": "assets/img/ui/battle/{resolution}/buttonsheet_run.png",
+        "componentType": "BUTTON",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 210,
+                "frameHeight": 71
+            }
+        },
+        "layout": "battle"
+    },
+    "battle_back_button": {
+        "key": "battle_back_button",
+        "type": "spritesheet",
+        "path": "assets/img/ui/battle/{resolution}/buttonsheet_back.png",
+        "componentType": "BUTTON",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 69.66666666666667,
+                "frameHeight": 70
+            }
+        },
+        "layout": "battle"
     }
 }

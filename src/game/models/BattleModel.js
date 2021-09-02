@@ -1,4 +1,5 @@
 import { BATTLE_TYPES } from "@/game/constants/Battle";
+import MonsterModel from "./MonsterModel";
 
 class BattleModel {
     static set (data) {
@@ -10,7 +11,7 @@ class BattleModel {
     static setOpponentMonsters (data) {
         switch (data.battle.battle_type) {
             case BATTLE_TYPES.WILD: {
-                this.opponentMonsters = data.wildMonster;
+                this.opponentMonsters = new MonsterModel(data.wildMonster);
                 break;
             };
         };

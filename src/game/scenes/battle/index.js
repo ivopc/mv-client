@@ -20,6 +20,7 @@ class Battle extends Scene {
         this.$loader;
         this.$network;
         this.$containers;
+        this.$ui;
         this.$field;
         this.$presentation;
     }
@@ -37,13 +38,14 @@ class Battle extends Scene {
         this.$containers = new Container(this);
         this.$field = new Field(this);
         this.$presentation = new Presentation(this);
+        this.$ui = new BattleUI(this);
         // ---
         this.$containers.create();
-        [this.$field].forEach(container => container.addToMainContainer());
+        [this.$field, this.$ui].forEach(container => container.addToMainContainer());
         this.$field.addField();
         this.$field.addFloors();
         this.$field.addMonsters();
-        new BattleUI(this).append();
+        this.$ui.append();
     }
 };
 

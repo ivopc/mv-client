@@ -49,6 +49,7 @@ class Overworld extends Scene {
             .setOrigin(0, 0)
             .setScrollFactor(0)
             .setDepth(999999999); // {placeholder}
+        this.pingText.visible = false;
         /*const monster = new Monster(
             this,
             PlayerModel.partyMonsters.get(0),

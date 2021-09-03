@@ -1,2 +1,2 @@
-export const animationTimerDelay = 75;
-export const interactionLockDelay = 300;
+export const ANIMATION_TIMER_DELAY = 75;
+export const INTERACTION_LOCK_DELAY = 300;

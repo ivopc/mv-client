@@ -5,7 +5,9 @@ class Presentation {
 
     field () {}
 
-    player () {}
+    playerCharacter () {}
+
+    playerMonster () {}
 
     wild () {}
 

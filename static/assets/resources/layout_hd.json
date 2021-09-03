@@ -342,7 +342,7 @@
                         "name": {
                             "fontFamily": "Century Gothic",
                             "fontSize": 18,
-                            "color": "#fff",
+                            "color": "#000",
                             "position": {
                                 "x": 95,
                                 "y": 26
@@ -352,7 +352,7 @@
                         "level": {
                             "fontFamily": "Century Gothic",
                             "fontSize": 18,
-                            "color": "#fff",
+                            "color": "#000",
                             "position": {
                                 "x": 290,
                                 "y": 26
@@ -406,7 +406,7 @@
                         "name": {
                             "fontFamily": "Century Gothic",
                             "fontSize": 18,
-                            "color": "#fff",
+                            "color": "#000",
                             "position": {
                                 "x": 1149,
                                 "y": 26
@@ -416,7 +416,7 @@
                         "level": {
                             "fontFamily": "Century Gothic",
                             "fontSize": 18,
-                            "color": "#fff",
+                            "color": "#000",
                             "position": {
                                 "x": 930,
                                 "y": 26
@@ -517,15 +517,59 @@
                     "y": 595
                 },
                 "type": "BUTTON"
+            },
+            "actionsText": {
+                "fontFamily": "Century Gothic",
+                "fontSize": 36,
+                "color": "#000",
+                "position": {
+                    "x": 95,
+                    "y": 503
+                },
+                "type": "TEXT"
             }
         },
         "fightMenu": {
-            "movesBtn": [
-                {},
-                {},
-                {},
-                {}
-            ],
+            "movesBtn": {
+                "textStyle": {
+                    "fontFamily": "Century Gothic",
+                    "fontSize": 24,
+                    "color": "#fff",
+                    "type": "TEXT"
+                },
+                "frames": {
+                    "click": 1,
+                    "over": 2,
+                    "up": 0,
+                    "out": 0
+                },
+                "list": [
+                    {
+                        "position": {
+                            "x": 117,
+                            "y": 507
+                        }
+                    },
+                    {
+                        "position": {
+                            "x": 344,
+                            "y": 507
+                        }
+                    },
+                    {
+                        "position": {
+                            "x": 117,
+                            "y": 595
+                        }
+                    },
+                    {
+                        "position": {
+                            "x": 344,
+                            "y": 595
+                        }
+                    }
+                ]
+            },
             "backBtn": {
                 "name": "backBtn",
                 "spritesheet": "battle_back_button",

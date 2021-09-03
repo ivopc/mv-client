@@ -1,16 +1,10 @@
-import Phaser from "phaser";
-//import Text from "@/game/managers/Text";
-// {placeholder}
-const Text = {
-    ref: {
-        lang: "br"
-    }
-};
+import { GameObjects } from "phaser";
+import TextStaticDatabase from "@/game/models/TextStaticDatabase";
 
 import { timedEvent } from "@/game/utils/scene.promisify";
-import { animationTimerDelay, interactionLockDelay } from "@/game/constants/Dialog";
+import { ANIMATION_TIMER_DELAY, INTERACTION_LOCK_DELAY } from "@/game/constants/Dialog";
 
-class AnimatedDialogText extends Phaser.GameObjects.Text {
+class AnimatedDialogText extends GameObjects.Text {
     constructor (scene, style) {
         super(scene, style.x, style.y, "", style);
         this.textContainer = text;
@@ -24,7 +18,7 @@ class AnimatedDialogText extends Phaser.GameObjects.Text {
         this.onEndCallbackList = [];
     }
 
-    setAnimationTimer (delay = animationTimerDelay) {
+    setAnimationTimer (delay = ANIMATION_TIMER_DELAY) {
         this.animationInProgress = true;
         this.animationTimer = this.scene.time.addEvent({
             delay, 
@@ -35,7 +29,7 @@ class AnimatedDialogText extends Phaser.GameObjects.Text {
     }
 
     async unlockInteraction () {
-        await timedEvent(interactionLockDelay, this.scene);
+        await timedEvent(INTERACTION_LOCK_DELAY, this.scene);
         this.isInteractionLocked = false;
     }
 
@@ -44,7 +38,7 @@ class AnimatedDialogText extends Phaser.GameObjects.Text {
             return;
         this.isInteractionLocked = true;
         // check if is in the last dialog and if the animation is not in progress
-        if (this.specificTextPhraseIndex >= this.textContainer[this.textListIndex][Text.ref.lang].length && !this.animationInProgress) {
+        if (this.specificTextPhraseIndex >= this.textContainer[this.textListIndex][TextStaticDatabase.lang].length && !this.animationInProgress) {
             console.log("último dialogo");
             this.onEnd();
             this.destroy();
@@ -53,7 +47,7 @@ class AnimatedDialogText extends Phaser.GameObjects.Text {
         // if dialog is in progress skip animation and set to the last letter directly
         if (this.animationInProgress) {
             this.animationTimer.destroy();
-            this.setText(this.textContainer[this.textListIndex][Text.ref.lang][this.specificTextPhraseIndex]);
+            this.setText(this.textContainer[this.textListIndex][TextStaticDatabase.lang][this.specificTextPhraseIndex]);
             this.specificTextPhraseIndex ++;
             this.phraseLetterIndex = 0;
             this.animationInProgress = false;
@@ -67,7 +61,7 @@ class AnimatedDialogText extends Phaser.GameObjects.Text {
     }
 
     animate () {
-        if (this.text[this.textListIndex][Text.ref.lang][this.specificTextPhraseIndex].length === this.phraseLetterIndex) {
+        if (this.text[this.textListIndex][TextStaticDatabase.lang][this.specificTextPhraseIndex].length === this.phraseLetterIndex) {
             this.animationTimer.destroy();
             this.animationInProgress = false;
             this.specificTextPhraseIndex ++;
@@ -76,7 +70,7 @@ class AnimatedDialogText extends Phaser.GameObjects.Text {
         };
         this.setText(
             this.text + 
-            this.text[this.textListIndex][Text.ref.lang][this.specificTextPhraseIndex][this.phraseLetterIndex++]
+            this.text[this.textListIndex][TextStaticDatabase.lang][this.specificTextPhraseIndex][this.phraseLetterIndex++]
         );
     }
 
@@ -94,8 +88,12 @@ class AnimatedDialogText extends Phaser.GameObjects.Text {
         this.onEndCallbackList.forEach(callback => callback());
     }
 
-    waitForEnd () {
+    async waitForEnd () {
         return new Promise(resolve => this.setOnEnd(resolve));
+    }
+
+    callEnd () {
+        this.onEnd();
     }
 
     destroy () {

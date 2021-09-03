@@ -10,6 +10,9 @@ import Loader from "./Loader";
 import Container from "./Container";
 import Field from "./Field";
 import Presentation from "./Presentation";
+import InputListener from "./InputListener";
+import InputController from "./InputController";
+
 import BattleUI from "@/game/uinterfaces/Battle";
 
 class Battle extends Scene {
@@ -38,6 +41,8 @@ class Battle extends Scene {
         this.$containers = new Container(this);
         this.$field = new Field(this);
         this.$presentation = new Presentation(this);
+        this.$inputListener = new InputListener(this);
+        this.InputController = new InputController(this);
         this.$ui = new BattleUI(this);
         // ---
         this.$containers.create();

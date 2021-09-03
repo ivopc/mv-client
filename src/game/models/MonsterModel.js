@@ -1,6 +1,8 @@
-import Database from "@/game/managers/Database";
+import Database from "@/game/managers/Database"; // {legacy}
 
 import { merge } from "@/lib/utils";
+
+import { MONSTER_MAX_MOVE_AMOUNT } from "@/game/constants/Monster";
 
 class MonsterModel {
     constructor (data) {
@@ -49,6 +51,10 @@ class MonsterModel {
         if (num.length === 2)
             return "0" + num;
         return num;
+    }
+
+    get moves () {
+        return [ ... Array(MONSTER_MAX_MOVE_AMOUNT)].map((_, index) => this["move_" + index]);
     }
 };
 

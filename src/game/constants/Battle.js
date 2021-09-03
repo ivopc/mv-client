@@ -29,3 +29,10 @@ export const BATTLE_MENU_STATES = {
 	BAG: 2,
 	PARTY: 3
 };
+
+export const BATTLE_MOVE_TYPES_TEXTURE = {
+	"null": "battle_move_null_button",
+	"fire": "battle_move_fire_button",
+	"plant": "battle_move_plant_button",
+	"electric": "battle_move_eletric_button"
+};

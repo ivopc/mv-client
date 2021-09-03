@@ -16,6 +16,7 @@ class InputListener {
         this.scene = scene;
         this.inputPressingTime = 0;
         this.gameTime = 0;
+        this.enabled = true;
     }
 
     pressed = {}
@@ -92,6 +93,8 @@ class InputListener {
     checkDPad () {}
 
     update (time) {
+        if (!this.enabled)
+            return;
         this.gameTime = time;
         this.checkKeyboard();
         if (isMobile)
@@ -100,6 +103,10 @@ class InputListener {
 
     getInputTiming () {
         return this.gameTime - this.inputPressingTime;
+    }
+
+    setEnabled (enable) {
+        this.enabled = enable;
     }
 };
 

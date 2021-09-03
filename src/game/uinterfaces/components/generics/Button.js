@@ -1,6 +1,6 @@
-import Phaser from "phaser";
+import { GameObjects } from "phaser";
 
-class Button extends Phaser.GameObjects.Container {
+class Button extends GameObjects.Container {
     constructor (scene, config) {
         super(scene);
         this.sprite;
@@ -91,6 +91,10 @@ class Button extends Phaser.GameObjects.Container {
             this.sprite.setFrame(this.config.frames.contextMenu);
             this.on.contextMenu();
         }
+    }
+
+    setEnabled (enable) {
+        this.sprite.input.enabled = enable;
     }
 };
 

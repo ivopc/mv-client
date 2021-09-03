@@ -8,6 +8,7 @@ import AssetsStaticDatabase from "@/game/models/AssetsStaticDatabase";
 import Monster from "@/game/prefabs/Monster";
 
 import { FIELD_TYPE_STR } from "@/game/constants/Battle";
+import { MONSTER_IN_BATTLE_SCALE, MONSTER_IN_BATTLE_ORIGIN } from "@/game/constants/Monster";
 
 class Field extends GameObjects.Container {
     constructor (scene) {
@@ -57,10 +58,10 @@ class Field extends GameObjects.Container {
     addMonsterRaw (floor, monsterData) {
         const monster = new Monster(this.scene, monsterData, { x: 0, y: 0 });
         monster.playAnim("idle");
-        monster.scale = 3;
+        monster.scale = MONSTER_IN_BATTLE_SCALE;
         const { x, y } = floor.getCenter();
         monster.setPosition(x, y - monster.displayHeight + (floor.displayHeight / 2));
-        monster.setOrigin(0.5, 0);
+        monster.setOrigin(MONSTER_IN_BATTLE_ORIGIN.x, MONSTER_IN_BATTLE_ORIGIN.y);
         return monster;
     }
 

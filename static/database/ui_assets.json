@@ -314,5 +314,70 @@
             }
         },
         "layout": "battle"
+    },
+    "battle_move_null_button": {
+        "key": "battle_move_null_button",
+        "type": "spritesheet",
+        "path": "assets/img/ui/battle/{resolution}/buttonsheet_null.png",
+        "componentType": "BUTTON",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 210,
+                "frameHeight": 71
+            }
+        },
+        "layout": "battle"
+    },
+    "battle_move_fire_button": {
+        "key": "battle_move_fire_button",
+        "type": "spritesheet",
+        "path": "assets/img/ui/battle/{resolution}/buttonsheet_fire.png",
+        "componentType": "BUTTON",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 210,
+                "frameHeight": 71
+            }
+        },
+        "layout": "battle"
+    },
+    "battle_move_water_button": {
+        "key": "battle_move_water_button",
+        "type": "spritesheet",
+        "path": "assets/img/ui/battle/{resolution}/buttonsheet_water.png",
+        "componentType": "BUTTON",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 210,
+                "frameHeight": 71
+            }
+        },
+        "layout": "battle"
+    },
+    "battle_move_plant_button": {
+        "key": "battle_move_plant_button",
+        "type": "spritesheet",
+        "path": "assets/img/ui/battle/{resolution}/buttonsheet_plant.png",
+        "componentType": "BUTTON",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 210,
+                "frameHeight": 71
+            }
+        },
+        "layout": "battle"
+    },
+    "battle_move_eletric_button": {
+        "key": "battle_move_eletric_button",
+        "type": "spritesheet",
+        "path": "assets/img/ui/battle/{resolution}/buttonsheet_eletric.png",
+        "componentType": "BUTTON",
+        "dimensions": {
+            "hd": {
+                "frameWidth": 209.33333333333334,
+                "frameHeight": 71
+            }
+        },
+        "layout": "battle"
     }
 }

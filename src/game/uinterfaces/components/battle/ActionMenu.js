@@ -1,17 +1,21 @@
 import { GameObjects } from "phaser";
 
 import { getResolution, addGenericUIComponent } from "@/game/utils";
-import { BATTLE_MENU_STATES } from "@/game/constants/Battle";
+import { BATTLE_MENU_STATES, BATTLE_MOVE_TYPES_TEXTURE } from "@/game/constants/Battle";
 
 import TextStaticDatabase from "@/game/models/TextStaticDatabase";
+import PlayerModel from "@/game/models/PlayerModel";
+import MovesStaticDatabase from "@/game/models/MovesStaticDatabase";
 
 import Button from "../generics/Button";
+import AnimatedDialogText from "../generics/AnimatedDialogText";
 
 class ActionMenu extends GameObjects.Container {
     constructor (scene, layout) {
         super(scene);
         this.layout = layout;
         this.currentState = BATTLE_MENU_STATES.IDLE;
+        this.actionsText;
         scene.add.existing(this);
     }
 
@@ -78,12 +82,39 @@ class ActionMenu extends GameObjects.Container {
                 click: () => console.log("runBtn")
             }
         });
+        this.add([ 
+            this.btnBattle,
+            this.btnBag,
+            this.btnParty,
+            this.btnRun 
+        ]);
     }
 
     addFightMenu () {
         this.clearContent();
         this.setState(BATTLE_MENU_STATES.FIGHT);
         const { fightMenu } = this.layout;
+        const { moves } = PlayerModel.partyMonsters.firstAlive;
+        console.log("seus moves", moves);
+        this.movesBtn = moves.map((move, index) => {
+            const moveData = MovesStaticDatabase.getById(move);
+            const button = new Button(this.scene, {
+                x: fightMenu.movesBtn.list[index].position.x,
+                y: fightMenu.movesBtn.list[index].position.y,
+                spritesheet: this.getMoveButtonSpritesheet(moveData),
+                frames: fightMenu.movesBtn.frames,
+                text: {
+                    display: moveData ? moveData.name[TextStaticDatabase.lang] : "-",
+                    style: fightMenu.movesBtn.textStyle
+                },
+                on: {
+                    click: () => console.log("clicou no move", index)
+                }
+            });
+            if (!moveData)
+                button.setEnabled(false);
+            return button;
+        });
         this.fightBackBtn = new Button(this.scene, {
             x: fightMenu.backBtn.position.x,
             y: fightMenu.backBtn.position.y,
@@ -93,11 +124,23 @@ class ActionMenu extends GameObjects.Container {
                 click: () => this.addChoiceMenu()
             }
         });
+        this.add([ this.fightBackBtn ]);
     }
 
     addPartyMenu () {}
 
-    addItemsMenu () {}
+    addBagMenu () {}
+
+    async addText () {
+
+    }
+
+    getMoveButtonSpritesheet (moveData) {
+        if (!moveData) {
+            return BATTLE_MOVE_TYPES_TEXTURE["null"];
+        };
+        return BATTLE_MOVE_TYPES_TEXTURE[moveData.type];
+    }
 
     clearContent () {
         switch (this.currentState) {
@@ -109,6 +152,7 @@ class ActionMenu extends GameObjects.Container {
                 break;
             };
             case BATTLE_MENU_STATES.FIGHT: {
+                this.movesBtn.forEach(button => button.destroy());
                 this.fightBackBtn.destroy();
                 break;
             };

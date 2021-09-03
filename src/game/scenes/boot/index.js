@@ -14,6 +14,7 @@ import AssetsStaticDatabase from "@/game/models/AssetsStaticDatabase";
 import TextStaticDatabase from "@/game/models/TextStaticDatabase";
 
 import MonstersStaticDatabase from "@/game/models/MonstersStaticDatabase";
+import MovesStaticDatabase from "@/game/models/MovesStaticDatabase";
 
 import LayoutStaticDatabase from "@/game/models/LayoutStaticDatabase";
 
@@ -23,6 +24,7 @@ import {
     CHARACTERS,
     MONSTERS,
     MONSTER_EXP,
+    MONSTER_MOVES,
     LEVELS,
     LAYOUT,
     TEXTS
@@ -56,6 +58,7 @@ class Boot extends Scene {
             monstersExp: this.cache.json.get(MONSTER_EXP)
         });
         MonstersStaticDatabase.create(this.cache.json.get(MONSTERS));
+        MovesStaticDatabase.create(this.cache.json.get(MONSTER_MOVES));
         TextStaticDatabase.create(this.cache.json.get(TEXTS));
         Assets.ref = new Assets({
             template: this.cache.json.get(CUSTOM_TEMPLATE_LOADER),

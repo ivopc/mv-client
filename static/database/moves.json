@@ -1,0 +1,53 @@
+{
+    "1": {
+        "name": {
+            "br": "Bola de Fogo",
+            "en": "Fireball"
+        },
+        "desc": {
+            "br": "Um poderoso ataque do tipo fogo."
+        },
+        "manaNeeded": 0,
+        "type": "fire"
+    },
+    "2": {
+        "name": {
+            "br": "Rosnar",
+            "en": "Growl"
+        },
+        "desc": {
+            "br": "Uma técnica que diminui o ataque do oponente."
+        },
+        "type": "null"
+    },
+    "3": {
+        "name": {
+            "br": "Paralisar",
+            "en": "Paralyze"
+        },
+        "desc": {
+            "br": "Uma técnica especial que paralisa o oponente. Quando paralisado, a vítima tem chance de ficar imóvel ao tentar atacar."
+        },
+        "type": "electric"
+    },
+    "4": {
+        "name": {
+            "br": "Envenenar",
+            "en": "Poison"
+        },
+        "desc": {
+            "br": "Um ataque que envenena o oponente. Ao final de cada turno o oponente perde uma quantia de HP."
+        },
+        "type": "plant"
+    },
+    "5": {
+        "name": {
+            "br": "Hipnose",
+            "en": "Hypnosis"
+        },
+        "desc": {
+            "br": "Uma técnica especial que faz o oponente dormir."
+        },
+        "type": "null"
+    }
+}

@@ -51,6 +51,7 @@ class Battle extends Scene {
         this.$field.addFloors();
         this.$field.addMonsters();
         this.$ui.append();
+        this.$presentation.wild();
     }
 };
 

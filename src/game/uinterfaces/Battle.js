@@ -10,7 +10,7 @@ import ActionMenu from "./components/battle/ActionMenu";
 
 class Battle extends UInterfaceContainer {
     constructor (scene) {
-        super(scene, LayoutStaticDatabase.get("battle"));
+        super(scene, LayoutStaticDatabase.get("battle"));//$ui
         this.baseMenu;
         this.hudLeft;
         this.hudRight;

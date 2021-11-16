@@ -15,7 +15,9 @@ class HUD extends GameObjects.Container {
         this.healthBar;
         this.manaBar;
         this.expBar;
-        this.monster;
+        this.monsterNameText;
+        this.monsterLevelText;
+        this.monsterData;
         this.type = type;
         this.typeStr = HUD_TYPES_STR[type];
         this.layout = LayoutStaticDatabase.get("battle").monsterHud.x1[this.typeStr];
@@ -94,40 +96,42 @@ class HUD extends GameObjects.Container {
 
     addName () {
         const { name } = this.layout.text;
-        this.scene.add.text(
+        this.monsterNameText = this.scene.add.text(
             name.position.x,
             name.position.y, 
-            this.monster.getName(),
+            this.monsterData.getName(),
             {
                 fontFamily: name.fontFamily,
                 fontSize: name.fontSize,
                 color: name.color
             }
         );
+        this.add(this.monsterNameText);
     }
 
     addLevel () {
         const { level } = this.layout.text;
-        this.scene.add.text(
+        this.monsterLevelText = this.scene.add.text(
             level.position.x,
             level.position.y, 
-            "Lv. " + this.monster.level,
+            "Lv. " + this.monsterData.level,
             {
                 fontFamily: level.fontFamily,
                 fontSize: level.fontSize,
                 color: level.color
             }
         );
+        this.add(this.monsterLevelText);
     }
 
     setMonsterData () {
         switch (this.type) {
             case HUD_TYPES.PLAYER: {
-                this.monster = PlayerModel.partyMonsters.firstAlive;
+                this.monsterData = PlayerModel.partyMonsters.firstAlive;
                 break;
             };
             case HUD_TYPES.OPPONENT: {
-                this.monster = BattleModel.getCurrentOpponentMonster();
+                this.monsterData = BattleModel.getCurrentOpponentMonster();
                 break;
             };
         };

@@ -82,7 +82,7 @@ class ActionMenu extends GameObjects.Container {
                 click: () => console.log("runBtn")
             }
         });
-        this.add([ 
+        this.add([
             this.btnBattle,
             this.btnBag,
             this.btnParty,
@@ -132,7 +132,30 @@ class ActionMenu extends GameObjects.Container {
     addBagMenu () {}
 
     async addText () {
-
+        this.actionsText = new AnimatedDialogText(this.scene, 
+            {
+                br: [
+                    "UMA COISA DIFERENTE UMA COISA DIFERENTE",
+                    "CERTAMENTE ACONTECE CERTAMENTE ACONTECE",
+                    "É SEQUENCIA DO GRAVE, É SEQUENCIA DO GRAVE",
+                    "QUANDO EU CANTO O BAILE ESTREMECE",
+                    "UMA COISA DIFERENTE UMA COISA DIFERENTE2",
+                    "CERTAMENTE ACONTECE CERTAMENTE ACONTECE2",
+                    "É SEQUENCIA DO GRAVE, É SEQUENCIA DO GRAVE2",
+                    "QUANDO EU CANTO O BAILE ESTREMECE2"
+                ]
+            },
+        {
+            x: this.layout.actionsText.position.x,
+            y: this.layout.actionsText.position.y,
+            fontFamily: this.layout.actionsText.fontFamily,
+            color: this.layout.actionsText.color,
+            fontSize: this.layout.actionsText.fontSize
+        });
+        this.add(this.actionsText);
+        this.actionsText.setAnimationTimer();
+        await this.actionsText.waitForEnd();
+        console.log("TESTE");
     }
 
     getMoveButtonSpritesheet (moveData) {
@@ -162,6 +185,8 @@ class ActionMenu extends GameObjects.Container {
     setState (state) {
         this.currentState = state;
     }
+
+    get 
 };
 
 export default ActionMenu;

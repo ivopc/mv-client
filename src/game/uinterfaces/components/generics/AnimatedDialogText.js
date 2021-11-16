@@ -5,7 +5,7 @@ import { timedEvent } from "@/game/utils/scene.promisify";
 import { ANIMATION_TIMER_DELAY, INTERACTION_LOCK_DELAY } from "@/game/constants/Dialog";
 
 class AnimatedDialogText extends GameObjects.Text {
-    constructor (scene, style) {
+    constructor (scene, text, style) {
         super(scene, style.x, style.y, "", style);
         this.textContainer = text;
         this.textListIndex = 0;

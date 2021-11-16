@@ -15,6 +15,8 @@ class Field extends GameObjects.Container {
         super(scene);
         this.layout = LayoutStaticDatabase.get("battle");
         this.field;
+        this.left = scene.add.container();
+        this.right = scene.add.container();
         this.floorLeft;
         this.floorRight;
         this.monsterLeft;
@@ -43,7 +45,6 @@ class Field extends GameObjects.Container {
             floorLayout[1].y,
             floorKey
         ).setOrigin(0);
-        this.add([ this.floorLeft, this.floorRight ]);
     }
 
     addMonsters () { 
@@ -52,7 +53,7 @@ class Field extends GameObjects.Container {
         this.monsterLeft = playerMonster;
         this.monsterRight = monsterOpponent;
         this.monsterRight.flipX = true;
-        this.add([ playerMonster, monsterOpponent ]);
+        this.addSidesContainers();
     }
 
     addMonsterRaw (floor, monsterData) {
@@ -63,6 +64,12 @@ class Field extends GameObjects.Container {
         monster.setPosition(x, y - monster.displayHeight + (floor.displayHeight / 2));
         monster.setOrigin(MONSTER_IN_BATTLE_ORIGIN.x, MONSTER_IN_BATTLE_ORIGIN.y);
         return monster;
+    }
+
+    addSidesContainers () {
+        this.left.add([ this.floorLeft, this.monsterLeft ]);
+        this.right.add([ this.floorRight, this.monsterRight ]);
+        this.add([ this.left, this.right ]);
     }
 
     addToMainContainer () {

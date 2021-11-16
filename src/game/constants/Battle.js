@@ -36,3 +36,7 @@ export const BATTLE_MOVE_TYPES_TEXTURE = {
 	"plant": "battle_move_plant_button",
 	"electric": "battle_move_eletric_button"
 };
+
+export const WILD_PRESENTATION_INIT_DELAY = 1500;
+
+export const WILD_PRESENTATION_HUD_DISPLAY_DELAY = 900;

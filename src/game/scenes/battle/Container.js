@@ -7,6 +7,7 @@ class Container {
 
     create () {
         this.main = this.scene.add.container();
+        //this.main.setSize(1280, 720);
     }
 };
 

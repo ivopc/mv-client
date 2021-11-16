@@ -67,7 +67,7 @@ class RuntimeUI extends UInterfaceContainer {
     }
 
     /**
-     * Getter to knows if layout
+     * Getter to knows if there are layout
      */
     get hasWindows () {
         return !!this.layout["WINDOW"];

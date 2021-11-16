@@ -36,16 +36,16 @@ class SocketIOWrapper {
         );
     }
 
-    addEvent () {
+    addEvent (event) {
         this._socket.on(event, fn);
         return this;
     }
 
-    waitOnceEvent () {
+    waitOnceEvent (event) {
         return new Promise((resolve, reject) => this._socket.once(event, resolve));
     }
 
-    removeEvent () {
+    removeEvent (event) {
         this._socket.off(event);
     }
 

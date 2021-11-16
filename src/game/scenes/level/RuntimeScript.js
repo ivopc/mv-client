@@ -6,7 +6,7 @@ import { promisesWaterfall } from "@/lib/utils";
 
 class RuntimeScript {
 
-    behaviors = behaviors;
+    static behaviors = behaviors;
 
     constructor (scene) {
         this.scene = scene;
@@ -38,7 +38,7 @@ class RuntimeScript {
                     break;
                 };
             };
-            return async () => await this.behaviors[fnName].bind(this)(param);
+            return async () => await RuntimeScript.behaviors[fnName].bind(this)(param);
         });
     }
 

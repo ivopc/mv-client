@@ -4,7 +4,7 @@ export async function toggleFullScreen (el) {
         try {
             await elem.requestFullscreen({ navigationUI: "hide" });
         } catch (err) {
-            return err;
+            throw err;
         };
     } else {
         document.exitFullscreen();

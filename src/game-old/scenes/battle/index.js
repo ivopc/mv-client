@@ -2,12 +2,12 @@ import Phaser from "phaser";
 import async from "async";
 
 // Interfaces
-import Party from "@/game/interfaces/party";
+import Party from "@/game-old/interfaces/party";
 
 // Libs próprias
-import Button from "@/game/plugins/button";
-import PointsBar from "@/game/plugins/pointsbar";
-import isMobile from "@/game/plugins/checkmobile";
+import Button from "@/game-old/plugins/button";
+import PointsBar from "@/game-old/plugins/pointsbar";
+import isMobile from "@/game-old/plugins/checkmobile";
 
 const Battle = {};
 

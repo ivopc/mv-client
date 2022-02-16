@@ -3,19 +3,19 @@ import _ from "underscore";
 import Overworld from "./index";
 
 // Sprites Extends
-import RawCharacter from "@/game/prefabs/rawcharacter";
-import Character from "@/game/prefabs/character";
-import Player from "@/game/prefabs/player";
-import Loading from "@/game/prefabs/loading";
+import RawCharacter from "@/game-old/prefabs/rawcharacter";
+import Character from "@/game-old/prefabs/character";
+import Player from "@/game-old/prefabs/player";
+import Loading from "@/game-old/prefabs/loading";
 
 // Interfaces
-import Party from "@/game/interfaces/party";
-import Bag from "@/game/interfaces/bag";
-import WildMenu from "@/game/interfaces/wildmenu";
+import Party from "@/game-old/interfaces/party";
+import Bag from "@/game-old/interfaces/bag";
+import WildMenu from "@/game-old/interfaces/wildmenu";
 
 // Libs próprias
-import Button from "@/game/plugins/button";
-import ReplacePhrase from "@/game/plugins/replacephrase";
+import Button from "@/game-old/plugins/button";
+import ReplacePhrase from "@/game-old/plugins/replacephrase";
 
 // converter posição x e y para pixel no "mundo real" do jogo
 Overworld.positionToRealWorld = function (position) {
@@ -1674,10 +1674,9 @@ Overworld.toggleNotifications = function () {
 };
 
 Overworld.appendWildMenu = function (data) {
-    console.log("OLA KK 1233JGHFMHDFJGH");
+    console.log("appendWildMenu", data);
     this.interfacesHandler.wildMenu = new WildMenu(this, data);
-    this.interfacesHandler.wildMenu.append(data);
-    this.containers.interface.add(this.interfacesHandler.wildMenu);
+    this.interfacesHandler.wildMenu.append();
 };
 
 Overworld.appendWildTooltip = function (data) {

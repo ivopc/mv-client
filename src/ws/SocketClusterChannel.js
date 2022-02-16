@@ -81,7 +81,7 @@ class SocketClusterChannel {
      * another clients actions.
      * @returns {void}
      */
-    addListener (fn) {
+    watch (fn) {
         this._channelNetworkHandler.watch(fn);
     }
 

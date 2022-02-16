@@ -4,13 +4,13 @@ import _ from "underscore";
 import Battle from "./index";
 
 // Interfaces
-import Party from "@/game/interfaces/party";
-import Bag from "@/game/interfaces/bag";
+import Party from "@/game-old/interfaces/party";
+import Bag from "@/game-old/interfaces/bag";
 
 // Libs próprias
-import Button from "@/game/plugins/button";
-import PointsBar from "@/game/plugins/pointsbar";
-import ReplacePhrase from "@/game/plugins/replacephrase";
+import Button from "@/game-old/plugins/button";
+import PointsBar from "@/game-old/plugins/pointsbar";
+import ReplacePhrase from "@/game-old/plugins/replacephrase";
 
 // Iniciar apresentação do monstro selvagem
 Battle.startWildPresentation = function (callback) {

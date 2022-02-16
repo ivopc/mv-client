@@ -1,4 +1,4 @@
-import { GameObjects } from "phaser";
+import Phaser from "phaser";
 
 import PlayerModel from "@/game/models/PlayerModel";
 import BattleModel from "@/game/models/BattleModel";
@@ -10,16 +10,28 @@ import Monster from "@/game/prefabs/Monster";
 import { FIELD_TYPE_STR } from "@/game/constants/Battle";
 import { MONSTER_IN_BATTLE_SCALE, MONSTER_IN_BATTLE_ORIGIN } from "@/game/constants/Monster";
 
-class Field extends GameObjects.Container {
+class Field extends Phaser.GameObjects.Container {
     constructor (scene) {
         super(scene);
         this.layout = LayoutStaticDatabase.get("battle");
         this.field;
         this.left = scene.add.container();
         this.right = scene.add.container();
+        /**
+         * @type {Phaser.GameObjects.Sprite}
+         */
         this.floorLeft;
+        /**
+         * @type {Phaser.GameObjects.Sprite}
+         */
         this.floorRight;
+        /**
+         * @type {Monster}
+         */
         this.monsterLeft;
+        /**
+         * @type {Monster}
+         */
         this.monsterRight;
         scene.add.existing(this);
     }
@@ -35,19 +47,14 @@ class Field extends GameObjects.Container {
         const floorKey = AssetsStaticDatabase.getBattleFloor(BattleModel.props.field_category);
         const floorLayoutCategory = FIELD_TYPE_STR[BattleModel.props.field_category];
         const floorLayout = this.layout.floor[floorLayoutCategory].x1;
-        this.floorLeft = this.scene.add.sprite(
-            floorLayout[0].x,
-            floorLayout[0].y,
+        [ this.floorLeft, this.floorRight ] = floorLayout.map(floor => this.scene.add.sprite(
+            floor.x,
+            floor.y,
             floorKey
-        ).setOrigin(0);
-        this.floorRight = this.scene.add.sprite(
-            floorLayout[1].x,
-            floorLayout[1].y,
-            floorKey
-        ).setOrigin(0);
+        ).setOrigin(0));
     }
 
-    addMonsters () { 
+    addMonsters () {
         const playerMonster = this.addMonsterRaw(this.floorLeft, PlayerModel.partyMonsters.firstAlive);
         const monsterOpponent = this.addMonsterRaw(this.floorRight, BattleModel.getCurrentOpponentMonster());
         this.monsterLeft = playerMonster;
@@ -56,6 +63,12 @@ class Field extends GameObjects.Container {
         this.addSidesContainers();
     }
 
+    /**
+     * 
+     * @param {Phaser.GameObjects.Sprite} floor 
+     * @param {JSON} monsterData 
+     * @returns {Monster}
+     */
     addMonsterRaw (floor, monsterData) {
         const monster = new Monster(this.scene, monsterData, { x: 0, y: 0 });
         monster.playAnim("idle");

@@ -1,9 +1,13 @@
 import { treatMonsterList } from "@/game/utils";
+import MonsterListModel from "./MonsterListModel";
 
 class PlayerModel {
     static create ({ nickname, character, monsters, items, notification }) {
         this.nickname = nickname;
         this.character = character;
+        /**
+         * @type {MonsterListModel}
+         */
         this.partyMonsters = treatMonsterList(monsters);
         this.items = items;
         this.notification = notification;

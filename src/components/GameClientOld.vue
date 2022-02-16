@@ -20,19 +20,20 @@
             clientTokens: [
                 {
                     uid: "1",
-                    token: "WlzGluUs2D0SZQRCHFvOjeaSR5fA14o7a2mPWBBQHbBBLRJBd8Qvkic2mBlQNMfXMyd5aTmaIDvS709VhzqWVUNRRXatQHixOP6xeVMRjzPBrA1OqHMZW5ENLFFKyUnTxxEmeqvScyqTWaj1b8VeVM"
+                    token: "snfQd1h05KxOjdAhuOVy8VFmmpIhWBpUrEATQLwWWk8p2Uzlnq8MLl2ZxIQDCzc9nVaPRt20RK0YSqwZtk9BnOKTwpDZ5wqdVsfd45djfZSV9i9OnqwCesIqaFhc3y6HuR8RAEVb511bp7zgiDAwfZ"
                 },
                 {
                     uid: "3",
-                    token: "NmEN5wS7rmLnUrj49p24iDQmpN2tiRTsjcQOJvplkbwxmZD1bEciGGXOei8JOnkEblza1XGQjjNll4syTme7F1JofSH9QUfOcvuaOAkQGGscgwkf8sJo4nfTWP1l5bDUFHg6PhLSJCnv0n29j3yy4K"
+                    token: "eYGrxqByiJ61Y7trwdaSrlUoF4aFDA945FmWFPTWH0ARDk8b8AmAFm9jpiUt7FmQdsY52vLnTnrkC5zsTbJXJG0JMNBJLI0PmT8c4htyzQCwtvJBMtBPWErVnGkpFQ1QYOAqrGmhITZd3IVpKV6Pqv"
                 }
             ],
-            currentClient: 1
+            currentClient: 0
         }),
         created () {
             this.eventBus.$on("call-client", this.callClient);
             this.eventBus.$on("hide-client", this.hideClient);
             this.eventBus.$on("navigate-to-other-pages", this.navigateToOtherPages);
+            console.log("LOOOOOOOOOOOOOOOOOOOOL COME WITH ME.");
         },
         methods: {
             callClient () {
@@ -59,8 +60,7 @@
             },
             async appendGameClient () {
                 this.eventBus.$emit("hide-elements");
-                
-                const game = await import("@/game/game");
+                const game = await import("@/game-old/game");
                 this.gameInstance = game.launch(this.containerId);
                 this.gameStarted = true;
                 if (process.env.NODE_ENV == "development") {

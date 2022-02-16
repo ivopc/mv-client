@@ -1,7 +1,7 @@
 import Overworld from "./index";
 
 // Libs próprias
-import Button from "@/game/plugins/button";
+import Button from "@/game-old/plugins/button";
 
 Overworld.key = {
     _pressed: {},

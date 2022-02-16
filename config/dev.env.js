@@ -6,6 +6,7 @@ module.exports = merge(prodEnv, {
     NODE_ENV: '"development"',
     httpClientBaseURL: '"http://localhost:3000/"',
     gameClientAssetsBaseURL: '"/static"',
+    gameClientBaseURL: '"/static"', // legacy for game-old project
     gameClientNetwork: {
         hostname: '"localhost"',
         path: '"/gameserver/"',

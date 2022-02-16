@@ -1,6 +1,6 @@
 import Overworld from "./index";
 
-import ReplacePhrase from "@/game/plugins/replacephrase";
+import ReplacePhrase from "@/game-old/plugins/replacephrase";
 
 // Setar listener de eventos de socket que o server envia
 Overworld.dispatchSocketListener = function () {

@@ -2,9 +2,14 @@
 `MonsterList extends Array` isn't working cause it's exclusive to es6,
 so we're using this provisional solution*/
 
+import MonsterModel from "./MonsterModel";
+
 class MonsterListModel {
     
     constructor (monsterList) {
+        /**
+         * @type Array<MonsterModel>
+         */
         this.monsterList = monsterList;
     }
 

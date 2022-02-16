@@ -4,10 +4,10 @@ import _ from "underscore";
 import Battle from "./index";
 
 // Interfaces
-import Party from "@/game/interfaces/party";
+import Party from "@/game-old/interfaces/party";
 
 // Libs próprias
-import ReplacePhrase from "@/game/plugins/replacephrase";
+import ReplacePhrase from "@/game-old/plugins/replacephrase";
 
 // Fazer todas as ações
 Battle.doActions = function (actions) {
@@ -35,7 +35,7 @@ Battle.doActions = function (actions) {
     all_fn = [... pre_fn, ... regular_fn, ... post_fn];
 
     // executa as ações pre, regulares e post de maneira enfileirada
-    async.series(all_fn, this.finishTurn);
+    async.series(all_fn, () => this.finishTurn());
 };
 
 // Fazer ação pre turn

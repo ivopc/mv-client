@@ -3,8 +3,8 @@ import async from "async";
 import _ from "underscore";
 
 // Libs próprias
-import PointsBar from "@/game/plugins/pointsbar";
-import isMobile from "@/game/plugins/checkmobile";
+import PointsBar from "@/game-old/plugins/pointsbar";
+import isMobile from "@/game-old/plugins/checkmobile";
 
 const Overworld = {};
 
@@ -44,6 +44,7 @@ Overworld.init = function (data) {
 
     // flag data
     this.flag = data.flag === 1 ? "default" : data.flag;
+    console.log("FLAG", this.flag);
 
     // se estiver trocando mapa
     this.switchingMap = false;
@@ -156,7 +157,7 @@ Overworld.preload = function () {
     // });
 
     // tileset
-    this.load.image("tileset1", "assets/img/tileset/tiles1.png");
+    this.load.image("tileset1", "assets/img/tileset/tiles1_old.png");
     this.load.image("tileset2", "assets/img/tileset/tiles2.png");
     this.load.image("indoors", "assets/img/tileset/indoors.png");
     this.load.spritesheet("grass_overlay", "assets/img/tileset/grass_overlay.png", {frameWidth: 32, frameHeight: 32});
@@ -537,6 +538,7 @@ Overworld.update = function (time, delta) {
 };
 
 Overworld.getCurrentMapName = function (str) {
+    console.log("maps", this.database.maps, this.Data.CurrentMap);
     return str + "_" + this.database.maps[this.Data.CurrentMap].name;
 };
 // database.maps

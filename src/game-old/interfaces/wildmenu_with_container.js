@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 
 // Libs próprias
-import Button from "@/game/plugins/button";
+import Button from "@/game-old/plugins/button";
 
 const TOOLTIPTYPE = {
     CANT_SEE_SP: 0,

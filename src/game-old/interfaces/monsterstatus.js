@@ -1,10 +1,10 @@
 import Party from "./party";
 
-import Button from "@/game/plugins/button";
-import PointsBar from "@/game/plugins/pointsbar";
-import ReplacePhrase from "@/game/plugins/replacephrase";
+import Button from "@/game-old/plugins/button";
+import PointsBar from "@/game-old/plugins/pointsbar";
+import ReplacePhrase from "@/game-old/plugins/replacephrase";
 
-import Monster from "@/game/prefabs/monster";
+import Monster from "@/game-old/prefabs/monster";
 
 const TABS = {
     INFO: 1,

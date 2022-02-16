@@ -8,13 +8,17 @@
                 "x": 11,
                 "y": 2,
                 "levelId": 1,
-                "teleportId": 2
+                "mid": 1,
+                "teleportId": 2,
+                "tid": 2
             },
             {
                 "x": 38,
                 "y": 55,
                 "levelId": 5,
-                "teleportId": 88
+                "mid": 5,
+                "teleportId": 88,
+                "tid": 88
             }
         ],
         "incomingteleport": {

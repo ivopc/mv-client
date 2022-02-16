@@ -7,7 +7,9 @@
                 "x": 15,
                 "y": 28,
                 "levelId": 1,
-                "teleportId": 1
+                "mid": 1,
+                "teleportId": 1,
+                "tid": 1
             }
         ],
         "incomingteleport": {
@@ -48,6 +50,9 @@
                     "sprite": "Fogara",
                     "visible": false
                 },
+                "2": {
+                    "exist": false
+                },
                 "3": {
                     "exist": false
                 }
@@ -63,6 +68,9 @@
                     },
                     "sprite": "Maritin",
                     "visible": false
+                },
+                "2": {
+                    "exist": false
                 },
                 "3": {
                     "exist": false
@@ -80,6 +88,9 @@
                     "sprite": "Graenn",
                     "visible": false
                 },
+                "2": {
+                    "exist": false
+                },
                 "3": {
                     "exist": false
                 }
@@ -94,6 +105,9 @@
                         "facing": 2
                     },
                     "sprite": 1
+                },
+                "2": {
+                    "exist": false
                 },
                 "3": {
                     "exist": false
@@ -184,8 +198,30 @@
                         "variable": "${chosenmonster}",
                         "style": "choose_initial_monster"
                     }],
+                    ["requestFlag", {
+                        "type": "ka",
+                        "id": 1,
+                        "data": {
+                            "chosenmonster": "${chosenmonster}"
+                        }
+                    }],
+
                     ["enableMoveInputs"]
-                ]
+                ],
+                "server_response": {
+                    "ka-1": {
+                        "0": [
+                            ["dialog", [
+                                {
+                                    "br": "Teste"
+                                },
+                                {
+                                    "br": "Tomas no cu pow"
+                                }
+                            ]]
+                        ]
+                    }
+                }
             },
             "fogara": {
                 "default": [

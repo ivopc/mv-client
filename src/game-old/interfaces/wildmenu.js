@@ -1,5 +1,5 @@
 // Libs próprias
-import Button from "@/game/plugins/button";
+import Button from "@/game-old/plugins/button";
 
 // constantes das informações que o tooltip exibirá
 const TOOLTIPTYPE = {
@@ -247,7 +247,7 @@ WildMenu.prototype.appendTooltip = function () {
         this.scene.containers.interface.add(this.wildLevelText);
 
     } else {
-        this.wildTooltip = this.containers.interface.sprite(
+        this.wildTooltip = this.scene.add.sprite(
             224,
             140,
             "wild-tooltip"

@@ -1,6 +1,6 @@
 import Party from "./party";
 
-import Button from "@/game/plugins/button";
+import Button from "@/game-old/plugins/button";
 
 const Bag = function (scene) {
     this.scene = scene;

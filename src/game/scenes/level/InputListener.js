@@ -10,9 +10,13 @@ import { DIRECTIONS } from "@/game/constants/Directions";
 import { KEYS_LISTENER } from "@/game/constants/KeyListener";
 
 import { isMobile } from "@/lib/utils";
+import * as Phaser from "phaser";
 
 class InputListener {
     constructor (scene) {
+        /**
+         * @type {Phaser.Scene}
+         */
         this.scene = scene;
         this.inputPressingTime = 0;
         this.gameTime = 0;

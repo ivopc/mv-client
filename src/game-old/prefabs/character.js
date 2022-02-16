@@ -110,7 +110,7 @@ class Character extends RawCharacter {
             this.events.endMove[i](position);
     }
 
-    triggerCantMove (pos) {
+    triggerCantMove (position) {
         for (let i = 0, l = this.events.cantMove.length; i < l; i++)
             this.events.cantMove[i](position);
     }
@@ -403,6 +403,7 @@ class Character extends RawCharacter {
                     case 3: {
                         // pegando eventos, buscando map id e teleport id
                         let teleport = this.scene.cache.json.get(this.scene.getCurrentMapName("events")).map.teleport.find(position => position.x === this._data.position.x && position.y === this._data.position.y);
+                        console.log({ teleport });
                         // adicionar callback e enviar request para o servidor
                         internal_callback = () => this.scene.requestMapChange(teleport.mid, teleport.tid);
                         break;

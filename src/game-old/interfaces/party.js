@@ -2,10 +2,10 @@ import _ from "underscore";
 
 import MonsterStatus from "./monsterstatus";
 
-import Button from "@/game/plugins/button";
-import PointsBar from "@/game/plugins/pointsbar";
+import Button from "@/game-old/plugins/button";
+import PointsBar from "@/game-old/plugins/pointsbar";
 
-import RawCharacter from "@/game/prefabs/rawcharacter";
+import RawCharacter from "@/game-old/prefabs/rawcharacter";
 
 const Party = function (scene, properties = {}) {
     this.scene = scene;

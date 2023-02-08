@@ -43,3 +43,5 @@ export function addTab (uiContext, masterParentContext, layout) {
             .on("pointerdown", () => masterParentContext.switchTab(layout, index))
     );
 };
+
+export default { addGenericComponent, addBackground, addButton, addTab };

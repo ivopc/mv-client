@@ -6,6 +6,8 @@ import ReplacePhrase from "@/game-old/plugins/replacephrase";
 
 import Monster from "@/game-old/prefabs/monster";
 
+import _ from "underscore";
+
 const TABS = {
     INFO: 1,
     STATISTICS: 2,

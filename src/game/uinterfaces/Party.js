@@ -13,6 +13,9 @@ class Party extends UInterfaceContainer {
     constructor (scene, params = {}) {
         super(scene, LayoutStaticDatabase.get("party"));
         this.type = params.type || PARTY_INTERFACE_TYPES.COMMON;
+        /**
+         * @type {Array<Slot>}
+         */
         this.slots = [ ... Array(MAX_MONSTERS_IN_PARTY)];
         this.tooltip;
         scene.add.existing(this);

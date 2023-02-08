@@ -32,7 +32,8 @@ class NetworkLevel {
     subscribeLevel (levelId) {
         levelId = levelId || LevelData.ref.id;
         this.levelSubscription = Network.ref.subscribe("l" + levelId);
-        this.levelSubscription.addListener(payload => this.dispatchLevelPayload(payload));
+        console.log(this.levelSubscription);
+        this.levelSubscription.watch(payload => this.dispatchLevelPayload(payload));
         return this.levelSubscription.awaitSubscription();
     }
 

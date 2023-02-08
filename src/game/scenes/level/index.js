@@ -97,7 +97,7 @@ class Level extends Scene {
             type: 5,
             visible: true
         });*/
-        this.$wild.requestEncounter();
+        //this.$wild.requestEncounter();
 
     }
 

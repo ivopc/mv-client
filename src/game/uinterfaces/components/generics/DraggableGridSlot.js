@@ -1,10 +1,8 @@
 import Draggable from "./Draggable";
 
-class DragglableGridSlot extends Draggable {
+export default class DragglableGridSlot extends Draggable {
     onDragStart () {
         console.log(this.gridSlotIndex);
         this.parentContainer.bringToTop(this);
     }
 };
-
-export default DragglableGridSlot;

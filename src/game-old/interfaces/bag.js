@@ -2,6 +2,8 @@ import Party from "./party";
 
 import Button from "@/game-old/plugins/button";
 
+import _ from "underscore";
+
 const Bag = function (scene) {
     this.scene = scene;
 };

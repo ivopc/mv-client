@@ -25,6 +25,7 @@ class Loader extends RawLoader {
 
     fetchLevel (level) {
         const { scene } = this;
+        console.log(Database.ref);
         // level tilesets
         Assets.ref.getLevelTilesets(level.id).forEach(tileset => 
             scene.load.image(tileset.key, tileset.src)

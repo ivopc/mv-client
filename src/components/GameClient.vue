@@ -28,11 +28,11 @@
                 clientTokens: [
                     {
                         userId: "1",
-                        token: "pq4jyKzCtItKr766LMSfPzimoz8ib3b4HBihyK8ftVWiKhoS75ZVj7kEXqCBsPTuOqiNLSwxDWMWlnycdt7U44aVC87uF4GwsOKhYlo4Mft11MbcErg9It6C1zlSh3Psxmm8BrU8FR03wgqc8Yw7pQ"
+                        token: "snfQd1h05KxOjdAhuOVy8VFmmpIhWBpUrEATQLwWWk8p2Uzlnq8MLl2ZxIQDCzc9nVaPRt20RK0YSqwZtk9BnOKTwpDZ5wqdVsfd45djfZSV9i9OnqwCesIqaFhc3y6HuR8RAEVb511bp7zgiDAwfZ"
                     },
                     {
                         userId: "2",
-                        token: "1JGP6qZDitqpR86OPDYBwfcgXcL6nvV521v1aCxE9iDNmBQswElHwq34QchvHMey8CoILhNXuuDyWGYFma110ijt6EdtdFqpUqKfu5334fBjK9ELWjLcJfLE6627T217nqDbG8GU3CuvRJEe8qRWx5"
+                        token: "eYGrxqByiJ61Y7trwdaSrlUoF4aFDA945FmWFPTWH0ARDk8b8AmAFm9jpiUt7FmQdsY52vLnTnrkC5zsTbJXJG0JMNBJLI0PmT8c4htyzQCwtvJBMtBPWErVnGkpFQ1QYOAqrGmhITZd3IVpKV6Pqv"
                     }
                 ]
             }

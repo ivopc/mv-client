@@ -32,6 +32,7 @@ class Overworld extends Scene {
         this.scene.launch(SCENE.LEVEL);
         this.scene.bringToTop();
         LayoutResponsivityManager.addListener();
+        console.log(PlayerModel.partyMonsters);
         // tests
         /*const party = new Party(this);
         party.append();
@@ -61,9 +62,9 @@ class Overworld extends Scene {
         monster.playAnim("idle");
         monster.scale = 4;*/
 
-        
-        //this.addRuntimeUI("WildMenu"); // {test}
-        this.startDevelopMode();
+        // MonsterStatus | Profile | Bag | InitialMonster
+        //this.addRuntimeUI("InitialMonster"); // {test}
+        //this.startDevelopMode();
     }
 
     async addRuntimeUI (name) {

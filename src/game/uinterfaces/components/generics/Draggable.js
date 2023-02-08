@@ -54,15 +54,22 @@ class Draggable extends GameObjects.Container {
 
     setDragListeners () {
         this.scene.plugins.get("rexDrag").add(this);
+        this.input.dropZone = true;
         this
             .on("dragstart", this.onDragStart, this)
             .on("drag", this.onDragging, this)
-            .on("dragend", this.onDragEnd, this);
+            .on("dragend", this.onDragEnd, this)
+            .on("dragenter", this.onDragEnter, this)
+            .on("dragover", this.onDragOver, this)
+            .on("dragleave", this.onDragLeave, this);
     }
     
     onDragStart () {}
     onDragging () {}
     onDragEnd () {}
+    onDragEnter () {}
+    onDragOver () {}
+    onDragLeave () {}
 };
 
 export default Draggable;

@@ -29,7 +29,7 @@
     "sc-errors": "^2.0.1",
     "sc-formatter": "^3.0.2",
     "socketcluster-client": "^14.3.1",
-    "underscore": "^1.10.2",
+    "underscore": "^1.13.6",
     "vue": "^2.5.2",
     "vue-i18n": "^8.17.4",
     "vue-router": "^3.0.1",

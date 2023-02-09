@@ -19,8 +19,8 @@
             socket: null,
             clientTokens: [
                 {
-                    uid: "1",
-                    token: "snfQd1h05KxOjdAhuOVy8VFmmpIhWBpUrEATQLwWWk8p2Uzlnq8MLl2ZxIQDCzc9nVaPRt20RK0YSqwZtk9BnOKTwpDZ5wqdVsfd45djfZSV9i9OnqwCesIqaFhc3y6HuR8RAEVb511bp7zgiDAwfZ"
+                    uid: "3",
+                    token: "A2y9JEGFw2MYyno3H0mUUOhkBg7bv1dKDYfllmuDu9bmS4UDQ3aaD6iSOyPoVSp3OmVxL91KJX0EmVnDak8QTI6VLdTdCOKcm9oyPz36fHNIkUopjPUkQpvFh1Z0pRczJx8bJ7I1gxIZFmxa5RVNbf"
                 },
                 {
                     uid: "2",
@@ -33,7 +33,6 @@
             this.eventBus.$on("call-client", this.callClient);
             this.eventBus.$on("hide-client", this.hideClient);
             this.eventBus.$on("navigate-to-other-pages", this.navigateToOtherPages);
-            console.log("LOOOOOOOOOOOOOOOOOOOOL COME WITH ME.");
         },
         methods: {
             callClient () {
@@ -63,7 +62,7 @@
                 const game = await import("@/game-old/game");
                 this.gameInstance = game.launch(this.containerId);
                 this.gameStarted = true;
-                if (process.env.NODE_ENV == "development") {
+                if (process.env.NODE_ENV === "development") {
                     console.log("DEVELOPMENT TOKEN");
                     $Authentication.id = this.clientTokens[this.currentClient].uid;
                     $Authentication.token.auth = this.clientTokens[this.currentClient].token;
@@ -73,8 +72,8 @@
                         uid: String($Authentication.id),
                         token: $Authentication.token.auth
                     },
-                    port: 8000,
-                    hostname: location.hostname
+                    hostname: location.hostname,
+                    ... process.env.NODE_ENV === "development" ? { port: 8000 } : {}
                 });
                 this.socket.on("99", data => this.handleInit(data));
             },

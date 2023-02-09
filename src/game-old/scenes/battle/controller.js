@@ -2441,6 +2441,8 @@ Battle.discountMana = function (action, next) {
 // Finalizar turno
 Battle.finishTurn = function () {
 
+    console.log("haha ti peguei meu jovi", this);
+
     // se for pvp remover a ampulheta do timer
     if (this.battleParams.battleInfo.battle_type == 3 && this.hasHouglass)
         this.removeTimerHouglass();

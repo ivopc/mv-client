@@ -58,6 +58,11 @@ export function createInstance (containerId) {
     game.scene.add(SCENE.BATTLE, Battle);
     // stop the native full screen method to implement my own
     game.scale.stopListeners();
+
+    if (process.env.NODE_ENV === "development") {
+        globalThis.gameInstance = game;
+        console.log("loldev");
+    };
     return game;
 };
 

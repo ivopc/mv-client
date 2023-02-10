@@ -41,7 +41,7 @@ class CameraController {
 
     zoomOut (val = 0.05) {
         // just checking if is in out of camera range
-        const { widthInPixels,  heightInPixels } = scene.$tilemap.tilemap;
+        const { widthInPixels,  heightInPixels } = this.scene.$tilemap.tilemap;
         if (outOfCameraZoomRange(val, this.camera, { width: widthInPixels, height: heightInPixels }))
             return;
         this.camera.zoom -= val;

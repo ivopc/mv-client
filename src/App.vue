@@ -10,7 +10,7 @@
 
 <script>
     import Header from "@/components/Header";
-    import GameClient from "@/components/GameClientOld";
+    import GameClient from "@/components/GameClient";
 
     export default {
         name: "App",

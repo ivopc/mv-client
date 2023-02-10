@@ -34,7 +34,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 The code of game source project is released under the MIT license.
 
 # Credits
-This projects is main created, idealized and full coded by: Ivo Pires de Camargo (me).
-The art is not public, owned and created by: Victor Athayde, Clara Luz Romagnolli, Junio Henrike and Gabriel Faleiros. Please do not use the art in any commercial project.
+This projects is mainly created, idealized and full coded by: Ivo Pires de Camargo (me). 
+The art is not public, owned and created by: mainly by [Everton Luiz](https://soundcloud.com/evertonluizmaestro?), [Clara Luz Romagnolli](https://linktr.ee/shaarpie) and Victor Athayde. [Caio Carlos](https://clockworkraven.itch.io/), Junio Henrike and Gabriel Faleiros. Please do not use the art and musics in any commercial project.
+
 
 https://github.com/ivopc/Monster-Valle

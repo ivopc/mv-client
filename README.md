@@ -8,10 +8,11 @@ The core of the game is on (**/src/game/**) if you want to contribute help me to
 
 > The `new-client` branch is suitable to the `new-mv-server` repo and the `old-client-server` is suitable to `old-mv-server` :)
 
-
 You can download the server here: https://github.com/ivopc/new-mv-server .  If you want to rewrite the older source to that and contribute, you're free :) 
 
 Old GameServer (outdated and legacy): https://github.com/ivopc/old-mv-server
+
+# Secretly I'm doing a closed-source release of my game with TypeScript+Phaser3+NuxtJS+NestJS :)
 
 
 ## Build Setup

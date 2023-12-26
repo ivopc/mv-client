@@ -12,6 +12,8 @@ You can download the server here: https://github.com/ivopc/new-mv-server .  If y
 
 Old GameServer (outdated and legacy): https://github.com/ivopc/old-mv-server
 
+The Old Game Client and and Old Game Server are avaliable here: https://monstervalle.onrender.com/
+
 # Secretly I'm doing a closed-source release of my game with TypeScript+Phaser3+NuxtJS+NestJS :)
 
 

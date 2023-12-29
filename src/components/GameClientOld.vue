@@ -19,8 +19,8 @@
             socket: null,
             clientTokens: [
                 {
-                    uid: "3",
-                    token: "A2y9JEGFw2MYyno3H0mUUOhkBg7bv1dKDYfllmuDu9bmS4UDQ3aaD6iSOyPoVSp3OmVxL91KJX0EmVnDak8QTI6VLdTdCOKcm9oyPz36fHNIkUopjPUkQpvFh1Z0pRczJx8bJ7I1gxIZFmxa5RVNbf"
+                    uid: "9",
+                    token: "147NyUvFYVp0142zwRnAQ1TwLUuNguSQvsd1OHRrmCdBPG7j54rJk0vpzt6aS8Qz6zvVKVhPMMn4lZ7B1xSrgEt4v4nw7J4EurpARURGRrbelOCY06Ed69ypJJpzCgNbf6lujfUOCgApkXnTKfXKM9"
                 },
                 {
                     uid: "2",

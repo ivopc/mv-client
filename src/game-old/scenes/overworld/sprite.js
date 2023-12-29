@@ -25,6 +25,8 @@ Overworld.positionToRealWorld = function (position) {
 // adicionar sprite do jogador
 Overworld.addPlayer = function () {
 
+    console.log(this.player._data);
+
     this.player = this.add.existing(
         new Player(
             this, 

@@ -44,7 +44,6 @@ Overworld.init = function (data) {
 
     // flag data
     this.flag = data.flag === 1 ? "default" : data.flag;
-    console.log("FLAG", this.flag);
 
     // se estiver trocando mapa
     this.switchingMap = false;
@@ -508,9 +507,7 @@ Overworld.create = function () {
     this.statusShowingQuests = false;
     this.statusShowingNotifications = false;
 
-    if (this.isMobile)
-        this.appendDPad();
-    else
+    if (this.isMobile) this.appendDPad();
         this.appendKeyboard();
 
     this.resize();
@@ -531,9 +528,7 @@ Overworld.create = function () {
 };
 
 Overworld.update = function (time, delta) {
-    if (this.isMobile) 
-        this.checkDPad();
-    else
+    if (this.isMobile) this.checkDPad();
         this.checkKeyboard();
 };
 

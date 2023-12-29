@@ -10,7 +10,7 @@ Monster Valle is a full-featured MMORPG based on Pokémon. No guides released ye
 
 The core of the game is on (**/src/game/**) if you want to contribute help me to rewrite the old source with crap architecture (**/src/game-old/**) to new one.
 
-> The `new-client` branch is suitable to the `new-mv-server` repo and the `old-client-server` is suitable to `old-mv-server` :)
+> The `new-client` branch is suitable to the `new-mv-server` repo and the `old-client-server` branch is suitable to `old-mv-server` repo :)
 
 You can download the server here: https://github.com/ivopc/new-mv-server .  If you want to rewrite the older source to that and contribute, you're free :) 
 

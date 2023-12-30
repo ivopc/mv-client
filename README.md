@@ -32,8 +32,8 @@ npm install
 # serve with hot reload at localhost:8080
 npm run dev
 
-# build for production with minification, it will build directly to `old-mv-server`
-# path, make sure that `mv-client` the same folder of `mv-client`, 
+# build for production with minification, it will build directly to `old-mv-server` path folder
+# , make sure that `mv-client` the same folder of `old-mv-server`
 # e.g. `my/path/to/monster-valle/mv-client` and `my/path/to/monster-valle/old-mv-server`
 # you can change the build path in `/config/index.js`
 npm run build

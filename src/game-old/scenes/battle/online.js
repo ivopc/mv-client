@@ -59,17 +59,14 @@ Battle.unsetPvPEvents = function () {
 
 // mandar movimento ao servidor
 Battle.sendMove = function (id) {
-
     if (this.battleParams.battleInfo.battle_type == 3) {
-        const id = this.monster.player._data["move_" + id];
-    
-        if (this.database.moves[id].manaNeeded) {
-            if (this.monster.player._data.current_MP - this.database.moves[id].manaNeeded < 0 ) {
+        const move = this.monster.player._data["move_" + id];
+        if (move.manaNeeded) {
+            if (this.monster.player._data.current_MP - move.manaNeeded < 0 ) {
                 this.treatActionError({error: 3});
                 return;
             };
         };
-
     };
     // desabilitar botões para não clicar mais de uma vez
     for (let i = 0; i < this.butt.length; i ++)

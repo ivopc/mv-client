@@ -533,7 +533,6 @@ Overworld.update = function (time, delta) {
 };
 
 Overworld.getCurrentMapName = function (str) {
-    console.log("maps", this.database.maps, this.Data.CurrentMap);
     return str + "_" + this.database.maps[this.Data.CurrentMap].name;
 };
 // database.maps

@@ -20,7 +20,7 @@
             clientTokens: [
                 {
                     uid: "9",
-                    token: "147NyUvFYVp0142zwRnAQ1TwLUuNguSQvsd1OHRrmCdBPG7j54rJk0vpzt6aS8Qz6zvVKVhPMMn4lZ7B1xSrgEt4v4nw7J4EurpARURGRrbelOCY06Ed69ypJJpzCgNbf6lujfUOCgApkXnTKfXKM9"
+                    token: "WdLhAqw6vQrZg4MH5zBIFxYkrASJTjavo6R47AsHPbgGP10IKFJo2B012d1bTVUGx06wW3DkEDD6JD2h3o7ApSVOzpknmijXYggLu3jHe7OoKpSRqbV0uKq0oKaW4D8MafeAlm93XHWwG6EY2UxBUg"
                 },
                 {
                     uid: "2",
@@ -93,7 +93,7 @@
                             socket: this.socket,
                             // infos do jogador
                             auth: {
-                                uid: $Authentication.uid
+                                uid: $Authentication.id
                             },
                             player: {
                                 sprite: data.param.sprite,
@@ -139,7 +139,7 @@
                             socket: this.socket,
                             // infos do jogador
                             auth: {
-                                uid: $Authentication.uid
+                                uid: $Authentication.id
                             },
                             // parâmetros da batalha
                             param: data.param,

@@ -24,9 +24,8 @@ Overworld.dispatchSocketListener = function () {
 };
 
 Overworld.bindConnectionEvents = function () {
-
+    console.log("auth", this.auth);
     const EVENTS = this.database.overworld.events;
-
     // ** canais
     // canal global
     this.Socket.subscribe("g").watch(data => this.handleGlobal(data));

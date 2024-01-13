@@ -79,10 +79,10 @@
                     ["random", [
                         ["dialog", [
                             {
-                                "br": "xD KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK"
+                                "br": "KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK"
                             },
                             {
-                                "br": "pronto"
+                                "br": "pronto random"
                             }
                         ]],
                         ["dialog", [
@@ -98,15 +98,7 @@
                         ]],
                         ["dialog", [
                             {
-                                "br": "nuubnuubnuubnuubnuubnuubnuubnuub"
-                            },
-                            {
-                                "br": "Você é nub '-'"
-                            }
-                        ]],
-                        ["dialog", [
-                            {
-                                "br": "Diálogo random podi crê"
+                                "br": "Diálogo random"
                             },
                             {
                                 "br": "Random test"

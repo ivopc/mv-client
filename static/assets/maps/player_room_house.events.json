@@ -30,7 +30,24 @@
             }],
             ["dialog", [
                 {
+                    "br": "Pressione o botão 'Z' do teclado para interagir com os NPCs ou avançar o dialogo\n (Se estiver no celular, clique na tela).",
+                    "en": "Press the 'Z' button on the keyboard to interact with NPCs or advance the dialogue\n (If you are in mobile, click on the screen)."
+                },
+                {
+                    "br": "Isso é um teste da antiga versão do jogo Monster Valle. Com alguns bugs e sem algumas funcionalidades.",
+                    "en": "This is a test of the old version of the Monster Valle game. With some bugs and without some features.\nThe game is not full translated to your language."
+                },
+                {
                     "br": "{player}, acorde! Já está ficando tarde, você precisa se apressar!"
+                },
+                {
+                    "br": "Desse jeito você vai perder a hora!"
+                },
+                {
+                    "br": "Não deixe seu pai lhe esperando, ele disse que o esperaria ao norte da vila."
+                },
+                {
+                    "br": "Onde você brincava quando criança, lembra?"
                 }
             ]],
             ["walk", "up", {"target": "mother"}],

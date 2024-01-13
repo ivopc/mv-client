@@ -1228,7 +1228,7 @@
         "heal_dialog": [
             {
                 "br": "Primeiro devemos restaurar seus monstros.",
-                "en": ""
+                "en": "First we must restore your monsters."
             },
             {
                 "br": "...",
@@ -1240,15 +1240,15 @@
             },
             {
                 "br": "Seus monstros foram curados.",
-                "en": ""
+                "en": "Your monsters have been cured."
             },
             {
                 "br": "Se a saúde de seus monstros estiverem baixa, venha até mim.",
-                "en": ""
+                "en": "If your monsters' health is low, come to me."
             },
             {
                 "br": "Não esqueça de sempre andar com poções para curar seus monstros em situações críticas.",
-                "en": ""
+                "en": "Don't forget to always carry potions to cure your monsters in critical situations."
             }
         ]
     }

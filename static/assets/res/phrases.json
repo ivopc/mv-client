@@ -255,11 +255,11 @@
         },
         "successbuy": {
             "br": "Compra efetuada com sucesso!",
-            "en": ""
+            "en": "Purchase made successfully!"
         },
         "failbuy": {
             "br": "Não foi possível realizar a compra!",
-            "en": ""
+            "en": "Unable to make purchase!"
         }
     },
     "quest": {
@@ -272,13 +272,16 @@
             "en": "Tame {amount} {monster}(s) ({amountlength}/{_amount})."
         },
         "requisits": {
-            "br": "Requisitos:"
+            "br": "Requisitos:",
+            "en": "Requisits:"
         },
         "rewards": {
-            "br": "Recompensas:"
+            "br": "Recompensas:",
+            "en": "Rewards:"
         },
         "accept": {
-            "br": "Aceitar missão"
+            "br": "Aceitar missão",
+            "en": "Accept quest"
         }
     },
     "party": {
@@ -288,7 +291,7 @@
         },
         "btninfo": {
             "br": "Informações",
-            "en": "Info"
+            "en": "Infos"
         },
         "btnstatistics": {
             "br": "Estatísticas",
@@ -325,13 +328,16 @@
     },
     "profile": {
         "add": {
-            "br": "Add. Amigo"
+            "br": "Add. Amigo",
+            "en": "Add. Friend"
         },
         "invitepvp": {
-            "br": "Convidar PvP"
+            "br": "Convidar PvP",
+            "en": "Invite to PvP"
         },
         "block": {
-            "br": "Bloquear"
+            "br": "Bloquear",
+            "en": "Block"
         },
         "achievements": {
             "br": "Conquistas",

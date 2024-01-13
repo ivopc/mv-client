@@ -255,11 +255,11 @@
         },
         "successbuy": {
             "br": "Compra efetuada com sucesso!",
-            "en": ""
+            "en": "Purchase made successfully!"
         },
         "failbuy": {
             "br": "Não foi possível realizar a compra!",
-            "en": ""
+            "en": "Unable to make purchase!"
         }
     },
     "quest": {

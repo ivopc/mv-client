@@ -92,8 +92,7 @@
                     "0": [
                         ["dialog", [
                             {
-                                "br": "Deseja iniciar a missão?",
-                                "en": ""
+                                "br": "Deseja iniciar a missão?"
                             }
                         ]],
                         ["showAcceptQuestInterface", 1]
@@ -101,16 +100,14 @@
                     "1": [
                         ["dialog", [
                             {
-                                "br": "Como vai a missão?",
-                                "en": ""
+                                "br": "Como vai a missão?"
                             }
                         ]]
                     ],
                     "2": [
                         ["dialog", [
                             {
-                                "br": "Parabéns! Você completou a missão, receba seus prêmios.",
-                                "en": ""
+                                "br": "Parabéns! Você completou a missão, receba seus prêmios."
                             }
                         ]]
                     ],
@@ -136,8 +133,7 @@
                     ["face", "toplayer"],
                     ["dialog", [
                         {
-                            "br": "... Você sabia que, por mais que os corvos possuam uma natureza magarefe, eles possuem empatia?",
-                            "en": ""
+                            "br": "... Você sabia que, por mais que os corvos possuam uma natureza magarefe, eles possuem empatia?"
                         },
                         {
                             "br": "Uma capacidade que supera sua essência, mas não o fazem porque por pura benevolência, o fazem para sobreviver."
@@ -161,7 +157,7 @@
                             "en": "Hi."
                         },
                         {
-                            "br": "Tudo bem?"
+                            "br": "Bora batalhar?"
                         }
                     ]],
                     ["ifNotBattled", [
@@ -187,7 +183,7 @@
         "twice": [
             ["dialog", [
                 {
-                    "br": "Test LOLzitos"
+                    "br": "Test"
                 }
             ]]
         ]

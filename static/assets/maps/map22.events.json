@@ -156,7 +156,7 @@
                             ["hide", "atataiob"],
                             ["dialog", [
                                 {
-                                    "br": "Boa escolha, Ivopc! Agora você está pronto para iniciar sua jornada pelo mundo."
+                                    "br": "Boa escolha, {player}! Agora você está pronto para iniciar sua jornada pelo mundo."
                                 },
                                 {
                                     "br": "Vamos até meu laboratório, lhe darei alguns Selos Mágicos, você poderá domar monstros selvagens com os selos."
@@ -213,10 +213,7 @@
                         "0": [
                             ["dialog", [
                                 {
-                                    "br": "Teste"
-                                },
-                                {
-                                    "br": "Tomas no cu pow"
+                                    "br": "Pronto!"
                                 }
                             ]]
                         ]

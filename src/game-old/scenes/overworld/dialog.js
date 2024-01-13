@@ -2,6 +2,7 @@ import Overworld from "./index";
 
 // adicionar dialogo
 Overworld.addDialog = function (text, callback, dontUnstopOnEnd) {
+    this.langPlaceHolder = "br";
 
     // pausando movimentação do jogador
     this.player._data.stop = true;
@@ -84,12 +85,14 @@ Overworld.nextDialog = function () {
         return;
     };
 
+    this.setLangPlaceHolder();
+
     // se dialogo estiver em progresso joga ele pro final
     if (this.textAnimatorInProgress) {
         // destrói timer
         this.textAnimationTimer.destroy();
         // seta texto inteiro
-        this.dialogCurrentRenderingText.setText(this.dialogCurrentText[this.dialogIndex][this.lang]);
+        this.dialogCurrentRenderingText.setText(this.dialogCurrentText[this.dialogIndex][this.langPlaceHolder]);
         // seta animator
         this.textAnimatorInProgress = false;
         // desbloqueia troca do dialogo em 300 m/s
@@ -118,13 +121,14 @@ Overworld.nextDialog = function () {
 
 Overworld.animateDialog = function () {
     // parar
-    if (this.dialogCurrentText[this.dialogIndex][this.lang].length == this.dialogTextIndex) {
+    this.setLangPlaceHolder();
+    if (this.dialogCurrentText[this.dialogIndex][this.langPlaceHolder].length == this.dialogTextIndex) {
         this.textAnimationTimer.destroy();
         this.textAnimatorInProgress = false;
         return;
     };
 
-    this.dialogCurrentRenderingText.setText(this.dialogCurrentRenderingText.text + this.dialogCurrentText[this.dialogIndex][this.lang][this.dialogTextIndex++]);
+    this.dialogCurrentRenderingText.setText(this.dialogCurrentRenderingText.text + this.dialogCurrentText[this.dialogIndex][this.langPlaceHolder][this.dialogTextIndex++]);
 };
 
 // remover dialogando
@@ -165,6 +169,14 @@ Overworld.removeDialog = function () {
 
         }
     });
+};
+
+Overworld.setLangPlaceHolder = function () {
+    if ( !(this.lang in this.dialogCurrentText[this.dialogIndex]) ) {
+        this.langPlaceHolder = "br";
+    } else {
+        this.langPlaceHolder = this.lang;
+    };
 };
 
 export default Overworld;

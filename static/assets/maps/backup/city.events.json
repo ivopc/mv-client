@@ -156,7 +156,6 @@
                             ["dialog", [
                                 {
                                     "br": "Parabéns! Você ganhou 100 Selos Mágicos!",
-                                    "en": ""
                                 }
                             ]]
                         ],
@@ -164,7 +163,6 @@
                             ["dialog", [
                                 {
                                     "br": "Você está gostando dos Selos Mágicos?",
-                                    "en": ""
                                 }
                             ]]
                         ]
@@ -185,16 +183,13 @@
                             ["face", "toplayer"],
                             ["dialog", [
                                 {
-                                    "br": "Vamos curar seus monstros, aguarde um\npouco...",
-                                    "en": ""
+                                    "br": "Vamos curar seus monstros, aguarde um\npouco..."
                                 },
                                 {
-                                    "br": "... ... ...",
-                                    "en": "... ... ..."
+                                    "br": "... ... ..."
                                 },
                                 {
-                                    "br": "Seus monstros foram curados!",
-                                    "en": ""
+                                    "br": "Seus monstros foram curados!"
                                 }
                             ]],
                             ["enableMoveInputs"]
@@ -207,8 +202,7 @@
                     ["face", "toplayer"],
                     ["dialog", [
                         {
-                            "br": "Eu tenho um monstro raro quer saber\nmais?",
-                            "en": ""
+                            "br": "Eu tenho um monstro raro quer saber\nmais?"
                         }
                     ]],
                     ["get_input", {
@@ -229,16 +223,14 @@
                         "0": [
                             ["dialog", [
                                 {
-                                    "br": "Você ganhou um monstro raro!",
-                                    "en": ""
+                                    "br": "Você ganhou um monstro raro!"
                                 }
                             ]]
                         ],
                         "1": [
                             ["dialog", [
                                 {
-                                    "br": "Como está o monstro? Cuide bem dele!",
-                                    "en": ""
+                                    "br": "Como está o monstro? Cuide bem dele!"
                                 }
                             ]]
                         ]
